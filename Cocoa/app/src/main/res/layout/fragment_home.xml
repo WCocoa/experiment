@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/home_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </android.support.v4.view.ViewPager>
+
+
+    <com.cocoa.cocoautils.widget.CustomerView
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginTop="320dp" />
+
+    <com.cocoa.cocoautils.widget.xrecyclerview.XRecyclerView
+        android:id="@+id/xrecycleviews"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/home_viewpager">
+
+    </com.cocoa.cocoautils.widget.xrecyclerview.XRecyclerView>
+
+</RelativeLayout>
