@@ -6,7 +6,7 @@ import com.cocoa.cocoautils.ui.BaseFragment;
 import com.cocoa.cocoautils.R;
 
 /**
- * ClassName:设置
+ * ClassName:天气
  * author: Cocoa
  * date: 2016/11/14.
  */

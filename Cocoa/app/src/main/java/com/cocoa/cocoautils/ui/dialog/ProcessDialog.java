@@ -10,9 +10,9 @@ import com.cocoa.cocoautils.R;
 
 
 /**
- * @author quliang
- * @version 2015-8-20 上午11:28:11
- *          desc
+ * ClassName:进度条
+ * author: Cocoa
+ * date: 2016/11/14.
  */
 public class ProcessDialog extends AlertDialog {
 
