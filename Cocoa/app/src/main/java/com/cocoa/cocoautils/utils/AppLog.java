@@ -3,12 +3,12 @@ package com.cocoa.cocoautils.utils;
 import android.util.Log;
 
 /**
- * ClassName:
+ * ClassName:日志
  * author: Cocoa
  * date: 2016/10/18.
  */
 public class AppLog {
-    private static String  LOG           = "neighbourmotherlog";
+    private static String  LOG           = "Cocoa";
     private static boolean switchSetting = true;
 
     // private static boolean switchSetting = false;

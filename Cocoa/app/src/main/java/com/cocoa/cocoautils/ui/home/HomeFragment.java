@@ -9,6 +9,8 @@ import com.cocoa.cocoautils.R;
 import com.cocoa.cocoautils.adapter.HomeTopAdapter;
 import com.cocoa.cocoautils.ui.base.BaseActivity;
 import com.cocoa.cocoautils.ui.base.BaseFragment;
+import com.cocoa.cocoautils.ui.home.presenter.HomeFragmentPresenter;
+import com.cocoa.cocoautils.ui.home.view.HomeFragmentView;
 import com.cocoa.cocoautils.widget.xrecyclerview.XRecyclerView;
 
 import java.util.ArrayList;
@@ -19,7 +21,7 @@ import java.util.ArrayList;
  * date: 2016/11/14.
  */
 
-public class HomeFragment extends BaseFragment implements View.OnClickListener {
+public class HomeFragment extends BaseFragment<HomeFragmentView, HomeFragmentPresenter> implements View.OnClickListener {
 
     private ViewPager      home_viewpager;
     private XRecyclerView  xrecycleviews;
@@ -28,6 +30,11 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
     @Override
     public void onClick(View view) {
 
+    }
+
+    @Override
+    public HomeFragmentPresenter initPresenter() {
+        return new HomeFragmentPresenter();
     }
 
     @Override
@@ -40,7 +47,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
     public void initView(View view) {
         home_viewpager = (ViewPager) view.findViewById(R.id.home_viewpager);
         xrecycleviews = (XRecyclerView) view.findViewById(R.id.xrecycleviews);
-        ((BaseActivity)getActivity()).calcuAdersWidth(home_viewpager,0.5f);
+        ((BaseActivity) getActivity()).calcuAdersWidth(home_viewpager, 0.5f);
     }
 
     @Override
