@@ -1,4 +1,4 @@
-package com.cocoa.cocoautils.ui;
+package com.cocoa.cocoautils.ui.base;
 
 import android.content.Context;
 import android.content.Intent;
@@ -28,20 +28,18 @@ import com.cocoa.cocoautils.ui.dialog.ProcessDialog;
  * author: Cocoa
  * date: 2016/11/14.
  */
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity<V, T extends BasePresenter<V>> extends AppCompatActivity {
     private   ProcessDialog mProcessDialog;
     protected Handler       handler;
+    public    T             presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // TODO Auto-generated method stub
-        //隐藏标题栏
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        //隐藏状态栏
-        //定义全屏参数
-        int flag= WindowManager.LayoutParams.FLAG_FULLSCREEN;
+        presenter = initPresenter();
+        int flag = WindowManager.LayoutParams.FLAG_FULLSCREEN;
         //获得当前窗体对象
-        Window window=this.getWindow();
+        Window window = this.getWindow();
         //设置当前窗体为全屏显示
         window.setFlags(flag, flag);
         super.onCreate(savedInstanceState);
@@ -50,6 +48,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         initView();
         initEvent();
         initData();
+
     }
 
     public abstract int getContentView();
@@ -59,6 +58,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     public abstract void initData();
 
     public abstract void initEvent();
+
+    public abstract T initPresenter();
 
     public void showProgressDialog() {
         if (mProcessDialog == null) {
@@ -82,9 +83,15 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onDestroy() {
+    protected void onResume() {
+        super.onResume();
+        presenter.attachView((V) this);
+    }
 
+    @Override
+    protected void onDestroy() {
         super.onDestroy();
+        presenter.dettachView();
         if (myBroadCast != null)
             myBroadCast.onDestroy();
         if (mProcessDialog != null) {
@@ -109,8 +116,6 @@ public abstract class BaseActivity extends AppCompatActivity {
             return false;
         }
     }
-
-
 
 
     public void calcuAdersWidth(final View view, final float scale) {
@@ -147,24 +152,25 @@ public abstract class BaseActivity extends AppCompatActivity {
             }
         });
     }
+
     public void display(final ImageView imageView, final Context context, String url, int failureImage, int type) {
 
-                Glide.with(getApplicationContext())
-                        .load(url)
-                        .diskCacheStrategy(DiskCacheStrategy.ALL)
-                        .placeholder(failureImage)
-                        .animate(R.anim.glide_load_image_anim)
-                        .fitCenter()
+        Glide.with(getApplicationContext())
+                .load(url)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .placeholder(failureImage)
+                .animate(R.anim.glide_load_image_anim)
+                .fitCenter()
 //                        .listener(new CommonRequsetListener())
-                        .crossFade()
-                        .into(imageView).getSize(new SizeReadyCallback() {
-                    @Override
-                    public void onSizeReady(int width, int height) {
-                        if (imageView.isShown()) {
-                            imageView.setVisibility(View.VISIBLE);
-                        }
-                    }
-                });
+                .crossFade()
+                .into(imageView).getSize(new SizeReadyCallback() {
+            @Override
+            public void onSizeReady(int width, int height) {
+                if (imageView.isShown()) {
+                    imageView.setVisibility(View.VISIBLE);
+                }
+            }
+        });
 
     }
 

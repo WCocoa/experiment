@@ -1,4 +1,4 @@
-package com.cocoa.cocoautils.ui;
+package com.cocoa.cocoautils.ui.base;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -16,9 +16,10 @@ import com.cocoa.cocoautils.utils.AppLog;
  * date: 2016/11/14.
  */
 @SuppressLint("NewApi")
-public abstract class BaseFragment extends Fragment {
+public abstract class BaseFragment<V, T extends BasePresenter<V>> extends Fragment {
 
-    private   View     rootView;
+    private View rootView;
+    public  T    presenter;
 
     @Override
     public final View onCreateView(LayoutInflater inflater,
@@ -31,12 +32,14 @@ public abstract class BaseFragment extends Fragment {
             initData();
         }
         ViewGroup parent = (ViewGroup) rootView.getParent();
-
+        presenter = initPresenter();
         if (parent != null) {
             parent.removeView(rootView);
         }
         return rootView;
     }
+
+    public abstract T initPresenter();
 
     protected boolean getSaveView() {
         return false;
@@ -61,4 +64,15 @@ public abstract class BaseFragment extends Fragment {
             ((BaseActivity) getActivity()).closeProgressDialog();
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        presenter.attachView((V) this);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        presenter.dettachView();
+    }
 }

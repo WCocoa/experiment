@@ -2,8 +2,10 @@ package com.cocoa.cocoautils.ui.setting;
 
 import android.view.View;
 
-import com.cocoa.cocoautils.ui.BaseFragment;
 import com.cocoa.cocoautils.R;
+import com.cocoa.cocoautils.ui.base.BaseFragment;
+import com.cocoa.cocoautils.ui.setting.presenter.SettingsPresenter;
+import com.cocoa.cocoautils.ui.setting.view.SettingsView;
 
 /**
  * ClassName:设置
@@ -11,10 +13,15 @@ import com.cocoa.cocoautils.R;
  * date: 2016/11/14.
  */
 
-public class SettingsFragment extends BaseFragment implements View.OnClickListener {
+public class SettingsFragment extends BaseFragment<SettingsView, SettingsPresenter> implements View.OnClickListener {
     @Override
     public void onClick(View view) {
 
+    }
+
+    @Override
+    public SettingsPresenter initPresenter() {
+        return new SettingsPresenter();
     }
 
     @Override

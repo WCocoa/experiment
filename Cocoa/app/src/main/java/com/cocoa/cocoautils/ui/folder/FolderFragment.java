@@ -2,8 +2,10 @@ package com.cocoa.cocoautils.ui.folder;
 
 import android.view.View;
 
-import com.cocoa.cocoautils.ui.BaseFragment;
 import com.cocoa.cocoautils.R;
+import com.cocoa.cocoautils.ui.base.BaseFragment;
+import com.cocoa.cocoautils.ui.folder.presenter.FolderFragmentPresenter;
+import com.cocoa.cocoautils.ui.folder.view.FolderFragmentView;
 
 /**
  * ClassName:设置
@@ -11,10 +13,15 @@ import com.cocoa.cocoautils.R;
  * date: 2016/11/14.
  */
 
-public class FolderFragment extends BaseFragment implements View.OnClickListener {
+public class FolderFragment extends BaseFragment<FolderFragmentView, FolderFragmentPresenter> implements View.OnClickListener {
     @Override
     public void onClick(View view) {
 
+    }
+
+    @Override
+    public FolderFragmentPresenter initPresenter() {
+        return new FolderFragmentPresenter();
     }
 
     @Override

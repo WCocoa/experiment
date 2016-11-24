@@ -5,10 +5,10 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.cocoa.cocoautils.adapter.HomeTopAdapter;
-import com.cocoa.cocoautils.ui.BaseActivity;
-import com.cocoa.cocoautils.ui.BaseFragment;
 import com.cocoa.cocoautils.R;
+import com.cocoa.cocoautils.adapter.HomeTopAdapter;
+import com.cocoa.cocoautils.ui.base.BaseActivity;
+import com.cocoa.cocoautils.ui.base.BaseFragment;
 import com.cocoa.cocoautils.widget.xrecyclerview.XRecyclerView;
 
 import java.util.ArrayList;
