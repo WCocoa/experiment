@@ -1,0 +1,324 @@
+TASK com.qiantang.neighbourmother id=20
+  ACTIVITY com.qiantang.neighbourmother/.ui.center.ChildrenInfoEditActivity 4aadf6d4 pid=25638
+    Local FragmentActivity 4b9c1c20 State:
+      mCreated=truemResumed=true mStopped=false mReallyStopped=false
+      mLoadersStarted=true
+    FragmentManager misc state:
+      mHost=android.support.v4.app.FragmentActivity$HostCallbacks@4b9c1d9c
+      mContainer=android.support.v4.app.FragmentActivity$HostCallbacks@4b9c1d9c
+      mCurState=5 mStateSaved=false mDestroyed=false
+    View Hierarchy:
+      com.android.internal.policy.impl.PhoneWindow$DecorView{4b9c2df8 V.E..... ... 0,0-1080,1875}
+        android.widget.LinearLayout{4b9c3178 V.E..... ... 0,0-1080,1875}
+          android.view.ViewStub{4b9c36b8 G.E..... ... 0,0-0,0 #102030e}
+          android.widget.FrameLayout{4b9c37e4 V.E..... ... 0,47-1080,1875}
+            android.support.v7.widget.FitWindowsLinearLayout{4b9c3b78 V.E..... ... 0,0-1080,1828 #7f0e005b app:id/action_bar_root}
+              android.support.v7.widget.ViewStubCompat{4b9c3d00 G.E..... ... 0,0-0,0 #7f0e005c app:id/action_mode_bar_stub}
+              android.support.v7.widget.ContentFrameLayout{4b9c3f1c V.ED.... ... 0,0-1080,1828 #1020002 android:id/content}
+                android.widget.LinearLayout{4b9c4a28 V.E..... ... 0,0-1080,1828}
+                  android.widget.RelativeLayout{4b9c4c2c V.E..... ... 0,0-1080,84 #7f0e006f app:id/rela_top}
+                    android.support.v7.widget.AppCompatTextView{4b9c4eec V.ED..C. ... 9,0-103,84 #7f0e00e5 app:id/cancle}
+                    android.support.v7.widget.AppCompatTextView{4b9c563c V.ED.... ... 472,19-608,65 #7f0e0048 app:id/title}
+                    android.support.v7.widget.AppCompatTextView{4b9c5920 I.ED.... ... 986,0-1080,84 #7f0e007c app:id/children_info_edit}
+                    android.support.v7.widget.AppCompatImageView{4b9c5c28 I.ED.... ... 986,0-1080,84 #7f0e0071 app:id/research}
+                  android.view.View{4b9c5e80 V.ED.... ... 0,84-1080,85}
+                  android.widget.ScrollView{4b9c6018 VFED.... ... 0,85-1080,1334}
+                    android.widget.LinearLayout{4b9c63e4 V.E..... ... 0,0-1080,1249}
+                      android.widget.LinearLayout{4b9c6548 V.E..... ... 0,0-1080,1042}
+                        android.widget.RelativeLayout{4b9c6728 V.E...C. ... 30,0-1080,122 #7f0e00e6 app:id/rl_head_photo}
+                          android.support.v7.widget.AppCompatTextView{4b9c6950 V.ED.... ... 0,38-15,84 #7f0e00e7 app:id/tag1}
+                          android.support.v7.widget.AppCompatTextView{4b9c6c34 V.ED.... ... 24,40-84,81}
+                          com.qiantang.neighbourmother.widget.CircleImageView{4b9c6f64 V.ED.... ... 899,19-983,103 #7f0e009a app:id/head_photo}
+                          android.support.v7.widget.AppCompatImageView{4b9c73c0 V.ED.... ... 992,47-1020,75 #7f0e00e8 app:id/icon_right1}
+                        android.view.View{4b9c7638 V.ED.... ... 30,122-1080,123}
+                        android.widget.RelativeLayout{4b9c77ac V.E..... ... 30,123-1050,207}
+                          android.support.v7.widget.AppCompatTextView{4b9c79d4 V.ED.... ... 0,19-15,65 #7f0e00e9 app:id/tag2}
+                          android.support.v7.widget.AppCompatTextView{4b9a6070 V.ED.... ... 24,21-144,62 #7f0e009b app:id/name_text}
+                          android.support.v7.widget.AppCompatEditText{4b9a6374 VFED..CL ... 153,21-1011,62 #7f0e00ea app:id/input_name}
+                        android.view.View{4b9a6eec V.ED.... ... 30,207-1080,208}
+                        android.widget.RelativeLayout{4b9a7060 V.E...C. ... 30,208-1080,292 #7f0e00eb app:id/rl_sex}
+                          android.support.v7.widget.AppCompatTextView{4b9a7288 V.ED.... ... 0,19-15,65 #7f0e00ec app:id/tag3}
+                          android.support.v7.widget.AppCompatTextView{4b9a756c V.ED.... ... 24,21-84,62 #7f0e009f app:id/sex_text}
+                          android.support.v7.widget.AppCompatTextView{4b9a7850 V.ED.... ... 93,21-983,62 #7f0e00a0 app:id/tv_sex}
+                          android.support.v7.widget.AppCompatImageView{4b9a7b44 V.ED.... ... 992,28-1020,56 #7f0e00ed app:id/icon_right2}
+                        android.view.View{4b9a7dbc V.ED.... ... 30,292-1080,293}
+                        android.widget.RelativeLayout{4b9a7f30 V.E..... ... 30,293-1050,377}
+                          android.support.v7.widget.AppCompatTextView{4b9a8158 V.ED.... ... 0,19-15,65 #7f0e00ee app:id/tag4}
+                          android.support.v7.widget.AppCompatTextView{4b9a843c V.ED.... ... 24,21-84,62 #7f0e00a1 app:id/school_text}
+                          android.support.v7.widget.AppCompatEditText{4b9a8720 VFED..CL F.. 93,21-1020,62 #7f0e00ef app:id/input_school}
+                        android.view.View{4b9a8fbc V.ED.... ... 30,377-1080,378}
+                        android.widget.RelativeLayout{4b9a9130 V.E..... ... 30,378-1050,462}
+                          android.support.v7.widget.AppCompatTextView{4b9a9358 V.ED.... ... 0,19-15,65 #7f0e00f0 app:id/tag5}
+                          android.support.v7.widget.AppCompatTextView{4b9a963c V.ED.... ... 24,21-84,62 #7f0e00a3 app:id/grade_text}
+                          android.support.v7.widget.AppCompatEditText{4b9a9920 VFED..CL ... 93,21-1020,62 #7f0e00f1 app:id/input_grade}
+                        android.view.View{4b9aa1bc V.ED.... ... 30,462-1080,463}
+                        android.widget.RelativeLayout{4b0f2548 V.E..... ... 30,463-1050,547}
+                          android.support.v7.widget.AppCompatTextView{4b0f26e0 V.ED.... ... 0,19-15,65 #7f0e00f2 app:id/tag6}
+                          android.support.v7.widget.AppCompatTextView{4b0f29c4 V.ED.... ... 24,21-84,62 #7f0e00a5 app:id/class_text}
+                          android.support.v7.widget.AppCompatEditText{4b0f2ca8 VFED..CL ... 93,21-1020,62 #7f0e00f3 app:id/input_class}
+                        android.view.View{4b0f3544 V.ED.... ... 30,547-1080,548}
+                        android.widget.RelativeLayout{4b0f36b8 V.E...C. ... 30,548-1080,632 #7f0e00f4 app:id/rl_household_head_relation}
+                          android.support.v7.widget.AppCompatTextView{4b0f38e0 V.ED.... ... 0,19-15,65 #7f0e00f5 app:id/tag7}
+                          android.support.v7.widget.AppCompatTextView{4b0f3bc4 V.ED.... ... 24,21-144,62 #7f0e00a7 app:id/household_head_relation_text}
+                          android.support.v7.widget.AppCompatTextView{4b0f3ea8 V.ED.... ... 153,21-983,62 #7f0e00a8 app:id/tv_household_head_relation}
+                          android.support.v7.widget.AppCompatImageView{4b0f4180 V.ED.... ... 992,28-1020,56 #7f0e00f6 app:id/icon_right3}
+                        android.view.View{4b0f4430 V.ED.... ... 30,632-1080,633}
+                        android.widget.RelativeLayout{4b0f45a4 V.E..... ... 30,633-1050,717}
+                          android.support.v7.widget.AppCompatTextView{4b0f47cc V.ED.... ... 0,19-15,65 #7f0e00f7 app:id/tag8}
+                          android.support.v7.widget.AppCompatTextView{4b0f4ab0 V.ED.... ... 24,21-144,62 #7f0e00a9 app:id/home_address_text}
+                          android.support.v7.widget.AppCompatEditText{4b0f4d94 VFED..CL ... 153,21-1020,62 #7f0e00f8 app:id/input_home_address}
+                        android.view.View{4b0f5630 V.ED.... ... 30,717-1080,718}
+                        android.widget.RelativeLayout{4b0f57a4 V.E..... ... 30,718-1050,802}
+                          android.support.v7.widget.AppCompatTextView{4b0f59cc V.ED.... ... 0,19-15,65 #7f0e00f9 app:id/tag9}
+                          android.support.v7.widget.AppCompatTextView{4b0f5cb0 V.ED.... ... 24,21-84,62 #7f0e00ab app:id/phone_text}
+                          android.support.v7.widget.AppCompatEditText{4b0f5f94 VFED..CL ... 93,21-1020,62 #7f0e00fa app:id/input_phone}
+                        android.view.View{4b0f6830 V.ED.... ... 30,802-1080,803}
+                        android.widget.RelativeLayout{4b0f69a4 V.E..... ... 30,803-1050,882}
+                          android.support.v7.widget.AppCompatTextView{4b0f6bcc V.ED.... ... 9,19-69,60 #7f0e009d app:id/nickname_text}
+                          android.support.v7.widget.AppCompatEditText{4b0f6eb0 VFED..CL ... 78,19-1020,60 #7f0e00fb app:id/input_nickname}
+                        android.view.View{4b0f774c V.ED.... ... 30,882-1080,883}
+                        android.widget.RelativeLayout{4b0f78c0 V.E..... ... 30,883-1050,962}
+                          android.support.v7.widget.AppCompatTextView{4b0f7ae8 V.ED.... ... 0,19-150,60 #7f0e00ad app:id/emergency_contact_text}
+                          android.support.v7.widget.AppCompatEditText{4b0f7dcc VFED..CL ... 159,19-1020,60 #7f0e00fc app:id/input_emergency_contact}
+                        android.view.View{4b0f8668 V.ED.... ... 30,962-1080,963}
+                        android.widget.RelativeLayout{4b0f87dc V.E..... ... 30,963-1050,1042}
+                          android.support.v7.widget.AppCompatTextView{4b0f8a04 V.ED.... ... 0,19-120,60 #7f0e00af app:id/emergency_phone_text}
+                          android.support.v7.widget.AppCompatEditText{4b0f8ce8 VFED..CL ... 129,19-1020,60 #7f0e00fd app:id/input_emergency_phone}
+                      android.support.v7.widget.AppCompatTextView{4b0f95a4 V.ED..C. ... 30,1089-1050,1165 #7f0e00fe app:id/btn_complete}
+                      android.view.View{4b0f9db4 V.ED.... ... 0,1165-1080,1249}
+
+  ACTIVITY com.qiantang.neighbourmother/.ui.center.ChildrenInfoActivity 4a9e976c pid=25638
+    Local FragmentActivity 4b92ca10 State:
+      mCreated=truemResumed=false mStopped=true mReallyStopped=true
+      mLoadersStarted=true
+    FragmentManager misc state:
+      mHost=android.support.v4.app.FragmentActivity$HostCallbacks@4b92cb64
+      mContainer=android.support.v4.app.FragmentActivity$HostCallbacks@4b92cb64
+      mCurState=2 mStateSaved=true mDestroyed=false
+    View Hierarchy:
+      com.android.internal.policy.impl.PhoneWindow$DecorView{4b92dbe4 I.E..... ... 0,0-1080,1875}
+        android.widget.LinearLayout{4b92df64 V.E..... ... 0,0-1080,1875}
+          android.view.ViewStub{4b92e4a4 G.E..... ... 0,0-0,0 #102030e}
+          android.widget.FrameLayout{4b92e5d0 V.E..... ... 0,47-1080,1875}
+            android.support.v7.widget.FitWindowsLinearLayout{4b92e964 V.E..... ... 0,0-1080,1828 #7f0e005b app:id/action_bar_root}
+              android.support.v7.widget.ViewStubCompat{4b8cc3a4 G.E..... ... 0,0-0,0 #7f0e005c app:id/action_mode_bar_stub}
+              android.support.v7.widget.ContentFrameLayout{4b8cc5c0 V.ED.... ... 0,0-1080,1828 #1020002 android:id/content}
+                android.widget.LinearLayout{4b8cd0b4 V.E..... ... 0,0-1080,1828}
+                  android.widget.RelativeLayout{4b8cd2b8 V.E..... ... 0,0-1080,84 #7f0e006f app:id/rela_top}
+                    android.support.v7.widget.AppCompatImageView{4b8cd57c V.ED..C. ... 0,0-94,84 #7f0e0070 app:id/back}
+                    android.support.v7.widget.AppCompatTextView{4b8cd9ec V.ED.... ... 94,19-986,65 #7f0e0048 app:id/title}
+                    android.support.v7.widget.AppCompatTextView{4b8cdf28 V.ED..C. ... 986,0-1080,84 #7f0e007c app:id/children_info_edit}
+                    android.support.v7.widget.AppCompatImageView{4b8ce20c I.ED.... ... 986,0-1080,84 #7f0e0071 app:id/research}
+                  android.widget.ScrollView{4b8ce46c VFED.... ... 0,84-1080,1377}
+                    android.widget.LinearLayout{4b8ce838 V.E..... ... 0,0-1080,1293}
+                      android.widget.LinearLayout{4b993e10 V.E..... ... 0,19-1080,976}
+                        android.support.v7.widget.AppCompatTextView{4b993f78 V.ED.... ... 30,0-134,54}
+                        android.view.View{4b994200 V.ED.... ... 30,54-1080,55}
+                        android.widget.RelativeLayout{4b994374 V.E..... ... 30,55-1050,177}
+                          android.support.v7.widget.AppCompatTextView{4b99459c V.ED.... ... 0,40-60,81}
+                          com.qiantang.neighbourmother.widget.CircleImageView{4b9948cc V.ED.... ... 936,19-1020,103 #7f0e009a app:id/head_photo}
+                        android.view.View{4b994c20 V.ED.... ... 30,177-1080,178}
+                        android.widget.RelativeLayout{4b994d94 V.E..... ... 30,178-1050,257}
+                          android.support.v7.widget.AppCompatTextView{4b994fbc V.ED.... ... 0,19-120,60 #7f0e009b app:id/name_text}
+                          android.support.v7.widget.AppCompatTextView{4b9952a0 V.ED.... ... 129,19-1020,60 #7f0e009c app:id/tv_name}
+                        android.view.View{4b995598 V.ED.... ... 30,257-1080,258}
+                        android.widget.RelativeLayout{4b99570c V.E..... ... 30,258-1050,337}
+                          android.support.v7.widget.AppCompatTextView{4b995934 V.ED.... ... 0,19-60,60 #7f0e009d app:id/nickname_text}
+                          android.support.v7.widget.AppCompatTextView{4b995c18 V.ED.... ... 69,19-1020,60 #7f0e009e app:id/tv_nickname}
+                        android.view.View{4b995f10 V.ED.... ... 30,337-1080,338}
+                        android.widget.RelativeLayout{4b996084 V.E..... ... 30,338-1050,417}
+                          android.support.v7.widget.AppCompatTextView{4b9962ac V.ED.... ... 0,19-60,60 #7f0e009f app:id/sex_text}
+                          android.support.v7.widget.AppCompatTextView{4b9f3c10 V.ED.... ... 69,19-1020,60 #7f0e00a0 app:id/tv_sex}
+                        android.view.View{4b9f3e68 V.ED.... ... 30,417-1080,418}
+                        android.widget.RelativeLayout{4b9f3fdc V.E..... ... 30,418-1050,497}
+                          android.support.v7.widget.AppCompatTextView{4b9f41fc V.ED.... ... 0,19-60,60 #7f0e00a1 app:id/school_text}
+                          android.support.v7.widget.AppCompatTextView{4b9f44e0 V.ED.... ... 69,19-1020,60 #7f0e00a2 app:id/tv_school}
+                        android.view.View{4b9f47d8 V.ED.... ... 30,497-1080,498}
+                        android.widget.RelativeLayout{4b9f494c V.E..... ... 30,498-1050,577}
+                          android.support.v7.widget.AppCompatTextView{4b9f4b74 V.ED.... ... 0,19-60,60 #7f0e00a3 app:id/grade_text}
+                          android.support.v7.widget.AppCompatTextView{4b9f4e58 V.ED.... ... 69,19-1020,60 #7f0e00a4 app:id/tv_grade}
+                        android.view.View{4b9f5194 V.ED.... ... 30,577-1080,578}
+                        android.widget.RelativeLayout{4b9f5308 V.E..... ... 30,578-1050,657}
+                          android.support.v7.widget.AppCompatTextView{4b9f5530 V.ED.... ... 0,19-60,60 #7f0e00a5 app:id/class_text}
+                          android.support.v7.widget.AppCompatTextView{4b9f5814 V.ED.... ... 69,19-1020,60 #7f0e00a6 app:id/tv_class}
+                        android.view.View{4b9f5b0c V.ED.... ... 30,657-1080,658}
+                        android.widget.RelativeLayout{4b9f5c80 V.E..... ... 30,658-1050,737}
+                          android.support.v7.widget.AppCompatTextView{4b9f5ea8 V.ED.... ... 0,19-120,60 #7f0e00a7 app:id/household_head_relation_text}
+                          android.support.v7.widget.AppCompatTextView{4b9f618c V.ED.... ... 129,19-1020,60 #7f0e00a8 app:id/tv_household_head_relation}
+                        android.view.View{4b8928c4 V.ED.... ... 30,737-1080,738}
+                        android.widget.LinearLayout{4b892a2c V.E..... ... 30,738-1050,877}
+                          android.support.v7.widget.AppCompatTextView{4b892b94 V.ED.... ... 0,19-120,60 #7f0e00a9 app:id/home_address_text}
+                          android.support.v7.widget.AppCompatTextView{4b892e00 V.ED.... ... 0,79-1020,120 #7f0e00aa app:id/tv_home_address}
+                        android.view.View{4b893080 V.ED.... ... 30,877-1080,878}
+                        android.widget.RelativeLayout{4b8931f4 V.E..... ... 30,878-1050,957}
+                          android.support.v7.widget.AppCompatTextView{4b89341c V.ED.... ... 0,19-60,60 #7f0e00ab app:id/phone_text}
+                          android.support.v7.widget.AppCompatTextView{4b893700 V.ED.... ... 69,19-1020,60 #7f0e00ac app:id/tv_phone}
+                      android.widget.LinearLayout{4b893a18 V.E..... ... 0,995-1080,1209}
+                        android.support.v7.widget.AppCompatTextView{4b893bf8 V.ED.... ... 30,0-134,54}
+                        android.view.View{4b893e64 V.ED.... ... 30,54-1080,55}
+                        android.widget.RelativeLayout{4b893fd8 V.E..... ... 30,55-1050,134}
+                          android.support.v7.widget.AppCompatTextView{4b894200 V.ED.... ... 0,19-150,60 #7f0e00ad app:id/emergency_contact_text}
+                          android.support.v7.widget.AppCompatTextView{4b8944e4 V.ED.... ... 159,19-1020,60 #7f0e00ae app:id/tv_emergency_contact}
+                        android.view.View{4b8947dc V.ED.... ... 30,134-1080,135}
+                        android.widget.RelativeLayout{4b894950 V.E..... ... 30,135-1050,214}
+                          android.support.v7.widget.AppCompatTextView{4b894b78 V.ED.... ... 0,19-120,60 #7f0e00af app:id/emergency_phone_text}
+                          android.support.v7.widget.AppCompatTextView{4b894e5c V.ED.... ... 129,19-1020,60 #7f0e00b0 app:id/tv_emergency_phone}
+                      android.view.View{4b895174 V.ED.... ... 0,1209-1080,1293}
+
+  ACTIVITY com.qiantang.neighbourmother/.ui.MainTabActivity 4aa88edc pid=25638
+    Local FragmentActivity 4a812c50 State:
+      mCreated=truemResumed=false mStopped=true mReallyStopped=true
+      mLoadersStarted=true
+    Active Fragments in 4a8be718:
+      #0: HomeFragment{4a7e2c80 #0 id=0x7f0e01a5 tab_home}
+        mFragmentId=#7f0e01a5 mContainerId=#7f0e01a5 mTag=tab_home
+        mState=1 mIndex=0 mWho=android:fragment:0 mBackStackNesting=0
+        mAdded=false mRemoving=false mFromLayout=false mInLayout=false
+        mHidden=false mDetached=true mMenuVisible=true mHasMenu=false
+        mRetainInstance=false mRetaining=false mUserVisibleHint=true
+        mFragmentManager=FragmentManager{4a8be718 in HostCallbacks{4a7ed0ec}}
+        mHost=android.support.v4.app.FragmentActivity$HostCallbacks@4a7ed0ec
+        mSavedViewState={2131624087=AbsListView.SavedState{4a9eec40 selectedId=-9223372036854775808 firstId=-1 viewTop=0 position=0 height=1727 filter=null checkState=null}}
+        Child FragmentManager{4b0db4f0 in HomeFragment{4a7e2c80}}:
+          FragmentManager misc state:
+            mHost=android.support.v4.app.FragmentActivity$HostCallbacks@4a7ed0ec
+            mContainer=android.support.v4.app.Fragment$1@4a7f3060
+            mParent=HomeFragment{4a7e2c80 #0 id=0x7f0e01a5 tab_home}
+            mCurState=1 mStateSaved=true mDestroyed=false
+      #1: OrderFragment{4a9eeac8 #1 id=0x7f0e01a5 tab_preview}
+        mFragmentId=#7f0e01a5 mContainerId=#7f0e01a5 mTag=tab_preview
+        mState=1 mIndex=1 mWho=android:fragment:1 mBackStackNesting=0
+        mAdded=false mRemoving=false mFromLayout=false mInLayout=false
+        mHidden=false mDetached=true mMenuVisible=true mHasMenu=false
+        mRetainInstance=false mRetaining=false mUserVisibleHint=true
+        mFragmentManager=FragmentManager{4a8be718 in HostCallbacks{4a7ed0ec}}
+        mHost=android.support.v4.app.FragmentActivity$HostCallbacks@4a7ed0ec
+        mSavedViewState={2131624008=android.view.AbsSavedState$1@4a6d65d0, 2131624047=android.view.AbsSavedState$1@4a6d65d0, 2131624048=android.view.AbsSavedState$1@4a6d65d0, 2131624049=android.view.AbsSavedState$1@4a6d65d0, 2131624272=android.view.AbsSavedState$1@4a6d65d0, 2131624376=android.view.AbsSavedState$1@4a6d65d0, 2131624377=android.view.AbsSavedState$1@4a6d65d0, 2131624445=android.view.AbsSavedState$1@4a6d65d0, 2131624446=android.view.AbsSavedState$1@4a6d65d0, 2131624447=android.view.AbsSavedState$1@4a6d65d0, 2131624448=android.view.AbsSavedState$1@4a6d65d0, 2131624449=android.view.AbsSavedState$1@4a6d65d0, 2131624450=android.view.AbsSavedState$1@4a6d65d0, 2131624451=android.view.AbsSavedState$1@4a6d65d0, 2131624452=android.view.AbsSavedState$1@4a6d65d0, 2131624453=android.view.AbsSavedState$1@4a6d65d0, 2131624454=android.view.AbsSavedState$1@4a6d65d0, 2131624455=android.view.AbsSavedState$1@4a6d65d0}
+        Child FragmentManager{4a811190 in OrderFragment{4a9eeac8}}:
+          Active Fragments in 4a811190:
+            #0: WaitPaymentFragment{4af61e20 #0 id=0x7f0e0207}
+              mFragmentId=#7f0e0207 mContainerId=#7f0e0207 mTag=null
+              mState=1 mIndex=0 mWho=android:fragment:1:0 mBackStackNesting=0
+              mAdded=true mRemoving=false mFromLayout=false mInLayout=false
+              mHidden=false mDetached=false mMenuVisible=true mHasMenu=false
+              mRetainInstance=false mRetaining=false mUserVisibleHint=true
+              mFragmentManager=FragmentManager{4a811190 in OrderFragment{4a9eeac8}}
+              mHost=android.support.v4.app.FragmentActivity$HostCallbacks@4a7ed0ec
+              mParentFragment=OrderFragment{4a9eeac8 #1 id=0x7f0e01a5 tab_preview}
+              mSavedViewState={2131624355=android.view.AbsSavedState$1@4a6d65d0, 2131624444=AbsListView.SavedState{4b308cb4 selectedId=-9223372036854775808 firstId=-1 viewTop=0 position=0 height=1557 filter=null checkState=null}}
+              Child FragmentManager{4b2a0e50 in WaitPaymentFragment{4af61e20}}:
+                FragmentManager misc state:
+                  mHost=android.support.v4.app.FragmentActivity$HostCallbacks@4a7ed0ec
+                  mContainer=android.support.v4.app.Fragment$1@4b2a0e88
+                  mParent=WaitPaymentFragment{4af61e20 #0 id=0x7f0e0207}
+                  mCurState=1 mStateSaved=true mDestroyed=false
+          Added Fragments:
+            #0: WaitPaymentFragment{4af61e20 #0 id=0x7f0e0207}
+          FragmentManager misc state:
+            mHost=android.support.v4.app.FragmentActivity$HostCallbacks@4a7ed0ec
+            mContainer=android.support.v4.app.Fragment$1@4b2f5300
+            mParent=OrderFragment{4a9eeac8 #1 id=0x7f0e01a5 tab_preview}
+            mCurState=1 mStateSaved=true mDestroyed=false
+      #2: CenterFragment{4b308a30 #2 id=0x7f0e01a5 tab_center}
+        mFragmentId=#7f0e01a5 mContainerId=#7f0e01a5 mTag=tab_center
+        mState=2 mIndex=2 mWho=android:fragment:2 mBackStackNesting=0
+        mAdded=true mRemoving=false mFromLayout=false mInLayout=false
+        mHidden=false mDetached=false mMenuVisible=true mHasMenu=false
+        mRetainInstance=false mRetaining=false mUserVisibleHint=true
+        mFragmentManager=FragmentManager{4a8be718 in HostCallbacks{4a7ed0ec}}
+        mHost=android.support.v4.app.FragmentActivity$HostCallbacks@4a7ed0ec
+        mSavedViewState={2131624116=android.view.AbsSavedState$1@4a6d65d0, 2131624117=android.view.AbsSavedState$1@4a6d65d0, 2131624118=android.view.AbsSavedState$1@4a6d65d0, 2131624122=android.view.AbsSavedState$1@4a6d65d0, 2131624168=android.view.AbsSavedState$1@4a6d65d0, 2131624173=android.view.AbsSavedState$1@4a6d65d0, 2131624182=android.view.AbsSavedState$1@4a6d65d0, 2131624286=android.view.AbsSavedState$1@4a6d65d0, 2131624287=android.view.AbsSavedState$1@4a6d65d0, 2131624420=android.view.AbsSavedState$1@4a6d65d0, 2131624421=android.view.AbsSavedState$1@4a6d65d0, 2131624422=android.view.AbsSavedState$1@4a6d65d0, 2131624423=android.view.AbsSavedState$1@4a6d65d0, 2131624424=android.view.AbsSavedState$1@4a6d65d0, 2131624425=android.view.AbsSavedState$1@4a6d65d0, 2131624426=android.view.AbsSavedState$1@4a6d65d0, 2131624427=android.view.AbsSavedState$1@4a6d65d0, 2131624428=android.view.AbsSavedState$1@4a6d65d0, 2131624429=android.view.AbsSavedState$1@4a6d65d0, 2131624430=android.view.AbsSavedState$1@4a6d65d0, 2131624431=android.view.AbsSavedState$1@4a6d65d0, 2131624432=android.view.AbsSavedState$1@4a6d65d0, 2131624433=android.view.AbsSavedState$1@4a6d65d0, 2131624434=android.view.AbsSavedState$1@4a6d65d0, 2131624435=android.view.AbsSavedState$1@4a6d65d0, 2131624436=android.view.AbsSavedState$1@4a6d65d0, 2131624437=android.view.AbsSavedState$1@4a6d65d0, 2131624438=android.view.AbsSavedState$1@4a6d65d0, 2131624439=android.view.AbsSavedState$1@4a6d65d0, 2131624440=android.view.AbsSavedState$1@4a6d65d0, 2131624441=android.view.AbsSavedState$1@4a6d65d0, 2131624442=android.view.AbsSavedState$1@4a6d65d0, 2131624443=android.view.AbsSavedState$1@4a6d65d0}
+        mContainer=android.widget.FrameLayout{4a81e9a0 V.E..... ........ 0,0-1080,1727 #7f0e01a5 app:id/realtabcontent}
+        mView=android.widget.RelativeLayout{4b308fd8 V.E..... ........ 0,0-1080,1727}
+        mInnerView=android.widget.RelativeLayout{4b308fd8 V.E..... ........ 0,0-1080,1727}
+        Child FragmentManager{4b308e74 in CenterFragment{4b308a30}}:
+          FragmentManager misc state:
+            mHost=android.support.v4.app.FragmentActivity$HostCallbacks@4a7ed0ec
+            mContainer=android.support.v4.app.Fragment$1@4b308eb4
+            mParent=CenterFragment{4b308a30 #2 id=0x7f0e01a5 tab_center}
+            mCurState=2 mStateSaved=true mDestroyed=false
+    Added Fragments:
+      #0: CenterFragment{4b308a30 #2 id=0x7f0e01a5 tab_center}
+    FragmentManager misc state:
+      mHost=android.support.v4.app.FragmentActivity$HostCallbacks@4a7ed0ec
+      mContainer=android.support.v4.app.FragmentActivity$HostCallbacks@4a7ed0ec
+      mCurState=2 mStateSaved=true mDestroyed=false
+    View Hierarchy:
+      com.android.internal.policy.impl.PhoneWindow$DecorView{4a812590 I.E..... ... 0,0-1080,1875}
+        android.widget.LinearLayout{4a7e6ce0 V.E..... ... 0,0-1080,1875}
+          android.view.ViewStub{4a7f7430 G.E..... ... 0,0-0,0 #102030e}
+          android.widget.FrameLayout{4a7ef2c4 V.E..... ... 0,47-1080,1875}
+            android.support.v7.widget.FitWindowsLinearLayout{4a816c5c V.E..... ... 0,0-1080,1828 #7f0e005b app:id/action_bar_root}
+              android.support.v7.widget.ViewStubCompat{4a818250 G.E..... ... 0,0-0,0 #7f0e005c app:id/action_mode_bar_stub}
+              android.support.v7.widget.ContentFrameLayout{4a83ac98 V.ED.... ... 0,0-1080,1828 #1020002 android:id/content}
+                android.widget.LinearLayout{4a824bd4 V.E..... ... 0,0-1080,1828}
+                  android.widget.FrameLayout{4a81e9a0 V.E..... ... 0,0-1080,1727 #7f0e01a5 app:id/realtabcontent}
+                    android.widget.RelativeLayout{4b308fd8 V.E..... ... 0,0-1080,1727}
+                      android.widget.ScrollView{4b30927c VFED.... ... 0,0-1080,1090}
+                        android.widget.LinearLayout{4b294a08 V.E..... ... 0,0-1080,1090}
+                          android.widget.RelativeLayout{4b294b6c V.E..... ... 0,0-1080,375 #7f0e01e4 app:id/rl_head}
+                            android.support.v7.widget.AppCompatTextView{4b294dfc G.ED..C. ... 0,0-0,0 #7f0e01e5 app:id/edit_info}
+                            com.qiantang.neighbourmother.widget.CircleImageView{4b2953ac V.ED.... ... 465,47-615,197 #7f0e01e6 app:id/image_head_portrait}
+                            android.widget.LinearLayout{4b2956e0 V.E..... ... 469,225-610,271 #7f0e01e7 app:id/ll_username}
+                              android.support.v7.widget.AppCompatTextView{4b2958c0 V.ED.... ... 0,0-102,46 #7f0e00b5 app:id/user_name}
+                              android.support.v7.widget.AppCompatImageView{4b295b58 V.ED.... .S. 111,8-141,38 #7f0e00b6 app:id/user_sex}
+                            android.widget.RelativeLayout{4b295f24 V.E..... ... 456,290-624,328 #7f0e015e app:id/ll_tag}
+                              android.support.v7.widget.AppCompatImageView{4b2963c4 V.ED.... ... 6,5-34,33 #7f0e015f app:id/service_icon}
+                              android.support.v7.widget.AppCompatTextView{4b296628 V.ED.... ... 34,0-168,38 #7f0e00ba app:id/service_text}
+                            android.view.View{4b296b6c V.ED.... ... 0,328-1080,337}
+                          android.widget.RelativeLayout{4b296d00 V.E...C. ... 0,394-1080,590 #7f0e01e8 app:id/rl_children_info}
+                            android.support.v7.widget.AppCompatTextView{4b296fa0 V.ED.... ... 30,19-134,55 #7f0e01e9 app:id/children_info_text}
+                            android.widget.RelativeLayout{4b297284 V.E..... ... 0,74-1013,177}
+                              com.qiantang.neighbourmother.widget.CircleImageView{4b297524 V.ED.... ... 30,0-133,103 #7f0e01ea app:id/children_image_head}
+                              android.widget.LinearLayout{4b297858 V.E..... ... 152,8-255,94}
+                                android.widget.LinearLayout{4b297a38 V.E..... ... 0,0-103,41}
+                                  android.support.v7.widget.AppCompatTextView{4b297ba0 V.ED.... ... 0,0-68,41 #7f0e01eb app:id/children_name}
+                                  android.support.v7.widget.AppCompatTextView{4b297e00 V.ED.... ... 77,6-103,42 #7f0e01ec app:id/children_sex}
+                                android.support.v7.widget.AppCompatTextView{4b24ec6c V.ED.... ... 0,50-96,86 #7f0e01ed app:id/children_school}
+                            android.support.v7.widget.AppCompatImageView{4b24ef18 V.ED.... ... 1022,84-1050,112 #7f0e00b4 app:id/icon_right}
+                          android.widget.LinearLayout{4b24f188 V.E..... ... 0,609-1080,694 #7f0e01ee app:id/ll_commissioner}
+                            android.widget.LinearLayout{4b24f368 V.E..... ... 0,0-1080,85 #7f0e01ef app:id/ll_commissioner_info}
+                              android.widget.RelativeLayout{4b24f4d0 V.E...C. ... 0,0-1080,85 #7f0e01f0 app:id/rl_commissioner_info}
+                                android.support.v7.widget.AppCompatImageView{4b24f770 V.ED.... ... 30,19-77,66 #7f0e01f1 app:id/icon1}
+                                android.support.v7.widget.AppCompatTextView{4b24f9c8 V.ED.... ... 96,22-1022,63}
+                                android.support.v7.widget.AppCompatImageView{4b24fcac V.ED.... ... 1022,28-1050,56 #7f0e00e8 app:id/icon_right1}
+                            android.widget.RelativeLayout{4b24ff44 G.E...C. ... 0,0-0,0 #7f0e01f2 app:id/rl_commissioner_recruit}
+                              android.support.v7.widget.AppCompatImageView{4b2501e4 V.ED.... ... 0,0-0,0 #7f0e01f3 app:id/icon2}
+                              android.support.v7.widget.AppCompatTextView{4b25043c V.ED.... ... 0,0-0,0}
+                              android.support.v7.widget.AppCompatImageView{4b250720 V.ED.... ... 0,0-0,0 #7f0e00ed app:id/icon_right2}
+                          android.widget.RelativeLayout{4b2509b8 V.E...C. ... 0,713-1080,798 #7f0e01f4 app:id/rl_customer_service_phone}
+                            android.support.v7.widget.AppCompatImageView{4b250c58 V.ED.... ... 30,19-77,66 #7f0e01f5 app:id/icon3}
+                            android.support.v7.widget.AppCompatTextView{4b250eb0 V.ED.... ... 96,22-1022,63}
+                            android.support.v7.widget.AppCompatImageView{4b251194 V.ED.... ... 1022,28-1050,56 #7f0e00f6 app:id/icon_right3}
+                          android.widget.RelativeLayout{4b25140c V.E...C. ... 0,817-1080,902 #7f0e01f6 app:id/rl_about_us}
+                            android.support.v7.widget.AppCompatImageView{4b2516ac V.ED.... ... 30,19-77,66 #7f0e01f7 app:id/icon4}
+                            android.support.v7.widget.AppCompatTextView{4b251904 V.ED.... ... 96,22-1022,63}
+                            android.support.v7.widget.AppCompatImageView{4b251be8 V.ED.... ... 1022,28-1050,56 #7f0e01f8 app:id/icon_right4}
+                          android.widget.RelativeLayout{4b251e60 V.E...C. ... 0,921-1080,1006 #7f0e01f9 app:id/rl_setting}
+                            android.support.v7.widget.AppCompatImageView{4b252100 V.ED.... ... 30,19-77,66 #7f0e01fa app:id/icon5}
+                            android.support.v7.widget.AppCompatTextView{4b252358 V.ED.... ... 96,22-1022,63}
+                            android.support.v7.widget.AppCompatImageView{4b25263c V.ED.... ... 1022,28-1050,56 #7f0e01fb app:id/icon_right5}
+                  android.support.v4.app.FragmentTabHost{4af29684 VFE..... F.. 0,1727-1080,1828 #1020012 android:id/tabhost}
+                    android.widget.FrameLayout{4aa408e8 V.E..... ... 0,0-0,0 #1020011 android:id/tabcontent}
+                      android.view.View{4a9f2de0 G.ED.... ... 0,0-0,0}
+                      android.view.View{4a7e5f6c G.ED.... ... 0,0-0,0}
+                      android.view.View{4b30884c V.ED.... ... 0,0-0,0}
+                    android.widget.LinearLayout{4a9f2780 V.E..... ... 0,0-1080,101}
+                      android.widget.TabWidget{4a7f750c VFE..... ... 0,0-1080,101 #1020013 android:id/tabs}
+                        android.widget.RelativeLayout{4a9f5c50 VFE...C. ... 0,0-360,101}
+                          android.support.v7.widget.AppCompatTextView{4a7e3c3c V.ED.... ... 0,0-360,1 #7f0e01a1 app:id/top_line}
+                          android.widget.RelativeLayout{4aa37860 V.E..... ... 0,5-360,97}
+                            android.support.v7.widget.AppCompatImageView{4a82b9d4 V.ED.... ... 150,0-210,60 #7f0e023c app:id/imageview}
+                            android.support.v7.widget.AppCompatTextView{4a7e935c V.ED.... ... 157,60-203,92 #7f0e023d app:id/textview}
+                        android.widget.RelativeLayout{4aa41c64 VFE...C. ... 360,0-720,101}
+                          android.support.v7.widget.AppCompatTextView{4a80e804 V.ED.... ... 0,0-360,1 #7f0e01a1 app:id/top_line}
+                          android.widget.RelativeLayout{4aa42570 V.E..... ... 0,5-360,97}
+                            android.support.v7.widget.AppCompatImageView{4aa10cdc V.ED.... ... 150,0-210,60 #7f0e023c app:id/imageview}
+                            android.support.v7.widget.AppCompatTextView{4a80f540 V.ED.... ... 157,60-203,92 #7f0e023d app:id/textview}
+                        android.widget.RelativeLayout{4aa4719c VFE...C. .S. 720,0-1080,101}
+                          android.support.v7.widget.AppCompatTextView{4a813d14 V.ED.... .S. 0,0-360,1 #7f0e01a1 app:id/top_line}
+                          android.widget.RelativeLayout{4af2d228 V.E..... .S. 0,5-360,97}
+                            android.support.v7.widget.AppCompatImageView{4aa4070c V.ED.... .S. 150,0-210,60 #7f0e023c app:id/imageview}
+                            android.support.v7.widget.AppCompatTextView{4aa46fec V.ED.... .S. 157,60-203,92 #7f0e023d app:id/textview}
+                      android.widget.FrameLayout{4af660bc V.E..... ... 0,101-0,101 #1020011 android:id/tabcontent}
+                      android.widget.FrameLayout{4b03a57c V.E..... ... 0,101-1080,101 #7f0e01a5 app:id/realtabcontent}

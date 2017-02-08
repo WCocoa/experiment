@@ -1,0 +1,16 @@
+package com.qiantang.neighbourmother.model;
+
+import android.widget.ImageView;
+
+/**
+ * Created by quliang on 16-8-4.
+ */
+public class DiscussionGroupObj {
+private String img;
+private String title;
+private String summary;
+private String intoGroup;
+
+    public DiscussionGroupObj() {
+    }
+}

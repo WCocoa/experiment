@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\release\\mipmap-mdpi\\map_setpoint.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-mdpi\\map_setpoint.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\release\\mipmap-mdpi\\ic_launcher.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\release\\mipmap-mdpi\\img_view_default.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-mdpi\\img_view_default.png"
+    }
+]

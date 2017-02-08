@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/person_rela"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/icon_right"
+            style="@style/right_icon_style"
+            android:layout_marginLeft="5dp"
+            android:src="@mipmap/arrow_expend_right"
+            android:visibility="invisible" />
+
+        <com.qiantang.neighbourmother.widget.CircleImageView
+            android:id="@+id/person_headimg"
+            android:layout_width="@dimen/downorder_head_img"
+            android:layout_height="@dimen/downorder_head_img"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            android:src="@mipmap/default_img" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/icon_right"
+            android:layout_toRightOf="@+id/person_headimg"
+            android:gravity="right|center_vertical"
+            android:hint="@string/downorder_special_choose" />
+
+        <LinearLayout
+            android:id="@+id/ll_dorder_person_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="15dp"
+            android:layout_toLeftOf="@+id/icon_right"
+            android:layout_toRightOf="@+id/person_headimg"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:textSize="17sp"
+                    android:id="@+id/person_name"
+                    style="@style/app_item_title_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="张妈妈" />
+
+                <ImageView
+                    android:id="@+id/attache_sex"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginLeft="2dp"
+                    android:src="@drawable/center_sex_selector" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:textSize="@dimen/app_title_content"
+                    android:id="@+id/attache_age"
+                    style="@style/app_item_content_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:maxLines="1"
+                    android:text="28岁" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@color/app_item_content"></View>
+
+                <TextView
+                    android:textSize="@dimen/app_title_content"
+                    android:id="@+id/attache_post"
+                    style="@style/app_item_content_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:singleLine="true"
+                    android:text="银行专员" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/ll_tag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll_username"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/attache_service_type_backgroud"
+
+                >
+
+                <ImageView
+                    android:id="@+id/service_icon"
+                    android:layout_width="13dp"
+                    android:layout_height="13dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="3dp"
+                    android:src="@mipmap/service_left_icon" />
+
+                <TextView
+                    android:id="@+id/person_service_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="3dp"
+                    android:layout_toRightOf="@+id/service_icon"
+                    android:paddingBottom="2dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="2dp"
+                    android:textSize="@dimen/app_title_content"
+                    android:text="接送 专车 看护 辅导"
+                    android:textColor="@color/white"
+                   />
+                <!--<TextView-->
+                <!--android:id="@+id/service_text"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:background="@drawable/attache_service_top_info_backgroud"-->
+
+                <!--android:text="212312123"-->
+                <!--android:textColor="@color/white" />-->
+
+
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/person_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/person_rela"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="@dimen/app_left_right_size"
+        android:layout_marginRight="@dimen/app_left_right_size"
+        android:layout_marginTop="10dp"
+        android:textSize="@dimen/app_title_content"
+        android:text="地址:陕西省西安市未央区盛豪小区"
+        android:textColor="@color/app_item_content" />
+</RelativeLayout>

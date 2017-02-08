@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/quliang/AndroidStudioProjects/Qrecyclerview2/xrecyclerview/build/intermediates/res/merged/androidTest/debug/layout-v16/notification_template_custom_big.xml",
+        "source": "/home/quliang/AndroidStudioProjects/Qrecyclerview2/xrecyclerview/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/layout-v16/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "/home/quliang/svn/android1/android/project/NeighbourMother/xrecyclerview/build/intermediates/res/merged/androidTest/debug/layout-v16/notification_template_custom_big.xml",
+        "source": "/home/quliang/svn/android1/android/project/NeighbourMother/xrecyclerview/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.0/res/layout-v16/notification_template_custom_big.xml"
+    }
+]

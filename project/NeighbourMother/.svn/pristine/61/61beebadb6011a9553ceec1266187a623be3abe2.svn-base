@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.qiantang.neighbourmother.widget.RoundAngleImageView
+android:id="@+id/img"
+            app:roundHeight="5dp"
+            app:roundWidth="5dp"
+            android:layout_margin="@dimen/app_left_right_size"
+            android:src="@mipmap/ic_launcher"
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
+        <TextView
+            android:id="@+id/title"
+            android:textColor="@color/app_title_text_bg"
+            android:textSize="17dp"
+            android:layout_marginRight="@dimen/app_left_right_size"
+            android:layout_weight="1.0"
+            android:text="当妈妈的注意事项"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:gravity="center"
+            android:id="@+id/join"
+            android:layout_marginRight="@dimen/app_left_right_size"
+            android:background="@drawable/personal_header_focus_backgroud"
+            android:paddingBottom="3dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="3dp"
+            android:text="加入"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/summary"
+        android:textSize="15dp"
+        android:layout_marginLeft="@dimen/app_left_right_size"
+        android:layout_marginRight="@dimen/app_left_right_size"
+        android:text="当妈的都有那些注意事项呢,大家来说说"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_marginTop="@dimen/app_left_right_size"
+        android:background="@color/app_line"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp" />
+    <TextView
+        android:id="@+id/tCount"
+        android:textSize="15dp"
+        android:textColor="@color/app_special_style_color_normal"
+        android:text="讨论组成员(100)"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="@dimen/app_left_right_size"
+        android:layout_marginRight="@dimen/app_left_right_size"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <android.support.v7.widget.RecyclerView
+        android:layout_marginLeft="@dimen/app_left_right_size"
+        android:layout_marginRight="@dimen/app_left_right_size"
+        android:id="@+id/recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent" />
+
+    <TextView
+        android:id="@+id/post_acount"
+        android:layout_marginTop="5dp"
+        android:background="@color/app_bg"
+        android:textSize="15dp"
+        android:textColor="@color/app_item_content"
+        android:text="@string/discgroupd_list_desc"
+        android:paddingTop="10dp"
+        android:paddingLeft="@dimen/app_left_right_size"
+        android:paddingRight="@dimen/app_left_right_size"
+        android:paddingBottom="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

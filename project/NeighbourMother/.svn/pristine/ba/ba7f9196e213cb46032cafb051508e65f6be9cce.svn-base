@@ -1,0 +1,298 @@
+package com.qiantang.neighbourmother.ui;
+
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.ImageView;
+
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.assist.ImageScaleType;
+import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
+import com.qiantang.neighbourmother.R;
+import com.qiantang.neighbourmother.broadcast.MyBroadCast;
+import com.qiantang.neighbourmother.business.data.BaseHttp;
+import com.qiantang.neighbourmother.ui.center.ChildrenInfoEditActivity;
+import com.qiantang.neighbourmother.ui.dialog.OrderChildInfoDialog;
+import com.qiantang.neighbourmother.ui.dialog.ProcessDialog;
+import com.qiantang.neighbourmother.ui.startpage.LoginActivity;
+import com.qiantang.neighbourmother.util.AppLog;
+import com.qiantang.neighbourmother.util.IntentFinal;
+import com.qiantang.neighbourmother.util.ToastUtils;
+
+
+/**
+ * @author quliang
+ * @version 2015-8-20 上午11:28:11
+ *          desc
+ */
+public abstract class BaseActivity extends AppCompatActivity {
+    private   ProcessDialog mProcessDialog;
+    protected Handler       handler;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        // TODO Auto-generated method stub
+        super.onCreate(savedInstanceState);
+        setContentView(getContentView());
+        initAppMsgBroad();
+        initHandler();
+        initView();
+        initEvent();
+        initData();
+    }
+
+    public abstract int getContentView();
+
+    public abstract void initView();
+
+    public abstract void initData();
+
+    public abstract void initEvent();
+
+    protected abstract void updateUI(Message msg);
+
+
+    protected void initHandler() {
+
+        handler = new Handler() {
+            @Override
+            public void handleMessage(Message msg) {
+                switch (msg.what) {
+                    case BaseHttp.START:
+                        showProgressDialog();
+                        break;
+
+                    case BaseHttp.TOKEN_INVALID:
+                        closeProgressDialog();
+                        onTokenInvalid();
+                        break;
+
+                    case BaseHttp.FAILURE:
+                        failureOperation(msg.obj);
+                        closeProgressDialog();
+                        break;
+                    case BaseHttp.END:
+                        closeProgressDialog();
+                        break;
+                    case BaseHttp.CHILD_INFO_INVLID:
+
+                        editChildInfo();
+                        closeProgressDialog();
+                        break;
+                    default:
+                        updateUI(msg);
+                        break;
+                }
+            }
+        };
+    }
+
+    private void editChildInfo() {
+//        ToastUtils.toastLong(this,R.string.app_child_info_invlid);
+        showDialog();
+
+    }
+
+    OrderChildInfoDialog orderChildInfoDialog;
+
+    private void showDialog() {
+        if (orderChildInfoDialog == null) {
+            orderChildInfoDialog = new OrderChildInfoDialog();
+
+        }
+        orderChildInfoDialog.show(getSupportFragmentManager(), "OrderChildInfoDialog");
+        orderChildInfoDialog.setOnSureListener(new OrderChildInfoDialog.OrderChildInfoListener() {
+            @Override
+            public void onSure() {
+                startActivityForResult(new Intent(BaseActivity.this, ChildrenInfoEditActivity.class), 1);
+                orderChildInfoDialog.dismiss();
+            }
+        });
+    }
+
+    public void onTokenInvalid() {
+        tokenInvalid();
+    }
+
+    public void tokenInvalid() {
+        Intent intent = new Intent(BaseActivity.this, LoginActivity.class);
+        intent.putExtra(IntentFinal.INTENT_LOGIN_TOKEN_FAILE, 1);
+        startActivityForResult(intent, 1);
+        overridePendingTransition(R.anim.a_enter, R.anim.a_exit);
+    }
+
+    public void failureOperation(Object obj) {
+        failureToast(obj);
+        closeProgressDialog();
+        clossRefresh();
+    }
+
+    protected void clossRefresh() {
+    }
+
+    public void showProgressDialog() {
+        if (mProcessDialog == null) {
+            if (getParent() != null) {
+                mProcessDialog = new ProcessDialog(getParent());
+            } else {
+                mProcessDialog = new ProcessDialog(this);
+            }
+            mProcessDialog.setCancelable(false);
+            mProcessDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        }
+        if (!isFinishing()) {
+            mProcessDialog.show();
+        }
+    }
+
+
+    public void closeProgressDialog() {
+        if (mProcessDialog != null)
+            mProcessDialog.dismiss();
+    }
+
+    @Override
+    protected void onDestroy() {
+
+        super.onDestroy();
+        if (myBroadCast != null)
+            myBroadCast.onDestroy();
+        if (mProcessDialog != null) {
+            mProcessDialog.dismiss();
+        }
+    }
+
+    public void failureToast(Object object) {
+        if (object != null) {
+            String ts = object.toString();
+            if (ts != null && ts.trim().length() > 0) {
+                ToastUtils.toastLong(this, ts);
+            } else {
+                if (isNetworkAvailable(this))
+                    ToastUtils.toastLong(this,
+                            getString(R.string.app_request_failture));
+                else
+                    ToastUtils.toastLong(this,
+                            getString(R.string.app_request_network_error));
+            }
+        } else {
+            if (isNetworkAvailable(this))
+                ToastUtils.toastLong(this,
+                        getString(R.string.app_request_failture));
+            else
+                ToastUtils.toastLong(this,
+                        getString(R.string.app_request_network_error));
+        }
+    }
+
+    public boolean isNetworkAvailable(Context context) {
+        ConnectivityManager cm = (ConnectivityManager) context
+                .getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (cm == null) {
+            return false;
+        } else {
+            NetworkInfo[] info = cm.getAllNetworkInfo();
+            if (info != null) {
+                for (int i = 0; i < info.length; i++) {
+                    if (info[i].getState() == NetworkInfo.State.CONNECTED) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+    }
+
+    /**
+     * 1圆角2圆
+     */
+    public void display(final ImageView imageView, String url,
+                        int failureImage) {
+        ImageLoader.getInstance().displayImage(url, imageView, getDisplayImageOptions(failureImage));
+
+    }
+
+    public DisplayImageOptions getDisplayImageOptions(int defaultImg) {
+        DisplayImageOptions menu_options = new DisplayImageOptions.Builder()
+                .cacheInMemory(true).cacheOnDisk(true)
+                .resetViewBeforeLoading(true)
+//                .delayBeforeLoading(1000)
+                .bitmapConfig(Bitmap.Config.RGB_565)
+                .displayer(new FadeInBitmapDisplayer(1000, true, true, false))
+                .imageScaleType(ImageScaleType.EXACTLY)
+                .showImageForEmptyUri(defaultImg).showImageOnFail(defaultImg)
+                .showImageOnLoading(defaultImg).build();
+        return menu_options;
+    }
+
+    public void sendMsg(Handler handler, int what, Object object) {
+        Message message = handler.obtainMessage();
+        message.what = what;
+        message.obj = object;
+        handler.sendMessage(message);
+    }
+
+    public void calcuAdersWidth(final View view, final float scale, final int width) {
+
+        view.post(new Runnable() {
+            @Override
+            public void run() {
+                ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
+//                DisplayMetrics displayMetrics = new DisplayMetrics();
+//                getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+//                layoutParams.height = (int) (displayMetrics.widthPixels * scale);
+
+                AppLog.D("layoutParams.widthlayoutParams.widthlayoutParams.width:" + layoutParams.width);
+                layoutParams.height = (int) (width * scale);
+                view.setLayoutParams(layoutParams);
+                view.postInvalidate();
+            }
+        });
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == IntentFinal.LOGIN_SUCCESS_RESULT_CODE) {
+            loginSuccess();
+        }
+    }
+
+    public void loginSuccess() {
+    }
+
+
+    private MyBroadCast myBroadCast;
+
+    private void initAppMsgBroad() {
+        myBroadCast = new MyBroadCast(this, new String[]{IntentFinal.BROADCAST_QUIT_ACTIVITY});
+        myBroadCast.setOnMyBroadCastListener(new MyBroadCast.MyBroadCastListener() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                if (intent.getAction().equals(IntentFinal.BROADCAST_QUIT_ACTIVITY) && quitOfParent()) {
+                    finish();
+                }
+            }
+        });
+    }
+
+    public boolean quitOfParent() {
+        return true;
+    }
+
+    public String nameModify(String name) {
+        return name.substring(0, 1) + "老师";
+    }
+}

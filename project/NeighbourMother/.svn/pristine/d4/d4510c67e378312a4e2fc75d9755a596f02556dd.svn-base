@@ -1,0 +1,258 @@
+package com.qiantang.neighbourmother.adapter;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.TextUtils;
+import android.text.style.AbsoluteSizeSpan;
+import android.text.style.ForegroundColorSpan;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import com.qiantang.neighbourmother.R;
+import com.qiantang.neighbourmother.business.API;
+import com.qiantang.neighbourmother.model.HomeItemChildObj;
+import com.qiantang.neighbourmother.model.HomeItemObj;
+import com.qiantang.neighbourmother.model.ToAttacheDetailObj;
+import com.qiantang.neighbourmother.ui.BaseActivity;
+import com.qiantang.neighbourmother.ui.home.AttacheDetailsActivity;
+import com.qiantang.neighbourmother.util.IntentFinal;
+import com.qiantang.neighbourmother.util.QLScreenUtil;
+import com.qiantang.neighbourmother.widget.CircleImageView;
+import com.qiantang.neighbourmother.widget.RatingBar;
+
+import java.util.ArrayList;
+
+/**
+ * Created by quliang on 16-9-18.
+ */
+public class HomeAdapter extends BaseAdapter {
+    private ArrayList<HomeItemObj> arrayList = new ArrayList<HomeItemObj>();
+    private LayoutInflater mLayoutInflater;
+    private Activity context;
+    private int dataSize;
+
+    public HomeAdapter(Activity context) {
+        this.context = context;
+        mLayoutInflater = LayoutInflater.from(context);
+    }
+
+    @Override
+    public void notifyDataSetChanged() {
+        dataSize = arrayList.size();
+        super.notifyDataSetChanged();
+
+    }
+
+    public ArrayList<HomeItemObj> getDataList() {
+        return arrayList;
+    }
+
+    @Override
+    public int getCount() {
+        // TODO Auto-generated method stub
+        return arrayList.size();
+    }
+
+    @Override
+    public Object getItem(int position) {
+        if (getCount() <= 0 || position >= getCount())
+            return null;
+        return arrayList.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public View getView(final int position, View convertView, ViewGroup parent) {
+        Holder mHolder = new Holder();
+        if (convertView == null) {
+            convertView = mLayoutInflater.inflate(R.layout.item_home, null);
+
+            mHolder.item1 = (RelativeLayout) convertView.findViewById(R.id.item1);
+            mHolder.sex_bg1 = (ImageView) convertView.findViewById(R.id.sex_bg1);
+            mHolder.sex1 = (ImageView) convertView.findViewById(R.id.sex1);
+            mHolder.ratingBar1 = (RatingBar) convertView.findViewById(R.id.ratingBar1);
+            mHolder.name1 = (TextView) convertView.findViewById(R.id.name1);
+            mHolder.tag1 = (TextView) convertView.findViewById(R.id.tag1);
+            mHolder.cimg1 = (CircleImageView) convertView.findViewById(R.id.cimg1);
+            mHolder.government1 = (ImageView) convertView.findViewById(R.id.government1);
+
+            mHolder.item2 = (RelativeLayout) convertView.findViewById(R.id.item2);
+            mHolder.sex_bg2 = (ImageView) convertView.findViewById(R.id.sex_bg2);
+            mHolder.sex2 = (ImageView) convertView.findViewById(R.id.sex2);
+            mHolder.ratingBar2 = (RatingBar) convertView.findViewById(R.id.ratingBar2);
+            mHolder.name2 = (TextView) convertView.findViewById(R.id.name2);
+            mHolder.tag2 = (TextView) convertView.findViewById(R.id.tag2);
+            mHolder.cimg2 = (CircleImageView) convertView.findViewById(R.id.cimg2);
+            mHolder.government2 = (ImageView) convertView.findViewById(R.id.government2);
+
+            mHolder.item3 = (RelativeLayout) convertView.findViewById(R.id.item3);
+            mHolder.sex_bg3 = (ImageView) convertView.findViewById(R.id.sex_bg3);
+            mHolder.sex3 = (ImageView) convertView.findViewById(R.id.sex3);
+            mHolder.ratingBar3 = (RatingBar) convertView.findViewById(R.id.ratingBar3);
+            mHolder.name3 = (TextView) convertView.findViewById(R.id.name3);
+            mHolder.tag3 = (TextView) convertView.findViewById(R.id.tag3);
+            mHolder.cimg3 = (CircleImageView) convertView.findViewById(R.id.cimg3);
+            mHolder.government3 = (ImageView) convertView.findViewById(R.id.government3);
+
+
+
+
+            convertView.setTag(mHolder);
+        } else {
+            mHolder = (Holder) convertView.getTag();
+        }
+        setData(arrayList.get(position), position, mHolder);
+
+        return convertView;
+    }
+
+    private void setData(HomeItemObj homeItemObj, int position, Holder mHolder) {
+
+        if (homeItemObj.getChildObj1() != null) {
+            mHolder.item1.setVisibility(View.VISIBLE);
+            byTypeFindData(1, homeItemObj, position, mHolder);
+        } else {
+            mHolder.item1.setVisibility(View.INVISIBLE);
+        }
+
+        if (homeItemObj.getChildObj2() != null) {
+            mHolder.item2.setVisibility(View.VISIBLE);
+            byTypeFindData(2, homeItemObj, position, mHolder);
+        } else {
+            mHolder.item2.setVisibility(View.INVISIBLE);
+        }
+
+        if (homeItemObj.getChildObj3() != null) {
+            mHolder.item3.setVisibility(View.VISIBLE);
+            byTypeFindData(3, homeItemObj, position, mHolder);
+        } else {
+            mHolder.item3.setVisibility(View.INVISIBLE);
+        }
+    }
+
+    private void byTypeFindData(int type, HomeItemObj homeItemObj, int position, Holder mHolder) {
+        switch (type) {
+            case 1:
+                mHolder.item1.setOnClickListener(new MyOnClick(homeItemObj.getChildObj1()));
+                mHolder.sex_bg1.setBackgroundResource(homeItemObj.getChildObj1().getUser_gender() == 1 ? R.drawable.home_item_sex_man_bg : R.drawable.home_item_sex_women_bg);
+                mHolder.sex1.setSelected(homeItemObj.getChildObj1().getUser_gender() == 2);
+
+                if (homeItemObj.getChildObj1().getUser_star() <= 0) {
+                    mHolder.ratingBar1.setVisibility(View.GONE);
+                } else {
+                    mHolder.ratingBar1.setVisibility(View.VISIBLE);
+                    mHolder.ratingBar1.setStar(homeItemObj.getChildObj1().getUser_star());
+                }
+                mHolder.tag1.setText(homeItemObj.getChildObj1().getServant_type_string());
+                ((BaseActivity) context).display(mHolder.cimg1, API.BASE_IMG_URL + homeItemObj.getChildObj1().getUser_avatar(), R.mipmap.default_img);
+                setNameAndSex(homeItemObj.getChildObj1().getUser_name(), homeItemObj.getChildObj1().getUser_age(), mHolder.name1, homeItemObj.getChildObj1().getUser_gender());
+                mHolder.government1.setVisibility(homeItemObj.getChildObj1().getUser_type()==3?View.VISIBLE:View.GONE);
+                break;
+
+            case 2:
+                mHolder.item2.setOnClickListener(new MyOnClick(homeItemObj.getChildObj2()));
+                mHolder.sex_bg2.setBackgroundResource(homeItemObj.getChildObj2().getUser_gender() == 1 ? R.drawable.home_item_sex_man_bg : R.drawable.home_item_sex_women_bg);
+                mHolder.sex2.setSelected(homeItemObj.getChildObj2().getUser_gender() == 2);
+                if (homeItemObj.getChildObj2().getUser_star() <= 0) {
+                    mHolder.ratingBar2.setVisibility(View.GONE);
+                } else {
+                    mHolder.ratingBar2.setVisibility(View.VISIBLE);
+                    mHolder.ratingBar2.setStar(homeItemObj.getChildObj2().getUser_star());
+                }
+                mHolder.tag2.setText(homeItemObj.getChildObj2().getServant_type_string());
+                ((BaseActivity) context).display(mHolder.cimg2, API.BASE_IMG_URL + homeItemObj.getChildObj2().getUser_avatar(), R.mipmap.default_img);
+                setNameAndSex(homeItemObj.getChildObj2().getUser_name(), homeItemObj.getChildObj2().getUser_age(), mHolder.name2, homeItemObj.getChildObj2().getUser_gender());
+                mHolder.government2.setVisibility(homeItemObj.getChildObj2().getUser_type()==3?View.VISIBLE:View.GONE);
+                break;
+
+            case 3:
+                mHolder.item3.setOnClickListener(new MyOnClick(homeItemObj.getChildObj3()));
+                mHolder.sex_bg3.setBackgroundResource(homeItemObj.getChildObj3().getUser_gender() == 1 ? R.drawable.home_item_sex_man_bg : R.drawable.home_item_sex_women_bg);
+                mHolder.sex3.setSelected(homeItemObj.getChildObj3().getUser_gender() == 2);
+                if (homeItemObj.getChildObj3().getUser_star() <= 0) {
+                    mHolder.ratingBar3.setVisibility(View.GONE);
+                } else {
+                    mHolder.ratingBar3.setVisibility(View.VISIBLE);
+                    mHolder.ratingBar3.setStar(homeItemObj.getChildObj3().getUser_star());
+                }
+                mHolder.tag3.setText(homeItemObj.getChildObj3().getServant_type_string());
+                ((BaseActivity) context).display(mHolder.cimg3, API.BASE_IMG_URL + homeItemObj.getChildObj3().getUser_avatar(), R.mipmap.default_img);
+                setNameAndSex(homeItemObj.getChildObj3().getUser_name(), homeItemObj.getChildObj3().getUser_age(), mHolder.name3, homeItemObj.getChildObj3().getUser_gender());
+                mHolder.government3.setVisibility(homeItemObj.getChildObj3().getUser_type()==3?View.VISIBLE:View.GONE);
+                break;
+        }
+    }
+
+    private class Holder {
+        RelativeLayout item1;
+        ImageView sex_bg1;
+        ImageView sex1;
+        RatingBar ratingBar1;
+        TextView name1;
+        TextView tag1;
+        CircleImageView cimg1;
+        ImageView government1;
+
+        RelativeLayout item2;
+        ImageView sex_bg2;
+        ImageView sex2;
+        RatingBar ratingBar2;
+        TextView name2;
+        TextView tag2;
+        CircleImageView cimg2;
+        ImageView government2;
+
+        RelativeLayout item3;
+        ImageView sex_bg3;
+        ImageView sex3;
+        RatingBar ratingBar3;
+        TextView name3;
+        TextView tag3;
+        CircleImageView cimg3;
+        ImageView government3;
+    }
+
+    class MyOnClick implements View.OnClickListener {
+        HomeItemChildObj homeItemChildObj;
+
+        MyOnClick(HomeItemChildObj homeItemChildObj) {
+            this.homeItemChildObj = homeItemChildObj;
+        }
+
+        @Override
+        public void onClick(View view) {
+            Intent intent = new Intent(context, AttacheDetailsActivity.class);
+            intent.putExtra(IntentFinal.INTENT_ATTACHE_OBJ, new ToAttacheDetailObj(homeItemChildObj.getUser_id(), 1));
+            context.startActivity(intent);
+        }
+    }
+
+    private void setNameAndSex(String name, String sex, TextView textView, int gender) {
+        ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(context.getResources().getColor(R.color.app_item_title));
+        AbsoluteSizeSpan absoluteSizeSpan = new AbsoluteSizeSpan((int) QLScreenUtil.dpToPx(context, 15));
+        String username = name;
+        if (!TextUtils.isEmpty(username) && username.length() > 1) {
+            if (gender == 1) {
+                username = username.substring(0, 1) + "爸爸";
+            } else {
+                username = username.substring(0, 1) + "妈妈";
+            }
+        }
+        SpannableString spannableString = new SpannableString(username + "   " + sex);
+        spannableString.setSpan(foregroundColorSpan, 0, username.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spannableString.setSpan(absoluteSizeSpan, 0, username.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        textView.setText(spannableString);
+    }
+
+}

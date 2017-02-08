@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <WebView
+        android:id="@+id/web"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/rl_bottom"
+        android:scrollbars="none">
+
+    </WebView>
+
+
+    <RelativeLayout
+        android:id="@+id/rl_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:visibility="gone">
+
+        <View
+            android:id="@+id/line"
+            style="@style/app_item_line_style"
+            android:layout_width="match_parent"></View>
+
+        <TextView
+            android:layout_centerInParent="true"
+            android:id="@+id/btn_downOrder"
+            style="@style/app_button_style"
+            android:layout_below="@+id/line"
+            android:layout_marginLeft="@dimen/app_red_btn_dimen"
+            android:layout_marginRight="@dimen/app_red_btn_dimen"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/login_btn_backgroud"
+            android:text="我要下单" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_below="@+id/btn_downOrder"></View>
+    </RelativeLayout>
+</RelativeLayout>

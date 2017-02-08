@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_bg"
+    >
+
+    <RelativeLayout
+        android:id="@+id/rela_top"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_title_height"
+        android:background="@color/app_title_bg">
+
+        <ImageView
+            android:id="@+id/back"
+            style="@style/app_title_icon_style"
+            android:layout_centerVertical="true"
+            android:longClickable="false"
+            android:src="@mipmap/back" />
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/app_title_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/back"
+            android:layout_toLeftOf="@+id/research"
+            android:layout_toRightOf="@+id/back"
+            android:layout_toStartOf="@+id/org_edit"
+            android:gravity="center"
+            android:text="@string/bind_bank_card" />
+
+        <TextView
+            android:id="@+id/org_edit"
+            style="@style/app_title_icon_style"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_backicon_margin_left"
+            android:gravity="center"
+            android:longClickable="false"
+            android:padding="@dimen/dimen_backicon_padding_left"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/research"
+            style="@style/app_title_icon_style"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/add"
+            android:longClickable="false"
+            android:padding="@dimen/dimen_backicon_padding_left"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_bind_back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rela_top"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/app_left_right_size"
+                android:layout_marginRight="@dimen/app_left_right_size"
+                android:paddingBottom="@dimen/center_view_padding"
+                android:paddingTop="@dimen/center_view_padding">
+
+                <TextView
+                    android:id="@+id/open_bank_text"
+                    style="@style/black_text_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/bbca_open_bank" />
+
+                <EditText
+                    android:id="@+id/open_bank"
+                    style="@style/gray_text_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/open_bank_text"
+                    android:background="@null"
+                    android:gravity="right"
+                    android:hint="请输入开户行"
+                    android:singleLine="true" />
+            </RelativeLayout>
+
+            <View
+                style="@style/app_item_line_style"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="@dimen/app_left_right_size"></View>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/app_left_right_size"
+                android:layout_marginRight="@dimen/app_left_right_size"
+                android:paddingBottom="@dimen/center_view_padding"
+                android:paddingTop="@dimen/center_view_padding">
+
+                <TextView
+                    android:id="@+id/bank_card_no_text"
+                    style="@style/black_text_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/bbca_open_bank_card" />
+
+                <EditText
+                    android:id="@+id/bank_card_no"
+                    style="@style/gray_text_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/bank_card_no_text"
+                    android:background="@null"
+                    android:digits="0123456789 "
+                    android:gravity="right"
+                    android:hint="请输入银行卡号"
+                    android:inputType="number"
+                    android:maxLength="23"
+                    android:numeric="integer"
+                    android:singleLine="true" />
+            </RelativeLayout>
+
+            <View
+                style="@style/app_item_line_style"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="@dimen/app_left_right_size"></View>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/app_left_right_size"
+                android:layout_marginRight="@dimen/app_left_right_size"
+                android:paddingBottom="@dimen/center_view_padding"
+                android:paddingTop="@dimen/center_view_padding">
+
+                <TextView
+                    android:id="@+id/open_bank_name_text"
+                    style="@style/black_text_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/bbca_open_bank_name" />
+
+                <EditText
+                    android:id="@+id/open_bank_name"
+                    style="@style/gray_text_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/open_bank_name_text"
+                    android:background="@null"
+                    android:gravity="right"
+                    android:hint="请输入户名"
+                    android:singleLine="true" />
+            </RelativeLayout>
+
+            <View
+                style="@style/app_item_line_style"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="@dimen/app_left_right_size"></View>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/app_left_right_size"
+                android:layout_marginRight="@dimen/app_left_right_size"
+                android:paddingBottom="@dimen/center_view_padding"
+                android:paddingTop="@dimen/center_view_padding">
+
+
+                <ImageView
+                    android:id="@+id/iv_status"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@+id/open_bank_bind_status"
+                    android:src="@mipmap/icon_identification"
+                    android:visibility="invisible" />
+
+                <TextView
+                    android:id="@+id/open_bank_bind_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/bbca_open_bank_bind"
+                    android:textColor="@color/app_item_content"
+                    android:textSize="14sp"
+                    android:visibility="invisible" />
+
+
+            </RelativeLayout>
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/btn_binding"
+            style="@style/app_button_style"
+            android:layout_below="@+id/ll_bind_back"
+            android:layout_marginLeft="@dimen/app_left_right_size"
+            android:layout_marginRight="@dimen/app_left_right_size"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/login_btn_backgroud"
+            android:text="@string/bbca_bind" />
+    </LinearLayout>
+</RelativeLayout>

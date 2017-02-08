@@ -1,0 +1,231 @@
+package com.qiantang.neighbourmother.ui.community;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Message;
+import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import com.qiantang.neighbourmother.R;
+import com.qiantang.neighbourmother.adapter.CommAdapter;
+import com.qiantang.neighbourmother.business.API;
+import com.qiantang.neighbourmother.business.data.AppraiseHttp;
+import com.qiantang.neighbourmother.business.data.PosterDetailHttp;
+import com.qiantang.neighbourmother.business.request.PosterAppraiseReq;
+import com.qiantang.neighbourmother.business.request.PosterDetailReq;
+import com.qiantang.neighbourmother.business.response.PosterDetailResp;
+import com.qiantang.neighbourmother.model.CommObj;
+import com.qiantang.neighbourmother.model.PostObj;
+import com.qiantang.neighbourmother.othershared.ShareObj;
+import com.qiantang.neighbourmother.ui.BaseActivity;
+import com.qiantang.neighbourmother.ui.dialog.SharedDialog;
+import com.qiantang.neighbourmother.util.IntentFinal;
+import com.qiantang.neighbourmother.util.ToastUtils;
+import com.qiantang.neighbourmother.widget.refreshview.XListView;
+
+import java.util.List;
+
+/**
+ * Created by quliang on 16-12-6.
+ */
+
+public class PosterDetailActivity extends BaseActivity implements View.OnClickListener {
+    private ImageView        back;
+    private XListView        xListView;
+    private LinearLayout     shared;
+    private LinearLayout     comm;
+    private TextView         commText;
+    private LinearLayout     praise;
+    private TextView         praiseText;
+    private LinearLayout     btm_linear;
+    private CommAdapter      commAdapter;
+    private ImageView        praise_image;
+    private PostObj          postObj;
+    private PosterDetailResp posterDetailResp;
+
+    @Override
+    public int getContentView() {
+        return R.layout.activity_posterdetail;
+    }
+
+    @Override
+    public void initView() {
+        back = (ImageView) findViewById(R.id.back);
+        xListView = (XListView) findViewById(R.id.xListView);
+        xListView.setPullLoadEnable(false);
+        shared = (LinearLayout) findViewById(R.id.shared);
+        comm = (LinearLayout) findViewById(R.id.comm);
+        praise = (LinearLayout) findViewById(R.id.praise);
+        btm_linear = (LinearLayout) findViewById(R.id.btm_linear);
+        commText = (TextView) findViewById(R.id.commText);
+        praiseText = (TextView) findViewById(R.id.praiseText);
+        praise_image = (ImageView) findViewById(R.id.praise_image);
+        loadHeadView();
+    }
+
+    @Override
+    public void initData() {
+        postObj = (PostObj) getIntent().getSerializableExtra(IntentFinal.INTENT_POSTER_DETAIL_OBJ);
+
+        commAdapter = new CommAdapter(this);
+//        commAdapter.getDataList().add(new CommObj());
+//        commAdapter.getDataList().add(new CommObj());
+//        commAdapter.getDataList().add(new CommObj());
+//        commAdapter.getDataList().add(new CommObj());
+//        commAdapter.getDataList().add(new CommObj());
+//        commAdapter.getDataList().add(new CommObj());
+        xListView.addHeaderView(headView);
+        xListView.setAdapter(commAdapter);
+
+        getHttpData(true);
+    }
+
+    @Override
+    public void initEvent() {
+        back.setOnClickListener(this);
+        shared.setOnClickListener(this);
+        comm.setOnClickListener(this);
+        praise.setOnClickListener(this);
+        xListView.setXListViewListener(new XListView.IXListViewListener() {
+            @Override
+            public void onRefresh() {
+                getHttpData(true);
+            }
+
+            @Override
+            public void onLoadMore() {
+                getHttpData(false);
+            }
+        });
+
+        webView.setWebViewClient(new WebViewClient() {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                view.loadUrl(url);// 使用当前WebView处理跳转
+                return true;
+            }
+        });
+    }
+
+    @Override
+    protected void updateUI(Message msg) {
+        switch (msg.what) {
+            case 1:
+                xListView.setVisibility(View.VISIBLE);
+                btm_linear.setVisibility(View.VISIBLE);
+                posterDetailResp = (PosterDetailResp) msg.obj;
+                webView.loadUrl(posterDetailResp.getPost().getUrl());
+                commText.setText(posterDetailResp.getPost().getComment() + "");
+                praiseText.setText(posterDetailResp.getPost().getLike() + "");
+                praise_image.setSelected(posterDetailResp.getPost().getLiked() == 1);
+                setData(posterDetailResp.getComment(), true);
+                break;
+            case 2:
+                PosterDetailResp posterDetailResp1 = (PosterDetailResp) msg.obj;
+                setData(posterDetailResp1.getComment(), false);
+                break;
+            case 3:
+                posterDetailResp.getPost().setLike(posterDetailResp.getPost().getLike() + 1);
+                praiseText.setText(posterDetailResp.getPost().getLike() + "");
+                praise_image.setSelected(true);
+                break;
+        }
+        closeProgressDialog();
+    }
+
+
+    private void setData(List<CommObj> homeItemObjs, boolean isFirst) {
+        if (isFirst) {
+            commAdapter.getDataList().clear();
+        }
+        if (homeItemObjs != null && homeItemObjs.size() > 0) {
+
+            commAdapter.getDataList().addAll(homeItemObjs);
+            if (homeItemObjs.size() < 10) {
+                xListView.setPullLoadEnable(false);
+            } else {
+                xListView.setPullLoadEnable(true);
+            }
+        } else {
+            if (!isFirst)
+                ToastUtils.toastshort(this, getString(R.string.app_pull_already_last_page));
+        }
+        commAdapter.notifyDataSetChanged();
+        xListView.aotuRefreshComplete();
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.back:
+                finish();
+                break;
+            case R.id.shared:
+                showDialog();
+                break;
+            case R.id.comm:
+                Intent intent = new Intent(this, PublicCommActivity.class);
+                intent.putExtra(IntentFinal.INTENT_POSTER_DETAIL_OBJ, postObj);
+                startActivityForResult(intent, 0);
+                break;
+            case R.id.praise:
+                new AppraiseHttp(this, handler, new PosterAppraiseReq(postObj.getPost_id()), 3);
+                break;
+        }
+    }
+
+
+    private void getHttpData(boolean isFirstLoad) {
+        new PosterDetailHttp(this, handler, new PosterDetailReq(postObj.getPost_id(), API.COUNT, isFirstLoad == true ? 0 : commAdapter.getDataList().size()), isFirstLoad == true ? 1 : 2);
+    }
+
+    private View    headView;
+    private WebView webView;
+
+    private void loadHeadView() {
+        headView = getLayoutInflater().inflate(R.layout.layout_postdetail_head, null);
+        webView = (WebView) headView.findViewById(R.id.webview);
+        WebSettings settings = webView.getSettings();
+        settings.setJavaScriptEnabled(true);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (sharedDialog != null) {
+            sharedDialog.shared.onActivityResult(requestCode, resultCode, data);
+        }
+        switch (resultCode) {
+            case 10:
+                getHttpData(true);
+                break;
+        }
+    }
+
+    private SharedDialog sharedDialog;
+
+    private void showDialog() {
+        if (sharedDialog == null) {
+            sharedDialog = new SharedDialog();
+            Bundle bundle = new Bundle();
+            bundle.putSerializable(IntentFinal.INTENT_CONMMUNITY_SHARE_OBJ,
+                    new ShareObj(posterDetailResp.getPost().getUrl(), getResources().getString(R.string.pdetail_share_title),
+                            postObj.getPost_title()));
+            sharedDialog.setArguments(bundle);
+        }
+        sharedDialog.show(getSupportFragmentManager(), "sharedDialog");
+    }
+
+//    @Override
+//    protected void onNewIntent(Intent intent) {
+//        super.onNewIntent(intent);
+//        if (sharedDialog != null)
+//            sharedDialog.onNewIntent(intent);
+//    }
+}

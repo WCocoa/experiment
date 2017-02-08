@@ -1,0 +1,46 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+
+    <!-- title高度. -->
+    <dimen name="dimen_title_height">45dp</dimen>
+    <dimen name="dimen_backicon_margin_left">5dp</dimen>
+    <dimen name="dimen_backicon_padding_left">5dp</dimen>
+    <dimen name="dimen_title_text_padding_left">10dp</dimen>
+    <dimen name="app_item_title">16sp</dimen>
+    <dimen name="app_content_top">15dp</dimen>
+    <!-- title font -->
+    <dimen name="title">18sp</dimen>
+    <!--left  right  margin-->
+    <dimen name="app_left_right_size">16dp</dimen>
+
+    <!--HomeFragment-->
+    <dimen name="home_category">80dp</dimen>
+    <dimen name="home_item_sex_bg">40dp</dimen>
+    <dimen name="home_item_name_font">12sp</dimen>
+    <dimen name="home_item_img_top">10dp</dimen>
+    <dimen name="home_item_service">12dp</dimen>
+    <dimen name="home_top_type">15dp</dimen>
+    <!-- item分割线高度 -->
+    <dimen name="app_line_hight">0.3dp</dimen>
+
+    <!--中心条目padding-->
+    <dimen name="center_view_padding">10dp</dimen>
+
+    <!--CommissionerApplyOneActivity-->
+    <dimen name="commiaoa_id_card_delete">18dp</dimen>
+
+    <!--DownOrderActivity-->
+    <dimen name="downorder_head_img">80dp</dimen>
+    <dimen name="downorder_get_map_point_icon">3dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <!--SposterActivity-->
+    <dimen name="sposter_btm_wh">30dp</dimen>
+    <dimen name="active_detail_tags">10sp</dimen>
+    <!-- shareddialod-->
+    <dimen name="icon_size">40dp</dimen>
+    <dimen name="shared_item_padding">15dp</dimen>
+    <dimen name="text_top">10dp</dimen>
+    <dimen name="item_padding">6dp</dimen>
+</resources>
+

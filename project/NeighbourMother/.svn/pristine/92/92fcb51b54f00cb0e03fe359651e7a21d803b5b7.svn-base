@@ -1,0 +1,590 @@
+<resources>
+
+    <!-- application -->
+    <string name="app_name">临家妈妈</string>
+    <string name="app_pull_not_data">暂无数据</string>
+    <string name="app_pull_already_last_page">最后一页了</string>
+    <string name="app_not_exist">文件不存在</string>
+    <string name="default_show_province">陕西</string>
+    <string name="default_show_city">西安</string>
+    <string name="app_money_symbol">￥</string>
+    <string name="app_child_info_invlid">请编辑孩子信息</string>
+    <!-- 上下拉刷新 -->
+    <string name="xlistview_header_hint_normal">下拉刷新</string>
+    <string name="xlistview_header_hint_ready">下拉刷新</string>
+    <string name="xlistview_header_hint_loading">正在加载</string>
+    <string name="xlistview_header_last_time">上次更新时间：</string>
+    <string name="xlistview_footer_hint_normal">查看更多</string>
+    <string name="xlistview_footer_hint_ready">松开载入更多</string>
+
+    <!-- BaseActivity -->
+    <string name="app_request_failture">请求服务器失败</string>
+    <string name="app_request_network_error">网络异常，请检查您的网络设置！</string>
+
+    <!-- MainTabActivity -->
+    <string name="homeTab_home">首页</string>
+    <string name="homeTab_order">订单</string>
+    <string name="homeTab_center">中心</string>
+    <string name="homeTab_conmmunity">社群</string>
+
+    <!-- HomeFragment -->
+    <string name="homefrag_category1">接送</string>
+    <string name="homefrag_category2">看护</string>
+    <string name="homefrag_category3">辅导</string>
+    <string name="homefrag_category4">专车</string>
+    <string name="homefrag_please_finish_neighbourhood_info">请完善小区信息</string>
+    <string name="homefrag_top_nurse_summary">幼教老师专业看护</string>
+    <string name="homefrag_top_shuttle_summary">美妈团贴心接送</string>
+    <string name="homefrag_item_come_order_number">接单量:</string>
+
+    <!--VersionUpdateDialog-->
+    <string name="about_version_dialog_title">版本更新提示</string>
+    <string name="about_version_dialog_sure">确定</string>
+    <string name="exitLogin_cancer">取消</string>
+
+    <!--DownOrderSureDialog-->
+    <string name="dor_dialog_title">提示</string>
+    <string name="dor_dialog_content">您所选择的服务与专员服务不匹配，是否继续？</string>
+    <string name="dor_dialog_sure">继续</string>
+
+    <!-- LPFileUtil -->
+    <string name="lpfileutil_unidentified_sdcard">未识别SDCard！</string>
+
+    <!-- ImgcImgDetail -->
+    <string name="string_more_five_img_prefix">最多中能选择</string>
+    <string name="string_more_five_img_suffix">张图片!</string>
+
+    <!-- ImgcImgDetailActivity -->
+    <string name="img_title">选择相册</string>
+    <string name="img_cancle">取消</string>
+    <string name="img_send">发送</string>
+
+    <!-- TakeImage -->
+    <string name="takeImage_sdcard_hint">请确认已经插入SD卡</string>
+    <!-- dialog_photo_choose -->
+    <string name="dialog_choose_imglibs">图库</string>
+    <string name="dialog_choose_camera">拍照</string>
+    <string name="dialog_choose_cancer">取消</string>
+
+    <!--DataPickerActivity-->
+    <string name="datapicker_title">日期选择</string>
+    <string name="datapicker_right_btn">确定</string>
+    <string name="datapicker_submit_desc">请选择日期</string>
+
+    <!--LoginActivity-->
+    <string name="code_time_send">验证码发送,请注意查收短信,有效时间2分钟！</string>
+    <string name="phone_is_not_empty">手机号码不能为空！</string>
+    <string name="code_is_not_empty">验证码不能为空！</string>
+    <string name="input_phone_not_error">请输入正确的手机号！</string>
+    <string name="send_code_text">获取验证码</string>
+    <string name="input_phone_hint">请输入您的手机号</string>
+    <string name="input_code_hint">请输入验证码</string>
+
+    <!--ServiceIntroduceActivity-->
+    <string name="pick_up_title">接送服务</string>
+    <string name="nures_title">看护服务</string>
+    <string name="service_introduce_title">服务介绍</string>
+
+    <!-- CityListActivity-->
+    <string name="cityListActivity_title">城市列表</string>
+    <string name="cityListActivity_current_city">当前城市：</string>
+    <!-- NeighbourhoodDialog-->
+    <string name="neighbourd_edit_hint">请输入小区名称</string>
+    <string name="neighbourd_sure">确定</string>
+    <!-- CommissionerrecruitActivity-->
+    <string name="commirec_title">专员招募</string>
+    <string name="commirec_submit">申请专员</string>
+    <string name="commirec_service_js">接送服务</string>
+    <string name="commirec_service_kh">看护服务</string>
+    <string name="commirec_service_fd">辅导服务</string>
+    <string name="commirec_service_zc">专车服务</string>
+    <string name="commirec_top_content">知府教育将在本市范围内招募符合资质的孩子家长，
+成为我们的兼职专员。若您是有零碎时间的兼职妈妈，
+或者驾车上下班顺路的孩子老爸，我们都欢迎您的加
+入。您的随手之劳不仅会为其他孩子带来无尽的便利，
+也会为您提供一笔可观的额外收入！</string>
+    <string name="commirec_service_apply">申领要求</string>
+    <string name="commirec_service_fw_limit">服务限制</string>
+    <string name="commirec_service_area_limit">区域限制</string>
+    <string name="commirec_service_child_limit">孩子限制</string>
+    <string name="commirec_service_other_limit">其他限制</string>
+    <string name="commirec_service_vehicle_limit">车辆限制</string>
+    <string name="commirec_service_fw_limit_desc">仅限申请本小区或临近小区</string>
+    <string name="commirec_service_area_limit_desc">必须是小区业主或常住居民</string>
+    <string name="commirec_service_child_limit_desc">必须是孩子家长</string>
+    <string name="commirec_service_vehicle_limit_desc">申请专车接送必须有私家车</string>
+    <string name="commirec_service_other_limit_woman">女性优先</string>
+    <string name="commirec_service_other_limit_teacher">教师优先</string>
+    <string name="commirec_service_other_limit_man">男性优先</string>
+
+
+    <!--CenterFragment-->
+    <string name="center_edit_info">编辑资料</string>
+    <string name="children_info">孩子信息</string>
+    <string name="commissioner_info">专员资料</string>
+    <string name="commissioner_recruit">专员招募</string>
+    <string name="center_setting">设置</string>
+    <string name="customer_service_phone">客服电话</string>
+    <string name="account_balance">收入账户</string>
+    <string name="user_account_balance">帐户余额</string>
+    <string name="about_us">关于我们</string>
+    <string name="cusromer_phone_call">400-880-7963</string>
+
+    <!--AttacheAccountActivity-->
+    <string name="account_title">收入账户</string>
+    <string name="bind_bank_card">绑定银行卡</string>
+    <string name="withdraw_deposit">提现</string>
+    <string name="i_withdraw_deposit_bank">请绑定银行卡之后在进行提现！</string>
+    <string name="i_withdraw_deposit_balance">您目前没有可提现的金额！</string>
+
+
+    <!--UserAccountActivity-->
+    <string name="user_account_title">账户余额</string>
+    <string name="pay_text">充值</string>
+    <string name="pay_record">充值记录</string>
+    <!--BindBankCardActivity-->
+    <string name="bbca_open_bank">开户行</string>
+    <string name="bbca_open_bank_card">帐号</string>
+    <string name="bbca_open_bank_name">户名</string>
+    <string name="bbca_open_bank_bind">已绑定</string>
+    <string name="bbca_bind">绑定</string>
+    <string name="open_bank_isempty">请输入您的开户行！</string>
+    <string name="open_bank_card_isempty">请输入您的银行卡号！</string>
+    <string name="bank_card_length">请输入正确的银行卡号！</string>
+    <string name="bank_account">请输入您的账户！</string>
+    <string name="bank_info_update">请修改信息之后再次提交绑定！</string>
+
+    <!--BindBankDialog-->
+    <string name="bbd_line">.................................................................................................................................................................................................................................................................................................................................</string>
+    <string name="bbd_desc">我们将在24小时内核对您的申请信息，若申请成功，系统将自动为您绑定银行卡。</string>
+    <string name="bbd_account">户名</string>
+    <string name="bbd_bank_card">账号</string>
+    <string name="bbd_open_bank">开户行</string>
+    <string name="bbd_info">您的信息</string>
+
+    <!--WithdrawDepositActivity-->
+    <string name="wd_title">提现申请</string>
+    <string name="wd_bank_card">银行卡</string>
+    <string name="wd_money">提现金额</string>
+    <string name="wd_all">全部提现</string>
+    <string name="wd_complete">完成</string>
+    <string name="wd_isempty">请输入提现金额！</string>
+    <string name="wd_blance">提现金额不能大于余额！</string>
+    <string name="use_blance">"可用余额        "</string>
+
+    <!--WithdrawDepositDialog-->
+    <string name="orsd_title">申请成功</string>
+    <string name="wdd_message">我们会在24小时内审核您的信息，稍后我们的客服人员将与您联系，请保持手机通讯通畅.</string>
+    <string name="orsd_sure">确定</string>
+
+    <!--ChildrenInfoActivity-->
+    <string name="children_info_title">孩子信息</string>
+    <string name="children_info_edit">编辑</string>
+    <string name="children_info_basic">基本信息</string>
+    <string name="children_info_other">其他信息</string>
+    <string name="children_info_photo">头像</string>
+    <string name="children_info_input_hint">请输入</string>
+    <string name="name_text">真实姓名</string>
+    <string name="nickname_text">昵称</string>
+    <string name="username_text">姓名</string>
+    <string name="sex_text">性别</string>
+    <string name="school_text">学校</string>
+    <string name="grade_text">年级</string>
+    <string name="class_text">班级</string>
+    <string name="household_head_relation_text">户主关系</string>
+    <string name="home_address_text">家庭住址</string>
+    <string name="phone_text">手机</string>
+    <string name="emergency_contact_text">紧急联系人</string>
+    <string name="emergency_phone_text">紧急手机</string>
+    <!--ChildrenInfoEditActivity-->
+    <string name="headBitmap_isempty">请选择孩子头像！</string>
+    <string name="name_isempty">请输入孩子真实姓名！</string>
+    <string name="sex_isempty">请选择孩子性别！</string>
+    <string name="school_isempty">请输入孩子所在学校！</string>
+    <string name="grade_isempty">请输入孩子所在年级！</string>
+    <string name="classz_isempty">请输入孩子所在班级！</string>
+    <string name="household_head_relation_isempty">请选择您和孩子的关系！</string>
+    <string name="home_address_isempty">请输入家庭住址！</string>
+    <string name="phone_isempty">请输入手机号！</string>
+
+    <!--CommissionerApplyOneActivity-->
+    <string name="commisapp_title">专员审核表</string>
+    <string name="commisapp_title_cancer">取消</string>
+    <string name="commisapp_base_info_label">基本信息</string>
+    <string name="commisapp_name_label">姓名</string>
+    <string name="commisapp_sex_label">性别</string>
+    <string name="commisapp_age_label">年龄</string>
+    <string name="commisapp_address_label">地址</string>
+    <string name="commisapp_isowner_label">是否为业主</string>
+    <string name="commisapp_teacher_degree_label">受教育程度</string>
+    <string name="commisapp_atindustry_label">所处行业</string>
+    <string name="commisapp_please_input">请输入</string>
+    <string name="commisapp_please_choose">请选择</string>
+    <string name="commisapp_province_city_district">省市区</string>
+    <string name="commisapp_at_neighbourhood">所在小区</string>
+    <string name="commisapp_detail_address">详细地址</string>
+    <string name="commisapp_submit">保存并下一步</string>
+    <string name="placea_apply_doing">资质审核中,若再次提交会重新进行审核!</string>
+    <string name="placea_apply_failure">申请失败,您可再次提交重新进行审核!</string>
+    <string name="placea_apply_success">申请成功,若再次提交会重新进行审核!</string>
+    <string name="placea_please_finish_info">请完善信息</string>
+    <string name="placea_submit_finish">完成</string>
+
+    <!--CommissionerApplyTwoActivity-->
+    <string name="commisappt_upload_info">上传信息</string>
+    <string name="commisappt_standard">标准照</string>
+    <string name="commisappt_id_card">身份证</string>
+    <string name="commisappt_btn_previous">上一步</string>
+    <string name="commisappt_btn_next">保存并下一步</string>
+    <!--CommissionerApplyNurseActivity-->
+    <string name="commisappn_img1">图片1</string>
+    <string name="commisappn_img2">图片2</string>
+    <string name="commisappn_img3">图片3</string>
+    <string name="commisappn_finish">完成</string>
+    <string name="commisappn_environment_info">环境信息</string>
+    <!--CommissionerApplyCoachActivity-->
+    <string name="commisappc_teacher_qc">教师资格证\n或等同证明(可选)</string>
+    <string name="commisappc_dc">学历证明\n(大学或更高学历)</string>
+    <string name="commisappc_quali_info">资格信息</string>
+    <!--CommissionerApplySpecialcarActivity-->
+    <string name="commisappc_vehicle_brand">车牌</string>
+    <string name="commisappc_vehicle_type">车型</string>
+    <string name="commisappc_vehicle_condition">车况</string>
+    <string name="commisappc_vehicle_age">车龄</string>
+    <string name="commisappc_vehicle_camera">车辆照片</string>
+    <string name="commisappc_driver_info">驾驶员信息</string>
+    <string name="commisappc_driver_age">驾龄</string>
+    <string name="commisappc_driver_cer_no">驾驶证号码</string>
+
+    <!--VehicleConditionDialog-->
+    <string name="vcd_title">车况</string>
+    <string-array name="vehicleCondition_array">
+        <item>很好</item>
+        <item>较好</item>
+        <item>一般</item>
+        <item>较差</item>
+        <item>很差</item>
+    </string-array>
+    <!--VehicleTyleDialog-->
+    <string name="vct_title">车型</string>
+    <string-array name="vehicleType_array">
+        <item>小型车</item>
+        <item>微型车</item>
+        <item>紧凑车型</item>
+        <item>中等车型</item>
+        <item>高级车型</item>
+        <item>豪华车型</item>
+        <item>三厢车型</item>
+        <item>CDV车型</item>
+        <item>SUV车型</item>
+    </string-array>
+
+
+    <!--RelationShipDialog-->
+    <string name="rsd_title">与本人关系</string>
+    <string-array name="relationShip_array">
+        <item>父子</item>
+        <item>母子</item>
+        <item>祖孙</item>
+    </string-array>
+
+
+    <!--ShowSexDialog-->
+    <string name="showSexDialog_sex">性别</string>
+    <string-array name="showSexDialog_array">
+        <item>男</item>
+        <item>女</item>
+    </string-array>
+
+    <!--IsOwnerDialog-->
+    <string name="isOwnerDialog_isOwner">是否为业主</string>
+    <string-array name="isOwnerArray">
+        <item>是</item>
+        <item>否</item>
+    </string-array>
+
+    <!--AddMoneyDialog-->
+    <string name="addmoney_addmoney">追加的金额:</string>
+    <string name="addmoney_reason">理由:</string>
+    <string name="addmoney_now_pay">立即支付</string>
+    <!--OrderScoreDialog-->
+    <string name="orderscored_title">打个分吧</string>
+    <string name="orderscored_submit">提交</string>
+    <string name="orderscored_is_up_one">至少选择一星以上</string>
+
+    <!--AccountPayDialog-->
+    <string name="accountpay_need_pay">需支付</string>
+    <string name="accountpay_curr_momey">当前余额:</string>
+    <string name="accountpay_pay_surplus">支付完剩余:</string>
+    <string name="accountpay_prompt_pay">立即支付</string>
+
+    <!--CommisInfoSubSuccessDialog-->
+    <string name="commis_issd_subsuccess">提交成功!</string>
+    <string name="commis_issd_desc">我们的工作人员会尽快与您联系核对您的资料,请保持手机通讯畅通.</string>
+
+    <!--DownOrderActivity-->
+    <string name="downorder_title">下单</string>
+    <string name="downorder_choose_service_label">选择服务</string>
+    <string name="downorder_service_date_label">服务日期</string>
+    <string name="downorder_start_time_label">开始时间</string>
+    <string name="downorder_js_address_label">接送地点</string>
+    <string name="downorder_btn_map_location">地图定位</string>
+    <string name="downorder_nurse_address">看护地点</string>
+    <string name="downorder_cater">餐饮服务</string>
+    <string name="downorder_cater_sub">注:看护服务超时后,将自动延长服务并产生后续费用.</string>
+    <string name="downorder_plus_food">加餐</string>
+    <string name="downorder_extra_cost">额外小费</string>
+    <string name="downorder_optional">选填</string>
+    <string name="downorder_platform_welfare">平台福利</string>
+    <string name="downorder_js_start_label">从哪里接</string>
+    <string name="downorder_js_end_label">送到哪里</string>
+    <string name="downorder_js_cater_normal">三餐正常</string>
+    <string name="downorder_platform_welfare_content">赠送水果果盘,牛奶</string>
+    <string name="downorder_special_choose">专员选择</string>
+    <string name="downorder_oay_money_suffix">待付款:</string>
+    <string name="downorder_oay_pay_money_suffix">已付款:</string>
+    <string name="downorder_replace_loc">查看定位</string>
+    <string name="downorder_please_attache">单价为0,请选择专员</string>
+    <string name="downorder_status_wait_confirm">订单—待确认</string>
+    <string name="downorder_status_wait_accept">订单—待接单</string>
+    <string name="downorder_status_doing">订单—进行中</string>
+    <string name="downorder_status_wait_pay">订单—待支付</string>
+    <string name="downorder_status_payed">订单—已支付</string>
+    <string name="downorder_status_finish">订单—完成</string>
+    <string name="downorder_status_cancer">订单—已取消</string>
+    <string name="downorder_status_failure">订单—失效</string>
+    <string name="downorder_btn_create">下单</string>
+    <string name="downorder_btn_confirm">确认下单</string>
+    <string name="downorder_btn_im_pay">立即支付</string>
+    <string name="downorder_btn_cancer">取消订单</string>
+    <string name="downorder_btn_kook_service">查看服务</string>
+    <string name="downorder_btn_score_comm">打分评价</string>
+    <string name="downorder_order_time_prefix">请在 </string>
+    <string name="downorder_order_time_suffix"> 分钟前完成支付</string>
+    <!--ChoiceServiceActivity-->
+    <string name="service_please_finish_info">请完善信息</string>
+    <string name="service_please_choice_service">请选择服务</string>
+    <string-array name="child_stady_phase_array">
+        <item>学前</item>
+        <!--<item>小学</item>-->
+        <!--<item>初中</item>-->
+        <!--<item>高中</item>-->
+    </string-array>
+
+    <!--AttacheDetailsActivity-->
+    <string name="attache_details_title">专员详情</string>
+    <string name="attache_one_details_title">专员资料</string>
+    <string name="contact_way">联系方式</string>
+    <string name="contact_phone">手机</string>
+    <string name="environment_info">环境信息</string>
+    <string name="childrens_info">孩子信息</string>
+    <string name="vehicle_info">车辆信息</string>
+    <string name="plate_number">车牌</string>
+    <string name="vehicle_model">车型</string>
+    <string name="vehicle_condition">车况</string>
+    <string name="vehicle_age">车龄</string>
+    <string name="driver_age">驾龄</string>
+    <string name="driver_info">驾驶员信息</string>
+    <string name="driver_licence">驾驶证</string>
+    <string name="qualification_info">资格信息</string>
+    <string name="teacher_certification">教师资格证</string>
+    <string name="education_certification">学历证明</string>
+    <string name="service_content">服务内容</string>
+    <string name="attacheD_choice_attache">选择该专员</string>
+    <string name="attacheD_me_downorder">我要下单</string>
+    <!--RechargeActivity-->
+    <string name="recharge_title">充值</string>
+    <string name="recharge_input_recharge_money">请输入其它充值金额</string>
+    <string name="recharge_please_choose_pay_way">请选择您的支付方式</string>
+    <string name="recharge_pay_wx">微信支付</string>
+    <string name="recharge_pay_ali">支付宝支付</string>
+    <string name="recharge_money_be_more_zero">充值金额必须大于0</string>
+    <!--EditDataActivity-->
+    <string name="eda_please_input_pcd_info">请输入省市区信息</string>
+    <string name="eda_please_input_xq_info">请输入小区信息</string>
+    <string name="eda_please_input_name">请输入姓名</string>
+    <string name="eda_please_input_nickname">请输入昵称</string>
+    <string name="eda_please_choose_sex">请选择性别</string>
+    <string name="eda_please_choose_head">请选择头像</string>
+
+
+    <!--UserOrderDetailsActivity-->
+    <string name="text_phone">电话</string>
+    <string name="choice_service">选择服务</string>
+    <string name="service_date">服务日期</string>
+    <string name="service_starttime">开始时间</string>
+    <string name="look_local">查看定位</string>
+    <string name="nures_address">看护地点</string>
+    <string name="repast_service">餐饮服务</string>
+    <string name="extra_tip_text">额外小费</string>
+    <string name="platform_text">平台福利</string>
+    <string name="add_money_text">追加费用</string>
+    <string name="additional_expense">追加费用</string>
+    <string name="completed_immediately">立即完成</string>
+    <string name="complete_service">完成服务</string>
+    <string name="order_title">"订单"</string>
+    <string name="order_title_sub">"订单—"</string>
+    <!--UploadPicturesActivity-->
+    <string name="upload_pictures_title">上传照片</string>
+    <string name="input_service_desc_hint">请输入照片描述</string>
+    <string name="btn_submit_text">提交</string>
+
+    <!--AttacheLookOverServiceActivity-->
+    <string name="attache_look_over_title">查看服务</string>
+    <string name="btn_add_text">继续添加</string>
+
+
+    <!-- DeleteOrderDialog-->
+    <string name="delete_order_desc">如果取消订单，我们会尽快核对您的信息，并在24小时内退款。</string>
+    <string name="delete_order_title">确定删除订单？</string>
+    <string name="delete_order_sure">确定</string>
+    <string name="delete_order_cancel">取消</string>
+    <string name="delete_order_success">删除成功！</string>
+    <string name="cancel_delete_order">取消删除！</string>
+
+    <!-- CancerOrderDialog-->
+    <string name="cancer_order_title">确定取消订单？</string>
+    <string name="cancer_order_sure">确定</string>
+    <string name="cancer_order_cancel">取消</string>
+
+    <!-- ExitLoginDialogFragment -->
+    <string name="exitLogin_title">确定要退出登录?</string>
+    <string name="exitLogin_sure">确定</string>
+    <string name="exitLogin_cancel">取消</string>
+
+
+    <!--AboutActivity-->
+    <string name="all_rights_reserved">前唐网络科技（上海）有限公司   版权所有</string>
+    <string name="about_company">公司介绍</string>
+    <string name="about_product">产品介绍</string>
+    <string name="about_update">版本更新</string>
+    <string name="about_new_version">已经是最新版本！</string>
+    <!--OrderFragment-->
+    <string name="wait_affirm">待确认</string>
+    <string name="wait_payment">待付款</string>
+    <string name="wait_to_pay">待支付</string>
+    <string name="already_schedule">已排期</string>
+    <string name="real_payment">实付款</string>
+    <string name="already_underway">进行中</string>
+    <string name="already_complete">已完成</string>
+    <string name="already_be_defeated">已失效</string>
+    <string name="already_cancel">已取消</string>
+    <string name="already_pay">已支付</string>
+    <string name="wait_order">待接单</string>
+
+    <!--AttacheOrderDetailsActivity-->
+    <string name="affirm_order_receiving">确认接单</string>
+    <string name="begin_service">开始服务</string>
+    <string name="order_complete_service">完成服务</string>
+    <string name="please_wait_user_pay">请等待用户支付！</string>
+    <string name="begin_service_please_place">您已经开始服务请赶往接送地点！</string>
+    <string name="service_already_complete">服务已完成！</string>
+    <string name="add_already_complete">追加成功！</string>
+
+    <!--OrderPayActivity-->
+    <string name="order_pay_title">订单支付</string>
+    <string name="order_pay_title_addMoney">追加金额</string>
+    <string name="order_pay_service">服务：</string>
+    <string name="order_pay_order_date">下单时间：</string>
+    <string name="order_pay_order_no">订单编号：</string>
+    <string name="order_pay_wait_money">待付款：</string>
+    <string name="order_pay_wechat_pay">微信支付</string>
+    <string name="order_pay_alipay">支付宝支付</string>
+    <string name="order_pay_account_pay">账户余额支付</string>
+    <string name="order_pay_choose_paytype">请选择支付方式</string>
+    <string name="order_pay_surplus_money_not_enough">余额不足</string>
+    <string name="orderpay_not_support_wxpay">当前版本不支持微信支付</string>
+    <string name="orderpay_pay_success">支付成功</string>
+
+    <string name="order_pay_success">订单支付成功</string>
+    <string name="order_pay_comm">正在处理中</string>
+    <string name="order_pay_failure">订单支付失败</string>
+    <string name="order_pay_denied">请求被拒</string>
+    <string name="order_pay_cancer">取消支付</string>
+    <string name="order_pay_data_error">网络连接出错</string>
+    <string name="order_pay_not_support">当前版本不支持</string>
+    <string name="order_pay_replace">重复提交</string>
+    <!--SendPosterActivity-->
+    <string name="sposter_title">发帖</string>
+    <string name="sposter_add_title">在此添加一个标题</string>
+    <string name="sposter_input_content">请在此输入您的内容</string>
+    <string name="sposter_tag">标签</string>
+    <string name="sposter_add_content">添加图文</string>
+    <string name="sposter_add_tag">添加标签</string><!--TagActivity-->
+    <string name="tag_title">选择标签</string>
+    <string name="sposter_delete_item">删除图文</string>
+    <string name="sposter_already_max">内容已到上限</string>
+    <!-- BbsTagActivity -->
+    <string name="bbstag_tag1">教育资讯</string>
+    <string name="bbstag_tag2">动漫</string>
+    <string name="bbstag_tag3">约饭</string>
+    <string name="bbstag_tag4">健康</string>
+    <string name="bbstag_tag5">优惠活动</string>
+    <string name="bbstag_tag6">休闲</string>
+    <string name="bbstag_tag7">体育</string>
+    <string name="bbstag_tag8">穿衣搭配</string>
+    <string name="bbstag_tag9">摄影</string>
+    <string name="bbstag_tag10">科技</string>
+    <string name="bbstag_tag11">其他</string>
+    <string name="bbstag_tag15">吃货</string>
+    <string name="bbstag_tag17">同城游</string>
+    <string name="bbstag_tag18">交友</string>
+    <string name="bbstag_tag19">自拍</string>
+    <string name="bbstag_tag20">母婴</string>
+    <string name="bbstag_tag21">亲子</string>
+    <string name="bbstag_tag22">节日</string>
+    <string name="bbstag_tag23">新闻</string>
+    <string name="bbstag_tag24">课程</string>
+    <string name="bbstag_tag25">提问</string>
+    <string name="bbstag_tag26">培训</string>
+    <string name="bbstag_tag27">家庭</string>
+    <string name="bbstag_tag28">生活</string>
+    <!-- PosterDetailActivity -->
+    <string name="pdetail_title">帖子详情</string>
+    <string name="pdetail_comm">评论</string>
+    <string name="pdetail_share">分享</string>
+    <string name="pdetail_share_title">临家妈妈应用</string>
+    <!-- PosterDetailActivity -->
+    <string name="pcomm_title">评论</string>
+    <string name="pcomm_public">发布</string>
+    <string name="pcomm_content_hint">说说你的看法</string>
+
+    <!-- SharedDialog-->
+    <string name="wechat_friend">微信好友</string>
+    <string name="wechat_circle_friends">朋友圈</string>
+    <string name="qq_friend">QQ好友</string>
+    <string name="qq_Qzone">QQ空间</string>
+
+    <string name="shared_cancer">分享取消</string>
+    <string name="shared_success">分享成功</string>
+    <string name="shared_failure">分享失败</string>
+    <!-- PublicCommActivity-->
+    <string name="publiccomm_title">评论</string>
+    <string name="publiccomm_public">发布</string>
+    <string name="publiccomm_content_hint">说说你的看法</string>
+    <string name="publiccomm_please_input_content">请输入评论内容</string>
+    <!-- DiscussionGroupActivity-->
+    <string name="discgroup_title">讨论组</string>
+    <string name="discgroup_send_discussion_group">发起讨论组</string>
+    <string name="discgroup_item_already_into">已加入</string>
+    <!-- DiscussionGroupDetailActivity-->
+    <string name="discgroupd_title">讨论组</string>
+    <string name="discgroupd_list_desc">最新帖子</string>
+    <!--StarExpertActivity-->
+    <string name="apply_for_star">申请成为明星达人</string>
+    <string name="star_list_title">明星达人</string>
+    <!--ConmmunityFragment-->
+    <string name="conmmunity_title">社群</string>
+    <string name="conmmunity_group_text">讨论组</string>
+    <string name="conmmunity_more">更多</string>
+
+    <!-- CreateGroupActivity-->
+    <string name="creategroup_title">发起讨论组</string>
+    <string name="creategroup_create">发布</string>
+    <string name="creategroup_upload_img">上传讨论组图标</string>
+    <string name="creategroup_name">讨论组名称</string>
+    <string name="creategroup_please_desc_title">请简述主题</string>
+    <string name="input_image">请上传讨论组图片！</string>
+    <string name="input_title">请填写讨论组名称！</string>
+    <string name="input_theme">请填写讨论组讨论主题！</string>
+</resources>

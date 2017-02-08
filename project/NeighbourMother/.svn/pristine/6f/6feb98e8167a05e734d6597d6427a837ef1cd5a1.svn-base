@@ -1,0 +1,158 @@
+package com.qiantang.neighbourmother.adapter;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.text.TextUtils;
+import android.util.DisplayMetrics;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import com.qiantang.neighbourmother.R;
+import com.qiantang.neighbourmother.business.API;
+import com.qiantang.neighbourmother.business.APIConfig;
+import com.qiantang.neighbourmother.business.response.LookOverServiceResp;
+import com.qiantang.neighbourmother.ui.BaseActivity;
+import com.qiantang.neighbourmother.ui.activity.PhotoViewActivity;
+import com.qiantang.neighbourmother.util.AppLog;
+import com.qiantang.neighbourmother.util.IntentFinal;
+import com.qiantang.neighbourmother.util.QLScreenUtil;
+import com.qiantang.neighbourmother.util.QLTimeUtil;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+/**
+ * ClassName:产看服务适配器
+ * author: Cocoa
+ * date: 2016/9/21.
+ */
+public class LookOverServiceAdapter extends BaseAdapter {
+    private ArrayList<LookOverServiceResp> list = new ArrayList<LookOverServiceResp>();
+    private LayoutInflater mLayoutInflater;
+    private Activity context;
+
+    public LookOverServiceAdapter(Activity context) {
+        this.context = context;
+        mLayoutInflater = LayoutInflater.from(context);
+    }
+
+    public ArrayList<LookOverServiceResp> getDataList() {
+        return list;
+    }
+
+    @Override
+    public int getCount() {
+        return list.size();
+    }
+
+    @Override
+    public Object getItem(int position) {
+        if (getCount() <= 0 || position >= getCount())
+            return null;
+        return list.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    //    private ArrayList<String> text = new ArrayList<>(Arrays.asList("步行", "看护", "周末看护", "辅导", "专车", "拼车"));
+//    private ArrayList<String> text = new ArrayList<>(Arrays.asList("步行", "看护", "周末看护"));
+
+    @Override
+    public View getView(final int position, View convertView, ViewGroup parent) {
+        ViewHolder holder = null;
+        if (convertView == null) {
+            holder = new ViewHolder();
+            convertView = mLayoutInflater.inflate(R.layout.item_look_over_service, null);
+            holder.service_time = (TextView) convertView.findViewById(R.id.service_time);
+            holder.ll_images = (LinearLayout) convertView.findViewById(R.id.ll_images);
+            holder.service_desc = (TextView) convertView.findViewById(R.id.service_desc);
+            convertView.setTag(holder);
+        } else {
+            holder = (ViewHolder) convertView.getTag();
+        }
+        LookOverServiceResp item = list.get(position);
+        if (TextUtils.isEmpty(item.getCtime()) || item.getCtime().equals("0")) {
+            holder.service_time.setText("");
+        } else {
+            long date = Long.parseLong(item.getCtime());
+            AppLog.D("date:"+date);
+            holder.service_time.setText(QLTimeUtil.getStringTime(date*1000,"yyyy/MM/dd HH:mm"));
+        }
+        holder.service_desc.setText(item.getContent());
+        createImages(new ArrayList<String>(Arrays.asList(item.getImage())), holder.ll_images);
+        return convertView;
+    }
+
+    private void createImages(ArrayList<String> text, LinearLayout ll_images) {
+        ll_images.removeAllViews();
+
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        context.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        int red_width = (displayMetrics.widthPixels - (int) QLScreenUtil.dpToPx(context, 75)) / 2;
+        if (text != null && text.size() > 0) {
+            LinearLayout linera = null;
+            for (int i = 0; i < text.size(); i++) {
+                if (i % 2 == 0) {
+                    linera = new LinearLayout(context);
+                    LinearLayout.LayoutParams lparams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                    lparams.gravity = Gravity.CENTER_VERTICAL;
+                    lparams.bottomMargin = (int) QLScreenUtil.dpToPxInt(context, 15);
+                    linera.setOrientation(LinearLayout.HORIZONTAL);
+                    linera.setLayoutParams(lparams);
+                    ll_images.addView(linera);
+
+                    if (!TextUtils.isEmpty(text.get(i))) {
+                        ImageView image = new ImageView(context);
+                        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(red_width, red_width);
+                        image.setLayoutParams(params);
+//                    image.setImageResource(R.mipmap.default_img);
+                        ((BaseActivity) context).display(image, APIConfig.BASE_IMG_URL + text.get(i), R.mipmap.default_img);
+                        linera.addView(image);
+                        clickImage(image, text, i);
+                    }
+
+                } else {
+                    if (!TextUtils.isEmpty(text.get(i))) {
+                        ImageView image = new ImageView(context);
+                        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(red_width, red_width);
+                        params.leftMargin = (int) QLScreenUtil.dpToPxInt(context, 15);
+                        image.setLayoutParams(params);
+//                    image.setImageResource(R.mipmap.default_img);
+                        ((BaseActivity) context).display(image, APIConfig.BASE_IMG_URL + text.get(i), R.mipmap.default_img);
+                        linera.addView(image);
+                        clickImage(image, text, i);
+                    }
+                }
+            }
+        }
+    }
+
+    private void clickImage(View view, final List<String> images, final int position) {
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                ToastUtils.toastLong(context, "images:" + images.get(position) + "position" + position);
+                Intent intent = new Intent(context, PhotoViewActivity.class);
+                intent.putExtra(IntentFinal.INTENT_IMGURL_TO_PHOTOVIEWACTIVITY, APIConfig.BASE_IMG_URL + images.get(position));
+                context.startActivity(intent);
+            }
+        });
+    }
+
+    class ViewHolder {
+        TextView service_time;//服务时间
+        LinearLayout ll_images;//显示图片
+        TextView service_desc;//描述
+    }
+
+}

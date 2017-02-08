@@ -1,0 +1,47 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "23.0.3"
+
+    defaultConfig {
+        applicationId "com.qiantang.neighbourmother"
+        minSdkVersion 14
+        targetSdkVersion 21
+        versionCode 8
+        versionName "1.2.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+            assets.srcDirs = ['src/main/assets', 'src/main/assets/']
+        }
+    }
+    android.applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+//            output.outputFile = new File(output.outputFile.parent, "NeighbourMother-" + buildType.name + "-v" +
+//                    defaultConfig.versionName + "-" + defaultConfig.versionCode +".apk");
+            output.outputFile = new File(output.outputFile.parent, "临家妈妈—"  +new Date().format("yyyy年MM月dd日HH时mm分ss秒", TimeZone.getTimeZone("PRC"))+".apk");
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:24.2.1'
+    compile 'com.squareup.okhttp3:okhttp:3.4.1'
+    compile 'com.google.code.gson:gson:2.2.4'
+    compile files('libs/universal-image-loader-1.9.4.jar')
+    compile files('libs/pinyin4j-2.5.0.jar')
+    compile 'com.android.support:design:24.2.1'
+    compile files('libs/libammsdk.jar')
+    compile project(path: ':xrecyclerview')
+}

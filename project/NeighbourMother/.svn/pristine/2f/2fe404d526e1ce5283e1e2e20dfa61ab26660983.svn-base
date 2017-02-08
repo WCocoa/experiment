@@ -1,0 +1,386 @@
+[
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\location_white.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\location_white.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_loading_qmtips_6.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_loading_qmtips_6.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_map_loca.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_map_loca.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_order_phone.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_order_phone.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\map_setpoint.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\map_setpoint.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_loading_qmtips_13.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_loading_qmtips_13.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\splash_image.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\splash_image.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\default_img.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\default_img.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_home_pressed.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_home_pressed.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_orders_pressed.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_orders_pressed.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_login_code.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_login_code.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\img_bg_recharge.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\img_bg_recharge.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_account.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_account.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_close.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_close.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_loading_qmtips_12.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_loading_qmtips_12.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_loading_qmtips_5.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_loading_qmtips_5.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\customer_service_phone.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\customer_service_phone.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\attache_recruit.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\attache_recruit.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\guide_third.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\guide_third.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_assistant.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_assistant.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_loading_qmtips_11.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_loading_qmtips_11.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_loading_qmtips_14.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_loading_qmtips_14.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_vip_gary.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_vip_gary.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_wechat.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_wechat.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_grade1.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_grade1.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_center_pressed.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_center_pressed.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\login_top_image.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\login_top_image.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_pay_pressed.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_pay_pressed.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\ic_launcher.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\arrow_expend_right.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\arrow_expend_right.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\order_score_icon.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\order_score_icon.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\guide_frist.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\guide_frist.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\center_top_backgroud.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\center_top_backgroud.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_loading_qmtips_15.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_loading_qmtips_15.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_center_normal.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_center_normal.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_home_normal.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_home_normal.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_delete.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_delete.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_alipay.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_alipay.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_order_delete.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_order_delete.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\rating_small_empty.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\rating_small_empty.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\rating_small_full.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\rating_small_full.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_loading_qmtips_1.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_loading_qmtips_1.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\center_female.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\center_female.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_loading_qmtips_4.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_loading_qmtips_4.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_pay_normal.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_pay_normal.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_wait.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_wait.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_loading_qmtips_7.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_loading_qmtips_7.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\pictures_selected.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\pictures_selected.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\home_tailored_taxi_service.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\home_tailored_taxi_service.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\service_left_icon.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\service_left_icon.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_choice_user.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_choice_user.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\order_details_down_address.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\order_details_down_address.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_loading_qmtips_0.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_loading_qmtips_0.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\home_image_backgroud.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\home_image_backgroud.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\home_sex_backgroud.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\home_sex_backgroud.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\guide_second.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\guide_second.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_wait_pressed.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_wait_pressed.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\attache_data.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\attache_data.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_attache_address.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_attache_address.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_female_white.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_female_white.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_gold.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_gold.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\order_refresh.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\order_refresh.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_male_white.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_male_white.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_login_phone.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_login_phone.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\center_male.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\center_male.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\home_nurse.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\home_nurse.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\test.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\test.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\center_setting.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\center_setting.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\home_loca_down.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\home_loca_down.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_loading_qmtips_17.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_loading_qmtips_17.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_loading_qmtips_9.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_loading_qmtips_9.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_head_default.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_head_default.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_end.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_end.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_loading_qmtips_10.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_loading_qmtips_10.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_loading_qmtips_3.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_loading_qmtips_3.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_loading_qmtips_16.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_loading_qmtips_16.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\img_view_default.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\img_view_default.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\product_introduce.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\product_introduce.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\take_photo.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\take_photo.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_end_pressed.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_end_pressed.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_loading_qmtips_8.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_loading_qmtips_8.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\img_juchi.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\img_juchi.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\order_delete_hint.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\order_delete_hint.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_balance.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_balance.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_loading_qmtips_2.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_loading_qmtips_2.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\home_pick_up.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\home_pick_up.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_orders_normal.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_orders_normal.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\m_top_img.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\m_top_img.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_government.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_government.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\auth_photo_image.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\auth_photo_image.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_choice_attache.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_choice_attache.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_susseed.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_susseed.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_vip.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_vip.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\icon_commissioner.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\icon_commissioner.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\back.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\back.png"
+    },
+    {
+        "merged": "D:\\Project\\NeighbourMother\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\home_tutorship.png",
+        "source": "D:\\Project\\NeighbourMother\\app\\src\\main\\res\\mipmap-xhdpi\\home_tutorship.png"
+    }
+]

@@ -1,0 +1,159 @@
+package com.qiantang.neighbourmother.business.response;
+
+import java.io.Serializable;
+
+/**
+ * Created by Administrator on 2015/12/7.
+ */
+public class ChildInfoResp extends BaseResp implements Cloneable,Serializable{
+    private String child_id;//	孩子id
+    private String user_id 	;// 		用户id
+    private String child_avatar 	;// 		孩子头像
+    private int child_age 	;// 		年龄
+    private String child_name 	;// 		孩子姓名
+    private String child_nickname 	;// 		孩子昵称
+    private int child_gender 	;// 		性别
+    private String child_school 	;// 		学校
+    private  String child_grade 	;// 		年级
+    private String child_class 	;// 		班级
+    private int child_relationship 	;// 		于本人关系
+    private String child_address 	;// 		地址
+    private String child_phone 	;// 		电话
+    private  String child_phone2 	;// 		联系人电话
+    private  String child_contact 	;// 		联系人姓名
+
+    public ChildInfoResp() {
+    }
+
+    public int getChild_age() {
+        return child_age;
+    }
+
+    public void setChild_age(int child_age) {
+        this.child_age = child_age;
+    }
+
+    public String getChild_id() {
+        return child_id;
+    }
+
+    public void setChild_id(String child_id) {
+        this.child_id = child_id;
+    }
+
+    public String getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
+    }
+
+    public String getChild_avatar() {
+        return child_avatar;
+    }
+
+    public void setChild_avatar(String child_avatar) {
+        this.child_avatar = child_avatar;
+    }
+
+    public String getChild_name() {
+        return child_name;
+    }
+
+    public void setChild_name(String child_name) {
+        this.child_name = child_name;
+    }
+
+    public String getChild_nickname() {
+        return child_nickname;
+    }
+
+    public void setChild_nickname(String child_nickname) {
+        this.child_nickname = child_nickname;
+    }
+
+    public int getChild_gender() {
+        return child_gender;
+    }
+
+    public void setChild_gender(int child_gender) {
+        this.child_gender = child_gender;
+    }
+
+    public String getChild_school() {
+        return child_school;
+    }
+
+    public void setChild_school(String child_school) {
+        this.child_school = child_school;
+    }
+
+    public String getChild_grade() {
+        return child_grade;
+    }
+
+    public void setChild_grade(String child_grade) {
+        this.child_grade = child_grade;
+    }
+
+    public String getChild_class() {
+        return child_class;
+    }
+
+    public void setChild_class(String child_class) {
+        this.child_class = child_class;
+    }
+
+    public int getChild_relationship() {
+        return child_relationship;
+    }
+
+    public void setChild_relationship(int child_relationship) {
+        this.child_relationship = child_relationship;
+    }
+
+    public String getChild_address() {
+        return child_address;
+    }
+
+    public void setChild_address(String child_address) {
+        this.child_address = child_address;
+    }
+
+    public String getChild_phone() {
+        return child_phone;
+    }
+
+    public void setChild_phone(String child_phone) {
+        this.child_phone = child_phone;
+    }
+
+    public String getChild_phone2() {
+        return child_phone2;
+    }
+
+    public void setChild_phone2(String child_phone2) {
+        this.child_phone2 = child_phone2;
+    }
+
+    public String getChild_contact() {
+        return child_contact;
+    }
+
+    public void setChild_contact(String child_contact) {
+        this.child_contact = child_contact;
+    }
+
+    @Override
+    public Object clone() {
+        ChildInfoResp userInfoResp=null;
+        try {
+            userInfoResp=(ChildInfoResp)super.clone();
+        } catch (CloneNotSupportedException e) {
+//            e.printStackTrace();
+        }
+        return userInfoResp;
+    }
+
+}

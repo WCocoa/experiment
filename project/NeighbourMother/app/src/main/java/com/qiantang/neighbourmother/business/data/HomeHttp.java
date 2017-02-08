@@ -1,0 +1,82 @@
+package com.qiantang.neighbourmother.business.data;
+
+import android.content.Context;
+import android.os.Handler;
+
+import com.google.gson.Gson;
+import com.qiantang.neighbourmother.business.API;
+import com.qiantang.neighbourmother.business.qlhttp.QLResponseCall;
+import com.qiantang.neighbourmother.business.request.HomeReq;
+import com.qiantang.neighbourmother.business.response.HomeResp;
+import com.qiantang.neighbourmother.model.AdObj;
+import com.qiantang.neighbourmother.model.HomeItemChildObj;
+import com.qiantang.neighbourmother.util.AppLog;
+
+import java.util.ArrayList;
+
+/**
+ * 注册网络请求
+ * @author zb
+ * @date 创建时间：2015年9月11日 下午7:16:30
+ */
+public class HomeHttp extends BaseHttp {
+	private Handler handler;
+	private int what;
+	private HomeReq homeReq;
+	public HomeHttp(Context context, Handler handler, HomeReq homeReq,int what) {
+		this.context = context;
+		this.handler = handler;
+		this.what = what;
+		this.homeReq = homeReq;
+		start();
+	}
+
+	private void start() {
+//		url= API.HOME+"?district="+homeReq.getDistrict()+"&community="+homeReq.getCommunity()+"&count="+homeReq.getCount()+"&offset="+homeReq.getOffset();
+		AppLog.D("url:"+getUri());
+		getHttp().get(getUri(), getLPHttpHeader(context,getUri()),new QLResponseCall() {
+			@Override
+			public void onStart() {
+				onStartHandler(handler);
+			}
+
+			@Override
+			public void onFailure(String arg0, int error) {
+				AppLog.D("onFailure:" + error);
+				AppLog.D("onFailure:" + arg0);
+				onFailureHandler(context, handler, arg0, error);
+			}
+
+			@Override
+			public void onSuccess(String result) {
+				AppLog.D("result:" + result);
+				onSuccessHandler(context, handler, result);
+			}
+		});
+	}
+
+	@Override
+	void getData(Handler handler, BaseDataResp responseObj) {
+		sendHandler(handler,new Gson().fromJson(responseObj.getSuccess(), HomeResp.class),what);
+	}
+
+	@Override
+	String getPrimaryUrl() {
+		return API.HOME+"?district="+homeReq.getDistrict()+"&community="+homeReq.getCommunity()+"&count="+homeReq.getCount()+"&offset="+homeReq.getOffset();
+	}
+
+	private void mnData(){
+		ArrayList<AdObj> ad= new ArrayList<AdObj>();
+		ArrayList<HomeItemChildObj> list=new ArrayList<HomeItemChildObj>();
+		for (int i=0;i<10;i++){
+			list.add(new HomeItemChildObj());
+		}
+		ad.add(new AdObj());
+		ad.add(new AdObj());
+		ad.add(new AdObj());
+		HomeResp homeResp=new HomeResp(list,ad);
+		sendHandler(handler,homeResp,what);
+	}
+
+
+}

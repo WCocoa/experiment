@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rela_ad"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@color/white">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/home_head_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></android.support.v4.view.ViewPager>
+
+        <!--  android:layout_alignParentBottom="true"-->
+        <LinearLayout
+            android:id="@+id/ad_point_ll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:orientation="horizontal"></LinearLayout>
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rela_ad"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:id="@+id/category1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                style="@style/home_category_top_img_style"
+                android:layout_marginTop="5dp"
+                android:src="@mipmap/home_pick_up" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="5dp"
+                android:text="@string/homefrag_category1"
+                android:textColor="@color/app_item_title"
+                android:textSize="@dimen/home_top_type" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/category2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                style="@style/home_category_top_img_style"
+                android:layout_marginTop="5dp"
+                android:src="@mipmap/home_nurse" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="5dp"
+                android:text="@string/homefrag_category2"
+                android:textColor="@color/app_item_title"
+                android:textSize="@dimen/home_top_type" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/category3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                style="@style/home_category_top_img_style"
+                android:layout_marginTop="5dp"
+                android:src="@mipmap/home_tutorship" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="5dp"
+                android:text="@string/homefrag_category3"
+                android:textColor="@color/app_item_title"
+                android:textSize="@dimen/home_top_type" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/category4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                style="@style/home_category_top_img_style"
+                android:layout_marginTop="5dp"
+                android:src="@mipmap/home_tailored_taxi_service" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="5dp"
+                android:text="@string/homefrag_category4"
+                android:textColor="@color/app_item_title"
+                android:textSize="@dimen/home_top_type" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <!--<View-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="15dp"-->
+    <!--android:layout_below="@+id/ll_category_pra"-->
+    <!--android:background="@color/app_bg" />-->
+
+    <LinearLayout
+        android:id="@+id/ll_home_center_loc"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_below="@id/rela_ad"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="45dp"
+        android:layout_marginRight="45dp"
+        android:layout_marginTop="-15dp"
+        android:background="@drawable/home_center_loc_label"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="13dp"
+            android:layout_height="13dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="2dp"
+
+            android:layout_marginTop="2dp"
+            android:src="@mipmap/location_white" />
+
+        <TextView
+            android:id="@+id/home_center_loc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:maxWidth="120dp"
+            android:singleLine="true"
+            android:text="请选择小区"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:layout_width="13dp"
+            android:layout_height="13dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="2dp"
+            android:src="@mipmap/home_loca_down" />
+    </LinearLayout>
+</RelativeLayout>

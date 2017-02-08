@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/app_title_bg</color>
+    <color name="colorPrimaryDark">#000</color>
+    <color name="colorAccent">@color/app_special_style_color_normal</color>
+
+    <color name="color_app_title_bg">#30d0df</color>
+    <color name="app_title_bg">#fafafa</color>
+    <color name="app_title_text_bg">#1a1a1a</color>
+    <color name="app_bg">#f0f0f0</color>
+    <!--<color name="app_bg">#ebebf2</color>-->
+    <!--#EBEFED-->
+    <color name="app_special_style_color">#f73b21</color>
+    <color name="app_special_style_color_normal">#fa6963</color>#FA6963
+
+
+    <color name="app_line">#DDDDDD</color>
+    <color name="app_item_title">#434343</color>
+    <color name="homefr_item_tag">#3AA6EF</color>
+    <!--<color name="app_item_title">#3a3a3a</color>-->
+    <color name="app_item_content">#999999</color>
+    <color name="app_item_normal">#4b4b4b</color>
+    <color name="item_state_normal">#ffffff</color>
+    <color name="content_text">#999999</color>
+    <!--MainTabActivity-->
+    <color name="tab_top_line">#dbdbdb</color>
+    <color name="tab_background">@color/white</color>
+
+    <!-- dialog_choose_imglib -->
+    <color name="color_dialog_choose_imglib">#666666</color>
+    <color name="color_dialog_choose_camera">#666666</color>
+    <color name="color_dialog_choose_cancer">#ffffff</color>
+
+
+    <color name="common_bg_press">#dadada</color>
+    <color name="city_line">#cccbcb</color>
+    <color name="common_text">#6c6c6c</color>
+    <color name="money_color">#ff7e00</color>
+
+    <!--HomeFragment-->
+    #3AA6EF
+
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="green">#00ff00</color>
+
+    <drawable name="consult_organization_select">@color/app_special_style_color</drawable>
+    <drawable name="consult_organization_normal">@color/app_item_title</drawable>
+    <color name="service_text_enable">#cdcdcd</color>
+    <!--CommissionerApplyOneActivity-->
+    <color name="placea_img_bg">#dbdbdb</color>
+    <color name="placea_apply_doing">#FFAA5A</color>
+    <color name="placea_apply_failure">#FF6166</color>
+    <color name="placea_apply_success">#57CC74</color>
+
+    <!--DownOrderActivity-->
+    <color name="downOrer_plus_subtract_ll_solid">#ffffff</color>
+    <color name="downOrer_plus_subtract_ll_stroke">#B3B3B3</color>
+
+    <!--AttacheOrderDetails-->
+    <color name="complete_order">#3996FE</color>
+    <color name="fail_order">#9F9F9F</color>
+
+    <!--RechargeActivity-->
+    <color name="recharge_tv_normal">@color/app_title_text_bg</color>
+    <color name="recharge_tv_selected">@color/app_special_style_color_normal</color>
+    <!--BbsTag背景颜色-->
+    <color name="bbs_tag_backgroud_normal_1">#20affc</color>
+    <color name="bbs_tag_backgroud_normal_2">#de4953</color>
+    <color name="bbs_tag_backgroud_normal_3">#e16668</color>
+    <color name="bbs_tag_backgroud_normal_4">#3ccc4f</color>
+    <color name="bbs_tag_backgroud_normal_5">#f49855</color>
+    <color name="bbs_tag_backgroud_normal_6">#79c266</color>
+    <color name="bbs_tag_backgroud_normal_7">#24d424</color>
+    <color name="bbs_tag_backgroud_normal_8">#de7173</color>
+    <color name="bbs_tag_backgroud_normal_9">#2cb1f9</color>
+    <color name="bbs_tag_backgroud_normal_10">#55c3fd</color>
+    <color name="bbs_tag_backgroud_normal_11">#F78B9C</color>
+    <color name="bbs_tag_backgroud_normal_15">#56c654</color>
+    <color name="bbs_tag_backgroud_normal_17">#3ccc4f</color>
+    <color name="bbs_tag_backgroud_normal_18">#ce5a60</color>
+    <color name="bbs_tag_backgroud_normal_19">#f9a66b</color>
+    <color name="bbs_tag_backgroud_normal_20">#F78B9C</color>
+    <color name="bbs_tag_backgroud_normal_21">#F78B9C</color>
+    <color name="bbs_tag_backgroud_normal_22">#de4953</color>
+    <color name="bbs_tag_backgroud_normal_23">#d4555e</color>
+    <color name="bbs_tag_backgroud_normal_24">#43b8f7</color>
+    <color name="bbs_tag_backgroud_normal_25">#fa964e</color>
+    <color name="bbs_tag_backgroud_normal_26">#2cb1f9</color>
+    <color name="bbs_tag_backgroud_normal_27">#F78B9C</color>
+    <color name="bbs_tag_backgroud_normal_28">#24d424</color>
+
+    <!--资讯标签背景颜色-->
+    <color name="consult_tag_backgroud_selected_1">#FF8D27</color>
+    <color name="consult_tag_backgroud_selected_2">#33AAFF</color>
+    <color name="consult_tag_backgroud_selected_3">#FE6564</color>
+
+</resources>

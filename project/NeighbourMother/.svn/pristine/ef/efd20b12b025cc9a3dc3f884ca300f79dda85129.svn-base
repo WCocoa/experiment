@@ -1,0 +1,148 @@
+package com.qiantang.neighbourmother.business.qlhttp;
+
+
+import android.content.Context;
+import android.content.res.AssetManager;
+
+import com.qiantang.neighbourmother.R;
+import com.qiantang.neighbourmother.util.AppLog;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.security.KeyManagementException;
+import java.security.KeyStore;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.security.cert.Certificate;
+import java.security.cert.CertificateException;
+import java.security.cert.CertificateFactory;
+import java.security.cert.X509Certificate;
+import java.util.concurrent.TimeUnit;
+
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.KeyManagerFactory;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSession;
+import javax.net.ssl.SSLSocket;
+import javax.net.ssl.SSLSocketFactory;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.TrustManagerFactory;
+import javax.net.ssl.X509TrustManager;
+
+import okhttp3.OkHttpClient;
+
+/**
+ * Created by quliang on 16-5-16.
+ */
+public class OKHttp {
+
+public static Context context;
+    private static OkHttpClient okHttpClient;
+private  static MyX509TrustManager myX509TrustManager=new OKHttp.MyX509TrustManager();
+
+    private OKHttp() {
+    }
+        public static OkHttpClient getInstace() {
+           return okHttpClient;
+        }
+
+    public static void init(Context context){
+        OkHttpClient.Builder builder = new OkHttpClient.Builder();
+
+        okHttpClient=builder.connectTimeout(30, TimeUnit.SECONDS)
+                .writeTimeout(30, TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
+                .sslSocketFactory(getSSLSocketFactoryS(context))
+                .hostnameVerifier(myHostnameVerifier)
+                .build();
+    }
+
+
+    private static final String KEY_STORE_TYPE_BKS = "BKS";//证书类型
+    private static final String KEY_STORE_TYPE_P12 = "PKCS12";//证书类型
+    private static final String KEY_STORE_PASSWORD = "qiantang";//证书密码（应该是客户端证书密码）
+    private static final String KEY_STORE_TRUST_PASSWORD = "qiantang";//授信证书密码（应该是服务端证书密码）
+
+    private static SSLSocketFactory getSSLSocketFactoryS(Context context) {
+
+        InputStream trust_input = context.getResources().openRawResource(R.raw.pu3);//服务器授信证书
+        InputStream client_input = context.getResources().openRawResource(R.raw.client);//客户端证书
+        try {
+            SSLContext sslContext = SSLContext.getInstance("TLS");
+            KeyStore trustStore = KeyStore.getInstance("BKS");
+            trustStore.load(trust_input, KEY_STORE_TRUST_PASSWORD.toCharArray());
+
+            TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance("X509");
+            trustManagerFactory.init(trustStore);
+
+//                        KeyStore keyStore = KeyStore.getInstance(KEY_STORE_TYPE_P12);
+//            keyStore.load(client_input, KEY_STORE_PASSWORD.toCharArray());
+//            KeyManagerFactory keyManagerFactory = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
+//            keyManagerFactory.init(keyStore, KEY_STORE_PASSWORD.toCharArray());
+
+
+            sslContext.init(null, trustManagerFactory.getTrustManagers(), null);
+            SSLSocketFactory factory = sslContext.getSocketFactory();
+            return factory;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            try {
+                trust_input.close();
+//                client_input.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+    private static SSLSocketFactory getSSLSocketFactory(Context context) {
+        SSLSocketFactory sslSocketFactory=null;
+        SSLContext sslContext = null;
+        try {
+            sslContext = SSLContext.getInstance("TLS");
+                sslContext.init(null, new TrustManager[]{myX509TrustManager}, null);
+
+            sslSocketFactory=sslContext.getSocketFactory();
+            AppLog.D("sslSocketFactory:"+sslSocketFactory);
+            return sslSocketFactory;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        return sslSocketFactory;
+    }
+
+
+    public static class MyX509TrustManager  implements X509TrustManager{
+        public MyX509TrustManager(){}
+
+        @Override
+        public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+
+        }
+
+        @Override
+        public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+
+        }
+
+        @Override
+        public X509Certificate[] getAcceptedIssuers() {
+            return new X509Certificate[0];
+        }
+    }
+
+    public static MyHostnameVerifier myHostnameVerifier=new MyHostnameVerifier();
+    public static class MyHostnameVerifier implements HostnameVerifier {
+        public MyHostnameVerifier(){};
+        @Override
+        public boolean verify(String hostname, SSLSession session) {
+            return true;
+        }
+    }
+
+}

@@ -1,0 +1,61 @@
+package com.qiantang.neighbourmother.business.data;
+
+import android.content.Context;
+import android.os.Handler;
+
+import com.google.gson.Gson;
+import com.qiantang.neighbourmother.business.qlhttp.QLResponseCall;
+import com.qiantang.neighbourmother.business.response.CenterMoneyResp;
+import com.qiantang.neighbourmother.util.AppLog;
+
+/**
+ * ClassName:中心获取金额接口
+ * author: Cocoa
+ * date: 2016/9/28.
+ */
+public class GetCenterMoneyHttp extends BaseHttp {
+    private Handler handler;
+    private String  url;
+    private int     what;
+    private boolean isShow;
+
+    public GetCenterMoneyHttp(Context context, Handler handler, String url, int what, boolean isShow) {
+        this.context = context;
+        this.handler = handler;
+        this.url = url;
+        this.what = what;
+        this.isShow = isShow;
+        start();
+    }
+
+    private void start() {
+        AppLog.D("url:" + url);
+        getHttp().get(url, getLPHttpHeader(context, url), new QLResponseCall() {
+            @Override
+            public void onStart() {
+                if (isShow)
+                    onStartHandler(handler);
+            }
+
+            @Override
+            public void onFailure(String arg0, int error) {
+                AppLog.D("onFailure:" + error);
+                AppLog.D("onFailure:" + arg0);
+                onFailureHandler(context, handler, arg0, error);
+            }
+
+            @Override
+            public void onSuccess(String result) {
+                AppLog.D("result:" + result);
+                onSuccessHandler(context, handler, result);
+            }
+        });
+    }
+
+    @Override
+    void getData(Handler handler, BaseDataResp responseObj) {
+        sendHandler(handler, new Gson().fromJson(responseObj.getSuccess(), CenterMoneyResp.class), what);
+    }
+
+
+}

@@ -1,0 +1,142 @@
+package com.qiantang.neighbourmother.adapter;
+
+import android.app.Activity;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import com.qiantang.neighbourmother.R;
+import com.qiantang.neighbourmother.business.API;
+import com.qiantang.neighbourmother.business.APIConfig;
+import com.qiantang.neighbourmother.business.response.AttacheListResp;
+import com.qiantang.neighbourmother.ui.BaseActivity;
+import com.qiantang.neighbourmother.util.QLScreenUtil;
+import com.qiantang.neighbourmother.widget.CircleImageView;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+/**
+ * ClassName:专员列表适配器
+ * author: Cocoa
+ * date: 2016/9/21.
+ */
+public class AttacheListAdapter extends BaseAdapter {
+    private List<AttacheListResp> list = new ArrayList<AttacheListResp>();
+    private LayoutInflater mLayoutInflater;
+    private Activity context;
+
+    public AttacheListAdapter(Activity context) {
+        this.context = context;
+        mLayoutInflater = LayoutInflater.from(context);
+    }
+
+    public List<AttacheListResp> getDataList() {
+        return list;
+    }
+
+    @Override
+    public int getCount() {
+        return list.size();
+    }
+
+    @Override
+    public Object getItem(int position) {
+        if (getCount() <= 0 || position >= getCount())
+            return null;
+        return list.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    private ArrayList<String> text = new ArrayList<>(Arrays.asList("步行", "看护", "周末看护", "辅导", "专车", "拼车"));
+
+    @Override
+    public View getView(final int position, View convertView, ViewGroup parent) {
+        ViewHolder holder = null;
+        if (convertView == null) {
+            holder = new ViewHolder();
+            convertView = mLayoutInflater.inflate(R.layout.item_attache_list, null);
+            holder.attache_photo = (CircleImageView) convertView.findViewById(R.id.attache_photo);
+            holder.attache_name = (TextView) convertView.findViewById(R.id.attache_name);
+            holder.attache_age = (TextView) convertView.findViewById(R.id.attache_age);
+            holder.attache_post = (TextView) convertView.findViewById(R.id.attache_post);
+            holder.attache_sex = (ImageView) convertView.findViewById(R.id.attache_sex);
+            holder.attache_address = (TextView) convertView.findViewById(R.id.attache_address);
+            holder.ll_service = (LinearLayout) convertView.findViewById(R.id.ll_service);
+            convertView.setTag(holder);
+        } else {
+            holder = (ViewHolder) convertView.getTag();
+        }
+        AttacheListResp item = list.get(position);
+        ((BaseActivity) context).display(holder.attache_photo, APIConfig.BASE_IMG_URL + item.getUser_avatar(), R.mipmap.default_img);
+        String name = item.getUser_name();
+        if (!TextUtils.isEmpty(name) && name.length() > 1) {
+            name = name.substring(0,1);
+//            if (item.getUser_gender().equals("1")) {
+//               holder.attache_name.setText(name+"爸爸");
+//
+//            } else {
+//                holder.attache_name.setText(name+"妈妈");
+//            }
+            holder.attache_name.setText(name+"老师");
+        }else {
+            holder.attache_name.setText(name);
+        }
+        holder.attache_age.setText(item.getUser_age() + "岁");
+        holder.attache_post.setText(item.getIndustry());
+        if (TextUtils.isEmpty(item.getUser_gender())) {
+            holder.attache_sex.setVisibility(View.INVISIBLE);
+        } else {
+            holder.attache_sex.setVisibility(View.VISIBLE);
+            if (item.getUser_gender().equals("1")) {
+                holder.attache_sex.setSelected(false);
+
+            } else {
+                holder.attache_sex.setSelected(true);
+            }
+        }
+        holder.attache_address.setText(item.getUser_community());
+        setAttacheService(item.getService_type_string(), holder, position);
+        return convertView;
+    }
+
+    private void setAttacheService(List<String> list, ViewHolder holder, int position) {
+        holder.ll_service.removeAllViews();
+        if (text != null) {
+            for (int i = 0; i < list.size(); i++) {
+                TextView tv_service = new TextView(context);
+                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                params.leftMargin = (int) QLScreenUtil.dpToPxInt(context, 5);
+                tv_service.setLayoutParams(params);
+                tv_service.setPadding((int) QLScreenUtil.dpToPxInt(context, 5), (int) QLScreenUtil.dpToPxInt(context, 2), (int) QLScreenUtil.dpToPxInt(context, 5), (int) QLScreenUtil.dpToPxInt(context, 2));
+                tv_service.setSingleLine(true);
+                tv_service.setBackgroundResource(R.drawable.attache_service_backgroud);
+                tv_service.setTextColor(context.getResources().getColor(R.color.app_special_style_color_normal));
+                tv_service.setTextSize(12);
+                tv_service.setText(list.get(i));
+                holder.ll_service.addView(tv_service);
+            }
+        }
+    }
+
+    class ViewHolder {
+        CircleImageView attache_photo;//头像
+        TextView attache_name;//姓名
+        ImageView attache_sex;//性别
+        TextView attache_age;//年龄
+        TextView attache_post;//职位
+        TextView attache_address;//地址
+        LinearLayout ll_service;//专员服务
+    }
+
+}

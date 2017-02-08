@@ -1,0 +1,63 @@
+package com.qiantang.neighbourmother.model;
+
+/**
+ * Created by quliang on 16-8-4.
+ */
+public class CommObj {
+ private String headImg;
+ private String name;
+ private long time;
+ private int floor;
+ private String content;
+
+    public CommObj() {
+    }
+
+    public CommObj(String headImg, String name, long time, int floor, String content) {
+        this.headImg = headImg;
+        this.name = name;
+        this.time = time;
+        this.floor = floor;
+        this.content = content;
+    }
+
+    public String getHeadImg() {
+        return headImg;
+    }
+
+    public void setHeadImg(String headImg) {
+        this.headImg = headImg;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public long getTime() {
+        return time;
+    }
+
+    public void setTime(long time) {
+        this.time = time;
+    }
+
+    public int getFloor() {
+        return floor;
+    }
+
+    public void setFloor(int floor) {
+        this.floor = floor;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+}

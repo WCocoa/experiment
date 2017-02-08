@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_bg"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rela_top"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_title_height"
+        android:background="@color/app_title_bg">
+
+        <TextView
+            android:textColor="@color/app_special_style_color_normal"
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/commisapp_title_cancer"
+            android:id="@+id/back"
+            android:layout_centerVertical="true"
+            />
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/app_title_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="@string/commisapp_title" />
+    </RelativeLayout>
+    <ScrollView
+        android:layout_marginTop="@dimen/app_content_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textSize="@dimen/app_item_title"
+                android:textColor="@color/app_special_style_color_normal"
+                android:padding="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/commisapp_base_info_label"
+                android:layout_centerVertical="true"
+                />
+
+            <View
+                style="@style/app_item_line_style"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="@dimen/app_left_right_size"></View>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_marginLeft="5dp"
+                    style="@style/commissionerApplyActivity_label"
+                    android:id="@+id/vbrand_label"
+                    android:padding="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/commisappc_vehicle_brand"
+                    android:layout_centerVertical="true"
+                    />
+                <EditText
+                    android:background="@color/white"
+                    android:gravity="right"
+                    android:hint="@string/commisapp_please_input"
+                    style="@style/commissionerApplyActivity_content"
+                    android:id="@+id/et_vbrand"
+                    android:layout_marginRight="15dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/vbrand_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+            <View
+                style="@style/app_item_line_style"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="@dimen/app_left_right_size"></View>
+
+            <RelativeLayout
+                android:id="@+id/rala_vtype"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_marginLeft="5dp"
+                    style="@style/commissionerApplyActivity_label"
+                    android:id="@+id/vtype_label"
+                    android:padding="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/commisappc_vehicle_type"
+                    android:layout_centerVertical="true"
+                    />
+                <TextView
+                    android:gravity="right"
+                    android:hint="@string/commisapp_please_choose"
+                    style="@style/commissionerApplyActivity_content"
+                    android:id="@+id/tv_vtype"
+                    android:layout_marginRight="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/vtype_label"
+                    android:layout_toLeftOf="@+id/icon_right"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:src="@mipmap/arrow_expend_right"
+                    android:id="@id/icon_right"
+                    style="@style/right_icon_style" />
+            </RelativeLayout>
+
+            <View
+                style="@style/app_item_line_style"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="@dimen/app_left_right_size"></View>
+
+            <RelativeLayout
+                android:id="@+id/rala_vcondition"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_marginLeft="5dp"
+                    style="@style/commissionerApplyActivity_label"
+                    android:id="@+id/vcondition_label"
+                    android:padding="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/commisappc_vehicle_condition"
+                    android:layout_centerVertical="true"
+                    />
+                <TextView
+                    android:gravity="right"
+                    android:hint="@string/commisapp_please_choose"
+                    style="@style/commissionerApplyActivity_content"
+                    android:id="@+id/tv_vcondition"
+                    android:layout_marginRight="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/vcondition_label"
+                    android:layout_toLeftOf="@+id/icon_right"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:src="@mipmap/arrow_expend_right"
+                    android:id="@+id/icon_right"
+                    style="@style/right_icon_style" />
+            </RelativeLayout>
+
+            <View
+                style="@style/app_item_line_style"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="@dimen/app_left_right_size"></View>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_marginLeft="5dp"
+                    style="@style/commissionerApplyActivity_label"
+                    android:id="@+id/vage_label"
+                    android:padding="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/commisappc_vehicle_age"
+                    android:layout_centerVertical="true"
+                    />
+                <EditText
+                    android:background="@color/white"
+                    android:gravity="right"
+                    android:hint="@string/commisapp_please_input"
+                    style="@style/commissionerApplyActivity_content"
+                    android:id="@+id/et_vage"
+                    android:layout_marginRight="15dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/vage_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+            <View
+                style="@style/app_item_line_style"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="@dimen/app_left_right_size"></View>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_marginLeft="5dp"
+                    style="@style/commissionerApplyActivity_label"
+                    android:id="@+id/vcamera_label"
+                    android:padding="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/commisappc_vehicle_camera"
+
+                    />
+                <ImageView
+                    android:layout_marginLeft="20dp"
+                    android:layout_below="@+id/vcamera_label"
+                    android:id="@+id/iv_vimg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/placea_img_bg"
+                    android:padding="8dp"
+                    android:src="@mipmap/auth_photo_image" />
+
+                <ImageView
+                    android:id="@+id/iv_vimg_delete"
+                    android:layout_width="@dimen/commiaoa_id_card_delete"
+                    android:layout_height="@dimen/commiaoa_id_card_delete"
+                    android:layout_alignRight="@+id/iv_vimg"
+                    android:layout_alignTop="@+id/iv_vimg"
+                    android:src="@mipmap/icon_delete"
+                    android:visibility="gone" />
+            </RelativeLayout>
+            <View
+                android:layout_marginTop="15dp"
+                style="@style/app_item_line_style"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="@dimen/app_left_right_size"></View>
+
+            <TextView
+                android:textSize="@dimen/app_item_title"
+                android:textColor="@color/app_special_style_color_normal"
+                android:padding="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/commisappc_driver_info"
+                android:layout_centerVertical="true"
+                />
+
+            <View
+                style="@style/app_item_line_style"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="@dimen/app_left_right_size"></View>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_marginLeft="5dp"
+                    style="@style/commissionerApplyActivity_label"
+                    android:id="@+id/dage_label"
+                    android:padding="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/commisappc_driver_age"
+                    android:layout_centerVertical="true"
+                    />
+                <EditText
+                    android:background="@color/white"
+                    android:gravity="right"
+                    android:hint="@string/commisapp_please_input"
+                    style="@style/commissionerApplyActivity_content"
+                    android:id="@+id/et_dage"
+                    android:layout_marginRight="15dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/dage_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+            <View
+                style="@style/app_item_line_style"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="@dimen/app_left_right_size"></View>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_marginLeft="5dp"
+                    style="@style/commissionerApplyActivity_label"
+                    android:id="@+id/dcn_label"
+                    android:padding="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/commisappc_driver_cer_no"
+                    android:layout_centerVertical="true"
+                    />
+                <EditText
+                    android:background="@color/white"
+                    android:gravity="right"
+                    android:hint="@string/commisapp_please_input"
+                    style="@style/commissionerApplyActivity_content"
+                    android:id="@+id/et_dcn"
+                    android:layout_marginRight="15dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/dcn_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+            <View
+                style="@style/app_item_line_style"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="@dimen/app_left_right_size"></View>
+
+            <TextView
+                style="@style/app_button_style"
+                android:id="@+id/submit"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="25dp"
+                android:layout_below="@+id/ll_text"
+                android:text="@string/commisapp_submit"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/login_btn_backgroud"
+                />
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

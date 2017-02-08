@@ -1,0 +1,138 @@
+package com.qiantang.neighbourmother.ui.fragment;
+
+import android.os.Bundle;
+import android.os.Message;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.LinearLayout;
+
+import com.qiantang.neighbourmother.R;
+import com.qiantang.neighbourmother.business.API;
+import com.qiantang.neighbourmother.ui.BaseActivity;
+import com.qiantang.neighbourmother.ui.BaseFragment;
+import com.qiantang.neighbourmother.widget.photoview.PhotoView;
+
+
+public class PhotoViewFragment extends BaseFragment {
+
+	private PhotoView imageView;
+	private LinearLayout linear;
+	private String mImageUrl;
+
+	public static PhotoViewFragment newInstance(String imageUrl) {
+		final PhotoViewFragment f = new PhotoViewFragment();
+
+		final Bundle args = new Bundle();
+		args.putString("url", imageUrl);
+		f.setArguments(args);
+
+		return f;
+	}
+
+	@Override
+	public void onActivityCreated(Bundle savedInstanceState) {
+		super.onActivityCreated(savedInstanceState);
+//		ImageLoader.getInstance().displayImage(API.BASE_IMG_URL + mImageUrl, imageView,
+//				getDisplayImageOptions(R.drawable.icon_default_img));
+
+		((BaseActivity)getActivity()).display(imageView, API.BASE_IMG_URL + mImageUrl, R.mipmap.ic_launcher);
+
+	}
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		mImageUrl = getArguments() != null ? getArguments().getString("url") : null;
+	}
+
+	@Override
+	public int getContentView() {
+		// TODO Auto-generated method stub
+		return R.layout.fragment_photoview;
+	}
+
+	@Override
+	public void initView(View view) {
+		imageView = (PhotoView) view.findViewById(R.id.imageView);
+		linear = (LinearLayout) view.findViewById(R.id.linear);
+
+
+
+
+	imageView
+			.setOnDoubleTapListener(new GestureDetector.OnDoubleTapListener() {
+		@Override
+		public boolean onSingleTapConfirmed(MotionEvent e) {
+			getActivity().finish();
+			return false;
+		}
+
+		@Override
+		public boolean onDoubleTap(MotionEvent e) {
+			return false;
+		}
+
+		@Override
+		public boolean onDoubleTapEvent(MotionEvent e) {
+			return false;
+		}
+	});
+
+	}
+
+	@Override
+	public void initData() {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public void initEvent() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	protected void updateUI(Message msg) {
+		// TODO Auto-generated method stub
+	}
+
+
+
+//	/**1圆角2圆*/
+//	public void display(MyImageLoader myImageLoader, String url, int failureImage, int type){
+//		myImageLoader.setHierarchy(getGdh(type,failureImage));
+//		myImageLoader.setImageURI(Uri.parse(url));
+//	}
+//
+//
+//	private GenericDraweeHierarchy getGdh(int type, int failureImage) {
+//		GenericDraweeHierarchy genericDraweeHierarchy = null;
+//		switch (type) {
+//			case 1:
+//				genericDraweeHierarchy = new GenericDraweeHierarchyBuilder(getResources())
+//						.setFailureImage(getResources().getDrawable(failureImage), ScalingUtils.ScaleType.FIT_XY)
+//						.setProgressBarImage(getResources().getDrawable(failureImage), ScalingUtils.ScaleType.FIT_XY)
+//						.setRoundingParams((new RoundingParams()).setCornersRadius(10f))
+//						.build();
+//				break;
+//			case 2:
+//				genericDraweeHierarchy = new GenericDraweeHierarchyBuilder(getResources())
+//						.setFailureImage(getResources().getDrawable(failureImage), ScalingUtils.ScaleType.FIT_XY)
+//						.setProgressBarImage(getResources().getDrawable(failureImage), ScalingUtils.ScaleType.FIT_XY)
+//						.setRoundingParams(new RoundingParams().setRoundAsCircle(true))
+//						.build();
+//
+//				break;
+//			default:
+//				genericDraweeHierarchy = new GenericDraweeHierarchyBuilder(getResources())
+//						.setFailureImage(getResources().getDrawable(failureImage), ScalingUtils.ScaleType.FIT_XY)
+//						.setProgressBarImage(getResources().getDrawable(failureImage), ScalingUtils.ScaleType.FIT_XY)
+//						.build();
+//				break;
+//		}
+//		return genericDraweeHierarchy;
+//	}
+
+
+}

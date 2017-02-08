@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/app_bg"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ll_home_center_loc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <!--android:background="@drawable/home_center_loc_label"-->
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="3dp"
+            android:layout_marginTop="2dp"
+            android:src="@mipmap/icon_home_location" />
+
+        <TextView
+            android:id="@+id/home_center_loc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:lines="1"
+            android:maxWidth="180dp"
+            android:singleLine="true"
+            android:text="请选择小区"
+            android:textColor="@color/app_item_title"
+            android:textColorHint="#ffffff"
+            android:textSize="16sp" />
+
+        <!--<ImageView-->
+        <!--android:layout_width="13dp"-->
+        <!--android:layout_height="13dp"-->
+        <!--android:layout_gravity="center_vertical"-->
+        <!--android:layout_marginBottom="2dp"-->
+        <!--android:layout_marginLeft="2dp"-->
+        <!--android:layout_marginRight="8dp"-->
+        <!--android:layout_marginTop="2dp"-->
+        <!--android:src="@mipmap/home_loca_down" />-->
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rela_ad"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@color/white">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/home_head_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></android.support.v4.view.ViewPager>
+
+        <!--  android:layout_alignParentBottom="true"-->
+        <LinearLayout
+            android:id="@+id/ad_point_ll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:orientation="horizontal"></LinearLayout>
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rela_ad"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal"
+
+        >
+
+        <LinearLayout
+            android:id="@+id/category1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="8dp"
+            android:layout_weight="1"
+            android:background="@mipmap/img_home_bg_takecare"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <TextView
+                android:id="@+id/category1_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/homefrag_category2"
+                android:textColor="#F86A64"
+                android:textSize="@dimen/title"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/category1_summary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@string/homefrag_top_nurse_summary"
+                android:textColor="@color/app_item_content"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/category2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="16dp"
+            android:layout_weight="1"
+            android:background="@mipmap/img_home_bg_send"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <TextView
+                android:id="@+id/category2_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/homefrag_category1"
+                android:textColor="#FFA560"
+                android:textSize="@dimen/title"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/category2_summary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@string/homefrag_top_shuttle_summary"
+                android:textColor="@color/app_item_content"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="1dp"
+            android:background="#D2D2D2" />
+
+        <ImageView
+            android:layout_gravity="center_vertical"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginLeft="15dp"
+            android:src="@mipmap/icon_home_caption" />
+
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="15dp"
+            android:text="临家妈妈"
+            android:textColor="@color/app_item_title"
+            android:textSize="@dimen/app_item_title" />
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="1dp"
+            android:background="#D2D2D2" />
+    </LinearLayout>
+
+    <!--<View-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="15dp"-->
+    <!--android:layout_below="@+id/ll_category_pra"-->
+    <!--android:background="@color/app_bg" />-->
+
+
+</LinearLayout>

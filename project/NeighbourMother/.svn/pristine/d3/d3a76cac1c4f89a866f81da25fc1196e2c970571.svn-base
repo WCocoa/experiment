@@ -1,0 +1,214 @@
+package com.qiantang.neighbourmother.ui.community;
+
+import android.content.Intent;
+import android.os.Message;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.KeyEvent;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.qiantang.neighbourmother.R;
+import com.qiantang.neighbourmother.adapter.ConmmunityAdapter;
+import com.qiantang.neighbourmother.adapter.DiscGroupImgHeadAdapter;
+import com.qiantang.neighbourmother.business.API;
+import com.qiantang.neighbourmother.business.data.DiscussionGroupHomeHttp;
+import com.qiantang.neighbourmother.business.data.JoinGroupHttp;
+import com.qiantang.neighbourmother.business.request.DiscussionGroupHomeReq;
+import com.qiantang.neighbourmother.business.request.JoinGroupReq;
+import com.qiantang.neighbourmother.business.response.DiscussionGroupHomeResp;
+import com.qiantang.neighbourmother.business.response.DiscussionGroupResp;
+import com.qiantang.neighbourmother.business.response.JoinGroupResp;
+import com.qiantang.neighbourmother.model.PostObj;
+import com.qiantang.neighbourmother.ui.BaseActivity;
+import com.qiantang.neighbourmother.util.IntentFinal;
+import com.qiantang.neighbourmother.util.ToastUtils;
+import com.qiantang.neighbourmother.widget.refreshview.XListView;
+
+import java.util.List;
+
+/**
+ * Created by quliang on 16-12-19.
+ */
+
+public class DiscussionGroupDetailActivity extends BaseActivity implements View.OnClickListener{
+   private ImageView back ;
+   private XListView xListView ;
+    private ImageView applydisc ;
+    private ConmmunityAdapter conmmunityAdapter;
+    private DiscussionGroupResp discussionGroupResp;
+    private boolean operation;//是否点击加入按钮
+
+    @Override
+    public int getContentView() {
+        return R.layout.activity_discussion_group_detail;
+    }
+
+    @Override
+    public void initView() {
+        back=(ImageView)findViewById(R.id.back);
+        applydisc=(ImageView)findViewById(R.id.applydisc);
+        xListView=(XListView)findViewById(R.id.xListView);
+        xListView.setPullLoadEnable(false);
+        loadHeadView();
+    }
+
+    @Override
+    public void initData() {
+        discussionGroupResp=(DiscussionGroupResp)getIntent().getSerializableExtra(IntentFinal.INTENT_DISCUSSION_GROUP_OBJ);
+        conmmunityAdapter=new ConmmunityAdapter(this);
+        xListView.addHeaderView(head);
+        xListView.setAdapter(conmmunityAdapter);
+        getHttpData(true);
+    }
+
+    @Override
+    public void initEvent() {
+        back.setOnClickListener(this);
+        join.setOnClickListener(this);
+        applydisc.setOnClickListener(this);
+        xListView.setXListViewListener(new XListView.IXListViewListener() {
+            @Override
+            public void onRefresh() {
+                getHttpData(true);
+            }
+
+            @Override
+            public void onLoadMore() {
+                getHttpData(false);
+            }
+        });
+    }
+
+    @Override
+    protected void updateUI(Message msg) {
+switch (msg.what){
+    case 1:
+        DiscussionGroupHomeResp discussionGroupHomeResp=(DiscussionGroupHomeResp)msg.obj;
+        setHeadData(discussionGroupHomeResp);
+        setData(discussionGroupHomeResp.getPost(),true);
+        break;
+    case 2:
+        DiscussionGroupHomeResp discussionGroupHomeResp1=(DiscussionGroupHomeResp)msg.obj;
+        setData(discussionGroupHomeResp1.getPost(),false);
+        break;
+    case 3:
+        JoinGroupResp joinGroupResp=(JoinGroupResp)msg.obj;
+        setJoin(joinGroupResp.getState());
+        operation=true;
+        break;
+}
+        closeProgressDialog();
+    }
+
+    @Override
+    public void onClick(View v) {
+switch (v.getId()){
+    case R.id.back:
+        finishActivity();
+        break;
+    case R.id.applydisc:
+        Intent intent=new Intent(this, SendPosterActivity.class);
+        intent.putExtra(IntentFinal.INTENT_DISCUSSION_GROUP_OBJ,discussionGroupResp);
+        startActivityForResult(intent,1);
+        break;
+    case R.id.join:
+        new JoinGroupHttp(this,handler,API.JOIN_DISCUSSION_GROUP,new JoinGroupReq(discussionGroupResp.getGroup_id()),3);
+        break;
+}
+    }
+
+    private void getHttpData(boolean isFirstLoad) {
+        new DiscussionGroupHomeHttp(this,handler,new DiscussionGroupHomeReq(API.COUNT,isFirstLoad == true ? 0 : conmmunityAdapter.getDataList().size(),discussionGroupResp.getGroup_id()),isFirstLoad == true ? 1 : 2);
+    }
+
+    private void setData(List<PostObj> postObjs, boolean isFirst) {
+        if (isFirst) {
+            conmmunityAdapter.getDataList().clear();
+        }
+        if (postObjs != null && postObjs.size() > 0) {
+
+            conmmunityAdapter.getDataList().addAll(postObjs);
+            if (postObjs.size() < 10) {
+                xListView.setPullLoadEnable(false);
+            } else {
+                xListView.setPullLoadEnable(true);
+            }
+        } else {
+            ToastUtils.toastshort(this, isFirst ? getString(R.string.app_pull_not_data) : getString(R.string.app_pull_already_last_page));
+        }
+        conmmunityAdapter.notifyDataSetChanged();
+        xListView.aotuRefreshComplete();
+    }
+
+    private void setHeadData(DiscussionGroupHomeResp discussionGroupHomeResp){
+        display(img, API.BASE_IMG_URL + discussionGroupHomeResp.getGroup().getGroup_pic(), R.mipmap.default_img);
+        title.setText(discussionGroupHomeResp.getGroup().getGroup_name());
+        summary.setText(discussionGroupHomeResp.getGroup().getGroup_introduce());
+        setJoin(discussionGroupHomeResp.getGroup().getJoined());
+        discGroupImgHeadAdapter.getDataList().clear();
+        discGroupImgHeadAdapter.getDataList().addAll(discussionGroupHomeResp.getUser());
+        discGroupImgHeadAdapter.notifyDataSetChanged();
+        tCount.setText("("+discussionGroupHomeResp.getUser().size()+")");
+    }
+
+    private void setJoin(int isJoin){
+        join.setTag(isJoin);
+        if (isJoin == 0) {
+            join.setText("加入");
+            join.setSelected(false);
+            join.setTextColor(getResources().getColor(R.color.white));
+        } else {
+            join.setText("已加入");
+            join.setSelected(true);
+            join.setTextColor(getResources().getColor(R.color.app_special_style_color_normal));
+        }
+    }
+
+    private View head;
+    private ImageView img;
+    private TextView title;
+    private TextView summary;
+    private TextView join;
+    private TextView tCount;
+    private DiscGroupImgHeadAdapter discGroupImgHeadAdapter;
+    private android.support.v7.widget.RecyclerView RecyclerView;
+    private void loadHeadView(){
+        head=getLayoutInflater().inflate(R.layout.layout_discussion_group_detail_head,null);
+        img=(ImageView) head.findViewById(R.id.img);
+        title=(TextView) head.findViewById(R.id.title);
+        summary=(TextView) head.findViewById(R.id.summary);
+        join=(TextView) head.findViewById(R.id.join);
+        tCount=(TextView) head.findViewById(R.id.tCount);
+        RecyclerView=(RecyclerView) head.findViewById(R.id.recyclerview);
+        RecyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
+        discGroupImgHeadAdapter=new DiscGroupImgHeadAdapter(this);
+        RecyclerView.setAdapter(discGroupImgHeadAdapter);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (resultCode){
+            case 10:
+                getHttpData(true);
+                break;
+        }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode==KeyEvent.KEYCODE_BACK){
+            finishActivity();
+return true;
+        }else{
+            return super.onKeyDown(keyCode, event);
+        }
+    }
+
+    private void finishActivity(){
+   if(operation) setResult(10);
+        finish();
+    }
+}

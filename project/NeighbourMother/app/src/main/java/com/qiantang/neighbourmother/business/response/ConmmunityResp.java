@@ -1,0 +1,54 @@
+package com.qiantang.neighbourmother.business.response;
+
+import com.qiantang.neighbourmother.model.PostObj;
+import com.qiantang.neighbourmother.model.SliderObj;
+import com.qiantang.neighbourmother.model.StarObj;
+
+import java.util.List;
+
+/**
+ * ClassName:社群首页
+ * author: Cocoa
+ * date: 2016/12/19.
+ */
+
+public class ConmmunityResp extends BaseResp {
+    private List<SliderObj> slider;
+    private List<DiscussionGroupResp>  group;
+    private List<StarObj>   star;
+
+    public List<PostObj> getPost() {
+        return post;
+    }
+
+    public void setPost(List<PostObj> post) {
+        this.post = post;
+    }
+
+    public List<SliderObj> getSlider() {
+        return slider;
+    }
+
+    public void setSlider(List<SliderObj> slider) {
+        this.slider = slider;
+    }
+
+    public List<DiscussionGroupResp> getGroup() {
+        return group;
+    }
+
+    public void setGroup(List<DiscussionGroupResp> group) {
+        this.group = group;
+    }
+
+    public List<StarObj> getStar() {
+        return star;
+    }
+
+    public void setStar(List<StarObj> star) {
+        this.star = star;
+    }
+
+    private List<PostObj> post;
+
+}

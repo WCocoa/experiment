@@ -1,0 +1,131 @@
+package com.qiantang.neighbourmother.ui.dialog;
+
+
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
+import android.util.DisplayMetrics;
+import android.view.Gravity;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+
+import com.qiantang.neighbourmother.R;
+import com.qiantang.neighbourmother.othershared.ShareObj;
+import com.qiantang.neighbourmother.othershared.Shared;
+import com.qiantang.neighbourmother.util.IntentFinal;
+
+/**
+ * Created by Administrator on 2015/11/12.
+ */
+public class SharedDialog extends DialogFragment implements View.OnClickListener {
+    public Shared shared;
+    private ShareObj activeObj;
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        DisplayMetrics dm = new DisplayMetrics();
+        getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
+        getDialog().getWindow().setLayout(dm.widthPixels, (getDialog().getWindow().getAttributes().height));
+
+        getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(0x60BBCCDD));
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setStyle(DialogFragment.STYLE_NORMAL, android.R.style.Theme_Black_NoTitleBar_Fullscreen);
+//        activeObj=new ShareObj("https://www.hao123.com","title","summary");
+        activeObj = (ShareObj) getArguments().getSerializable(IntentFinal.INTENT_CONMMUNITY_SHARE_OBJ);
+        shared = new Shared(getActivity(),activeObj);
+//        shared.onCreate(savedInstanceState);
+
+    }
+
+    @Override
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
+
+//        AppLog.D("activeObj:"+activeObj);
+//        AppLog.D("activeObj:"+activeObj.getUrl());
+        Dialog dialog = null;
+
+        View view = getActivity().getLayoutInflater().inflate(R.layout.dialog_shared_choose,
+                null);
+        view.findViewById(R.id.rl_shared_root).setOnClickListener(this);
+        view.findViewById(R.id.wechat_friend).setOnClickListener(this);
+        view.findViewById(R.id.wechat_circle_friends).setOnClickListener(this);
+        view.findViewById(R.id.qq_friend).setOnClickListener(this);
+        view.findViewById(R.id.qq_Qzone).setOnClickListener(this);
+        dialog = createDialog(getActivity(), view,
+                R.style.transparentFrameWindowStyle,
+                R.style.main_menu_animstyle, false);
+
+        dialog.setCanceledOnTouchOutside(true);
+//        AppLog.D("创建分享");
+        return dialog;
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.wechat_friend:
+                shared.weixinShared(false);
+                this.dismiss();
+                break;
+
+            case R.id.wechat_circle_friends:
+                shared.weixinShared(true);
+                this.dismiss();
+                break;
+
+            case R.id.qq_friend:
+                shared.qqShared();
+                this.dismiss();
+                break;
+
+            case R.id.qq_Qzone:
+                shared.zoneShared();
+                this.dismiss();
+                break;
+
+            default:
+                this.dismiss();
+                break;
+        }
+    }
+
+    /**
+     * 图片选择对话框
+     */
+    private Dialog createDialog(Activity activity, View view, int style,
+                                int anim, boolean centerY) {
+
+        Dialog dialog = null;
+        dialog = new Dialog(activity, style);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);// 去掉dialog的title部分
+        dialog.setContentView(view, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT));
+
+        Window window = dialog.getWindow();
+        window.setWindowAnimations(anim);
+        WindowManager.LayoutParams wl = window.getAttributes();
+        wl.x = 0;
+        if (centerY) {
+            wl.gravity = Gravity.CENTER_VERTICAL;
+        } else {
+            wl.y = activity.getWindowManager().getDefaultDisplay().getHeight();
+        }
+        wl.width = ViewGroup.LayoutParams.MATCH_PARENT;
+        wl.height = ViewGroup.LayoutParams.WRAP_CONTENT;
+
+        dialog.onWindowAttributesChanged(wl);
+        dialog.setCanceledOnTouchOutside(false);
+        return dialog;
+    }
+
+}

@@ -1,0 +1,357 @@
+package com.qiantang.neighbourmother.logic;
+
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.os.Bundle;
+import android.os.Environment;
+import android.os.Handler;
+import android.provider.MediaStore;
+import android.view.Gravity;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+
+import com.qiantang.neighbourmother.R;
+import com.qiantang.neighbourmother.ui.BaseActivity;
+import com.qiantang.neighbourmother.util.AppLog;
+import com.qiantang.neighbourmother.util.FileFinal;
+import com.qiantang.neighbourmother.util.QLBitmapUtil;
+import com.qiantang.neighbourmother.util.ToastUtils;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+
+
+public class TakeImage implements View.OnClickListener{
+private final static int CHOOSER_IMG_FROM_CAMERA=90;
+private final static int CHOOSER_IMG_FROM_IMGLIBS=91;
+private final static int CHOOSER_IMG_CLIP_REQUEST=92;
+private  final String camera_file_name_suffix="cfn.jpg";
+private  final String lib_file_name_suffix="lfn.jpg";
+    private final static int file_max_value=3145728;
+    private String camera_file;
+    private Activity activity;
+
+    private Dialog dialog;
+private Handler handler;
+private boolean isClip;
+
+    public TakeImage(Activity activity, Handler handler, boolean isClip) {
+        this.activity = activity;
+        this.handler = handler;
+        this.isClip = isClip;
+    }
+
+    private void initDialog() {
+        View view = activity.getLayoutInflater().inflate(R.layout.dialog_photo_choose,
+                null);
+        view.findViewById(R.id.imageLibs).setOnClickListener(this);
+        view.findViewById(R.id.camera).setOnClickListener(this);
+        view.findViewById(R.id.photoCancel).setOnClickListener(this);
+
+        createDialog(activity, view,
+                R.style.transparentFrameWindowStyle,
+                R.style.main_menu_animstyle, false);
+    }
+
+    /**
+     * 图片选择对话框
+     */
+    private Dialog createDialog(Activity activity, View view, int style,
+                                int anim, boolean centerY) {
+        dialog = new Dialog(activity, style);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);// 去掉dialog的title部分
+        dialog.setContentView(view, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT));
+
+        Window window = dialog.getWindow();
+        window.setWindowAnimations(anim);
+        WindowManager.LayoutParams wl = window.getAttributes();
+        wl.x = 0;
+        if (centerY) {
+            wl.gravity = Gravity.CENTER_VERTICAL;
+        } else {
+            wl.y = activity.getWindowManager().getDefaultDisplay().getHeight();
+        }
+        wl.width = ViewGroup.LayoutParams.MATCH_PARENT;
+        wl.height = ViewGroup.LayoutParams.WRAP_CONTENT;
+
+        dialog.onWindowAttributesChanged(wl);
+        dialog.setCanceledOnTouchOutside(false);
+        return dialog;
+    }
+
+    public void showDialog(){
+        if(dialog==null)
+            initDialog();
+        dialog.show();
+    }
+
+    @Override
+    public void onClick(View view) {
+        Intent intent=null;
+        switch (view.getId()) {
+            case R.id.imageLibs:
+                dialog.cancel();
+                clickImgLibs();
+                break;
+            case R.id.camera:
+                dialog.cancel();
+                clickCamera();
+                break;
+            case R.id.photoCancel:
+                if (dialog != null && dialog.isShowing())
+                    dialog.cancel();
+                break;
+        }
+    }
+
+    private void clickImgLibs(){
+        Intent intent = new Intent(Intent.ACTION_PICK);
+        intent.setType("image/*");// 相片类型
+        activity.startActivityForResult(intent,CHOOSER_IMG_FROM_IMGLIBS);
+    }
+    private void clickCamera(){
+        if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
+            Intent getImageByCamera = new Intent(
+                    "android.media.action.IMAGE_CAPTURE");
+            camera_file= System.currentTimeMillis()+camera_file_name_suffix;
+            getImageByCamera.putExtra(
+                    MediaStore.EXTRA_OUTPUT,
+                    Uri.fromFile(new File(FileFinal.PATH_TEMP+ camera_file)));
+            activity.startActivityForResult(getImageByCamera,
+                    CHOOSER_IMG_FROM_CAMERA);
+        } else {
+            ToastUtils.toastLong(activity,R.string.takeImage_sdcard_hint);
+        }
+    }
+
+
+    public void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
+
+        if(isClip){
+            activityResultCLip(requestCode,resultCode,data);
+        }else{
+
+            ((BaseActivity)activity).showProgressDialog();
+            new Thread(){
+                @Override
+                public void run() {
+                    if(requestCode == CHOOSER_IMG_FROM_IMGLIBS||requestCode == CHOOSER_IMG_FROM_CAMERA){
+                    if (requestCode == CHOOSER_IMG_FROM_IMGLIBS) {
+                        resultImgLibs(resultCode,data);
+                    } else if (requestCode == CHOOSER_IMG_FROM_CAMERA) {
+                        resultCamera(resultCode,data);
+                    }
+
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            ((BaseActivity)activity).closeProgressDialog();
+                        }
+                    });}
+                }
+            }.start();
+
+        }
+
+    }
+
+    private void resultImgLibs(int resultCode, Intent data){
+        if (data != null) {
+            Uri uri = data.getData();
+            String[] proj = { MediaStore.Images.Media.DATA };
+            Cursor actualImageCursor = activity.managedQuery(uri, proj, null, null, null);
+            if(actualImageCursor!=null){
+                int actual_image_column_index = actualImageCursor
+                        .getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+                actualImageCursor.moveToFirst();
+                String currentImagePath = actualImageCursor
+                        .getString(actual_image_column_index);
+                AppLog.D("currentImagePath:"+currentImagePath);
+
+                if(pictureListener!=null)
+                    imgCompress(currentImagePath,true);
+
+            }else if(uri.getPath()!=null&&(uri.getPath().endsWith(".jpg")||uri.getPath().endsWith(".png"))){
+                AppLog.D("uriuriuri:"+uri.getPath());
+                if(pictureListener!=null)
+                    imgCompress(uri.getPath(),true);
+            }
+        }
+    }
+    private void resultCamera(int resultCode, Intent data){
+//        AppLog.D("resultCode:" + resultCode);
+        if(resultCode== Activity.RESULT_OK)
+            if (new File(FileFinal.PATH_TEMP+ camera_file).exists()) {
+                AppLog.D("camara_theLarge:" + FileFinal.PATH_TEMP
+                        + camera_file);
+                if(pictureListener!=null)
+                    imgCompress(FileFinal.PATH_TEMP
+                            + camera_file,false);
+            }
+    }
+
+    PictureListener pictureListener;
+    public void setOnPictureListener(PictureListener pictureListener){
+        this.pictureListener=pictureListener;
+    }
+
+    public interface PictureListener{
+        public void pictureCall(String path);
+    }
+
+    PicClipListener picClipListener;
+    public void setOnPicClipListener(PicClipListener picClipListener){
+        this.picClipListener=picClipListener;
+    }
+
+    public interface PicClipListener{
+        public void picClipCall(Bitmap bitmap);
+    }
+
+
+private void activityResultCLip(int requestCode, int resultCode, Intent data) {
+    if (requestCode == CHOOSER_IMG_FROM_IMGLIBS) {
+        if (data == null)
+            return;
+        Uri originalUri = data.getData();
+
+        startPhotoZoom(originalUri, CHOOSER_IMG_CLIP_REQUEST, activity);
+
+    } else if (requestCode == CHOOSER_IMG_FROM_CAMERA) {
+
+        startPhotoZoom(
+                Uri.fromFile(new File(FileFinal.PATH_TEMP+ camera_file)), CHOOSER_IMG_CLIP_REQUEST,
+                activity);
+
+    } else if (requestCode == CHOOSER_IMG_CLIP_REQUEST) {
+        Bitmap bitmap = null;
+        if (data != null) {
+            Bundle extras = data.getExtras();
+            if (extras != null) {
+                bitmap = extras.getParcelable("data");
+//                if (bitmap != null)
+//                    QLBitmapUtil.saveBitmap(bitmap,
+//                            FileFinal.PATH_CACHEIMG
+//                                    + FileFinal.USER_IMG_HAED);
+            }
+        }
+
+        if(picClipListener!=null)
+            picClipListener.picClipCall(bitmap);
+    }
+}
+
+    private void startPhotoZoom(Uri uri, int requestCode, Activity context) {
+        Intent intent = new Intent("com.android.camera.action.CROP");
+        intent.setDataAndType(uri, "image/*");
+        intent.putExtra("crop", "true");
+        // aspectX aspectY 是宽高的比例
+        intent.putExtra("aspectX", 1);
+        intent.putExtra("aspectY", 1);
+        intent.putExtra("outputX", 300);
+        intent.putExtra("outputY", 300);
+        intent.putExtra("scale", true);
+        intent.putExtra("return-data", true);
+        context.startActivityForResult(intent, requestCode);
+    }
+//1 lib 2camera;
+    private void imgCompress(final String path, final boolean isLib){
+
+        String lastPath=compressImg(path,isLib);
+        pictureListener.pictureCall(lastPath);
+    }
+    //1 lib 2camera;
+    private String compressImg(String path, boolean isLib){
+        String savePath=null;
+        String lib_file= FileFinal.PATH_TEMP+ System.currentTimeMillis()+lib_file_name_suffix;
+        savePath=path;
+
+        File file=new File(path);
+        boolean b=false;
+        AppLog.D("file.length():" + file.length());
+        while (file.length()>file_max_value){
+
+            Bitmap bitmap=null;
+            if(isLib){
+
+                if(!b){
+                    bitmap= getTempBitmap(path,2);
+                    QLBitmapUtil.saveBitmap(bitmap,lib_file);
+                    file=new File(lib_file);
+                    savePath=lib_file;
+                } else{
+                    bitmap= getTempBitmap(lib_file,2);
+                }
+
+            }else{
+                    bitmap= getTempBitmap(path,2);
+            }
+
+            if(bitmap==null)
+                break;
+
+            boolean ssf=saveFile(bitmap,savePath);
+            b=true;
+            if(!ssf){
+                ToastUtils.toastLong(activity,R.string.app_not_exist);
+                savePath=null;
+                break;
+            }
+
+        }
+return savePath;
+    }
+
+    private boolean saveFile(Bitmap bitmap, String path){
+        boolean b=false;
+        try {
+
+            FileOutputStream fileOutputStream=new FileOutputStream(path);
+            bitmap.compress(Bitmap.CompressFormat.JPEG,100,fileOutputStream);
+            if(!bitmap.isRecycled()){
+                bitmap.recycle();  //回收图片所占的内存
+                System.gc();  //提醒系统及时回收
+            }
+            b=true;
+            File file=new File(path);
+            AppLog.D("file1.length():" + file.length());
+        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+            b=true;
+        }
+        return b;
+    }
+
+    private Bitmap getTempBitmap(String path, int inSampleSize){
+        BitmapFactory.Options bfOptions=new BitmapFactory.Options();
+        bfOptions.inDither=false;
+        bfOptions.inPurgeable=true;
+        bfOptions.inTempStorage=new byte[12*1024 * 1024];
+        bfOptions.inSampleSize=inSampleSize;
+//        bfOptions.inJustDecodeBounds = true;
+        File file = new File(path);
+        FileInputStream fs=null;
+        Bitmap bmp = null;
+        try {
+            fs = new FileInputStream(file);
+            if(fs != null)
+                bmp = BitmapFactory.decodeFileDescriptor(fs.getFD(), null, bfOptions);
+            AppLog.D("bmp:" +bmp);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return bmp;
+    }
+
+
+}

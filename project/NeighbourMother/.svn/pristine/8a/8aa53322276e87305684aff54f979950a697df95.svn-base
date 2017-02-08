@@ -1,0 +1,458 @@
+package com.qiantang.neighbourmother.sqlite;
+
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+
+import com.qiantang.neighbourmother.model.CityObj;
+import com.qiantang.neighbourmother.model.PCityObj;
+import com.qiantang.neighbourmother.model.PDistrictObj;
+import com.qiantang.neighbourmother.model.PProvinceObj;
+import com.qiantang.neighbourmother.util.AppLog;
+
+import net.sourceforge.pinyin4j.PinyinHelper;
+
+import java.util.ArrayList;
+
+/**
+ * Created by Administrator on 2016/3/16.
+ */
+public class CityOperation {
+
+    public  static  final  String GET_PROVINCE="SELECT * FROM "+ CitySql.PROVINCE_TABLE_NAME + " where 1=1 and "+CitySql.PROVINCE_STATUS+"=1 ";
+
+    public  static  final  String FIND_CITYS_BY_PROVINCE_ID="SELECT * FROM "+CitySql.CITY_TABLE_NAME + " where 1=1 and "+CitySql.CITY_PROVINCE_ID+"=? and "+CitySql.PROVINCE_STATUS+"=1 ";
+    public  static  final  String FIND_DISTRICTS_BY_CITY_ID="SELECT * FROM "+CitySql.DISTRICT_TABLE_NAME + " where 1=1 and "+CitySql.DISTRICT_CITY_ID+"=? ";
+
+    /*** 查询所有城市*/
+    public static final String SELECT_ALL = "select * from " + CitySql.CITY_TABLE_NAME + " where "+CitySql.PROVINCE_STATUS+"=1";
+    /*** 根据名称查询省id*/
+//    public static final String SELECT_PROVINCE_ID = "select * from " + CitySql.PROVINCE_TABLE_NAME + " where "+CitySql.PROVINCE_STATUS+"=1 and " + CitySql.PROVINCE_NAME + "=?";
+    public static final String SELECT_PROVINCE_ID = "select * from " + CitySql.PROVINCE_TABLE_NAME + " where "+ CitySql.PROVINCE_NAME + "=?";
+    /*** 根据省id查询省对象*/
+//   public static final String SELECT_PROVINCE_NAME = "select * from " + CitySql.PROVINCE_TABLE_NAME + " where "+CitySql.PROVINCE_STATUS+"=1 and " + CitySql.PROVINCE_ID + "=?";
+   public static final String SELECT_PROVINCE_NAME = "select * from " + CitySql.PROVINCE_TABLE_NAME + " where "+ CitySql.PROVINCE_ID + "=?";
+    /*** 根据名称查询城市id*/
+//    public static final String SELECT_CITY_ID = "select * from " + CitySql.CITY_TABLE_NAME + " where "+CitySql.PROVINCE_STATUS+"=1 and " + CitySql.CITY_NAME + "=?";
+    public static final String SELECT_CITY_ID = "select * from " + CitySql.CITY_TABLE_NAME + " where " + CitySql.CITY_NAME + "=? and "+CitySql.CITY_PROVINCE_ID + "=? ";
+    /*** 根据名称查询地区id*/
+    public static final String SELECT_DISTRICT_ID = "select * from " + CitySql.DISTRICT_TABLE_NAME + " where 1=1 and " + CitySql.DISTRICT_NAME + "=? and "+CitySql.DISTRICT_CITY_ID + "=?";
+    /*** 首字母模糊查询*/
+    public static final String SELECT_FIRST_NAME = "select * from " + CitySql.CITY_TABLE_NAME + " where "+CitySql.PROVINCE_STATUS+"=1 and " + CitySql.PINYIN + " like ?";
+
+    /*** 根据城市id查询对应的所有区域*/
+    public static final String BYCITYCODE_SELECT_DISTRICT = "select * from " + CitySql.DISTRICT_TABLE_NAME + " where 1=1 and " + CitySql.DISTRICT_CITY_ID + "= ?";
+
+    private DBManager dbManager;
+    private Context context;
+
+    public CityOperation(Context context) {
+        this.context = context;
+        dbManager = new DBManager(context);
+    }
+
+
+        public ArrayList<PProvinceObj> getProvince() {
+
+            ArrayList<PProvinceObj> pProvinceObjs = new ArrayList<PProvinceObj>();
+            SQLiteDatabase db = null;
+            Cursor cursor = null;
+            try {
+                db = dbManager.openDatabase();
+                cursor = db.rawQuery(GET_PROVINCE, null);
+                while (cursor.moveToNext()) {
+                    PProvinceObj pProvinceObj = new PProvinceObj();
+                    pProvinceObj.setAreaId(cursor.getInt(cursor
+                            .getColumnIndex(CitySql.PROVINCE_ID)));
+                    pProvinceObj.setAreaName(cursor.getString(cursor
+                            .getColumnIndex(CitySql.PROVINCE_NAME)));
+//                    AppLog.D("pProvinceObj.getAreaName():"+pProvinceObj.getAreaName());
+                    pProvinceObj.setCities(findCitysByProvinceId(pProvinceObj.getAreaId()));
+                    pProvinceObjs.add(pProvinceObj);
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                if (db != null) {
+                    db.close();
+                    db = null;
+                }
+            }
+            return pProvinceObjs;
+        }
+
+    private ArrayList<PCityObj> findCitysByProvinceId(int provinceId){
+        ArrayList<PCityObj> cityObjs = new ArrayList<PCityObj>();
+        SQLiteDatabase db = null;
+        Cursor cursor = null;
+        try {
+            db = dbManager.openDatabase();
+            cursor = db.rawQuery(FIND_CITYS_BY_PROVINCE_ID, new String[]{String.valueOf(provinceId)});
+            while (cursor.moveToNext()) {
+                PCityObj pCityObj = new PCityObj();
+                pCityObj.setAreaId(cursor.getInt(cursor
+                        .getColumnIndex(CitySql.CITY_ID)));
+                pCityObj.setAreaName(cursor.getString(cursor
+                        .getColumnIndex(CitySql.CITY_NAME)));
+//                AppLog.D("pCityObj.getAreaName():"+pCityObj.getAreaName());
+
+                pCityObj.setCounties(findDistrictByCityId(pCityObj.getAreaId()));
+
+                cityObjs.add(pCityObj);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (db != null) {
+                db.close();
+                db = null;
+            }
+        }
+        return cityObjs;
+    }
+
+    public ArrayList<PDistrictObj> findDistrictByCityId(int cityId){
+        ArrayList<PDistrictObj> pDistrictObjs = new ArrayList<PDistrictObj>();
+        SQLiteDatabase db = null;
+        Cursor cursor = null;
+        try {
+            db = dbManager.openDatabase();
+            cursor = db.rawQuery(FIND_DISTRICTS_BY_CITY_ID, new String[]{String.valueOf(cityId)});
+            while (cursor.moveToNext()) {
+                PDistrictObj pDistrictObj = new PDistrictObj();
+                pDistrictObj.setAreaId(cursor.getInt(cursor
+                        .getColumnIndex(CitySql.DISTRICT_ID)));
+                pDistrictObj.setAreaName(cursor.getString(cursor
+                        .getColumnIndex(CitySql.DISTRICT_NAME)));
+//                AppLog.D("pDistrictObj.getAreaName():"+pDistrictObj.getAreaName());
+                pDistrictObjs.add(pDistrictObj);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (db != null) {
+                db.close();
+                db = null;
+            }
+        }
+        return pDistrictObjs;
+    }
+
+    public ArrayList<String> findDistrictByCityIdWithArray(int cityId){
+        ArrayList<String> districts = new ArrayList<String>();
+        SQLiteDatabase db = null;
+        Cursor cursor = null;
+        try {
+            db = dbManager.openDatabase();
+            cursor = db.rawQuery(FIND_DISTRICTS_BY_CITY_ID, new String[]{String.valueOf(cityId)});
+            while (cursor.moveToNext()) {
+                PDistrictObj pDistrictObj = new PDistrictObj();
+                pDistrictObj.setAreaId(cursor.getInt(cursor
+                        .getColumnIndex(CitySql.DISTRICT_ID)));
+                pDistrictObj.setAreaName(cursor.getString(cursor
+                        .getColumnIndex(CitySql.DISTRICT_NAME)));
+//                AppLog.D("pDistrictObj.getAreaName():"+pDistrictObj.getAreaName());
+//                pDistrictObjs.add(pDistrictObj);
+                districts.add(pDistrictObj.getAreaName());
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (db != null) {
+                db.close();
+                db = null;
+            }
+        }
+        return districts;
+    }
+
+
+    public ArrayList<CityObj> getAllCitys() {
+        SQLiteDatabase db = null;
+        Cursor cursor = null;
+        ArrayList<CityObj> popLocObjs = new ArrayList<CityObj>();
+        try {
+            db = dbManager.openDatabase();
+            cursor = db.rawQuery(SELECT_ALL, null);
+
+            while (cursor.moveToNext()) {
+                CityObj cityObj = new CityObj();
+                cityObj.set_id(cursor.getInt(cursor
+                        .getColumnIndex(CitySql.CITY_ID)));
+                String name=cursor.getString(cursor
+                        .getColumnIndex(CitySql.CITY_NAME));
+
+                cityObj.setName(name);
+                cityObj.setProvice_id(cursor.getInt(cursor
+                        .getColumnIndex(CitySql.CITY_PROVINCE_ID)));
+                String[] piny= PinyinHelper.toHanyuPinyinStringArray(name.charAt(0));
+                cityObj.setPinyin(piny[0]);
+
+                popLocObjs.add(cityObj);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (db != null) {
+                db.close();
+                db = null;
+            }
+        }
+        return popLocObjs;
+    }
+
+    public ArrayList<CityObj> getPinyAllCitys(String firstPinyin) {
+//        AppLog.D("getPinyAllCitys_firstPinyin:"+firstPinyin);
+        SQLiteDatabase db = null;
+        Cursor cursor = null;
+        ArrayList<CityObj> popLocObjs = new ArrayList<CityObj>();
+        try {
+            db = dbManager.openDatabase();
+
+            cursor= db.rawQuery(SELECT_FIRST_NAME,new String[]{firstPinyin + "%"});
+
+            while (cursor.moveToNext()) {
+                CityObj cityObj = new CityObj();
+                cityObj.set_id(cursor.getInt(cursor
+                        .getColumnIndex(CitySql.CITY_ID)));
+                String name=cursor.getString(cursor
+                        .getColumnIndex(CitySql.CITY_NAME));
+
+//                AppLog.D("getAllCitys_name:"+name);
+
+                cityObj.setName(name);
+                cityObj.setProvice_id(cursor.getInt(cursor
+                        .getColumnIndex(CitySql.CITY_PROVINCE_ID)));
+                String pinyin=cursor.getString(cursor
+                        .getColumnIndex(CitySql.PINYIN));
+//                AppLog.D("getAllCitys_pinyin:"+pinyin);
+                cityObj.setPinyin(pinyin);
+
+                popLocObjs.add(cityObj);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (db != null) {
+                db.close();
+                db = null;
+            }
+        }
+        return popLocObjs;
+    }
+
+    public PProvinceObj getProvinceId(String provinceName) {
+        SQLiteDatabase db = null;
+        Cursor cursor = null;
+        PProvinceObj pProvinceObj =null;
+        try {
+            db = dbManager.openDatabase();
+            cursor = db.rawQuery(SELECT_PROVINCE_ID, new String[]{provinceName});
+            if(cursor.moveToNext()){
+                pProvinceObj=new PProvinceObj();
+                pProvinceObj.setAreaId(cursor.getInt(cursor
+                        .getColumnIndex(CitySql.PROVINCE_ID)));
+
+                String name=cursor.getString(cursor
+                        .getColumnIndex(CitySql.PROVINCE_NAME));
+                AppLog.D("getProvinceId_name:"+name);
+
+                pProvinceObj.setAreaName(name);
+//                cityObj.setProvice_id(cursor.getInt(cursor
+//                        .getColumnIndex(CitySql.CITY_PROVINCE_ID)));
+//                cityObj.setPinyin(cursor.getString(cursor
+//                        .getColumnIndex(CitySql.PINYIN)));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (db != null) {
+                db.close();
+                db = null;
+            }
+        }
+        return pProvinceObj;
+    }
+
+    public PProvinceObj findProvinceById(int provinceId) {
+        SQLiteDatabase db = null;
+        Cursor cursor = null;
+        PProvinceObj pProvinceObj =null;
+        try {
+            db = dbManager.openDatabase();
+            cursor = db.rawQuery(SELECT_PROVINCE_NAME, new String[]{String.valueOf(provinceId)});
+            if(cursor.moveToNext()){
+                pProvinceObj=new PProvinceObj();
+                pProvinceObj.setAreaId(cursor.getInt(cursor
+                        .getColumnIndex(CitySql.PROVINCE_ID)));
+
+                String name=cursor.getString(cursor
+                        .getColumnIndex(CitySql.PROVINCE_NAME));
+                AppLog.D("getProvinceId_name:"+name);
+
+                pProvinceObj.setAreaName(name);
+//                cityObj.setProvice_id(cursor.getInt(cursor
+//                        .getColumnIndex(CitySql.CITY_PROVINCE_ID)));
+//                cityObj.setPinyin(cursor.getString(cursor
+//                        .getColumnIndex(CitySql.PINYIN)));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (db != null) {
+                db.close();
+                db = null;
+            }
+        }
+        return pProvinceObj;
+    }
+
+    public CityObj getCityId(String cityName,String provinceId) {
+        SQLiteDatabase db = null;
+        Cursor cursor = null;
+        CityObj cityObj =null;
+        try {
+            db = dbManager.openDatabase();
+            cursor = db.rawQuery(SELECT_CITY_ID, new String[]{cityName,provinceId});
+            if(cursor.moveToNext()){
+                cityObj=new CityObj();
+                cityObj.set_id(cursor.getInt(cursor
+                        .getColumnIndex(CitySql.CITY_ID)));
+
+                String name=cursor.getString(cursor
+                        .getColumnIndex(CitySql.CITY_NAME));
+//                AppLog.D("getAllCitys_name:"+name);
+
+                cityObj.setName(name);
+                cityObj.setProvice_id(cursor.getInt(cursor
+                        .getColumnIndex(CitySql.CITY_PROVINCE_ID)));
+                cityObj.setPinyin(cursor.getString(cursor
+                        .getColumnIndex(CitySql.PINYIN)));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (db != null) {
+                db.close();
+                db = null;
+            }
+        }
+        return cityObj;
+    }
+
+    public PDistrictObj getDistrictId(String districtName,String cityId) {
+        SQLiteDatabase db = null;
+        Cursor cursor = null;
+        PDistrictObj pDistrictObj =null;
+        try {
+            db = dbManager.openDatabase();
+            cursor = db.rawQuery(SELECT_DISTRICT_ID, new String[]{districtName,cityId});
+            if(cursor.moveToNext()){
+                pDistrictObj=new PDistrictObj();
+                pDistrictObj.setAreaId(cursor.getInt(cursor
+                        .getColumnIndex(CitySql.DISTRICT_ID)));
+
+                String name=cursor.getString(cursor
+                        .getColumnIndex(CitySql.DISTRICT_NAME));
+                AppLog.D("getDistrictId_name:"+name);
+                pDistrictObj.setAreaName(name);
+
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (db != null) {
+                db.close();
+                db = null;
+            }
+        }
+        return pDistrictObj;
+    }
+
+
+
+//    public ArrayList<PProvinceObj> getAllCitys() {
+//        SQLiteDatabase db = null;
+//        Cursor cursor = null;
+//        ArrayList<PProvinceObj> popLocObjs = new ArrayList<PProvinceObj>();
+//        PProvinceObj pProvinceObj = null;
+//        db = dbManager.openDatabase();
+//        cursor = db.rawQuery(GET_PROVINCE,null);
+//
+//        return popLocObjs;
+//    }
+
+
+//    public CityObj getCityId(String cityName) {
+////        AppLog.D("getCityId_cityName:"+cityName);
+//        SQLiteDatabase db = null;
+//        Cursor cursor = null;
+//        CityObj cityObj =null;
+//        try {
+//            db = dbManager.openDatabase();
+//            cursor = db.rawQuery(SELECT_CITY_ID, new String[]{cityName});
+//            if(cursor.moveToNext()){
+//                cityObj=new CityObj();
+//                cityObj.set_id(cursor.getInt(cursor
+//                        .getColumnIndex(ID)));
+//
+//                String name=cursor.getString(cursor
+//                        .getColumnIndex(NAME));
+////                AppLog.D("getAllCitys_name:"+name);
+//
+//                cityObj.setName(name);
+//                cityObj.setProvice_id(cursor.getInt(cursor
+//                        .getColumnIndex(PROVICE_ID)));
+//                cityObj.setPinyin(cursor.getString(cursor
+//                        .getColumnIndex(PINYIN)));
+//            }
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        } finally {
+//            if (db != null) {
+//                db.close();
+//                db = null;
+//            }
+//        }
+//        return cityObj;
+////    }
+//
+//    public ArrayList<PopLocObj> findDistrictByCity(int cityId) {
+//        SQLiteDatabase db = null;
+//        Cursor cursor = null;
+//        ArrayList<PopLocObj> districtObjs = new ArrayList<PopLocObj>();
+//        try {
+//            db = dbManager.openDatabase();
+//            cursor = db.rawQuery(BYCITYCODE_SELECT_DISTRICT, new String[]{String.valueOf(cityId)});
+//
+//            while (cursor.moveToNext()) {
+//                PopLocObj districtObj = new PopLocObj();
+//                districtObj.setId(cursor.getInt(cursor
+//                        .getColumnIndex(DS_ID)));
+//                districtObj.setName(cursor.getString(cursor
+//                        .getColumnIndex(DS_NAME)));
+//
+//                districtObjs.add(districtObj);
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        } finally {
+//            if (db != null) {
+//                db.close();
+//                db = null;
+//            }
+//        }
+//        return districtObjs;
+//    }
+//
+}

@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rela_top"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_title_height"
+        android:background="@color/app_title_bg">
+
+        <ImageView
+            android:id="@+id/back"
+            style="@style/app_title_icon_style"
+            android:layout_centerVertical="true"
+            android:longClickable="false"
+            android:src="@mipmap/back" />
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/app_title_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/back"
+            android:layout_toLeftOf="@+id/research"
+            android:layout_toRightOf="@+id/back"
+            android:layout_toStartOf="@+id/research"
+            android:gravity="center"
+            android:text="服务介绍" />
+
+        <TextView
+            android:id="@+id/org_edit"
+            style="@style/app_title_icon_style"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_backicon_margin_left"
+            android:gravity="center"
+            android:longClickable="false"
+            android:padding="@dimen/dimen_backicon_padding_left"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/research"
+            style="@style/app_title_icon_style"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:longClickable="false"
+            android:padding="@dimen/dimen_backicon_padding_left"
+            android:visibility="invisible" />
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/view_lines"
+        style="@style/app_item_line_style"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/rela_top">
+
+    </View>
+<!--
+    <LinearLayout
+        android:id="@+id/service_tab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view_lines"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:id="@+id/rl_pre_school"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/white">
+
+                <TextView
+                    android:id="@+id/pre_school_text"
+                    style="@style/app_item_title_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="学前"
+                    android:textColor="@drawable/service_introduce_head_selector"
+                    android:textSize="@dimen/app_item_title" />
+
+                <View
+                    android:id="@+id/line1"
+                    android:layout_width="45dp"
+                    android:layout_height="2dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:background="@color/app_special_style_color_normal"
+                    android:visibility="invisible"></View>
+            </RelativeLayout>
+
+            &lt;!&ndash;<View&ndash;&gt;
+            &lt;!&ndash;android:layout_width="0.3dp"&ndash;&gt;
+            &lt;!&ndash;android:layout_height="match_parent"&ndash;&gt;
+            &lt;!&ndash;android:layout_marginBottom="8dp"&ndash;&gt;
+            &lt;!&ndash;android:layout_marginTop="8dp"&ndash;&gt;
+            &lt;!&ndash;android:background="@color/app_line" />&ndash;&gt;
+
+            <RelativeLayout
+                android:id="@+id/rl_primary_school"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/white">
+
+                <TextView
+                    android:id="@+id/primary_school_text"
+                    style="@style/app_item_title_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="小学"
+                    android:textColor="@drawable/service_introduce_head_selector"
+                    android:textSize="@dimen/app_item_title" />
+
+                <View
+                    android:id="@+id/line2"
+                    android:layout_width="45dp"
+                    android:layout_height="2dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:background="@color/app_special_style_color_normal"
+                    android:visibility="invisible"></View>
+            </RelativeLayout>
+
+            &lt;!&ndash;<View&ndash;&gt;
+            &lt;!&ndash;android:layout_width="0.3dp"&ndash;&gt;
+            &lt;!&ndash;android:layout_height="match_parent"&ndash;&gt;
+            &lt;!&ndash;android:layout_marginBottom="8dp"&ndash;&gt;
+            &lt;!&ndash;android:layout_marginTop="8dp"&ndash;&gt;
+            &lt;!&ndash;android:background="@color/app_line" />&ndash;&gt;
+
+            <RelativeLayout
+                android:id="@+id/rl_juior_high_school"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/white">
+
+                <TextView
+                    android:id="@+id/juior_high_school_text"
+                    style="@style/app_item_title_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="初中"
+                    android:textColor="@drawable/service_introduce_head_selector"
+                    android:textSize="@dimen/app_item_title" />
+
+                <View
+                    android:id="@+id/line3"
+                    android:layout_width="45dp"
+                    android:layout_height="2dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:background="@color/app_special_style_color_normal"
+                    android:visibility="invisible"></View>
+            </RelativeLayout>
+
+            &lt;!&ndash;<View&ndash;&gt;
+            &lt;!&ndash;android:layout_width="0.3dp"&ndash;&gt;
+            &lt;!&ndash;android:layout_height="match_parent"&ndash;&gt;
+            &lt;!&ndash;android:layout_marginBottom="8dp"&ndash;&gt;
+            &lt;!&ndash;android:layout_marginTop="8dp"&ndash;&gt;
+            &lt;!&ndash;android:background="@color/app_line" />&ndash;&gt;
+
+            <RelativeLayout
+                android:id="@+id/rl_senior_high_school"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/white">
+
+                <TextView
+                    android:id="@+id/senior_high_school_text"
+                    style="@style/app_item_title_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="高中"
+                    android:textColor="@drawable/service_introduce_head_selector"
+                    android:textSize="@dimen/app_item_title" />
+
+                <View
+                    android:id="@+id/line4"
+                    android:layout_width="45dp"
+                    android:layout_height="2dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:background="@color/app_special_style_color_normal"
+                    android:visibility="invisible"></View>
+            </RelativeLayout>
+        </LinearLayout>
+
+
+        <View
+            android:id="@+id/view_line"
+            style="@style/app_item_line_style"
+            android:layout_width="match_parent">
+
+        </View>
+    </LinearLayout>-->
+
+    <FrameLayout
+        android:id="@+id/fl_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/view_lines">
+
+    </FrameLayout>
+</RelativeLayout>

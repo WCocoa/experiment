@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:hedgehog="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#FFFFFF"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:id="@+id/item1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.0">
+
+        <ImageView
+            android:id="@+id/sex_bg1"
+            android:layout_width="@dimen/home_item_sex_bg"
+            android:layout_height="@dimen/home_item_sex_bg"
+            android:layout_alignBottom="@+id/cimg1"
+            android:layout_alignRight="@+id/cimg1"
+            android:background="@drawable/home_item_sex_man_bg"
+            android:src="@mipmap/home_sex_backgroud" />
+
+
+        <ImageView
+            android:id="@+id/sex1"
+            android:layout_width="13dp"
+            android:layout_height="13dp"
+            android:layout_alignBottom="@+id/cimg1"
+            android:layout_alignRight="@+id/cimg1"
+            android:src="@drawable/home_sex_selector" />
+
+        <com.qiantang.neighbourmother.widget.CircleImageView
+            android:id="@+id/cimg1"
+            style="@style/home_category_img_style"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/home_item_img_top"
+            android:background="@mipmap/home_image_backgroud"
+            android:src="@mipmap/default_img" />
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/government1"
+            android:layout_width="48dp"
+            android:layout_height="16dp"
+            android:layout_alignBottom="@+id/cimg1"
+            android:layout_alignLeft="@+id/cimg1"
+            android:src="@mipmap/icon_government" />
+
+
+        <com.qiantang.neighbourmother.widget.RatingBar
+            android:id="@+id/ratingBar1"
+            android:layout_width="@dimen/home_category"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cimg1"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="5dp"
+            android:gravity="center_horizontal"
+            hedgehog:clickable="false"
+            hedgehog:ratingsize="1"
+            hedgehog:starCount="5"
+            hedgehog:starEmpty="@mipmap/rating_small_empty"
+            hedgehog:starFill="@mipmap/rating_small_full"
+            hedgehog:starImageSize="14dp" />
+
+        <TextView
+            android:id="@+id/name1"
+            android:layout_width="@dimen/home_category"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ratingBar1"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_vertical"
+
+            android:text="许爸爸 32岁"
+            android:textColor="@color/app_item_content"
+            android:textSize="@dimen/home_item_name_font" />
+
+        <TextView
+            android:id="@+id/tag1"
+            android:layout_width="@dimen/home_category"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/name1"
+            android:layout_centerHorizontal="true"
+            android:text="辅导 步行 专车 拼车 看护"
+            android:textColor="@color/homefr_item_tag"
+            android:textSize="@dimen/home_item_service" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="5dp"
+            android:layout_below="@+id/tag1"
+            android:visibility="invisible"></TextView>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/item2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.0">
+
+        <ImageView
+            android:id="@+id/sex_bg2"
+            android:layout_width="@dimen/home_item_sex_bg"
+            android:layout_height="@dimen/home_item_sex_bg"
+            android:layout_alignBottom="@+id/cimg2"
+            android:layout_alignRight="@+id/cimg2"
+            android:background="@drawable/home_item_sex_man_bg"
+            android:src="@mipmap/home_sex_backgroud" />
+
+        <ImageView
+            android:id="@+id/sex2"
+            android:layout_width="13dp"
+            android:layout_height="13dp"
+            android:layout_alignBottom="@+id/cimg2"
+            android:layout_alignRight="@+id/cimg2"
+            android:src="@drawable/home_sex_selector" />
+
+        <com.qiantang.neighbourmother.widget.CircleImageView
+            android:id="@+id/cimg2"
+            style="@style/home_category_img_style"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/home_item_img_top"
+            android:background="@mipmap/home_image_backgroud"
+            android:src="@mipmap/default_img" />
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/government2"
+            android:layout_width="48dp"
+            android:layout_height="16dp"
+            android:layout_alignBottom="@+id/cimg2"
+            android:layout_alignLeft="@+id/cimg2"
+            android:src="@mipmap/icon_government" />
+
+        <com.qiantang.neighbourmother.widget.RatingBar
+            android:id="@+id/ratingBar2"
+            android:layout_width="@dimen/home_category"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cimg2"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="5dp"
+            android:gravity="center_horizontal"
+            hedgehog:clickable="false"
+            hedgehog:ratingsize="1"
+            hedgehog:starCount="5"
+            hedgehog:starEmpty="@mipmap/rating_small_empty"
+            hedgehog:starFill="@mipmap/rating_small_full"
+            hedgehog:starImageSize="14dp" />
+
+        <TextView
+            android:id="@+id/name2"
+            android:layout_width="@dimen/home_category"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ratingBar2"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_vertical"
+            android:text="许爸爸 32岁"
+            android:textSize="@dimen/home_item_name_font" />
+
+        <TextView
+            android:id="@+id/tag2"
+            android:layout_width="@dimen/home_category"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/name2"
+            android:layout_centerHorizontal="true"
+            android:text="辅导 步行 专车 拼车 看护"
+            android:textColor="@color/homefr_item_tag"
+            android:textSize="@dimen/home_item_service" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="5dp"
+            android:layout_below="@+id/tag2"
+            android:visibility="invisible"></TextView>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/item3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.0">
+
+        <ImageView
+            android:id="@+id/sex_bg3"
+            android:layout_width="@dimen/home_item_sex_bg"
+            android:layout_height="@dimen/home_item_sex_bg"
+            android:layout_alignBottom="@+id/cimg3"
+            android:layout_alignRight="@+id/cimg3"
+            android:background="@drawable/home_item_sex_man_bg"
+            android:src="@mipmap/home_sex_backgroud" />
+
+        <ImageView
+            android:id="@+id/sex3"
+            android:layout_width="13dp"
+            android:layout_height="13dp"
+            android:layout_alignBottom="@+id/cimg3"
+            android:layout_alignRight="@+id/cimg3"
+            android:src="@drawable/home_sex_selector" />
+
+        <com.qiantang.neighbourmother.widget.CircleImageView
+            android:id="@+id/cimg3"
+            style="@style/home_category_img_style"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/home_item_img_top"
+            android:background="@mipmap/home_image_backgroud"
+            android:src="@mipmap/default_img" />
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/government3"
+            android:layout_width="48dp"
+            android:layout_height="16dp"
+            android:layout_alignBottom="@+id/cimg3"
+            android:layout_alignLeft="@+id/cimg3"
+            android:src="@mipmap/icon_government" />
+
+        <com.qiantang.neighbourmother.widget.RatingBar
+            android:id="@+id/ratingBar3"
+            android:layout_width="@dimen/home_category"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cimg3"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="5dp"
+            android:gravity="center_horizontal"
+            hedgehog:clickable="false"
+            hedgehog:ratingsize="1"
+            hedgehog:starCount="5"
+            hedgehog:starEmpty="@mipmap/rating_small_empty"
+            hedgehog:starFill="@mipmap/rating_small_full"
+            hedgehog:starImageSize="14dp" />
+
+        <TextView
+            android:id="@+id/name3"
+            android:layout_width="@dimen/home_category"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ratingBar3"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_vertical"
+            android:text="许爸爸 32岁"
+            android:textSize="@dimen/home_item_name_font" />
+
+        <TextView
+            android:id="@+id/tag3"
+            android:layout_width="@dimen/home_category"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/name3"
+            android:layout_centerHorizontal="true"
+            android:text="辅导 步行 专车 拼车 看护"
+            android:textColor="@color/homefr_item_tag"
+            android:textSize="@dimen/home_item_service" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="5dp"
+            android:layout_below="@+id/tag3"
+            android:visibility="invisible"></TextView>
+    </RelativeLayout>
+
+</LinearLayout>

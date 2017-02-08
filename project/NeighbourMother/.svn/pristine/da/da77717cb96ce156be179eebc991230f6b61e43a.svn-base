@@ -1,0 +1,35 @@
+package com.qiantang.neighbourmother.business;
+
+/**
+ * HTTP环境配置文件
+ *
+ * @author
+ */
+public final class APIConfig {
+
+    // 当前环境
+    private static Environment env = Environment.TEST;
+    // 开发环境地址
+    private static final String DEVELOPMENT_BASE_URL = "http://192.168.1.13:8888";
+    // 测试环境地址
+    private static final String TEST_FILE_BASE_URL = "http://123.56.253.118:5557";
+    // 线上环境地址
+    private static final String PRODUCTION_BASE_URL = "http://123.57.167.85:5557";
+
+    enum Environment {
+        DEVELOPMENT, // 开发环境
+        TEST, // 测试环境
+        PRODUCTION // 线上环境
+    }
+
+    public static String getBaseUrl() {
+        if (APIConfig.env == Environment.DEVELOPMENT) {
+            return APIConfig.DEVELOPMENT_BASE_URL;
+        } else if (APIConfig.env == Environment.TEST) {
+            return APIConfig.TEST_FILE_BASE_URL;
+        } else if (APIConfig.env == Environment.PRODUCTION) {
+            return APIConfig.PRODUCTION_BASE_URL;
+        }
+        return "";
+    }
+}
