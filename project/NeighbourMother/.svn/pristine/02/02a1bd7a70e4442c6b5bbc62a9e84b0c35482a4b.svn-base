@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    >
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/ll_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            style="@style/commissionerrecruit_service_type_apply"
+            android:text="@string/commirec_service_apply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/app_item_content"
+                android:textSize="@dimen/app_item_title"
+                android:text="@string/commirec_service_area_limit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/app_item_title"
+                android:textSize="@dimen/app_item_title"
+                android:text="@string/commirec_service_area_limit_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/app_item_content"
+                android:textSize="@dimen/app_item_title"
+                android:text="@string/commirec_service_fw_limit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/app_item_title"
+                android:textSize="@dimen/app_item_title"
+                android:text="@string/commirec_service_fw_limit_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/app_item_content"
+                android:textSize="@dimen/app_item_title"
+                android:text="@string/commirec_service_child_limit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/app_item_title"
+                android:textSize="@dimen/app_item_title"
+                android:text="@string/commirec_service_child_limit_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/app_item_content"
+                android:textSize="@dimen/app_item_title"
+                android:text="@string/commirec_service_other_limit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/app_item_title"
+                android:textSize="16sp"
+                android:text="@string/commirec_service_other_limit_woman"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_marginTop="30dp"
+        style="@style/app_button_style"
+        android:layout_marginBottom="45dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:background="@drawable/login_btn_backgroud"
+        android:id="@+id/submit_kh"
+        android:layout_below="@id/ll_text"
+        android:text="@string/commirec_submit"
+   />
+</RelativeLayout>

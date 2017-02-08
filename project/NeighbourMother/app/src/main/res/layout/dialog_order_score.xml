@@ -1,0 +1,61 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="35dp"
+        android:src="@mipmap/order_score_icon" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="45dp"
+        android:layout_marginRight="45dp"
+        android:layout_marginTop="15dp"
+        android:text="@string/orderscored_title"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="15dp"
+        android:progressTint="@color/app_special_style_color_normal"
+        android:rating="3.5" />
+
+    <!--<TextView-->
+    <!--android:layout_marginLeft="35dp"-->
+    <!--android:layout_marginRight="35dp"-->
+    <!--android:layout_marginTop="15dp"-->
+    <!--android:text="@string/commis_issd_desc"-->
+    <!--android:layout_width="180dp"-->
+    <!--android:layout_height="wrap_content" />-->
+
+    <TextView
+        android:id="@+id/sure"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:background="@drawable/login_btn_rect_backgroud"
+        android:gravity="center"
+        android:paddingBottom="12dp"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:paddingTop="12dp"
+        android:text="@string/orderscored_submit"
+        android:textColor="@color/white"
+        android:textSize="@dimen/app_item_title" />
+
+    <!--android:background="@drawable/login_btn_backgroud"-->
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="25dp" />-->
+</LinearLayout>

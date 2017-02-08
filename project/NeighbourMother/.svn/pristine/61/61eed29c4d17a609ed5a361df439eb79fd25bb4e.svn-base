@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_bg" >
+
+    <RelativeLayout
+        android:id="@+id/top_rela"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_title_height"
+        android:background="@color/app_title_bg"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/imgdetail_return"
+            style="@style/app_title_icon_style"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/back" />
+
+        <TextView
+            android:id="@+id/title_font_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/img_title"
+            style="@style/app_title_style" />
+
+        <TextView
+            android:id="@+id/imgdetail_cancer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:padding="10dp"
+            android:text="@string/img_cancle"
+            android:textColor="@color/app_special_style_color_normal"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <GridView
+        android:id="@+id/id_gridView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_rela"
+        android:layout_below="@+id/top_rela"
+        android:cacheColorHint="@android:color/transparent"
+        android:clipChildren="true"
+        android:gravity="center"
+        android:horizontalSpacing="3dip"
+        android:listSelector="@android:color/transparent"
+        android:numColumns="3"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="3dip" >
+    </GridView>
+
+    <RelativeLayout
+        android:id="@+id/bottom_rela"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" >
+
+        <Button
+            android:id="@+id/bottom_send"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/app_title_bg"
+            android:text="@string/img_send"
+            android:textColor="@android:color/white" />
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,114 @@
+package com.qiantang.neighbourmother.ui.center.attache;
+
+import android.content.Intent;
+import android.os.Message;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import com.qiantang.neighbourmother.R;
+import com.qiantang.neighbourmother.business.data.GetCenterMoneyHttp;
+import com.qiantang.neighbourmother.business.response.CenterMoneyResp;
+import com.qiantang.neighbourmother.ui.BaseActivity;
+import com.qiantang.neighbourmother.util.IntentFinal;
+import com.qiantang.neighbourmother.util.ToastUtils;
+
+import static com.qiantang.neighbourmother.business.API.CENTER_MONEY;
+
+/**
+ * ClassName:专员账户
+ * author: Cocoa
+ * date: 2016/9/23.
+ */
+public class AttacheAccountActivity extends BaseActivity implements View.OnClickListener {
+
+    private ImageView       back;
+    private TextView        blance_money;//余额
+    private RelativeLayout  rl_bind_bank_card;//绑定银行卡
+    private RelativeLayout  rl_withdraw_deposit;//提现
+    private CenterMoneyResp centerMoneyResp;
+
+    @Override
+    public int getContentView() {
+        return R.layout.activity_attache_account;
+    }
+
+    @Override
+    public void initView() {
+        back = (ImageView) findViewById(R.id.back);
+        blance_money = (TextView) findViewById(R.id.blance_money);
+        rl_bind_bank_card = (RelativeLayout) findViewById(R.id.rl_bind_bank_card);
+        rl_withdraw_deposit = (RelativeLayout) findViewById(R.id.rl_withdraw_deposit);
+    }
+
+    @Override
+    public void initData() {
+        getHttpdata();
+    }
+
+    @Override
+    public void initEvent() {
+        back.setOnClickListener(this);
+        rl_bind_bank_card.setOnClickListener(this);
+        rl_withdraw_deposit.setOnClickListener(this);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        getHttpdata();
+    }
+
+    private void getHttpdata() {
+        new GetCenterMoneyHttp(this, handler, 2, 1, false);
+    }
+
+    private void setMoney(CenterMoneyResp centerMoneyResp) {
+        if (centerMoneyResp != null)
+            blance_money.setText(String.format("%1.2f", centerMoneyResp.getMoney() / 100));
+
+    }
+
+    @Override
+    protected void updateUI(Message msg) {
+        switch (msg.what) {
+            case 1:
+                centerMoneyResp = (CenterMoneyResp) msg.obj;
+                setMoney(centerMoneyResp);
+                closeProgressDialog();
+                break;
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        Intent intent = null;
+        switch (v.getId()) {
+            case R.id.back:
+                finish();
+                break;
+            case R.id.rl_bind_bank_card:
+                intent = new Intent(this, AttacheBindBankCardActivity.class);
+                intent.putExtra(IntentFinal.INTENT_ATTACHE_ACCOUNT_MONEY_BIND_BANK, centerMoneyResp);
+                startActivityForResult(intent, 5);
+                break;
+            case R.id.rl_withdraw_deposit:
+                if (TextUtils.isEmpty(centerMoneyResp.getCard_no())) {
+                    ToastUtils.toastLong(this, R.string.i_withdraw_deposit_bank);
+                } else {
+
+                    if (centerMoneyResp.getMoney() > 0) {
+                        intent = new Intent(this, AttacheWithdrawDepositActivity.class);
+                        intent.putExtra(IntentFinal.INTENT_ATTACHE_ACCOUNT_MONEY_WITHDRAW_DEPOSIT, centerMoneyResp);
+                        startActivity(intent);
+                    } else {
+                        ToastUtils.toastLong(this, R.string.i_withdraw_deposit_balance);
+                    }
+                }
+                break;
+        }
+    }
+
+}

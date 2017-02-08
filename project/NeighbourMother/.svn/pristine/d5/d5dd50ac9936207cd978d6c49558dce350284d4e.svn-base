@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_bg"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rela_top"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_title_height"
+        android:background="@color/app_title_bg">
+
+        <TextView
+            android:textColor="@color/app_special_style_color_normal"
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/commisapp_title_cancer"
+            android:id="@+id/back"
+            android:layout_centerVertical="true"
+            />
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/app_title_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="@string/commisapp_title" />
+    </RelativeLayout>
+<ScrollView
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textColor="@color/white"
+            android:background="@color/green"
+            android:id="@+id/apply_status"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            />
+
+        <TextView
+            android:background="@color/app_bg"
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            />
+
+        <TextView
+            android:textSize="@dimen/app_item_title"
+            android:textColor="@color/app_special_style_color_normal"
+            android:padding="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/commisapp_base_info_label"
+            android:layout_centerVertical="true"
+         />
+
+        <View
+            style="@style/app_item_line_style"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="@dimen/app_left_right_size"></View>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginLeft="5dp"
+                style="@style/commissionerApplyActivity_label"
+                android:id="@+id/name_label"
+                android:padding="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/commisapp_name_label"
+                android:layout_centerVertical="true"
+             />
+            <EditText
+                android:background="@color/white"
+                android:gravity="right"
+                android:hint="@string/commisapp_please_input"
+                style="@style/commissionerApplyActivity_content"
+                android:id="@+id/et_name"
+                android:layout_marginRight="15dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/name_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+        <View
+            style="@style/app_item_line_style"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="@dimen/app_left_right_size"></View>
+
+        <RelativeLayout
+            android:id="@+id/rala_sex"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginLeft="5dp"
+                style="@style/commissionerApplyActivity_label"
+                android:id="@+id/sex_label"
+                android:padding="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/commisapp_sex_label"
+                android:layout_centerVertical="true"
+                />
+            <TextView
+                android:gravity="right"
+                android:hint="@string/commisapp_please_choose"
+                style="@style/commissionerApplyActivity_content"
+                android:id="@+id/tv_sex"
+                android:layout_marginRight="10dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/sex_label"
+                android:layout_toLeftOf="@+id/icon_right"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:src="@mipmap/arrow_expend_right"
+                android:id="@+id/icon_right"
+                style="@style/right_icon_style" />
+        </RelativeLayout>
+
+        <View
+            style="@style/app_item_line_style"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="@dimen/app_left_right_size"></View>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginLeft="5dp"
+                style="@style/commissionerApplyActivity_label"
+                android:id="@+id/age_label"
+                android:padding="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/commisapp_age_label"
+                android:layout_centerVertical="true"
+                />
+            <EditText
+                android:background="@color/white"
+                android:gravity="right"
+                android:hint="@string/commisapp_please_input"
+                style="@style/commissionerApplyActivity_content"
+                android:id="@+id/et_age"
+                android:layout_marginRight="15dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/age_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+        <View
+            style="@style/app_item_line_style"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="@dimen/app_left_right_size"></View>
+
+        <!--<RelativeLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
+            <!--<TextView-->
+                <!--android:layout_marginLeft="5dp"-->
+                <!--style="@style/commissionerApplyActivity_label"-->
+                <!--android:id="@+id/tel_label"-->
+                <!--android:padding="10dp"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="@string/commisapp_tel_label"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--/>-->
+            <!--<EditText-->
+                <!--android:background="@color/white"-->
+                <!--android:gravity="right"-->
+                <!--android:hint="@string/commisapp_please_input"-->
+                <!--style="@style/commissionerApplyActivity_content"-->
+                <!--android:id="@+id/et_tel"-->
+                <!--android:layout_marginRight="15dp"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:layout_toRightOf="@+id/tel_label"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content" />-->
+        <!--</RelativeLayout>-->
+
+        <!--<View-->
+            <!--style="@style/app_item_line_style"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_marginLeft="@dimen/app_left_right_size"></View>-->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                style="@style/commissionerApplyActivity_label"
+                android:id="@+id/address_label"
+                android:padding="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/commisapp_address_label"
+
+                />
+
+                <LinearLayout
+                    android:layout_toRightOf="@+id/address_label"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        android:id="@+id/rela_province"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:gravity="right"
+                    android:hint="@string/commisapp_province_city_district"
+                    style="@style/commissionerApplyActivity_content"
+                    android:id="@+id/tv_province"
+                    android:layout_marginRight="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/icon_right"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                    <ImageView
+                    android:src="@mipmap/arrow_expend_right"
+                    android:id="@id/icon_right"
+                    style="@style/right_icon_style" />
+                    </RelativeLayout>
+
+                    <View
+                    style="@style/app_item_line_style"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="@dimen/app_left_right_size"></View>
+
+
+                    <EditText
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:background="@color/white"
+                        android:gravity="right"
+                        android:hint="@string/commisapp_at_neighbourhood"
+                        style="@style/commissionerApplyActivity_content"
+                        android:id="@+id/et_atneighbourhood"
+                        android:layout_marginRight="15dp"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/age_label"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                    <View
+                        style="@style/app_item_line_style"
+                        android:layout_width="match_parent"
+                        android:layout_marginLeft="@dimen/app_left_right_size"></View>
+
+                    <EditText
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:background="@color/white"
+                        android:gravity="right"
+                        android:hint="@string/commisapp_detail_address"
+                        style="@style/commissionerApplyActivity_content"
+                        android:id="@+id/et_detailAddress"
+                        android:layout_marginRight="15dp"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/age_label"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+            </LinearLayout>
+        </RelativeLayout>
+        <View
+            style="@style/app_item_line_style"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="@dimen/app_left_right_size"></View>
+
+        <RelativeLayout
+            android:id="@+id/rela_atOwner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginLeft="5dp"
+                style="@style/commissionerApplyActivity_label"
+                android:id="@+id/isOwner"
+                android:padding="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/commisapp_isowner_label"
+                android:layout_centerVertical="true"
+                />
+            <TextView
+                android:gravity="right"
+                android:hint="@string/commisapp_please_choose"
+                style="@style/commissionerApplyActivity_content"
+                android:id="@+id/tv_atOwner"
+                android:layout_marginRight="10dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/isOwner"
+                android:layout_toLeftOf="@+id/icon_right"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:src="@mipmap/arrow_expend_right"
+                android:id="@id/icon_right"
+                style="@style/right_icon_style" />
+        </RelativeLayout>
+
+        <View
+            style="@style/app_item_line_style"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="@dimen/app_left_right_size"></View>
+
+        <RelativeLayout
+            android:id="@+id/rela_techerDegree"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginLeft="5dp"
+                style="@style/commissionerApplyActivity_label"
+                android:id="@+id/techerDegree_label"
+                android:padding="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/commisapp_teacher_degree_label"
+                android:layout_centerVertical="true"
+                />
+            <EditText
+                android:hint="@string/commisapp_please_input"
+                android:id="@+id/tv_techerDegree"
+                android:background="@color/white"
+                android:gravity="right"
+                style="@style/commissionerApplyActivity_content"
+                android:layout_marginRight="15dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/techerDegree_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+            <!--<ImageView-->
+                <!--android:src="@mipmap/arrow_expend_right"-->
+                <!--android:id="@id/icon_right"-->
+                <!--style="@style/right_icon_style" />-->
+        </RelativeLayout>
+
+        <View
+            style="@style/app_item_line_style"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="@dimen/app_left_right_size"></View>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginLeft="5dp"
+                style="@style/commissionerApplyActivity_label"
+                android:id="@+id/atIndustry_label"
+                android:padding="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/commisapp_atindustry_label"
+                android:layout_centerVertical="true"
+                />
+            <EditText
+                android:background="@color/white"
+                android:gravity="right"
+                android:hint="@string/commisapp_please_input"
+                style="@style/commissionerApplyActivity_content"
+                android:id="@+id/et_industry"
+                android:layout_marginRight="15dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/atIndustry_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+        <View
+            style="@style/app_item_line_style"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="@dimen/app_left_right_size"></View>
+
+
+        <TextView
+            android:layout_marginTop="30dp"
+            style="@style/app_button_style"
+            android:layout_marginBottom="45dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:background="@drawable/login_btn_backgroud"
+            android:id="@+id/submit"
+            android:layout_below="@+id/ll_text"
+            android:text="@string/commisapp_submit"
+        />
+    </LinearLayout>
+
+</ScrollView>
+
+
+</LinearLayout>

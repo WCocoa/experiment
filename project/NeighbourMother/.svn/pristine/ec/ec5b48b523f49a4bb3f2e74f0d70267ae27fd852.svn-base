@@ -1,0 +1,76 @@
+package com.qiantang.neighbourmother.business;
+
+/**
+ * HTTP环境配置文件
+ *
+ * @author
+ */
+public final class APIConfig {
+    public static String API_VERSION            = "/1.2.0/";
+    // 测试环境地址
+    public static String TEST_PREFIX            = "https://123.56.253.118:5547";
+    public static String TEST_PREFIX_HTTP       = "http://123.56.253.118:5557";
+    //    private static final String TEST = "http://123.56.253.118:5557";
+    // Https线上环境地址
+    public static String PRODUCTION_PREFIX      = "https://123.57.167.85:5547";
+    // Http线上环境地址
+    public static String PRODUCTION_PREFIX_HTTP = "http://123.57.167.85:5557";
+
+
+    /**
+     * 网络请求地址
+     */
+    public static String TEST            = TEST_PREFIX + API_VERSION;
+    //HTTP测试路径
+    public static String TEST_HTTP       = TEST_PREFIX_HTTP + API_VERSION;
+    //HTTPS线上路径
+    public static String PRODUCTION      = PRODUCTION_PREFIX + API_VERSION;
+    //HTTP线上路径
+    public static String PRODUCTION_HTTP = PRODUCTION_PREFIX_HTTP + API_VERSION;
+    public static String RUN             = TEST;
+
+
+    /**
+     * 图片加载请求
+     */
+    //    图片下载地址
+    public static String IMG_SUFFIX       = "/uploads/";
+    //测试路径
+    public static String IMG_TEST         = TEST_PREFIX + IMG_SUFFIX;
+    //HTTP测试路径
+    public static String IMG_TEST_HTTP    = TEST_PREFIX_HTTP + IMG_SUFFIX;
+    //HTTPS线上路径
+    public static String IMG_PRODUCT      = PRODUCTION_PREFIX + IMG_SUFFIX;
+    //HTTP线上路径
+    public static String IMG_PRODUCT_HTTP = PRODUCTION_PREFIX_HTTP + IMG_SUFFIX;
+    public static String BASE_IMG_URL     = IMG_TEST;
+
+
+//     当前环境
+//    private static Environment env = Environment.TEST;
+//    enum Environment {
+//        DEVELOPMENT, // 开发环境
+//        TEST, // 测试环境
+//        PRODUCTION // 线上环境
+//    }
+
+//    public static String getBaseUrl() {
+//        if (APIConfig.env == Environment.DEVELOPMENT) {
+//            return APIConfig.DEVELOPMENT_BASE_URL;
+//        } else if (APIConfig.env == Environment.TEST) {
+//            return APIConfig.TEST_FILE_BASE_URL;
+//        } else if (APIConfig.env == Environment.PRODUCTION) {
+//            return APIConfig.PRODUCTION_BASE_URL;
+//        }
+//        return "";
+//    }
+
+//    public static void initUri(){
+//        env=Environment.PRODUCTION;
+//    }
+//
+//    public static void tempDebug(){
+//        env=Environment.TEST;
+//        AppLog.D("tempDebug:"+env);
+//    }
+}

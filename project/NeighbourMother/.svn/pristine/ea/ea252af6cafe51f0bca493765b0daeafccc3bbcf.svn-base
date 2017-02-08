@@ -1,0 +1,64 @@
+package com.qiantang.neighbourmother.ui.community;
+
+import android.os.Message;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.qiantang.neighbourmother.R;
+import com.qiantang.neighbourmother.ui.BaseActivity;
+
+/**
+ * Created by quliang on 16-12-19.
+ */
+
+public class CreateGroupActivity extends BaseActivity implements View.OnClickListener{
+    private ImageView back;
+    private TextView create;
+    private ImageView imghead;
+    private EditText groupName;
+    private EditText groupTitle;
+    @Override
+    public int getContentView() {
+        return R.layout.activity_create_group;
+    }
+
+    @Override
+    public void initView() {
+        back=(ImageView)findViewById(R.id.back);
+        create=(TextView)findViewById(R.id.create);
+        imghead=(ImageView)findViewById(R.id.imghead);
+        groupName=(EditText)findViewById(R.id.groupName);
+        groupTitle=(EditText)findViewById(R.id.groupTitle);
+    }
+
+    @Override
+    public void initData() {
+
+    }
+
+    @Override
+    public void initEvent() {
+        back.setOnClickListener(this);
+        create.setOnClickListener(this);
+        imghead.setOnClickListener(this);
+    }
+
+    @Override
+    protected void updateUI(Message msg) {
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.back:
+                break;
+            case R.id.create:
+                break;
+            case R.id.imghead:
+                break;
+        }
+    }
+}

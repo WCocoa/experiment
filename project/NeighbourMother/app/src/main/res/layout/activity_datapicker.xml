@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:id="@+id/rela_top"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_title_height"
+        android:background="@color/app_title_bg">
+
+        <!--<TextView-->
+            <!--android:id="@+id/pcone_cancle"-->
+            <!--style="@style/app_title_icon_style"-->
+            <!--android:layout_alignParentLeft="true"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginRight="@dimen/dimen_backicon_margin_left"-->
+            <!--android:gravity="center"-->
+            <!--android:longClickable="false"-->
+            <!--android:padding="@dimen/dimen_backicon_padding_left"-->
+            <!--android:text="@string/pubcur_one_cancerpub"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:textSize="16sp" />-->
+
+        <ImageView
+            android:id="@+id/back"
+            style="@style/app_title_icon_style"
+            android:layout_centerVertical="true"
+            android:longClickable="false"
+            android:src="@mipmap/back" />
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/app_title_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/back"
+            android:layout_toLeftOf="@+id/datap_sure"
+            android:layout_toRightOf="@+id/back"
+            android:layout_toStartOf="@+id/datap_sure"
+            android:gravity="center"
+            android:text="@string/datapicker_title" />
+
+        <TextView
+            android:id="@+id/datap_sure"
+            style="@style/app_title_icon_style"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_backicon_margin_left"
+            android:gravity="center"
+            android:longClickable="false"
+            android:padding="@dimen/dimen_backicon_padding_left"
+            android:text="@string/datapicker_right_btn"
+
+            android:textColor="@color/app_special_style_color_normal"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+    <DatePicker
+        android:layout_below="@+id/rela_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/datePicker"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp" />
+</RelativeLayout>

@@ -1,0 +1,350 @@
+package com.qiantang.neighbourmother.ui.home;
+
+import android.os.Message;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.AbsListView;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import com.qiantang.neighbourmother.NeighbourMotherApplication;
+import com.qiantang.neighbourmother.R;
+import com.qiantang.neighbourmother.adapter.CityListAdapter;
+import com.qiantang.neighbourmother.business.response.UserInfoResp;
+import com.qiantang.neighbourmother.logic.UserContacts;
+import com.qiantang.neighbourmother.model.CityObj;
+import com.qiantang.neighbourmother.model.LocInfoObj;
+import com.qiantang.neighbourmother.model.PDistrictObj;
+import com.qiantang.neighbourmother.service.SyncLocInfoService;
+import com.qiantang.neighbourmother.sqlite.CityOperation;
+import com.qiantang.neighbourmother.ui.BaseActivity;
+import com.qiantang.neighbourmother.ui.dialog.NeighbourhoodDialog;
+import com.qiantang.neighbourmother.util.AppLog;
+import com.qiantang.neighbourmother.util.PingYinUtil;
+import com.qiantang.neighbourmother.widget.LetterListView;
+import com.qiantang.neighbourmother.widget.picker.OptionPickerX;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.regex.Pattern;
+
+/**
+ * 订单支付
+ */
+public class CityListActivity extends BaseActivity implements OnClickListener,LetterListView.OnTouchingLetterChangedListener, AbsListView.OnScrollListener ,NeighbourhoodDialog.SureListener{
+    private ImageView back;
+    private TextView title;
+    private ListView city_container;
+    private LetterListView letter_container;
+
+    private List<CityObj> allCities = new ArrayList<>();
+    private List<CityObj> hotCities = new ArrayList<>();
+    private List<String> historyCities = new ArrayList<>();
+    private List<CityObj> citiesData;
+    private Map<String, Integer> letterIndex = new HashMap<>();
+    private CityListAdapter cityListAdapter;
+
+    private TextView letterOverlay; // 对话框首字母textview
+    private OverlayThread overlayThread; // 显示首字母对话框
+
+    private boolean isScroll;
+    private boolean isOverlayReady;
+
+    private CityOperation cityOperation;
+    @Override
+    public int getContentView() {
+        return R.layout.activity_citylist;
+    }
+
+    @Override
+    public void initView() {
+        back=(ImageView)findViewById(R.id.back);
+        title=(TextView)findViewById(R.id.title);
+        letterOverlay=(TextView)findViewById(R.id.letterOverlay);
+        city_container = (ListView) findViewById(R.id.city_container);
+        letter_container = (LetterListView) findViewById(R.id.letter_container);
+    }
+
+    @Override
+    public void initData() {
+
+        LocInfoObj cityObj=((NeighbourMotherApplication)getApplication()).cur_locInfoObj;
+        title.setText(getString(R.string.cityListActivity_current_city)+cityObj.getCity_name());
+         cityOperation=new CityOperation(this);
+        initCity();
+        initHotCity();
+        setupView();
+                overlayThread = new OverlayThread();
+//        initOverlay();
+    }
+
+    @Override
+    public void initEvent() {
+        back.setOnClickListener(this);
+    }
+
+    @Override
+    protected void updateUI(Message msg) {
+        switch (msg.what){
+            case 1:
+                initDistrict(((NeighbourMotherApplication)getApplication()).cur_locInfoObj);
+                break;
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+              switch (v.getId()){
+                  case R.id.back:
+                      finish();
+//                      initDistrict();
+                      break;
+              }
+    }
+
+    private void initCity() {
+        LocInfoObj locInfoObj = ((NeighbourMotherApplication)getApplication()).locInfoObj;
+        AppLog.D("initCity.locInfoObj:"+locInfoObj);
+        CityObj cityObj=new CityObj();
+        cityObj.setName(locInfoObj.getCity_name());
+        cityObj.set_id(locInfoObj.getCity_id());
+        allCities.add(cityObj);
+
+//        CityObj city = new CityObj("定位", "0"); // 当前定位城市
+//        city = new CityObj("最近", "1"); // 最近访问的城市
+//        allCities.add(city);
+//        city = new CityObj("热门", "2"); // 热门城市
+//        allCities.add(city);
+//        city = new CityObj("全部", "3"); // 全部城市
+//        allCities.add(city);
+
+        citiesData=getAllCity();
+        AppLog.D("citiesData:"+citiesData.size());
+        allCities.addAll(citiesData);
+    }
+
+    String alphabet="abcdefghijklmnopqrstuvwxyz";
+    private ArrayList<CityObj> getAllCity(){
+        ArrayList<CityObj> cityObjs=new ArrayList<CityObj>();
+        char[] ca=alphabet.toCharArray();
+        for (char ch:ca){
+            ArrayList<CityObj> childCitys=cityOperation.getPinyAllCitys(String.valueOf(ch));
+            cityObjs.addAll(childCitys);
+        }
+//        citiesData=getAllCity();
+//        citiesData = cityOperation.getAllCitys();
+        return cityObjs;
+    }
+
+    /**
+     * 热门城市
+     */
+    public void initHotCity() {
+//        CityObj city = new CityObj("北京", "2");
+//        hotCities.add(city);
+//        city = new CityObj("上海", "2");
+//        hotCities.add(city);
+//        city = new CityObj("广州", "2");
+//        hotCities.add(city);
+//        city = new CityObj("深圳", "2");
+//        hotCities.add(city);
+//        city = new CityObj("武汉", "2");
+//        hotCities.add(city);
+//        city = new CityObj("天津", "2");
+//        hotCities.add(city);
+//        city = new CityObj("西安", "2");
+//        hotCities.add(city);
+//        city = new CityObj("南京", "2");
+//        hotCities.add(city);
+//        city = new CityObj("杭州", "2");
+//        hotCities.add(city);
+//        city = new CityObj("成都", "2");
+//        hotCities.add(city);
+//        city = new CityObj("重庆", "2");
+//        hotCities.add(city);
+    }
+
+//    private ArrayList<CityObj> getCityList() {
+//        DBManager dbHelper = new DBManager(this);
+//        ArrayList<CityObj> list = new ArrayList<>();
+//        try {
+//            SQLiteDatabase db = dbHelper.openDatabase1();
+////            SQLiteDatabase db = dbHelper.getWritableDatabase();
+//            Cursor cursor = db.rawQuery("select * from city", null);
+//            CityObj city;
+//            while (cursor.moveToNext()) {
+//                city = new CityObj(cursor.getString(1), cursor.getString(2));
+//                list.add(city);
+//            }
+//            cursor.close();
+//            db.close();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        Collections.sort(list, comparator);
+//        return list;
+//    }
+
+    // 初始化汉语拼音首字母弹出提示框
+//    private void initOverlay() {
+
+//        isOverlayReady = true;
+//        LayoutInflater inflater = LayoutInflater.from(this);
+//        letterOverlay = (TextView) inflater.inflate(R.layout.v_letter_overlay, null);
+//        letterOverlay.setVisibility(View.INVISIBLE);
+//
+//        int width = DensityUtil.dp2px(this, 65);
+//
+//        WindowManager.LayoutParams lp = new WindowManager.LayoutParams(
+//                width, width,
+//                WindowManager.LayoutParams.TYPE_APPLICATION,
+//                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
+//                        | WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+//                PixelFormat.TRANSLUCENT);
+//        WindowManager windowManager = (WindowManager) this
+//                .getSystemService(Context.WINDOW_SERVICE);
+//        windowManager.addView(letterOverlay, lp);
+//    }
+
+    /**
+     * a-z排序
+     */
+    Comparator comparator = new Comparator<CityObj>() {
+        @Override
+        public int compare(CityObj lhs, CityObj rhs) {
+            String a = lhs.getPinyin().substring(0, 1);
+            String b = rhs.getPinyin().substring(0, 1);
+            int flag = a.compareTo(b);
+            if (flag == 0) {
+                return a.compareTo(b);
+            } else {
+                return flag;
+            }
+        }
+    };
+
+    private void setupView() {
+        city_container.setOnScrollListener(this);
+        letter_container.setOnTouchingLetterChangedListener(this);
+
+        cityListAdapter = new CityListAdapter(this, cityOperation,allCities, hotCities, historyCities, letterIndex,handler);
+        city_container.setAdapter(cityListAdapter);
+    }
+
+    @Override
+    public void onScrollStateChanged(AbsListView view, int scrollState) {
+
+    }
+
+    @Override
+    public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+        if (!isScroll) {
+            return;
+        }
+        if (isOverlayReady) {
+            String text;
+            String name = allCities.get(firstVisibleItem).getName();
+            String pinyin = allCities.get(firstVisibleItem).getPinyin();
+            if (firstVisibleItem < 4) {
+                text = name;
+            } else {
+                text = PingYinUtil.converterToFirstSpell(pinyin).substring(0, 1).toUpperCase();
+            }
+            Pattern pattern = Pattern.compile("^[A-Za-z]+$");
+            if (pattern.matcher(text).matches()) {
+                letterOverlay.setTextSize(40);
+            } else {
+                letterOverlay.setTextSize(20);
+            }
+            letterOverlay.setText(text);
+            letterOverlay.setVisibility(View.VISIBLE);
+            handler.removeCallbacks(overlayThread);
+//            // 延迟一秒后执行，让overlay为不可见
+            handler.postDelayed(overlayThread, 1000);
+        }
+    }
+
+    @Override
+    public void onTouchingLetterChanged(String s) {
+        isScroll = false;
+        if (letterIndex.get(s) != null) {
+            int position = letterIndex.get(s);
+            city_container.setSelection(position);
+            Pattern pattern = Pattern.compile("^[A-Za-z]+$");
+            if (pattern.matcher(s).matches()) {
+                letterOverlay.setTextSize(40);
+            } else {
+                letterOverlay.setTextSize(20);
+            }
+            letterOverlay.setText(s);
+            letterOverlay.setVisibility(View.VISIBLE);
+            handler.removeCallbacks(overlayThread);
+            handler.postDelayed(overlayThread, 1000);
+        }
+    }
+
+    private class OverlayThread implements Runnable {
+        @Override
+        public void run() {
+            letterOverlay.setVisibility(View.GONE);
+        }
+    }
+
+    private void initDistrict(final LocInfoObj cityObj){
+        ArrayList<String> cityObjs=cityOperation.findDistrictByCityIdWithArray(cityObj.getCity_id());
+
+        OptionPickerX optionPickerX=new OptionPickerX(this,cityObjs);
+        optionPickerX.setOnOptionPickListener(new OptionPickerX.OnOptionPickListener() {
+            @Override
+            public void onOptionPicked(int position, String option) {
+                AppLog.D("position:"+position);
+                AppLog.D("option:"+option);
+
+                PDistrictObj pDistrictObj=cityOperation.getDistrictId(option,String.valueOf(cityObj.getCity_id()));
+                AppLog.D("pDistrictObj1:"+pDistrictObj.getAreaName());
+                AppLog.D("pDistrictObj2:"+pDistrictObj.getAreaId());
+                ((NeighbourMotherApplication) getApplication()).cur_locInfoObj.setDistrict_name(pDistrictObj.getAreaName());
+                ((NeighbourMotherApplication) getApplication()).cur_locInfoObj.setDistrict_id(pDistrictObj.getAreaId());
+                initDialog();
+
+            }
+        });
+        optionPickerX.show();
+    }
+
+    NeighbourhoodDialog neighbourhoodDialog;
+    private void initDialog(){
+        if(neighbourhoodDialog==null)
+            neighbourhoodDialog=new NeighbourhoodDialog();
+        neighbourhoodDialog.setOnSureListener(this);
+        neighbourhoodDialog.show(getSupportFragmentManager(),"neighbourhoodDialog");
+    }
+
+    @Override
+    public void onSure(String neighbourhood) {
+
+        LocInfoObj locInfoObj=((NeighbourMotherApplication)getApplication()).cur_locInfoObj;
+        locInfoObj.setNeighbourhoodName(neighbourhood);
+
+        UserInfoResp userInfoResp=UserContacts.getUserInfo(this);
+
+        userInfoResp.setProvince(locInfoObj.getProvince_id());
+        userInfoResp.setProvince_name(locInfoObj.getProvince_name());
+        userInfoResp.setCity(locInfoObj.getCity_id());
+        userInfoResp.setCity_name(locInfoObj.getCity_name());
+        userInfoResp.setDistrict(locInfoObj.getDistrict_id());
+        userInfoResp.setDistrict_name(locInfoObj.getDistrict_name());
+        userInfoResp.setUser_community(locInfoObj.getNeighbourhoodName());
+        UserContacts.saveUserInfo(this,userInfoResp,false);
+        //启动服务
+        SyncLocInfoService.startActionFoo(this,SyncLocInfoService.FOO_PARAM1,null);
+        HomeFragment.behavior=2;
+            finish();
+    }
+
+
+}

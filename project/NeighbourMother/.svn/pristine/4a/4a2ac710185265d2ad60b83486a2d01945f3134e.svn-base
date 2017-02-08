@@ -1,0 +1,148 @@
+package com.qiantang.neighbourmother.logic;
+
+import android.content.Context;
+import android.view.Gravity;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import com.qiantang.neighbourmother.R;
+import com.qiantang.neighbourmother.util.QLScreenUtil;
+import com.qiantang.neighbourmother.widget.taglayout.Tag;
+
+import java.util.ArrayList;
+
+
+/**
+ * @author quliang
+ * @version 2015-9-2 上午9:41:39
+ *          desc 创建标签文本
+ */
+public class CreateTagsTextView {
+    private BbsTagUtil bbsTagUtil = new BbsTagUtil();
+
+    private int consultTagColor[] = null;
+
+    public void createTag(Context context, int[] tag, LinearLayout parentLayout) {
+
+        parentLayout.removeAllViews();
+        if (tag != null && tag.length > 0) {
+
+            for (int i = 0; i < tag.length; i++) {
+                if (i>=3)
+                    break;
+                LinearLayout.LayoutParams ll = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                if (i == 1)
+                    ll.setMargins((int) QLScreenUtil.dpToPxInt(context, 5), 0, (int)QLScreenUtil.dpToPxInt(context, 5), 0);
+                TextView textView = new TextView(context);
+                textView.setTextSize(QLScreenUtil.pxToSpInt(context, context.getResources().getDimension(R.dimen.active_detail_tags)));
+                textView.setPadding((int)QLScreenUtil.dpToPxInt(context, 4), (int)QLScreenUtil.dpToPxInt(context, 2), (int)QLScreenUtil.dpToPxInt(context, 4), (int)QLScreenUtil.dpToPxInt(context, 2));
+
+                bbsTagUtil.setViewDrawable(context, textView, bbsTagUtil.getTag(context, tag[i]).getColorlist());
+                textView.setText(bbsTagUtil.getTag(context, tag[i]).getTitle());
+                textView.setSelected(true);
+                textView.setSingleLine(true);
+                textView.setMinWidth((int)QLScreenUtil.dpToPxInt(context, 45));
+
+                textView.setGravity(Gravity.CENTER);
+
+                textView.setLayoutParams(ll);
+                parentLayout.addView(textView);
+            }
+        }
+
+        parentLayout.invalidate();
+    }
+
+    public void consultCreateTag(Context context, String[] strTag, LinearLayout parentLayout) {
+        parentLayout.removeAllViews();
+        if (strTag != null && strTag.length > 0)
+            for (int i = 0; i < strTag.length; i++) {
+                if (i>=3)
+                    break;
+                LinearLayout.LayoutParams ll = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                if (i == 1)
+                    ll.setMargins((int)QLScreenUtil.dpToPxInt(context, 3), 0, (int)QLScreenUtil.dpToPxInt(context, 3), 0);
+                TextView textView = new TextView(context);
+                textView.setTextSize(QLScreenUtil.pxToSpInt(context, context.getResources().getDimension(R.dimen.active_detail_tags)));
+                textView.setPadding((int)QLScreenUtil.dpToPxInt(context,3), (int)QLScreenUtil.dpToPxInt(context, 2), (int)QLScreenUtil.dpToPxInt(context, 3), (int)QLScreenUtil.dpToPxInt(context, 2));
+
+                textView.setBackground(context.getResources().getDrawable(R.drawable.lable_style));
+                textView.setTextColor(context.getResources().getColor(R.color.color_app_title_bg));
+                textView.setSelected(true);
+                textView.setText(strTag[i]);
+                textView.setSingleLine(true);
+                textView.setMaxEms(4);
+                textView.setMinWidth((int)QLScreenUtil.dpToPxInt(context, 40));
+                textView.setGravity(Gravity.CENTER);
+
+                textView.setLayoutParams(ll);
+                parentLayout.addView(textView);
+
+            }
+        parentLayout.invalidate();
+    }
+
+    public void newsCreateTag(Context context, String[] strTag, LinearLayout parentLayout) {
+        parentLayout.removeAllViews();
+        if (strTag != null && strTag.length > 0)
+            for (int i = 0; i < strTag.length; i++) {
+                if (i>=3)
+                    break;
+                LinearLayout.LayoutParams ll = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                if (i == 1)
+                    ll.setMargins((int)QLScreenUtil.dpToPxInt(context, 5), 0, (int)QLScreenUtil.dpToPxInt(context, 5), 0);
+                TextView textView = new TextView(context);
+                textView.setTextSize(QLScreenUtil.pxToSpInt(context, context.getResources().getDimension(R.dimen.active_detail_tags)));
+                textView.setPadding((int)QLScreenUtil.dpToPxInt(context, 4), (int)QLScreenUtil.dpToPxInt(context, 2), (int)QLScreenUtil.dpToPxInt(context, 4), (int)QLScreenUtil.dpToPxInt(context, 2));
+
+                bbsTagUtil.setViewDrawable(context, textView, getConsultTagColor(context, i));
+                textView.setSelected(true);
+                textView.setText(strTag[i]);
+                textView.setSingleLine(true);
+                textView.setMinWidth((int)QLScreenUtil.dpToPxInt(context, 45));
+                textView.setGravity(Gravity.CENTER);
+
+                textView.setLayoutParams(ll);
+                parentLayout.addView(textView);
+
+            }
+        parentLayout.invalidate();
+    }
+
+
+    public void newsCreateTag(Context context, ArrayList<Tag> tags, LinearLayout parentLayout) {
+        parentLayout.removeAllViews();
+        if (tags != null && tags.size() > 0)
+            for (int i = 0; i < tags.size(); i++) {
+                if (i>=3)
+                    break;
+                LinearLayout.LayoutParams ll = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                if (i == 1)
+                    ll.setMargins((int)QLScreenUtil.dpToPxInt(context, 5), 0, (int)QLScreenUtil.dpToPxInt(context, 5), 0);
+                TextView textView = new TextView(context);
+                textView.setTextSize(QLScreenUtil.pxToSpInt(context, context.getResources().getDimension(R.dimen.active_detail_tags)));
+                textView.setPadding((int)QLScreenUtil.dpToPxInt(context, 4), (int)QLScreenUtil.dpToPxInt(context, 2), (int)QLScreenUtil.dpToPxInt(context, 4), (int)QLScreenUtil.dpToPxInt(context, 2));
+
+                bbsTagUtil.setViewDrawable(context, textView, getConsultTagColor(context, i));
+                textView.setSelected(true);
+                textView.setText(tags.get(i).getTitle());
+                textView.setSingleLine(true);
+                textView.setMinWidth((int)QLScreenUtil.dpToPxInt(context, 45));
+                textView.setGravity(Gravity.CENTER);
+
+                textView.setLayoutParams(ll);
+                parentLayout.addView(textView);
+
+            }
+        parentLayout.invalidate();
+    }
+
+
+    private int getConsultTagColor(Context context, int pos) {
+        if (consultTagColor == null)
+            consultTagColor = new int[]{context.getResources().getColor(R.color.consult_tag_backgroud_selected_1), context.getResources().getColor(R.color.consult_tag_backgroud_selected_2), context.getResources().getColor(R.color.consult_tag_backgroud_selected_3)};
+
+        return pos < consultTagColor.length ? consultTagColor[pos] : consultTagColor[0];
+    }
+
+}

@@ -1,0 +1,59 @@
+package com.qiantang.neighbourmother.ui.community;
+
+import android.os.Message;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.qiantang.neighbourmother.R;
+import com.qiantang.neighbourmother.ui.BaseActivity;
+
+/**
+ * Created by quliang on 16-12-7.
+ */
+
+public class PublicCommActivity extends BaseActivity implements View.OnClickListener{
+
+    private ImageView back;
+    private TextView send;
+    private EditText content;
+    @Override
+    public int getContentView() {
+        return R.layout.activity_public_comm;
+    }
+
+    @Override
+    public void initView() {
+        back=(ImageView)findViewById(R.id.back);
+        send=(TextView)findViewById(R.id.send);
+        content=(EditText)findViewById(R.id.content);
+    }
+
+    @Override
+    public void initData() {
+
+    }
+
+    @Override
+    public void initEvent() {
+        back.setOnClickListener(this);
+        send.setOnClickListener(this);
+    }
+
+    @Override
+    protected void updateUI(Message msg) {
+
+    }
+
+    @Override
+    public void onClick(View v) {
+switch (v.getId()){
+    case R.id.back:
+        finish();
+        break;
+    case R.id.send:
+        break;
+}
+    }
+}

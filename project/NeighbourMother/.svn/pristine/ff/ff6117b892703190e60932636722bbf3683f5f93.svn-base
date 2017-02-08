@@ -1,0 +1,153 @@
+package com.qiantang.neighbourmother.business.data;
+
+import android.content.Context;
+import android.os.Handler;
+import android.os.Message;
+import android.text.TextUtils;
+
+import com.qiantang.neighbourmother.R;
+import com.qiantang.neighbourmother.business.API;
+import com.qiantang.neighbourmother.business.qlhttp.QLHttp;
+import com.qiantang.neighbourmother.business.qlhttp.bean.QLHttpHeader;
+import com.qiantang.neighbourmother.logic.UserContacts;
+import com.qiantang.neighbourmother.util.AppLog;
+import com.qiantang.neighbourmother.util.MyUtil;
+import com.qiantang.neighbourmother.util.PropertyConfig;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
+
+/**
+ * @author quliang
+ * @version 2015-8-20 上午11:28:11
+ *          desc http基类
+ */
+public abstract class BaseHttp {
+    protected Context context;
+    protected QLHttp qLHttp;
+    public static final int START = 0;
+    public static final int TOKEN_INVALID = -2;
+    public static final int FAILURE = -1;
+    public static final int END = -3;
+    public static final int CHILD_INFO_INVLID = -4;
+
+    protected void onStartHandler(Handler handler) {
+        handler.sendEmptyMessage(START);
+    }
+
+    protected void onFailureHandler(Context context, Handler handler, String msg, int errorCode) {
+        codeDesc(context, errorCode, handler, msg);
+    }
+
+    protected void onSuccessHandler(Context context, Handler handler, String result) {
+        AppLog.D("onSuccessHandler:" + result);
+
+        BaseDataResp baseDataObj = parseBaseData(context, result);
+        AppLog.D(" baseDataObj.getSuccess():" + baseDataObj.getSuccess());
+        AppLog.D("baseDataObj.getCode():" + baseDataObj.getCode());
+        baseParse(context, handler, baseDataObj);
+    }
+
+    protected void baseParse(Context context, Handler handler, BaseDataResp responseObj) {
+        switch (responseObj.getCode()) {
+            case 0:
+                codeDesc(context, responseObj.getCode(), handler, responseObj.getMessage());
+                break;
+            case 1:
+                getData(handler, responseObj);
+                break;
+            default:
+                codeDesc(context, responseObj.getCode(), handler, responseObj.getMessage());
+                break;
+        }
+    }
+
+    public void codeDesc(Context context, int code, Handler handler, String msg) {
+        switch (code) {
+            /*** 未填写小孩信息*/
+            case 3:
+                sendHandler(handler, msg, CHILD_INFO_INVLID);
+                break;
+            /*** 未登录*/
+            case 11:
+            sendHandler(handler, msg, TOKEN_INVALID);
+            break;
+            case 12:
+            sendHandler(handler, msg, TOKEN_INVALID);
+            break;
+            default:
+                sendHandler(handler, msg, FAILURE);
+                break;
+        }
+    }
+
+    abstract void getData(Handler handler, BaseDataResp responseObj);
+
+    protected void sendHandler(Handler handler, Object object, int what) {
+        Message msg = handler.obtainMessage();
+        msg.obj = object;
+        msg.what = what;
+        handler.sendMessage(msg);
+    }
+
+    protected QLHttp getHttp() {
+        if (qLHttp == null)
+            qLHttp = new QLHttp();
+        return qLHttp;
+    }
+
+    protected void setContext(Context context) {
+        this.context = context;
+    }
+
+    protected ArrayList<QLHttpHeader> getLPHttpHeader(Context context, String url) {
+        ArrayList<QLHttpHeader> lpHttpHeaders = getLPHttpHeader(context);
+
+        long sign_time = System.currentTimeMillis();
+        String urlSuffix = null;
+        if (!TextUtils.isEmpty(url)) {
+            urlSuffix = url.substring(API.BASE_URL_PREFIX.length());
+            if (urlSuffix.contains("/")) {
+                urlSuffix = urlSuffix.substring(0, urlSuffix.indexOf("/"));
+            }
+            if (urlSuffix.contains("?")) {
+                urlSuffix = urlSuffix.substring(0, urlSuffix.indexOf("?"));
+            }
+            AppLog.D("urlSuffix:" + urlSuffix);
+            String sign = MyUtil.MD5("djwiaji3u232ad" + sign_time + urlSuffix);
+            lpHttpHeaders.add(new QLHttpHeader("sign", sign));
+            AppLog.D("sign:" + sign);
+
+        }
+        lpHttpHeaders.add(new QLHttpHeader("sign-time", String.valueOf(sign_time)));
+
+        AppLog.D("sign-time:" + sign_time);
+
+        return lpHttpHeaders;
+    }
+
+    protected ArrayList<QLHttpHeader> getLPHttpHeader(Context context) {
+        ArrayList<QLHttpHeader> lpHttpHeaders = new ArrayList<QLHttpHeader>();
+
+        String token = PropertyConfig.getInstance(context).getString(UserContacts.USER_TOKEN);
+        AppLog.D("token:" + token);
+        lpHttpHeaders.add(new QLHttpHeader("Content-Type", "application/json"));
+        lpHttpHeaders.add(new QLHttpHeader("Encoding", "utf-8"));
+        lpHttpHeaders.add(new QLHttpHeader("token", token));
+        return lpHttpHeaders;
+    }
+
+    protected BaseDataResp parseBaseData(Context context, String data) {
+        BaseDataResp baseRespObj = null;
+        try {
+            JSONObject js = new JSONObject(data);
+            baseRespObj = new BaseDataResp(js.optString("success"), js.optString("message"), js.optInt("code"));
+        } catch (JSONException e) {
+            baseRespObj = new BaseDataResp(null, context.getString(R.string.app_request_failture), 0);
+        }
+        return baseRespObj;
+    }
+}

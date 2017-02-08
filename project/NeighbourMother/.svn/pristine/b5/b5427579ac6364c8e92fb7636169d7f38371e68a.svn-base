@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/app_bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/rela_top"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_title_height"
+        android:background="@color/app_title_bg" >
+
+        <ImageView
+            android:id="@+id/back"
+            style="@style/app_title_icon_style"
+            android:layout_centerVertical="true"
+            android:longClickable="false"
+            android:src="@mipmap/back" />
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/app_title_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+         android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="@string/pdetail_title" />
+
+    </RelativeLayout>
+
+    <com.qiantang.neighbourmother.widget.refreshview.XListView
+        android:layout_below="@+id/rela_top"
+        android:layout_above="@+id/btm_linear"
+        android:id="@+id/xListView"
+        android:divider="@color/app_line"
+        android:dividerHeight="1dp"
+        android:layout_width="match_parent"
+        android:scrollbars="none"
+        android:fadingEdge="none"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:listSelector="@android:color/transparent"
+        android:overScrollMode="never"
+        android:layout_height="match_parent"
+        />
+    <LinearLayout
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:id="@+id/btm_linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        >
+        <TextView
+            android:background="@color/app_line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp" />
+        <LinearLayout
+            android:showDividers="middle"
+            android:divider="@drawable/app_linear_hor_divider"
+            android:background="@color/white"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            >
+
+
+
+            <LinearLayout
+
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:id="@+id/shared"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <ImageView
+                    android:layout_margin="5dp"
+                    android:layout_width="@dimen/sposter_btm_wh"
+                    android:layout_height="@dimen/sposter_btm_wh"
+                    android:src="@mipmap/icon_topic_share"
+                    />
+                <TextView
+                    android:text="@string/pdetail_share"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:id="@+id/comm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <ImageView
+                    android:layout_margin="5dp"
+                    android:layout_width="@dimen/sposter_btm_wh"
+                    android:layout_height="@dimen/sposter_btm_wh"
+                    android:src="@mipmap/icon_society_mes"
+                    />
+                <TextView
+
+                    android:id="@+id/commText"
+                    android:text="@string/pdetail_comm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:id="@+id/praise"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <ImageView
+                    android:layout_margin="5dp"
+                    android:layout_width="@dimen/sposter_btm_wh"
+                    android:layout_height="@dimen/sposter_btm_wh"
+                    android:src="@drawable/conmmunity_praise_selector"
+                    />
+                <TextView
+                    android:id="@+id/praiseText"
+                    android:text="点赞"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

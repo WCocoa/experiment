@@ -1,0 +1,65 @@
+package com.qiantang.neighbourmother.business.data;
+
+import android.content.Context;
+import android.os.Handler;
+
+import com.google.gson.Gson;
+import com.qiantang.neighbourmother.business.qlhttp.QLResponseCall;
+import com.qiantang.neighbourmother.business.request.DeletePostReq;
+import com.qiantang.neighbourmother.business.request.JoinGroupReq;
+import com.qiantang.neighbourmother.business.response.JoinGroupResp;
+import com.qiantang.neighbourmother.util.AppLog;
+
+/**
+ * ClassName:删除帖子
+ * author: Cocoa
+ * date: 2016/9/28.
+ */
+
+public class JoinGroupHttp extends BaseHttp {
+    private Handler handler;
+    private String url;
+    private int what;
+    private JoinGroupReq joinGroupReq;
+
+    public JoinGroupHttp(Context context, Handler handler, String url, JoinGroupReq joinGroupReq, int what) {
+        this.context = context;
+        this.handler = handler;
+        this.url = url;
+        this.what = what;
+        this.joinGroupReq = joinGroupReq;
+        start();
+    }
+
+    private void start() {
+
+        String params = new Gson().toJson(joinGroupReq);
+        AppLog.D("url:" + url);
+        AppLog.D("params:" + params);
+        getHttp().post(url, getLPHttpHeader(context,url), params, new QLResponseCall() {
+            @Override
+            public void onStart() {
+                    onStartHandler(handler);
+            }
+
+            @Override
+            public void onFailure(String arg0, int error) {
+                AppLog.D("onFailure:" + error);
+                AppLog.D("onFailure:" + arg0);
+                onFailureHandler(context, handler, arg0, error);
+            }
+
+            @Override
+            public void onSuccess(String result) {
+                AppLog.D("result:" + result);
+                onSuccessHandler(context, handler, result);
+            }
+        });
+    }
+
+    @Override
+    void getData(Handler handler, BaseDataResp responseObj) {
+        sendHandler(handler, new Gson().fromJson(responseObj.getSuccess(), JoinGroupResp.class), what);
+    }
+
+}

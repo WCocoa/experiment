@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item >
+        <shape>
+            <solid android:color="@color/downOrer_plus_subtract_ll_solid" />
+            <stroke android:width="1dp" android:color="@color/downOrer_plus_subtract_ll_stroke" />
+            <corners android:radius="2dp" />
+        </shape>
+    </item>
+
+    <item android:state_selected="true">
+        <shape>
+            <solid android:color="@color/downOrer_plus_subtract_ll_solid" />
+            <stroke android:width="1dp" android:color="@color/downOrer_plus_subtract_ll_stroke" />
+            <corners android:radius="2dp" />
+        </shape>
+    </item>
+</selector>

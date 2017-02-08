@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:hedgehog="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/app_left_right_size"
+        android:layout_marginRight="@dimen/app_left_right_size"
+        android:background="@drawable/star_expert_list_backgroud"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground">
+
+            <LinearLayout
+                android:id="@+id/ll_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_toLeftOf="@+id/icon"
+                android:orientation="horizontal">
+
+                <com.qiantang.neighbourmother.widget.CircleImageView
+                    android:id="@+id/attache_photo"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@mipmap/ic_launcher" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/attache_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:singleLine="true"
+                            android:text="姓名"
+                            android:textColor="@color/app_item_title"
+                            android:textSize="16sp" />
+
+                        <ImageView
+                            android:id="@+id/attache_sex"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_marginLeft="5dp"
+                            android:src="@drawable/center_sex_selector" />
+
+                        <ImageView
+                            android:id="@+id/attache_type_tag"
+                            android:layout_width="60dp"
+                            android:layout_height="16dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="5dp"
+                            android:src="@mipmap/icon_government"
+                            android:visibility="visible" />
+                    </LinearLayout>
+
+                    <com.qiantang.neighbourmother.widget.RatingBar
+                        android:id="@+id/ratingBar1"
+                        android:layout_width="@dimen/home_category"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginTop="5dp"
+                        android:gravity="center_horizontal"
+                        hedgehog:clickable="false"
+                        hedgehog:ratingsize="1"
+                        hedgehog:starCount="5"
+                        hedgehog:starEmpty="@mipmap/rating_small_empty"
+                        hedgehog:starFill="@mipmap/rating_small_full"
+                        hedgehog:starImageSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/attache_type"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:singleLine="true"
+                        android:text="辅导，接送，看护"
+                        android:textColor="#62B4F1"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/view_line"
+                style="@style/app_item_line_style"
+                android:layout_width="match_parent"
+                android:layout_below="@+id/ll_info" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/view_line"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="5dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@mipmap/icon_home_address" />
+
+                <TextView
+                    android:id="@+id/details_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="金泰假日花城"
+                    android:textColor="@color/app_item_content"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>

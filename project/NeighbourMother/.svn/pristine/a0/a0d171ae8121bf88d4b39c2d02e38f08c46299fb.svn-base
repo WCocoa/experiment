@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="D:\Project\NeighbourMother\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="D:\Project\NeighbourMother\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-24.2.1_c28ab44863cde1dee65f39e7d7a4ba58322e0894.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Users\Administrator\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.2.1\support-annotations-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="D:\Project\NeighbourMother\app\build\intermediates\pre-dexed\debug\support-annotations-24.2.1_90eb036295b2eea13963fc215b91528838c45ba7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Project\NeighbourMother\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="D:\Project\NeighbourMother\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-24.2.1_8eca23b782d41481b29e00131b06bce36e69e80f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Project\NeighbourMother\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="D:\Project\NeighbourMother\app\build\intermediates\pre-dexed\debug\com.android.support-support-fragment-24.2.1_0ab6c57d706dbf984800c0fb32c8d5bfb5326a0e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Project\NeighbourMother\app\libs\universal-image-loader-1.9.4.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="dd9eeb557650c4ad7394df23f0f5cf27a7cfc697">
+        <dex dex="D:\Project\NeighbourMother\app\build\intermediates\pre-dexed\debug\universal-image-loader-1.9.4_b479c1746c43ebc534e0b877ad1004d0e297c8f2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Project\NeighbourMother\app\build\intermediates\exploded-aar\com.android.support\design\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
+        <dex dex="D:\Project\NeighbourMother\app\build\intermediates\pre-dexed\debug\com.android.support-design-24.2.1_a2a0f8364564b283f55b30b5bcb75d643dfc35b1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Project\NeighbourMother\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="D:\Project\NeighbourMother\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-utils-24.2.1_d9b2837fb658c642c4901ce8788f758e4c9cd4f2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Project\NeighbourMother\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="D:\Project\NeighbourMother\app\build\intermediates\pre-dexed\debug\com.android.support-support-media-compat-24.2.1_bc6eff3b6075aa078e3b93a19e0a5fb7f359b190.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Project\NeighbourMother\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="D:\Project\NeighbourMother\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_c6e8d62145487b1cd76e5ccdc6b6d15245511866.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.9.0\f824591a0016efbaeddb8300bee54832a1398cfa\okio-1.9.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="f824591a0016efbaeddb8300bee54832a1398cfa">
+        <dex dex="D:\Project\NeighbourMother\app\build\intermediates\pre-dexed\debug\okio-1.9.0_db0545b090bbd931e1cf6e43202e038727277a7d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Project\NeighbourMother\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="D:\Project\NeighbourMother\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_a5117055ae5b4d94d6e1d67a93377d69d7442693.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Project\NeighbourMother\app\libs\baidumapapi_map_v4_0_0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="db4a1025ee9c6f95747aab4a69baa1391534d80e">
+        <dex dex="D:\Project\NeighbourMother\app\build\intermediates\pre-dexed\debug\baidumapapi_map_v4_0_0_0778f7ed7d35a04450de7e1cfe67cf8df3da697a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Project\NeighbourMother\app\libs\baidumapapi_util_v4_0_0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="1e9069435803e5a4f32dc429906def33a95aaf17">
+        <dex dex="D:\Project\NeighbourMother\app\build\intermediates\pre-dexed\debug\baidumapapi_util_v4_0_0_36b5ca631ed29355064b7802ef49753452253a4b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Project\NeighbourMother\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="D:\Project\NeighbourMother\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_bdecc3e796e886726b7c50a44412f7df22925364.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Program Files\Android\Android Studio\gradle\m2repository\com\google\code\gson\gson\2.2.4\gson-2.2.4.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="a60a5e993c98c864010053cb901b7eab25306568">
+        <dex dex="D:\Project\NeighbourMother\app\build\intermediates\pre-dexed\debug\gson-2.2.4_313aff129984a0a45e086871ec03bfcc02e7284e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Project\NeighbourMother\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="D:\Project\NeighbourMother\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_9f91b5686c1f5b98f7595349fa81031e040d5d7f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Project\NeighbourMother\app\libs\baidumapapi_search_v4_0_0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="08f97ee0e35fb17d405d29bf62eef305faffffcc">
+        <dex dex="D:\Project\NeighbourMother\app\build\intermediates\pre-dexed\debug\baidumapapi_search_v4_0_0_f48325862e1dbd6400c0b0dca0585cc466f592e2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Project\NeighbourMother\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="D:\Project\NeighbourMother\app\build\intermediates\pre-dexed\debug\com.android.support-support-compat-24.2.1_88029d5f55a74f605b9898ee4325401daba79edc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Project\NeighbourMother\app\libs\baidumapapi_cloud_v4_0_0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="e2aca735ca322917c5ee5fd40d663773391cf0a6">
+        <dex dex="D:\Project\NeighbourMother\app\build\intermediates\pre-dexed\debug\baidumapapi_cloud_v4_0_0_215530defef3be1954adbb81185e02acc1dcdde4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Project\NeighbourMother\app\libs\alipaySdk-20160111.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="1d56af5aa2ab12f77021ebb9c3ded8cdd4e579c4">
+        <dex dex="D:\Project\NeighbourMother\app\build\intermediates\pre-dexed\debug\alipaySdk-20160111_82eb99b6343ff54285a4fae73724a28b54aee22d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Project\NeighbourMother\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
+        <dex dex="D:\Project\NeighbourMother\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-24.2.1_3539f90eba32aeb3dd679cf841e6732d5f0a8bfe.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Project\NeighbourMother\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="D:\Project\NeighbourMother\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_75b7a22d72801dc836b2fad879cdcb67fc0e251f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Project\NeighbourMother\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="D:\Project\NeighbourMother\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-ui-24.2.1_cba778f42a2f92a13e8bfdbb966fcb5f226e3fef.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Project\NeighbourMother\app\libs\libammsdk.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="d7c2f29c05b35e8c8713be2b81c41cf18f98b64a">
+        <dex dex="D:\Project\NeighbourMother\app\build\intermediates\pre-dexed\debug\libammsdk_b1a06d3ddf9c316eed410fefa9c8dbbd649240d8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Project\NeighbourMother\app\libs\baidumapapi_base_v4_0_0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="dc207932ddfb65566a157ca311a6a6dffc7fccab">
+        <dex dex="D:\Project\NeighbourMother\app\build\intermediates\pre-dexed\debug\baidumapapi_base_v4_0_0_eeabb11b5712020c4a0551234186279f2dc61fdd.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Project\NeighbourMother\app\libs\baidumapapi_radar_v4_0_0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="81b00e6e2da11e12554d8cbf0acc23627fd1225b">
+        <dex dex="D:\Project\NeighbourMother\app\build\intermediates\pre-dexed\debug\baidumapapi_radar_v4_0_0_e7ca36556fb5c8ca638159b4855c260461eec8e9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.4.1\c7c4f9e35c2fd5900da24f9872e3971801f08ce0\okhttp-3.4.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="c7c4f9e35c2fd5900da24f9872e3971801f08ce0">
+        <dex dex="D:\Project\NeighbourMother\app\build\intermediates\pre-dexed\debug\okhttp-3.4.1_a3a718343956c6e4d917a53a4fdd4a4dc134cda5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Project\NeighbourMother\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="D:\Project\NeighbourMother\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-24.2.1_3dd03225bc8d77431ef9af585bdc39a061b6f00b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Project\NeighbourMother\app\libs\locSDK_6.13.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="2cdb37444b41b42e1ce5a8a27e5d3c22e1c57479">
+        <dex dex="D:\Project\NeighbourMother\app\build\intermediates\pre-dexed\debug\locSDK_6.13_16b0b65832779918a8571c269ff98cf7ce9f2089.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Project\NeighbourMother\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="D:\Project\NeighbourMother\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-24.2.1_01d43e59436c4a7d09fe92ba8eb88e23bd3296c1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Project\NeighbourMother\app\libs\pinyin4j-2.5.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="ae353005f973da1cd8545b54354504c2503f6865">
+        <dex dex="D:\Project\NeighbourMother\app\build\intermediates\pre-dexed\debug\pinyin4j-2.5.0_107c21723a471d0081c90bcb8680f61263ce2896.jar" />
+    </item>
+
+</items>

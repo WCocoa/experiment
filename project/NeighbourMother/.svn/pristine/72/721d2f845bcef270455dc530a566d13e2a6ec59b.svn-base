@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_bg"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rela_top"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_title_height"
+        android:background="@color/app_title_bg">
+
+        <com.qiantang.neighbourmother.widget.CircleImageView
+            android:id="@+id/back"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="15dp"
+            android:layout_centerVertical="true"
+            android:longClickable="false"
+            android:src="@mipmap/default_img"
+            android:visibility="visible"
+            app:border_color="#FA6963"
+            app:border_width="1dp" />
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/app_title_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/back"
+            android:layout_toLeftOf="@+id/send_post"
+            android:layout_toRightOf="@+id/back"
+            android:layout_toStartOf="@+id/send_post"
+            android:gravity="center"
+            android:text="@string/conmmunity_title" />
+
+        <TextView
+            android:id="@+id/org_edit"
+            style="@style/app_title_icon_style"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_backicon_margin_left"
+            android:gravity="center"
+            android:longClickable="false"
+            android:padding="@dimen/dimen_backicon_padding_left"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/send_post"
+            style="@style/app_title_icon_style"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:longClickable="false"
+            android:src="@mipmap/icon_send_post"
+            android:visibility="visible" />
+    </RelativeLayout>
+
+
+    <com.qiantang.neighbourmother.widget.refreshview.XListView
+        android:id="@+id/xListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:fadingEdge="none"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:listSelector="@android:color/transparent"
+        android:overScrollMode="never"
+        android:scrollbars="none" />
+
+</LinearLayout>

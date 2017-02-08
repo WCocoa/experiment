@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:color="@color/downOrer_plus_subtract_ll_stroke" ></item>
+    <item android:state_selected="true" android:color="@color/app_item_content"></item>
+</selector>

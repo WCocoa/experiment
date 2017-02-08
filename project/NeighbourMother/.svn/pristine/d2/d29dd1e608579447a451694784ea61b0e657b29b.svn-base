@@ -1,0 +1,126 @@
+package com.qiantang.neighbourmother.model;
+
+import java.io.Serializable;
+
+/**
+ * ClassName:
+ * author: Cocoa
+ * date: 2016/12/19.
+ */
+
+public class PostObj implements Serializable{
+
+    /**
+     * post_id : 10
+     * user_id : 33
+     * label : ["教育资讯","动漫","约饭"]
+     * post_title : 33
+     * post_pic : 1111
+     * comment : 0
+     * like : 0
+     * ctime : 1481162654
+     * user_avatar : 33/yRpecYgYFKjb58Rn79vz1477879216
+     * user_name : 若梦、泪倾城、夕阳映雪
+     */
+
+    private String   post_id;
+    private String   user_id;
+    private String   post_title;
+    private String   post_pic;
+    private String   comment;
+    private String   like;
+    private long     ctime;
+    private String   user_avatar;
+    private String   user_name;
+    private String[] label;
+    private int      liked;
+
+    public int getLiked() {
+        return liked;
+    }
+
+    public void setLiked(int liked) {
+        this.liked = liked;
+    }
+    ///
+
+    public String getPost_id() {
+        return post_id;
+    }
+
+    public void setPost_id(String post_id) {
+        this.post_id = post_id;
+    }
+
+    public String getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
+    }
+
+    public String getPost_title() {
+        return post_title;
+    }
+
+    public void setPost_title(String post_title) {
+        this.post_title = post_title;
+    }
+
+    public String getPost_pic() {
+        return post_pic;
+    }
+
+    public void setPost_pic(String post_pic) {
+        this.post_pic = post_pic;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public String getLike() {
+        return like;
+    }
+
+    public void setLike(String like) {
+        this.like = like;
+    }
+
+    public long getCtime() {
+        return ctime;
+    }
+
+    public void setCtime(long ctime) {
+        this.ctime = ctime;
+    }
+
+    public String getUser_avatar() {
+        return user_avatar;
+    }
+
+    public void setUser_avatar(String user_avatar) {
+        this.user_avatar = user_avatar;
+    }
+
+    public String getUser_name() {
+        return user_name;
+    }
+
+    public void setUser_name(String user_name) {
+        this.user_name = user_name;
+    }
+
+    public String[] getLabel() {
+        return label;
+    }
+
+    public void setLabel(String[] label) {
+        this.label = label;
+    }
+}

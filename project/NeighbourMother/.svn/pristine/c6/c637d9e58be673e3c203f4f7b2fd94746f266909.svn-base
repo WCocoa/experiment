@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_bg"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rela_top"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_title_height"
+        android:background="@color/app_title_bg">
+
+        <TextView
+            android:textColor="@color/app_special_style_color_normal"
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/commisapp_title_cancer"
+            android:id="@+id/back"
+            android:layout_centerVertical="true"
+            />
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/app_title_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="@string/commisapp_title" />
+    </RelativeLayout>
+<!--<ScrollView-->
+    <!--android:layout_marginTop="@dimen/app_content_top"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content">-->
+<!--</ScrollView>-->
+    <LinearLayout
+    android:layout_marginTop="@dimen/app_content_top"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+k
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:textSize="@dimen/app_item_title"
+            android:textColor="@color/app_special_style_color_normal"
+            android:padding="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/commisappc_quali_info"
+            android:layout_centerVertical="true"
+         />
+
+        <View
+            style="@style/app_item_line_style"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="@dimen/app_left_right_size"></View>
+
+<LinearLayout
+    android:layout_marginTop="20dp"
+    android:layout_marginLeft="30dp"
+    android:layout_marginRight="30dp"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/rela_tc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_tc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/placea_img_bg"
+                android:padding="8dp"
+                android:src="@mipmap/auth_photo_image" />
+
+            <ImageView
+                android:id="@+id/iv_tc_delete"
+                android:layout_width="@dimen/commiaoa_id_card_delete"
+                android:layout_height="@dimen/commiaoa_id_card_delete"
+                android:layout_alignRight="@+id/iv_tc"
+                android:layout_alignTop="@+id/iv_tc"
+                android:src="@mipmap/icon_delete"
+                android:visibility="gone" />
+
+            <TextView
+                android:textColor="@color/app_item_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/iv_tc"
+                android:layout_alignRight="@+id/iv_tc"
+                android:layout_below="@+id/iv_tc"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="@string/commisappc_teacher_qc" />
+        </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rela_dc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_dc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/placea_img_bg"
+            android:padding="8dp"
+            android:src="@mipmap/auth_photo_image" />
+
+        <ImageView
+            android:id="@+id/iv_dc_delete"
+            android:layout_width="@dimen/commiaoa_id_card_delete"
+            android:layout_height="@dimen/commiaoa_id_card_delete"
+            android:layout_alignRight="@+id/iv_dc"
+            android:layout_alignTop="@+id/iv_dc"
+            android:src="@mipmap/icon_delete"
+            android:visibility="gone" />
+
+        <TextView
+            android:textColor="@color/app_item_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/iv_dc"
+            android:layout_alignRight="@+id/iv_dc"
+            android:layout_below="@+id/iv_dc"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="@string/commisappc_dc" />
+    </RelativeLayout>
+</LinearLayout>
+<View
+    android:layout_width="match_parent"
+    android:layout_height="10dp"></View>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="25dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/app_button_middle_style"
+            android:id="@+id/btn_previous"
+            android:text="@string/commisappt_btn_previous"
+android:layout_marginRight="12.5dp"
+            android:layout_weight="1.0"
+     />
+
+        <TextView
+            style="@style/app_button_middle_style"
+            android:id="@+id/btn_finish"
+            android:text="@string/commisappn_finish"
+            android:layout_marginLeft="12.5dp"
+            android:layout_weight="1.0"
+            />
+    </LinearLayout>
+
+</LinearLayout>

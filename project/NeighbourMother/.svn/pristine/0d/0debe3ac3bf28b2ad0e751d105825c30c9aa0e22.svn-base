@@ -1,0 +1,99 @@
+package com.qiantang.neighbourmother.adapter;
+
+import android.app.Activity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
+
+import com.qiantang.neighbourmother.R;
+import com.qiantang.neighbourmother.util.ToastUtils;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+/**
+ * ClassName:明星达人适配器
+ * author: Cocoa
+ * date: 2016/9/21.
+ */
+public class StarExpertAdapter extends BaseAdapter {
+    private List<String> list = new ArrayList<String>();
+    private LayoutInflater mLayoutInflater;
+    private Activity       context;
+
+    public StarExpertAdapter(Activity context) {
+        this.context = context;
+        mLayoutInflater = LayoutInflater.from(context);
+    }
+
+    public List<String> getDataList() {
+        return list;
+    }
+
+    @Override
+    public int getCount() {
+        return list.size();
+    }
+
+    @Override
+    public Object getItem(int position) {
+        if (getCount() <= 0 || position >= getCount())
+            return null;
+        return list.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    private ArrayList<String> text = new ArrayList<>(Arrays.asList("步行", "看护", "周末看护", "辅导", "专车", "拼车"));
+
+    @Override
+    public View getView(final int position, View convertView, ViewGroup parent) {
+        ViewHolder holder = null;
+        if (convertView == null) {
+            holder = new ViewHolder();
+            convertView = mLayoutInflater.inflate(R.layout.item_star_expert_list, null);
+            holder.left_item = (LinearLayout) convertView.findViewById(R.id.left_item);
+            holder.right_item = (LinearLayout) convertView.findViewById(R.id.right_item);
+
+            convertView.setTag(holder);
+        } else {
+            holder = (ViewHolder) convertView.getTag();
+        }
+        holder.left_item.setOnClickListener(new StarItemClick(1));
+        holder.right_item.setOnClickListener(new StarItemClick(2));
+        return convertView;
+    }
+
+
+    class ViewHolder {
+        LinearLayout left_item;
+        LinearLayout right_item;
+    }
+
+    class StarItemClick implements View.OnClickListener {
+        int witch;
+
+        public StarItemClick(int witch) {
+            this.witch = witch;
+        }
+
+        @Override
+        public void onClick(View v) {
+            switch (witch) {
+                case 1:
+                    ToastUtils.toastLong(context, "左边");
+                    break;
+                case 2:
+                    ToastUtils.toastLong(context, "右边");
+                    break;
+            }
+        }
+    }
+
+}

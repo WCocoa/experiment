@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_bg">
+
+    <!--<RelativeLayout-->
+    <!--android:id="@+id/rela_top"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="@dimen/dimen_title_height"-->
+    <!--android:background="@color/app_title_bg">-->
+
+    <!--<LinearLayout-->
+    <!--android:id="@+id/ll_loc"-->
+    <!--android:padding="8dp"-->
+    <!--android:layout_centerVertical="true"-->
+    <!--android:gravity="center_vertical"-->
+    <!--android:orientation="horizontal"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content">-->
+    <!--<TextView-->
+    <!--android:id="@+id/loc_name"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentLeft="true"-->
+    <!--android:layout_centerVertical="true"-->
+    <!--android:longClickable="false"-->
+    <!--android:text="@string/homefrag_locname"-->
+    <!--android:textColor="@color/white"-->
+    <!--android:textSize="16sp" />-->
+    <!--<ImageView-->
+    <!--android:layout_marginLeft="2dp"-->
+    <!--android:layout_width="15dp"-->
+    <!--android:layout_height="15dp"-->
+    <!--android:src="@mipmap/ic_launcher"-->
+    <!--/>-->
+    <!--</LinearLayout>-->
+
+
+    <!--<TextView-->
+    <!--android:id="@+id/title"-->
+    <!--style="@style/app_title_style"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_centerInParent="true"-->
+    <!--android:gravity="center"-->
+    <!--android:text="@string/homefrag_title" />-->
+    <!--</RelativeLayout>-->
+
+    <com.qiantang.neighbourmother.widget.refreshview.XListView
+        android:id="@+id/xListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="-16dp"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="15dp"
+        android:fadingEdge="none"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:headerDividersEnabled="false"
+        android:listSelector="@android:color/transparent"
+        android:overScrollMode="never"
+        android:scrollbars="none" />
+
+    <RelativeLayout
+        android:id="@+id/rl_home_apply"
+        android:layout_width="wrap_content"
+        android:layout_height="240dp"
+        android:layout_alignParentRight="true">
+
+        <ImageView
+            android:id="@+id/home_apply_teacher"
+            android:layout_width="50dp"
+            android:layout_height="120dp"
+            android:layout_alignParentBottom="true"
+            android:src="@mipmap/icon_home_floatbtn" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/return_top"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="@dimen/app_left_right_size"
+        android:gravity="center"
+        android:scaleType="fitXY"
+        android:src="@mipmap/return_top"
+        android:visibility="invisible" />
+
+</RelativeLayout>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_bg"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rela_top"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_title_height"
+        android:background="@color/app_title_bg">
+
+        <ImageView
+            android:id="@+id/back"
+            style="@style/app_title_icon_style"
+            android:layout_centerVertical="true"
+            android:longClickable="false"
+            android:src="@mipmap/back" />
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/app_title_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="@string/creategroup_title" />
+
+        <TextView
+            android:id="@+id/create"
+            style="@style/app_title_right_text_style"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_backicon_margin_left"
+            android:gravity="center"
+            android:longClickable="false"
+            android:padding="@dimen/dimen_backicon_padding_left"
+            android:text="@string/creategroup_create"
+            android:textColor="@color/app_special_style_color"
+            android:textSize="16sp"
+           />
+    </RelativeLayout>
+
+
+<LinearLayout
+    android:background="@color/white"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/imghead"
+        android:layout_marginTop="25dp"
+        android:src="@mipmap/ic_launcher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:textSize="15dp"
+        android:textColor="@color/app_title_text_bg"
+        android:layout_marginTop="10dp"
+        android:text="@string/creategroup_upload_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="25dp" />
+</LinearLayout>
+    <TextView
+        android:background="@color/app_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+    <EditText
+        android:background="@color/white"
+        android:id="@+id/groupName"
+        android:lines="1"
+        android:padding="@dimen/app_left_right_size"
+        android:hint="@string/creategroup_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:background="@color/app_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+    <EditText
+        android:background="@color/white"
+        android:id="@+id/groupTitle"
+        android:gravity="left"
+        android:lines="2"
+        android:padding="@dimen/app_left_right_size"
+        android:hint="@string/creategroup_please_desc_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

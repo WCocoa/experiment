@@ -1,0 +1,63 @@
+package com.qiantang.neighbourmother.ui.community;
+
+import android.os.Message;
+import android.view.View;
+import android.widget.ImageView;
+
+import com.qiantang.neighbourmother.R;
+import com.qiantang.neighbourmother.adapter.StarExpertAdapter;
+import com.qiantang.neighbourmother.ui.BaseActivity;
+import com.qiantang.neighbourmother.widget.refreshview.XListView;
+
+import java.util.Arrays;
+
+
+/**
+ * ClassName:明星达人
+ * author: Cocoa
+ * date: 2016/12/7.
+ */
+
+public class StarExpertActivity extends BaseActivity implements View.OnClickListener {
+
+    private ImageView         back;//返回
+    private XListView         xListView;
+    private StarExpertAdapter starExpertAdapter;
+
+    @Override
+    public int getContentView() {
+        return R.layout.activity_star_expert;
+    }
+
+    @Override
+    public void initView() {
+        xListView = (XListView) findViewById(R.id.xListView);
+        back = (ImageView) findViewById(R.id.back);
+    }
+
+    @Override
+    public void initData() {
+        starExpertAdapter = new StarExpertAdapter(this);
+        starExpertAdapter.getDataList().addAll(Arrays.asList("1", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2"));
+        xListView.setAdapter(starExpertAdapter);
+    }
+
+    @Override
+    public void initEvent() {
+        back.setOnClickListener(this);
+    }
+
+    @Override
+    protected void updateUI(Message msg) {
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.back:
+                finish();
+                break;
+        }
+    }
+}

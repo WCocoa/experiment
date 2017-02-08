@@ -1,0 +1,296 @@
+# view res/layout/design_navigation_item.xml #generated:17
+-keep class android.support.design.internal.NavigationMenuItemView { <init>(...); }
+
+# view res/layout/design_navigation_menu.xml #generated:17
+-keep class android.support.design.internal.NavigationMenuView { <init>(...); }
+
+# view res/layout/design_text_input_password_icon.xml #generated:18
+-keep class android.support.design.widget.CheckableImageButton { <init>(...); }
+
+# view res/layout/design_bottom_sheet_dialog.xml #generated:17
+-keep class android.support.design.widget.CoordinatorLayout { <init>(...); }
+
+# view res/layout/design_layout_snackbar.xml #generated:18
+# view sw600dp-v13\res/layout-sw600dp-v13/design_layout_snackbar.xml #generated:18
+-keep class android.support.design.widget.Snackbar$SnackbarLayout { <init>(...); }
+
+# view res/layout/activity_commissionerrecruit.xml #generated:69
+-keep class android.support.design.widget.TabLayout { <init>(...); }
+
+# view res/layout/activity_maintab.xml #generated:18
+-keep class android.support.v4.app.FragmentTabHost { <init>(...); }
+
+# view res/layout/activity_commissionerrecruit.xml #generated:86
+# view res/layout/activity_guide.xml #generated:7
+# view res/layout/layout_home_head.xml #generated:14
+-keep class android.support.v4.view.ViewPager { <init>(...); }
+
+# view res/layout/abc_alert_dialog_material.xml #generated:75
+-keep class android.support.v4.widget.NestedScrollView { <init>(...); }
+
+# view res/layout/abc_alert_dialog_button_bar_material.xml #generated:39
+-keep class android.support.v4.widget.Space { <init>(...); }
+
+# view res/layout/abc_action_menu_item_layout.xml #generated:17
+-keep class android.support.v7.view.menu.ActionMenuItemView { <init>(...); }
+
+# view res/layout/abc_expanded_menu_layout.xml #generated:17
+-keep class android.support.v7.view.menu.ExpandedMenuView { <init>(...); }
+
+# view res/layout/abc_list_menu_item_layout.xml #generated:17
+# view res/layout/abc_popup_menu_item_layout.xml #generated:17
+-keep class android.support.v7.view.menu.ListMenuItemView { <init>(...); }
+
+# view res/layout/abc_screen_toolbar.xml #generated:27
+-keep class android.support.v7.widget.ActionBarContainer { <init>(...); }
+
+# view res/layout/abc_action_mode_bar.xml #generated:19
+# view res/layout/abc_screen_toolbar.xml #generated:43
+-keep class android.support.v7.widget.ActionBarContextView { <init>(...); }
+
+# view res/layout/abc_screen_toolbar.xml #generated:17
+-keep class android.support.v7.widget.ActionBarOverlayLayout { <init>(...); }
+
+# view res/layout/abc_action_menu_layout.xml #generated:17
+-keep class android.support.v7.widget.ActionMenuView { <init>(...); }
+
+# view res/layout/abc_activity_chooser_view.xml #generated:19
+-keep class android.support.v7.widget.ActivityChooserView$InnerLayout { <init>(...); }
+
+# view res/layout/abc_alert_dialog_button_bar_material.xml #generated:18
+-keep class android.support.v7.widget.ButtonBarLayout { <init>(...); }
+
+# view res/layout/abc_screen_content_include.xml #generated:19
+-keep class android.support.v7.widget.ContentFrameLayout { <init>(...); }
+
+# view res/layout/abc_alert_dialog_material.xml #generated:48
+-keep class android.support.v7.widget.DialogTitle { <init>(...); }
+
+# view res/layout/abc_screen_simple_overlay_action_mode.xml #generated:23
+-keep class android.support.v7.widget.FitWindowsFrameLayout { <init>(...); }
+
+# view res/layout/abc_dialog_title_material.xml #generated:22
+# view res/layout/abc_screen_simple.xml #generated:17
+-keep class android.support.v7.widget.FitWindowsLinearLayout { <init>(...); }
+
+# view res/layout/abc_search_view.xml #generated:75
+-keep class android.support.v7.widget.SearchView$SearchAutoComplete { <init>(...); }
+
+# view res/layout/abc_screen_toolbar.xml #generated:36
+-keep class android.support.v7.widget.Toolbar { <init>(...); }
+
+# view res/layout/abc_screen_simple.xml #generated:25
+# view res/layout/abc_screen_simple_overlay_action_mode.xml #generated:32
+-keep class android.support.v7.widget.ViewStubCompat { <init>(...); }
+
+# view AndroidManifest.xml #generated:251
+-keep class com.alipay.sdk.app.H5PayActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:233
+-keep class com.baidu.location.f { <init>(...); }
+
+# view res/layout/activity_map_set_point.xml #generated:86
+-keep class com.baidu.mapapi.map.MapView { <init>(...); }
+
+# view AndroidManifest.xml #generated:55
+-keep class com.qiantang.neighbourmother.NeighbourMotherApplication { <init>(...); }
+
+# view AndroidManifest.xml #generated:249
+-keep class com.qiantang.neighbourmother.service.DownloadService { <init>(...); }
+
+# view AndroidManifest.xml #generated:247
+-keep class com.qiantang.neighbourmother.service.PayResultService { <init>(...); }
+
+# view AndroidManifest.xml #generated:248
+-keep class com.qiantang.neighbourmother.service.SyncLocInfoService { <init>(...); }
+
+# view AndroidManifest.xml #generated:71
+-keep class com.qiantang.neighbourmother.ui.MainTabActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:171
+-keep class com.qiantang.neighbourmother.ui.activity.DataPickerActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:131
+-keep class com.qiantang.neighbourmother.ui.activity.ImgcImgDetailActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:135
+-keep class com.qiantang.neighbourmother.ui.activity.ImgcImgListActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:195
+-keep class com.qiantang.neighbourmother.ui.activity.MapSetPointActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:139
+-keep class com.qiantang.neighbourmother.ui.activity.PhotoViewActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:143
+-keep class com.qiantang.neighbourmother.ui.activity.PhotoViewPagerActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:167
+-keep class com.qiantang.neighbourmother.ui.activity.TimePickerActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:203
+-keep class com.qiantang.neighbourmother.ui.center.AboutActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:107
+-keep class com.qiantang.neighbourmother.ui.center.ChildrenInfoActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:115
+-keep class com.qiantang.neighbourmother.ui.center.ChildrenInfoEditActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:151
+-keep class com.qiantang.neighbourmother.ui.center.CommissionerApplyCoachActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:147
+-keep class com.qiantang.neighbourmother.ui.center.CommissionerApplyNurseActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:123
+-keep class com.qiantang.neighbourmother.ui.center.CommissionerApplyOneActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:155
+-keep class com.qiantang.neighbourmother.ui.center.CommissionerApplySpecialCarActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:127
+-keep class com.qiantang.neighbourmother.ui.center.CommissionerApplyTwoActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:119
+-keep class com.qiantang.neighbourmother.ui.center.CommissionerRecruitActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:211
+-keep class com.qiantang.neighbourmother.ui.center.CompanyIntroActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:111
+-keep class com.qiantang.neighbourmother.ui.center.EditDataActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:207
+-keep class com.qiantang.neighbourmother.ui.center.ProductIntroActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:159
+-keep class com.qiantang.neighbourmother.ui.center.SettingsActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:258
+-keep class com.qiantang.neighbourmother.ui.center.attache.AttacheAccountActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:262
+-keep class com.qiantang.neighbourmother.ui.center.attache.AttacheBindBankCardActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:179
+-keep class com.qiantang.neighbourmother.ui.center.attache.AttacheOneselfDetailsActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:266
+-keep class com.qiantang.neighbourmother.ui.center.attache.AttacheWithdrawDepositActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:274
+-keep class com.qiantang.neighbourmother.ui.center.user.RechargeActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:270
+-keep class com.qiantang.neighbourmother.ui.center.user.UserAccountActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:95
+-keep class com.qiantang.neighbourmother.ui.home.AttacheDetailsActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:103
+-keep class com.qiantang.neighbourmother.ui.home.AttacheListActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:99
+-keep class com.qiantang.neighbourmother.ui.home.ChoiceServiceActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:91
+-keep class com.qiantang.neighbourmother.ui.home.CityListActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:163
+-keep class com.qiantang.neighbourmother.ui.home.DownOrderActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:87
+-keep class com.qiantang.neighbourmother.ui.home.ServiceIntroduceActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:187
+-keep class com.qiantang.neighbourmother.ui.order.attache.AttacheLookOverServiceActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:199
+-keep class com.qiantang.neighbourmother.ui.order.attache.AttacheOrderChildrenInfoActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:183
+-keep class com.qiantang.neighbourmother.ui.order.attache.AttacheOrderDetailsActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:191
+-keep class com.qiantang.neighbourmother.ui.order.attache.UploadPicturesActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:175
+-keep class com.qiantang.neighbourmother.ui.order.user.LookOverServiceActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:216
+-keep class com.qiantang.neighbourmother.ui.order.user.OrderPayActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:75
+-keep class com.qiantang.neighbourmother.ui.startpage.GuideActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:83
+-keep class com.qiantang.neighbourmother.ui.startpage.IdentityChoiceActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:79
+-keep class com.qiantang.neighbourmother.ui.startpage.LoginActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:64
+-keep class com.qiantang.neighbourmother.ui.startpage.SplashActivity { <init>(...); }
+
+# view res/layout/activity_attache_order_children_info.xml #generated:107
+# view res/layout/activity_attache_order_details.xml #generated:95
+# view res/layout/activity_children_info.xml #generated:106
+# view res/layout/activity_children_info_edit.xml #generated:103
+# view res/layout/activity_downorder.xml #generated:79
+# view res/layout/activity_edit_data.xml #generated:95
+# view res/layout/fragment_attache_center.xml #generated:169
+# view res/layout/fragment_attache_center.xml #generated:49
+# view res/layout/fragment_center.xml #generated:159
+# view res/layout/fragment_center.xml #generated:42
+# view res/layout/item_attache_list.xml #generated:24
+# view res/layout/item_home.xml #generated:119
+# view res/layout/item_home.xml #generated:201
+# view res/layout/item_home.xml #generated:33
+# view res/layout/item_order_list.xml #generated:111
+# view res/layout/layout_attache_info_top.xml #generated:20
+-keep class com.qiantang.neighbourmother.widget.CircleImageView { <init>(...); }
+
+# view res/layout/activity_recharge.xml #generated:73
+-keep class com.qiantang.neighbourmother.widget.FixationHeightGridView { <init>(...); }
+
+# view res/layout/activity_choice_service.xml #generated:168
+# view res/layout/activity_choice_service.xml #generated:204
+# view res/layout/activity_choice_service.xml #generated:241
+# view res/layout/activity_choice_service.xml #generated:290
+# view res/layout/activity_choice_service.xml #generated:312
+# view res/layout/activity_choice_service.xml #generated:352
+-keep class com.qiantang.neighbourmother.widget.FixationHeightListView { <init>(...); }
+
+# view res/layout/activity_pager_photoview.xml #generated:9
+-keep class com.qiantang.neighbourmother.widget.HackyViewPager { <init>(...); }
+
+# view res/layout/activity_citylist.xml #generated:46
+-keep class com.qiantang.neighbourmother.widget.LetterListView { <init>(...); }
+
+# view res/layout/item_home.xml #generated:136
+# view res/layout/item_home.xml #generated:218
+# view res/layout/item_home.xml #generated:51
+-keep class com.qiantang.neighbourmother.widget.RatingBar { <init>(...); }
+
+# view res/layout/activity_photoview.xml #generated:10
+-keep class com.qiantang.neighbourmother.widget.photoview.PhotoView { <init>(...); }
+
+# view res/layout/activity_attache_list.xml #generated:59
+# view res/layout/activity_look_over_service.xml #generated:63
+# view res/layout/activity_user_account.xml #generated:138
+# view res/layout/fragment_finish_payment.xml #generated:6
+# view res/layout/fragment_home.xml #generated:51
+# view res/layout/fragment_underway_payment.xml #generated:6
+# view res/layout/fragment_wait_payment.xml #generated:6
+-keep class com.qiantang.neighbourmother.widget.refreshview.XListView { <init>(...); }
+
+# view AndroidManifest.xml #generated:225
+-keep class com.qiantang.neighbourmother.wxapi.WXEntryActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:220
+-keep class com.qiantang.neighbourmother.wxapi.WXPayEntryActivity { <init>(...); }
+
+# view res/layout/fragment_photoview.xml #generated:9
+-keep class com.qiantang.zforgan.widget.photoview.PhotoView { <init>(...); }
+

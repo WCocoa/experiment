@@ -1,0 +1,230 @@
+package com.qiantang.neighbourmother.business;
+
+/**
+ * @author quliang
+ * @version 2015-8-20 上午11:28:11
+ *          desc APILIST
+ */
+public class API {
+
+    //分页总数
+    public static final  int    COUNT                 = 10;
+    private static final String BASE_URL              = APIConfig.getBaseUrl();
+    public static final  String BASE_URL_PREFIX       = BASE_URL + "/1.1.1/";
+    public static        String FILE_KEY              = "file[]";
+    public static String locImgPathPrefix = "file://";
+    /**
+     * 图片下载地址
+     */
+
+    /**
+     * app logo
+     */
+    public static final String APP_LOGO= "http://www.qiantangtec.com/logo.png";
+
+    public static final  String BASE_IMG_URL          = BASE_URL + "/uploads/";
+    /**
+     * 图片上传地址
+     */
+    public static final  String IMG_UPLOADER          = BASE_URL_PREFIX + "fileupload";
+    /**
+     * 版本更新
+     */
+    public static final  String CHECK_NEW_VERSION_URL = BASE_URL_PREFIX + "checkNewVersion";
+    /**
+     * 短信发送
+     */
+    public static final  String SMS                   = BASE_URL_PREFIX + "sms";
+    /**
+     * 登录
+     */
+    public static final  String LOGIN                 = BASE_URL_PREFIX + "signIn";
+    /**
+     * 获取孩子信息
+     */
+    public static final  String CHILD_INFO            = BASE_URL_PREFIX + "child";
+    /**
+     * 提交用户资料
+     */
+    public static final  String SUB_USERINFO          = BASE_URL_PREFIX + "informationUpdate";
+    /**
+     * 提交孩子资料
+     */
+    public static final  String SUB_CHILDINFO         = BASE_URL_PREFIX + "childUpdate";
+
+    /**
+     * 专员列表
+     */
+    public static final String ATTACHE_LIST = BASE_URL_PREFIX + "orderServant";
+
+    /**
+     * 招募专员资格
+     */
+    public static final String RECUIT_ATTACHE_QU = BASE_URL_PREFIX + "servantApply";
+    /**
+     * 申请接送专员
+     */
+    public static final String ATTACHE_APPLY_JS  = BASE_URL_PREFIX + "servantApplyPickUp";
+    /**
+     * 服务介绍
+     */
+    public static final String SERVICE_INTRODUCE = BASE_URL_PREFIX + "service";
+
+    /**
+     * 申请看护专员
+     */
+    public static final String ATTACHE_APPLY_KH = BASE_URL_PREFIX + "servantApplyCare";
+    /**
+     * 申请辅导专员
+     */
+    public static final String ATTACHE_APPLY_FD = BASE_URL_PREFIX + "servantApplyCoach";
+    /**
+     * 申请专车专员
+     */
+    public static final String ATTACHE_APPLY_ZC = BASE_URL_PREFIX + "servantApplyCar";
+
+    /**
+     * 专员订单列表
+     */
+    public static final String ATTACHE_ORDER_LIST   = BASE_URL_PREFIX + "orderListServant";
+    /**
+     * 用户订单列表
+     */
+    public static final String USER_ORDER_LIST      = BASE_URL_PREFIX + "orderListUser";
+    /**
+     * 专员删除订单
+     */
+    public static final String ATTACHE_ORDER_DELETE = BASE_URL_PREFIX + "orderDeleteServant";
+    /**
+     * 用户删除订单
+     */
+    public static final String USER_ORDER_DELETE    = BASE_URL_PREFIX + "orderDeleteUser";
+
+    /**
+     * 首页
+     */
+    public static final String HOME                  = BASE_URL_PREFIX + "home";
+    /**
+     * 更新位置信息
+     */
+    public static final String UPDATE_LOC_INFO       = BASE_URL_PREFIX + "informationUpdateHome";
+    /**
+     * 专员详情
+     */
+    public static final String ATTACHER_DETAIL       = BASE_URL_PREFIX + "servant";
+    /**
+     * 下单服务
+     */
+    public static final String DOWNORDER_SERVICE     = BASE_URL_PREFIX + "orderService";
+    /**
+     * 专员订单详情
+     */
+    public static final String ATTACHE_ORDER_DETAILS = BASE_URL_PREFIX + "orderDetailServant";
+
+    /**
+     * 专员订单确认接单
+     */
+    public static final String ATTACHE_ORDER_DETAILS_ACCEPT = BASE_URL_PREFIX + "orderAccept";
+
+    /**
+     * 专员订单开始服务
+     */
+    public static final String ATTACHE_ORDER_DETAILS_START = BASE_URL_PREFIX + "orderStart";
+
+    /**
+     * 专员订单完成服务
+     */
+    public static final String ATTACHE_ORDER_DETAILS_COMPLETE = BASE_URL_PREFIX + "orderComplete";
+
+    /**
+     * 追加小费
+     */
+    public static final String SUPERADDITION_COST = BASE_URL_PREFIX + "orderAdditionalCharge";
+
+
+    /**
+     * 获取孩子信息
+     */
+    public static final String ATTACHE_ORDER_TO_CHILD_INFO = BASE_URL_PREFIX + "childById";
+
+    /**
+     * 上传照片
+     */
+    public static final String UPLOAD_PICYURES = BASE_URL_PREFIX + "orderUploadImage";
+
+
+    /**
+     * 查看服务
+     */
+    public static final String LOOK_OVER_SERVICE = BASE_URL_PREFIX + "orderImage";
+    /**
+     * 创建订单
+     */
+    public static final String CREATE_ORDER      = BASE_URL_PREFIX + "orderCreate";
+    /**
+     * 订单确认
+     */
+    public static final String CREATE_SURE       = BASE_URL_PREFIX + "orderConfirm";
+    /**
+     * 订单详情
+     */
+    public static final String ORDER_DETAIL      = BASE_URL_PREFIX + "orderDetailUser";
+    /**
+     * 订单取消
+     */
+    public static final String ORDER_CANCER      = BASE_URL_PREFIX + "orderCancel";
+    /**
+     * 打分评价
+     */
+    public static final String ORDER_SOCRE       = BASE_URL_PREFIX + "orderScore";
+    /**
+     * 订单支付
+     */
+    public static final String ORDER_PAY         = BASE_URL_PREFIX + "pay";
+    /**
+     * 成功支付
+     */
+    public static final String PAY_SUCCESS       = BASE_URL_PREFIX + "paySuccess";
+    /**
+     * 支付取消
+     */
+    public static final String PAY_CANCER        = BASE_URL_PREFIX + "payCancel";
+
+    /**
+     * 中心金额
+     */
+    public static final String CENTER_MONEY = BASE_URL_PREFIX + "userMoney";
+
+    /**
+     * 支付获余额
+     */
+    public static final String PAY_GET_SURPLUS_MONEY = BASE_URL_PREFIX + "userBalance";
+    /**
+     * 账户余额支付
+     */
+    public static final String ACCOUNT_SURPLUS_PAY = BASE_URL_PREFIX + "balancePay";
+    /**
+     * 提现
+     */
+    public static final String WITHDRAW_DEPOSIT      = BASE_URL_PREFIX + "withdraws";
+    /**
+     * 获取充值金额
+     */
+    public static final String GET_RECHARGE_MONEY = BASE_URL_PREFIX + "rechargeGoods";
+    /**
+     * 充值
+     */
+    public static final String RECHARGE_MONEY = BASE_URL_PREFIX + "recharge";
+
+    /**
+     * 绑定银行卡
+     */
+    public static final String BIND_BANK_CARD = BASE_URL_PREFIX + "bindCard";
+
+
+    /**
+     * 充值记录
+     */
+    public static final String ACCOUNT_RECHARGE_MONEY = BASE_URL_PREFIX + "rechargeRecord";
+
+}

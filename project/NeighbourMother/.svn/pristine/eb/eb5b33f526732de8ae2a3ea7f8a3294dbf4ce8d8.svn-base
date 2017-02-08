@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_bg"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rela_top"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_title_height"
+        android:background="@color/app_title_bg">
+
+        <ImageView
+            android:id="@+id/back"
+            style="@style/app_title_icon_style"
+            android:layout_centerVertical="true"
+            android:longClickable="false"
+            android:src="@mipmap/back" />
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/app_title_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="@string/publiccomm_title" />
+
+        <TextView
+            android:id="@+id/send"
+            style="@style/app_title_right_text_style"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_backicon_margin_left"
+            android:gravity="center"
+            android:longClickable="false"
+            android:padding="@dimen/dimen_backicon_padding_left"
+            android:text="@string/publiccomm_public"
+            android:textColor="@color/app_special_style_color"
+            android:textSize="16sp"
+             />
+
+    </RelativeLayout>
+    <TextView
+        android:background="@color/app_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        />
+    <EditText
+        android:id="@+id/content"
+        android:background="@color/white"
+        android:gravity="top"
+android:hint="@string/publiccomm_content_hint"
+        android:lines="8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

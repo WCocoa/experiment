@@ -1,0 +1,25 @@
+package com.qiantang.neighbourmother.model;
+
+import android.widget.ImageView;
+
+/**
+ * Created by quliang on 16-8-4.
+ */
+public class GroupImghead {
+    private String imghead;
+
+    public GroupImghead() {
+    }
+
+    public GroupImghead(String imghead) {
+        this.imghead = imghead;
+    }
+
+    public String getImghead() {
+        return imghead;
+    }
+
+    public void setImghead(String imghead) {
+        this.imghead = imghead;
+    }
+}

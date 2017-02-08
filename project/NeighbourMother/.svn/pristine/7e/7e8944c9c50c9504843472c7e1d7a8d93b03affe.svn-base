@@ -1,0 +1,510 @@
+package com.qiantang.neighbourmother.ui.home;
+
+import android.content.Intent;
+import android.os.Message;
+import android.text.TextUtils;
+import android.util.DisplayMetrics;
+import android.view.Gravity;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.ScrollView;
+import android.widget.TextView;
+
+import com.qiantang.neighbourmother.R;
+import com.qiantang.neighbourmother.business.API;
+import com.qiantang.neighbourmother.business.data.AttacheDetailHttp;
+import com.qiantang.neighbourmother.business.response.AttacheDetailResp;
+import com.qiantang.neighbourmother.logic.UserContacts;
+import com.qiantang.neighbourmother.model.ServTypeObj;
+import com.qiantang.neighbourmother.model.ToAttacheDetailObj;
+import com.qiantang.neighbourmother.ui.BaseActivity;
+import com.qiantang.neighbourmother.ui.activity.PhotoViewActivity;
+import com.qiantang.neighbourmother.util.AppLog;
+import com.qiantang.neighbourmother.util.IntentFinal;
+import com.qiantang.neighbourmother.util.PropertyConfig;
+import com.qiantang.neighbourmother.util.QLScreenUtil;
+import com.qiantang.neighbourmother.widget.CircleImageView;
+
+import java.util.List;
+
+/**
+ * ClassName:专员详情
+ * author: Cocoa
+ * date: 2016/9/23.
+ */
+public class AttacheDetailsActivity extends BaseActivity implements View.OnClickListener {
+    private ImageView back;//返回
+    private ScrollView scrollView;
+    private CircleImageView person_headimg;//专员头像
+    private TextView person_name;//专员姓名
+    private TextView attache_age;//专员年龄
+    private TextView attache_post;//专员行业
+    private TextView person_service_type;//专员服务类型
+    private TextView person_address;//专员地址
+    private TextView contact_phone;//手机
+    private TextView nickname;//昵称
+    private TextView sex;//性别
+    private TextView school;//学校
+    private TextView grade;//年级
+    private ImageView attache_sex;
+    private LinearLayout ll_environment_all;//环境信息（ 控制隐藏显示）
+    private LinearLayout ll_environment;//环境信息（动态生成图片）
+    private ImageView environment_image1;
+    private ImageView environment_image2;
+    private ImageView environment_image3;
+
+    private LinearLayout ll_vehicle_info;//车辆信息（控制隐藏显示）
+    private TextView plate_number;//车牌号
+    private ImageView vehicle_image;//车辆图片
+    private TextView vehicle_model;//车型
+    private TextView vehicle_condition;//车况
+    private TextView vehicle_age;//车龄
+    private TextView driver_age;//驾龄
+    private TextView driver_licence;//驾驶证
+
+
+    private LinearLayout ll_qualification_info;//资格信息（控制隐藏显示）
+    private ImageView teacher_certification_img;//教育资格证
+    private ImageView education_certification_img;//学历证明
+
+    private LinearLayout ll_service_content;//服务内容
+
+    private TextView btn_choice;//选择专员按钮
+    private RelativeLayout rl_choice;//选择专员按钮隐藏显示控制
+    private ToAttacheDetailObj toAttacheDetailObj;
+    private AttacheDetailResp attacheDetailResp;
+    private LinearLayout ll_all_service_type;//服务类型
+    private boolean flag;//标记专员资料是否全部显示  true 为显示  false 为隐藏敏感信息
+
+
+    @Override
+    public int getContentView() {
+        return R.layout.activity_attache_details;
+    }
+
+    @Override
+    public void initView() {
+        back = (ImageView) findViewById(R.id.back);
+        scrollView = (ScrollView) findViewById(R.id.scrollView);
+        person_headimg = (CircleImageView) findViewById(R.id.person_headimg);
+        person_name = (TextView) findViewById(R.id.person_name);
+        attache_age = (TextView) findViewById(R.id.attache_age);
+        attache_post = (TextView) findViewById(R.id.attache_post);
+        person_service_type = (TextView) findViewById(R.id.person_service_type);
+        person_address = (TextView) findViewById(R.id.person_address);
+        contact_phone = (TextView) findViewById(R.id.contact_phone);
+        nickname = (TextView) findViewById(R.id.nickname);
+        sex = (TextView) findViewById(R.id.sex);
+        attache_sex = (ImageView) findViewById(R.id.attache_sex);
+        school = (TextView) findViewById(R.id.school);
+        grade = (TextView) findViewById(R.id.grade);
+        ll_environment_all = (LinearLayout) findViewById(R.id.ll_environment_all);
+        ll_environment = (LinearLayout) findViewById(R.id.ll_environment);
+        environment_image1 = (ImageView) findViewById(R.id.environment_image1);
+        environment_image2 = (ImageView) findViewById(R.id.environment_image2);
+        environment_image3 = (ImageView) findViewById(R.id.environment_image3);
+
+        ll_vehicle_info = (LinearLayout) findViewById(R.id.ll_vehicle_info);
+        plate_number = (TextView) findViewById(R.id.plate_number);
+        vehicle_image = (ImageView) findViewById(R.id.vehicle_image);
+        vehicle_model = (TextView) findViewById(R.id.vehicle_model);
+        vehicle_condition = (TextView) findViewById(R.id.vehicle_condition);
+        vehicle_age = (TextView) findViewById(R.id.vehicle_age);
+        driver_age = (TextView) findViewById(R.id.driver_age);
+        driver_licence = (TextView) findViewById(R.id.driver_licence);
+        ll_qualification_info = (LinearLayout) findViewById(R.id.ll_qualification_info);
+        teacher_certification_img = (ImageView) findViewById(R.id.teacher_certification_img);
+        education_certification_img = (ImageView) findViewById(R.id.education_certification_img);
+        ll_service_content = (LinearLayout) findViewById(R.id.ll_service_content);
+        btn_choice = (TextView) findViewById(R.id.btn_choice);
+        rl_choice = (RelativeLayout) findViewById(R.id.rl_choice);
+        rl_choice.setVisibility(View.GONE);
+        ll_all_service_type = (LinearLayout) findViewById(R.id.ll_all_service_type);
+        initCell();
+
+    }
+
+
+    @Override
+    public void initData() {
+        sexArray = getResources().getStringArray(R.array.showSexDialog_array);
+        toAttacheDetailObj = (ToAttacheDetailObj) getIntent().getSerializableExtra(IntentFinal.INTENT_ATTACHE_OBJ);
+        flag = getIntent().getBooleanExtra(IntentFinal.INTENT_ATTACHE_DETAILS_ARG, false);
+        new AttacheDetailHttp(this, handler, toAttacheDetailObj.getId(), 1);
+    }
+
+    /**
+     * 创建专员详情底部服务内容
+     *
+     * @param service
+     */
+    private void createServiceContent(List<ServTypeObj> service) {
+        ll_service_content.removeAllViews();
+        if (service != null && service.size() > 0) {
+            LinearLayout linera = null;
+            for (int i = 0; i < service.size(); i++) {
+
+                if (i % 2 == 0) {
+                    linera = new LinearLayout(this);
+                    LinearLayout.LayoutParams lparams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                    lparams.gravity = Gravity.CENTER_VERTICAL;
+                    lparams.topMargin = (int) QLScreenUtil.dpToPxInt(this, 10);
+                    linera.setOrientation(LinearLayout.HORIZONTAL);
+                    linera.setLayoutParams(lparams);
+                    ll_service_content.addView(linera);
+
+                    TextView tv_text = new TextView(this);
+                    LinearLayout.LayoutParams tparams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                    tparams.gravity = Gravity.CENTER_VERTICAL;
+                    tv_text.setLayoutParams(tparams);
+                    tv_text.setPadding((int) QLScreenUtil.dpToPxInt(this, 5), (int) QLScreenUtil.dpToPxInt(this, 2), (int) QLScreenUtil.dpToPxInt(this, 5), (int) QLScreenUtil.dpToPxInt(this, 2));
+                    tv_text.setTextColor(getResources().getColor(R.color.white));
+                    tv_text.setBackgroundResource(R.drawable.attache_details_service_content_backgroud);
+                    tv_text.setText(service.get(i).getService_tag_name());
+                    tv_text.setSelected(service.get(i).getCheckable() == 1);
+                    linera.addView(tv_text);
+                } else {
+                    TextView tv_text = new TextView(this);
+                    LinearLayout.LayoutParams tparams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                    tparams.gravity = Gravity.CENTER_VERTICAL;
+                    tparams.leftMargin = (int) QLScreenUtil.dpToPxInt(this, 15);
+                    tv_text.setLayoutParams(tparams);
+                    tv_text.setPadding((int) QLScreenUtil.dpToPxInt(this, 5), (int) QLScreenUtil.dpToPxInt(this, 2), (int) QLScreenUtil.dpToPxInt(this, 5), (int) QLScreenUtil.dpToPxInt(this, 2));
+                    tv_text.setTextColor(getResources().getColor(R.color.white));
+                    tv_text.setBackgroundResource(R.drawable.attache_details_service_content_backgroud);
+                    tv_text.setText(service.get(i).getService_tag_name());
+                    tv_text.setSelected(service.get(i).getCheckable() == 1);
+                    linera.addView(tv_text);
+                }
+
+
+            }
+        }
+    }
+
+
+    @Override
+    public void initEvent() {
+        back.setOnClickListener(this);
+        btn_choice.setOnClickListener(this);
+        environment_image1.setOnClickListener(this);
+        environment_image2.setOnClickListener(this);
+        environment_image3.setOnClickListener(this);
+        teacher_certification_img.setOnClickListener(this);
+        education_certification_img.setOnClickListener(this);
+        vehicle_image.setOnClickListener(this);
+    }
+
+    @Override
+    protected void updateUI(Message msg) {
+        switch (msg.what) {
+            case 1:
+                attacheDetailResp = (AttacheDetailResp) msg.obj;
+                setData(attacheDetailResp);
+                closeProgressDialog();
+                break;
+        }
+    }
+
+
+    /**
+     * 初始化图片寛高
+     */
+    private void initCell() {
+        float unit = 15f;
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        int red_width = (displayMetrics.widthPixels - (int) QLScreenUtil.dpToPx(this, unit * 2 + 22)) / 3;
+
+        cacuCellWH(vehicle_image, red_width, red_width, 0, 0, (int) QLScreenUtil.dpToPx(this, 0), 0);
+
+        cacuCellWH(environment_image1, red_width, red_width, 0, 0, (int) QLScreenUtil.dpToPx(this, 0), 0);
+        cacuCellWH(environment_image2, red_width, red_width, (int) QLScreenUtil.dpToPx(this, 10), 0, (int) QLScreenUtil.dpToPx(this, 0), 0);
+        cacuCellWH(environment_image3, red_width, red_width, (int) QLScreenUtil.dpToPx(this, 10), 0, (int) QLScreenUtil.dpToPx(this, 0), 0);
+
+        cacuCellWHrela(teacher_certification_img, red_width, red_width, 0, 0, (int) QLScreenUtil.dpToPx(this, 0), 0);
+        cacuCellWHrela(education_certification_img, red_width, red_width, (int) QLScreenUtil.dpToPx(this, 10), 0, 0, 0);
+    }
+
+//    /**
+//     * 计算创建环境图片寛高
+//     *
+//     * @param view
+//     * @param left
+//     * @param top
+//     * @param right
+//     * @param bottom
+//     */
+//    private void initEnvironmentImage(View view, int left, int top, int right, int bottom) {
+//        float unit = 15f;
+//        DisplayMetrics displayMetrics = new DisplayMetrics();
+//        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+//        int red_width = (displayMetrics.widthPixels - (int) QLScreenUtil.dpToPx(this, unit * 2 + 22)) / 3;
+//        cacuCellWH(view, red_width, red_width, left, top, right, bottom);
+//    }
+
+    /**
+     * 计算创建相对布局下图片寛高
+     *
+     * @param view
+     * @param widht
+     * @param height
+     * @param left
+     * @param top
+     * @param right
+     * @param bottom
+     */
+    private void cacuCellWHrela(View view, int widht, int height, int left, int top, int right, int bottom) {
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view.getLayoutParams();
+        layoutParams.setMargins(left, top, right, bottom);
+        layoutParams.height = height;
+        layoutParams.width = widht;
+        view.setLayoutParams(layoutParams);
+        view.postInvalidate();
+    }
+
+    /**
+     * 计算创建线性布局下图片寛高
+     *
+     * @param view
+     * @param widht
+     * @param height
+     * @param left
+     * @param top
+     * @param right
+     * @param bottom
+     */
+    private void cacuCellWH(View view, int widht, int height, int left, int top, int right, int bottom) {
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) view.getLayoutParams();
+        layoutParams.setMargins(left, top, right, bottom);
+        layoutParams.height = height;
+        layoutParams.width = widht;
+        view.setLayoutParams(layoutParams);
+        view.postInvalidate();
+    }
+
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.back:
+                finish();
+                break;
+            case R.id.btn_choice:
+                Intent intent = null;
+                switch (toAttacheDetailObj.getType()) {
+                    case 0:
+                        intent = new Intent();
+                        intent.putExtra(IntentFinal.INTENT_ATTACHE_DETAIL_OBJ, attacheDetailResp);
+                        setResult(DownOrderActivity.RESULT_ATTACHER, intent);
+                        finish();
+                        break;
+                    case 1:
+                        intent = new Intent(this, DownOrderActivity.class);
+                        intent.putExtra(IntentFinal.INTENT_TO_DOWN_ORDER, 1);
+                        intent.putExtra(IntentFinal.INTENT_ATTACHE_DETAIL_OBJ, attacheDetailResp);
+                        startActivity(intent);
+
+                        break;
+                }
+
+
+                break;
+            case R.id.environment_image1:
+                lookOver(1);
+                break;
+            case R.id.environment_image2:
+                lookOver(2);
+                break;
+            case R.id.environment_image3:
+                lookOver(3);
+                break;
+            case R.id.teacher_certification_img:
+                lookOver(4);
+                break;
+            case R.id.education_certification_img:
+                lookOver(5);
+                break;
+            case R.id.vehicle_image:
+                lookOver(6);
+                break;
+
+
+        }
+    }
+
+    String sexArray[];
+
+    private void setData(AttacheDetailResp attacheDetailResp) {
+
+        int[] showContent = attacheDetailResp.getServant_type_array_id();
+        AppLog.D("showContent.length" + showContent.length);
+        if (showContent == null) {
+            ll_vehicle_info.setVisibility(View.GONE);
+            ll_environment_all.setVisibility(View.GONE);
+            ll_qualification_info.setVisibility(View.GONE);
+        } else {
+            for (int i = 0; i < showContent.length; i++) {
+
+                int num = showContent[i];
+                AppLog.D("showContent.num" + num);
+                if (num == 1) {
+
+                }
+                if (num == 2) {
+                    ll_environment_all.setVisibility(View.VISIBLE);
+                    AppLog.D("ll_environment_all.num" + num);
+                }
+                if (num == 3) {
+                    ll_qualification_info.setVisibility(View.VISIBLE);
+                    AppLog.D("ll_qualification_info.num" + num);
+                }
+                if (num == 4) {
+                    ll_vehicle_info.setVisibility(View.VISIBLE);
+                    AppLog.D("ll_vehicle_info.num" + num);
+                }
+            }
+        }
+        List<ServTypeObj> serviceTypeobjs = attacheDetailResp.getService_tag_array();
+        if (serviceTypeobjs != null && serviceTypeobjs.size() > 0) {
+            ll_all_service_type.setVisibility(View.VISIBLE);
+            createServiceContent(serviceTypeobjs);
+        } else {
+            ll_all_service_type.setVisibility(View.GONE);
+        }
+
+        display(person_headimg, API.BASE_IMG_URL + attacheDetailResp.getUser_avatar(), R.mipmap.default_img);
+        if (flag) {
+            person_name.setText(attacheDetailResp.getUser_name());
+        } else {
+            if (!TextUtils.isEmpty(attacheDetailResp.getUser_name()) && attacheDetailResp.getUser_name().length() > 1) {
+                person_name.setText(nameModify(attacheDetailResp.getUser_name()));
+//                if (attacheDetailResp.getUser_gender() == 1) {
+//                    String name = attacheDetailResp.getUser_name().substring(0, 1) + "爸爸";
+//                    person_name.setText(name);
+//                } else {
+//                    String name = attacheDetailResp.getUser_name().substring(0, 1) + "妈妈";
+//                    person_name.setText(name);
+//                }
+            } else {
+                person_name.setText(attacheDetailResp.getUser_name());
+            }
+        }
+
+        attache_age.setText(attacheDetailResp.getUser_age() + "岁");
+        attache_post.setText(attacheDetailResp.getIndustry());
+
+
+        StringBuilder serType = new StringBuilder();
+        for (String str : attacheDetailResp.getServant_type_array_string()) {
+            serType.append(str + " ");
+        }
+        person_service_type.setText(serType);
+        AppLog.D("省市区 小区：" + attacheDetailResp.getProvince_name() + attacheDetailResp.getCity_name() + attacheDetailResp.getDistrict_name() + attacheDetailResp.getUser_community());
+        person_address.setText(attacheDetailResp.getProvince_name() + attacheDetailResp.getCity_name() + attacheDetailResp.getDistrict_name() + attacheDetailResp.getUser_community());
+
+        if (flag) {
+            contact_phone.setText(attacheDetailResp.getUser_phone());
+        } else {
+            if (!TextUtils.isEmpty(attacheDetailResp.getUser_phone()) && attacheDetailResp.getUser_phone().length() > 3) {
+                String phone = attacheDetailResp.getUser_phone().substring(0, 3) + " **** ****";
+                contact_phone.setText(phone);
+            } else {
+                contact_phone.setText(attacheDetailResp.getUser_phone());
+            }
+        }
+
+//        contact_phone.setText(attacheDetailResp.getUser_phone());
+        nickname.setText(attacheDetailResp.getChild_nickname());
+        AppLog.D("attacheDetailResp.getChild_gender():" + attacheDetailResp.getChild_gender());
+        sex.setText(attacheDetailResp.getChild_gender() == 0 ? "" : sexArray[attacheDetailResp.getChild_gender() - 1]);
+
+
+        school.setText(attacheDetailResp.getChild_school());
+        grade.setText(attacheDetailResp.getChild_grade());
+        display(environment_image1, API.BASE_IMG_URL + attacheDetailResp.getPic_environment_1(), R.mipmap.default_img);
+        display(environment_image2, API.BASE_IMG_URL + attacheDetailResp.getPic_environment_2(), R.mipmap.default_img);
+        display(environment_image3, API.BASE_IMG_URL + attacheDetailResp.getPic_environment_3(), R.mipmap.default_img);
+
+//        plate_number.setText(attacheDetailResp.getCar_number());
+
+        if (flag) {
+            plate_number.setText(attacheDetailResp.getCar_number());
+        } else {
+            if (!TextUtils.isEmpty(attacheDetailResp.getCar_number()) && attacheDetailResp.getCar_number().length() > 2) {
+                String plate = attacheDetailResp.getCar_number().substring(0, 2) + " *****";
+                plate_number.setText(plate);
+            } else {
+                plate_number.setText(attacheDetailResp.getCar_number());
+            }
+        }
+
+        display(vehicle_image, API.BASE_IMG_URL + attacheDetailResp.getCar_pic(), R.mipmap.default_img);
+        vehicle_model.setText(attacheDetailResp.getCar_model());
+        vehicle_condition.setText(attacheDetailResp.getCar_condition());
+        vehicle_age.setText(attacheDetailResp.getCar_age());
+        driver_age.setText(attacheDetailResp.getCar_driving());
+//        driver_licence.setText(attacheDetailResp.getCar_license_number());
+
+        if (flag) {
+            driver_licence.setText(attacheDetailResp.getCar_license_number());
+        } else {
+            if (!TextUtils.isEmpty(attacheDetailResp.getCar_license_number()) && attacheDetailResp.getCar_license_number().length() > 6) {
+                String driver = attacheDetailResp.getCar_license_number().substring(0, 6) + " ************";
+                driver_licence.setText(driver);
+            } else {
+                driver_licence.setText(attacheDetailResp.getCar_license_number());
+            }
+        }
+        display(teacher_certification_img, API.BASE_IMG_URL + attacheDetailResp.getPic_teacher(), R.mipmap.default_img);
+        display(education_certification_img, API.BASE_IMG_URL + attacheDetailResp.getPic_education(), R.mipmap.default_img);
+
+        createServiceContent(attacheDetailResp.getService_tag_array());
+
+        switch (toAttacheDetailObj.getType()) {
+            case 0:
+                btn_choice.setText(R.string.attacheD_choice_attache);
+                break;
+            case 1:
+                btn_choice.setText(R.string.attacheD_me_downorder);
+                break;
+        }
+
+        if (flag||PropertyConfig.getInstance(this).getInt(UserContacts.USER_ROLE) != 1) {
+            rl_choice.setVisibility(View.GONE);
+        } else {
+            rl_choice.setVisibility(View.VISIBLE);
+        }
+        scrollView.setVisibility(View.VISIBLE);
+    }
+
+    private void lookOver(int position) {
+        Intent intent = new Intent(this, PhotoViewActivity.class);
+        if (attacheDetailResp != null) {
+            switch (position) {
+                case 1:
+                    intent.putExtra(IntentFinal.INTENT_IMGURL_TO_PHOTOVIEWACTIVITY, API.BASE_IMG_URL + attacheDetailResp.getPic_environment_1());
+                    break;
+                case 2:
+                    intent.putExtra(IntentFinal.INTENT_IMGURL_TO_PHOTOVIEWACTIVITY, API.BASE_IMG_URL + attacheDetailResp.getPic_environment_2());
+                    break;
+                case 3:
+                    intent.putExtra(IntentFinal.INTENT_IMGURL_TO_PHOTOVIEWACTIVITY, API.BASE_IMG_URL + attacheDetailResp.getPic_environment_3());
+                    break;
+                case 4:
+                    intent.putExtra(IntentFinal.INTENT_IMGURL_TO_PHOTOVIEWACTIVITY, API.BASE_IMG_URL + attacheDetailResp.getPic_teacher());
+                    break;
+                case 5:
+                    intent.putExtra(IntentFinal.INTENT_IMGURL_TO_PHOTOVIEWACTIVITY, API.BASE_IMG_URL + attacheDetailResp.getPic_education());
+                    break;
+                case 6:
+                    intent.putExtra(IntentFinal.INTENT_IMGURL_TO_PHOTOVIEWACTIVITY, API.BASE_IMG_URL + attacheDetailResp.getCar_pic());
+                    break;
+            }
+            startActivity(intent);
+        }
+    }
+}

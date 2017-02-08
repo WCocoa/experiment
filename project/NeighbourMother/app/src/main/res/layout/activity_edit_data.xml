@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_bg"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rela_top"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_title_height"
+        android:background="@color/app_title_bg">
+
+        <ImageView
+            android:id="@+id/back"
+            style="@style/app_title_icon_style"
+            android:layout_centerVertical="true"
+            android:longClickable="false"
+            android:src="@mipmap/back" />
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/app_title_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="编辑资料" />
+
+        <TextView
+            android:id="@+id/children_info_edit"
+            style="@style/app_title_icon_style"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_backicon_margin_left"
+            android:gravity="center"
+            android:longClickable="false"
+            android:padding="@dimen/dimen_backicon_padding_left"
+            android:text="@string/children_info_edit"
+            android:textColor="@color/app_special_style_color"
+            android:textSize="16sp"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/research"
+            style="@style/app_title_icon_style"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:longClickable="false"
+            android:padding="@dimen/dimen_backicon_padding_left"
+            android:visibility="invisible" />
+    </RelativeLayout>
+
+    <View
+        style="@style/app_item_line_style"
+        android:layout_width="match_parent"></View>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+
+                <RelativeLayout
+                    android:id="@+id/rl_head_photo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/app_left_right_size"
+                    android:paddingBottom="@dimen/center_view_padding"
+                    android:paddingTop="@dimen/center_view_padding">
+
+
+                    <TextView
+
+                        style="@style/black_text_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/tag1"
+                        android:text="@string/children_info_photo" />
+
+                    <com.qiantang.neighbourmother.widget.CircleImageView
+                        android:id="@+id/head_photo"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="5dp"
+                        android:layout_toLeftOf="@+id/icon_right1"
+                        android:src="@mipmap/ic_launcher" />
+
+                    <ImageView
+                        android:id="@id/icon_right1"
+                        style="@style/right_icon_style"
+                        android:layout_alignParentRight="true" />
+                </RelativeLayout>
+
+                <View
+                    style="@style/app_item_line_style"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="@dimen/app_left_right_size"></View>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/app_left_right_size"
+                    android:layout_marginRight="@dimen/app_left_right_size"
+                    android:paddingBottom="@dimen/center_view_padding"
+                    android:paddingTop="@dimen/center_view_padding">
+
+
+                    <TextView
+                        android:id="@+id/nickname_text"
+                        style="@style/black_text_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="@string/nickname_text" />
+
+                    <EditText
+                        android:id="@+id/input_nickname"
+                        style="@style/gray_text_style"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toRightOf="@+id/nickname_text"
+                        android:background="@null"
+                        android:gravity="right"
+                        android:maxLength="6"
+                        android:hint="@string/children_info_input_hint"
+                        android:singleLine="true" />
+                </RelativeLayout>
+
+                <View
+                    style="@style/app_item_line_style"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="@dimen/app_left_right_size"></View>
+
+                <RelativeLayout
+                    android:id="@+id/rl_sex"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/app_left_right_size"
+                    android:paddingBottom="@dimen/center_view_padding"
+                    android:paddingTop="@dimen/center_view_padding">
+
+
+                    <TextView
+                        android:id="@+id/sex_text"
+                        style="@style/black_text_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/tag3"
+                        android:text="@string/sex_text" />
+
+                    <TextView
+                        android:id="@+id/tv_sex"
+                        style="@style/gray_text_style"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_toLeftOf="@+id/icon_right2"
+                        android:layout_toRightOf="@+id/sex_text"
+                        android:background="@null"
+                        android:gravity="right"
+                        android:singleLine="true"
+                        android:text="请选择" />
+
+                    <ImageView
+                        android:id="@id/icon_right2"
+                        style="@style/right_icon_style"
+                        android:layout_alignParentRight="true" />
+                </RelativeLayout>
+
+                <View
+                    style="@style/app_item_line_style"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="@dimen/app_left_right_size"></View>
+
+                <RelativeLayout
+                    android:id="@+id/rl_provinces_city_district"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/app_left_right_size"
+                    android:paddingBottom="@dimen/center_view_padding"
+                    android:paddingTop="@dimen/center_view_padding">
+
+                    <TextView
+                        android:id="@+id/provinces_city_district_text"
+                        style="@style/black_text_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="地址" />
+
+                    <TextView
+                        android:id="@+id/tv_provinces_city_district"
+                        style="@style/gray_text_style"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_toLeftOf="@+id/icon_right3"
+                        android:layout_toRightOf="@+id/provinces_city_district_text"
+                        android:background="@null"
+                        android:gravity="right"
+                        android:singleLine="true"
+                        android:text="省  市  区" />
+
+                    <ImageView
+                        android:id="@id/icon_right3"
+                        style="@style/right_icon_style"
+                        android:layout_alignParentRight="true" />
+                </RelativeLayout>
+
+                <View
+                    style="@style/app_item_line_style"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="90dp"></View>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/app_left_right_size"
+                    android:layout_marginRight="@dimen/app_left_right_size"
+                    android:paddingBottom="@dimen/center_view_padding"
+                    android:paddingTop="@dimen/center_view_padding">
+
+
+                    <EditText
+                        android:id="@+id/input_housing_estate"
+                        style="@style/gray_text_style"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="95dp"
+                        android:background="@null"
+                        android:gravity="right"
+                        android:hint="所在小区"
+                        android:singleLine="true" />
+                </RelativeLayout>
+
+                <View
+                    style="@style/app_item_line_style"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="90dp"></View>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/app_left_right_size"
+                    android:layout_marginRight="@dimen/app_left_right_size"
+                    android:paddingBottom="@dimen/center_view_padding"
+                    android:paddingTop="@dimen/center_view_padding">
+
+
+                    <EditText
+                        android:id="@+id/input_detailed_address"
+                        style="@style/gray_text_style"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="95dp"
+                        android:background="@null"
+                        android:gravity="right"
+                        android:hint="详细地址"
+                        android:singleLine="true" />
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/btn_save"
+                style="@style/app_button_style"
+                android:layout_marginLeft="@dimen/app_left_right_size"
+                android:layout_marginRight="@dimen/app_left_right_size"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/login_btn_backgroud"
+                android:text="保存" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="45dp"></View>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

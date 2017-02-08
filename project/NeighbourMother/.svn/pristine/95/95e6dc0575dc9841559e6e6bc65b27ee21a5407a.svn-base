@@ -1,0 +1,606 @@
+-- Merging decision tree log ---
+manifest
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:2:1-282:12
+	package
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:2:11-49
+		INJECTED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:3:5-63
+	android:versionCode
+		INJECTED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml
+uses-permission#android.permission.ACCESS_DOWNLOAD_MANAGER
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:6:5-82
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:6:22-79
+uses-permission#android.permission.CALL_PHONE
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:7:5-69
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:7:22-66
+uses-permission#android.permission.DOWNLOAD_WITHOUT_NOTIFICATION
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:8:5-88
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:8:22-85
+uses-permission#android.permission.EXPAND_STATUS_BAR
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:9:5-76
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:9:22-73
+uses-permission#android.permission.MODIFY_AUDIO_SETTINGS
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:10:5-80
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:10:22-77
+uses-permission#android.permission.FLASHLIGHT
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:11:5-69
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:11:22-66
+uses-permission#android.permission.INTERNET
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:12:5-67
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:12:22-64
+uses-permission#android.permission.CAMERA
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:13:5-65
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:13:22-62
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:14:5-81
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:14:22-78
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:15:5-80
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:15:22-77
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:16:5-79
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:16:22-76
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:17:5-81
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:17:22-78
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:18:5-79
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:18:22-76
+uses-permission#android.permission.ACCESS_LOCATION_EXTRA_COMMANDS
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:19:5-89
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:19:22-86
+uses-permission#android.permission.RECORD_AUDIO
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:20:5-71
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:20:22-68
+uses-permission#android.permission.VIBRATE
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:21:5-66
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:21:22-63
+uses-permission#android.permission.READ_LOGS
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:22:5-68
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:22:22-65
+uses-permission#android.permission.CLEAR_CACHE
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:23:5-70
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:23:22-67
+uses-permission#com.google.android.providers.gsf.permission.READ_GSERVICES
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:24:5-98
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:24:22-95
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:25:5-75
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:25:22-72
+uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:26:5-81
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:26:22-78
+uses-permission#android.permission.DISABLE_KEYGUARD
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:27:5-75
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:27:22-72
+uses-permission#android.permission.write_apn_settings
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:28:5-77
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:28:22-74
+uses-permission#android.permission.MOUNT_UNMOUNT_FILESYSTEMS
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:29:5-84
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:29:22-81
+uses-permission#com.android.launcher.permission.READ_SETTINGS
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:30:5-85
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:30:22-82
+uses-permission#android.permission.WAKE_LOCK
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:31:5-68
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:31:22-65
+uses-permission#android.permission.CHANGE_WIFI_STATE
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:32:5-76
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:32:22-73
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:33:5-76
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:33:22-73
+uses-permission#android.permission.GET_TASKS
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:34:5-68
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:34:22-65
+uses-permission#android.permission.WRITE_SETTINGS
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:35:5-73
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:35:22-70
+supports-screens
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:42:5-47:39
+	android:largeScreens
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:44:9-36
+	android:smallScreens
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:47:9-36
+	android:normalScreens
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:45:9-38
+	android:resizeable
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:46:9-34
+	android:anyDensity
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:43:9-34
+application
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:49:5-280:19
+MERGED from [com.android.support:design:24.2.1] D:\Project\NeighbourMother\app\build\intermediates\exploded-aar\com.android.support\design\24.2.1\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:24.2.1] D:\Project\NeighbourMother\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.1] D:\Project\NeighbourMother\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-media-compat:24.2.1] D:\Project\NeighbourMother\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-utils:24.2.1] D:\Project\NeighbourMother\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-ui:24.2.1] D:\Project\NeighbourMother\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-fragment:24.2.1] D:\Project\NeighbourMother\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:appcompat-v7:24.2.1] D:\Project\NeighbourMother\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-vector-drawable:24.2.1] D:\Project\NeighbourMother\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\AndroidManifest.xml:23:5-20
+MERGED from [com.android.support:animated-vector-drawable:24.2.1] D:\Project\NeighbourMother\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\AndroidManifest.xml:22:5-20
+	android:label
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:53:9-41
+	android:supportsRtl
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:54:9-35
+	android:allowBackup
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:51:9-35
+	android:icon
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:52:9-43
+	android:theme
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:55:9-40
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:50:9-51
+activity#com.qiantang.neighbourmother.ui.startpage.SplashActivity
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:58:9-64:20
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:58:19-62
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:59:13-63:29
+action#android.intent.action.MAIN
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:60:17-69
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:60:25-66
+category#android.intent.category.LAUNCHER
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:62:17-77
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:62:27-74
+activity#com.qiantang.neighbourmother.ui.MainTabActivity
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:65:9-68:76
+	android:screenOrientation
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:67:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:68:13-73
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:66:13-47
+activity#com.qiantang.neighbourmother.ui.startpage.GuideActivity
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:69:9-72:76
+	android:screenOrientation
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:71:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:72:13-73
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:70:13-55
+activity#com.qiantang.neighbourmother.ui.startpage.LoginActivity
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:73:9-76:76
+	android:screenOrientation
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:75:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:76:13-73
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:74:13-55
+activity#com.qiantang.neighbourmother.ui.startpage.IdentityChoiceActivity
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:77:9-80:76
+	android:screenOrientation
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:79:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:80:13-73
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:78:13-64
+activity#com.qiantang.neighbourmother.ui.home.ServiceIntroduceActivity
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:81:9-84:76
+	android:screenOrientation
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:83:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:84:13-73
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:82:13-61
+activity#com.qiantang.neighbourmother.ui.home.CityListActivity
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:85:9-88:76
+	android:screenOrientation
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:87:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:88:13-73
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:86:13-53
+activity#com.qiantang.neighbourmother.ui.home.AttacheDetailsActivity
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:89:9-92:76
+	android:screenOrientation
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:91:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:92:13-73
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:90:13-59
+activity#com.qiantang.neighbourmother.ui.home.ChoiceServiceActivity
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:93:9-96:76
+	android:screenOrientation
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:95:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:96:13-73
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:94:13-58
+activity#com.qiantang.neighbourmother.ui.home.AttacheListActivity
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:97:9-100:76
+	android:screenOrientation
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:99:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:100:13-73
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:98:13-56
+activity#com.qiantang.neighbourmother.ui.center.ChildrenInfoActivity
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:101:9-104:76
+	android:screenOrientation
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:103:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:104:13-73
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:102:13-59
+activity#com.qiantang.neighbourmother.ui.center.EditDataActivity
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:105:9-108:76
+	android:screenOrientation
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:107:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:108:13-73
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:106:13-55
+activity#com.qiantang.neighbourmother.ui.center.ChildrenInfoEditActivity
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:109:9-112:76
+	android:screenOrientation
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:111:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:112:13-73
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:110:13-63
+activity#com.qiantang.neighbourmother.ui.center.CommissionerRecruitActivity
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:113:9-116:76
+	android:screenOrientation
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:115:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:116:13-73
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:114:13-66
+activity#com.qiantang.neighbourmother.ui.center.CommissionerApplyOneActivity
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:117:9-120:76
+	android:screenOrientation
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:119:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:120:13-73
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:118:13-67
+activity#com.qiantang.neighbourmother.ui.center.CommissionerApplyTwoActivity
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:121:9-124:76
+	android:screenOrientation
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:123:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:124:13-73
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:122:13-67
+activity#com.qiantang.neighbourmother.ui.activity.ImgcImgDetailActivity
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:125:9-128:76
+	android:screenOrientation
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:127:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:128:13-73
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:126:13-62
+activity#com.qiantang.neighbourmother.ui.activity.ImgcImgListActivity
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:129:9-132:76
+	android:screenOrientation
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:131:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:132:13-73
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:130:13-60
+activity#com.qiantang.neighbourmother.ui.activity.PhotoViewActivity
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:133:9-136:76
+	android:screenOrientation
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:135:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:136:13-73
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:134:13-58
+activity#com.qiantang.neighbourmother.ui.activity.PhotoViewPagerActivity
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:137:9-140:76
+	android:screenOrientation
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:139:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:140:13-73
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:138:13-63
+activity#com.qiantang.neighbourmother.ui.center.CommissionerApplyNurseActivity
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:141:9-144:76
+	android:screenOrientation
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:143:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:144:13-73
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:142:13-69
+activity#com.qiantang.neighbourmother.ui.center.CommissionerApplyCoachActivity
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:145:9-148:76
+	android:screenOrientation
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:147:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:148:13-73
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:146:13-69
+activity#com.qiantang.neighbourmother.ui.center.CommissionerApplySpecialCarActivity
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:149:9-152:76
+	android:screenOrientation
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:151:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:152:13-73
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:150:13-74
+activity#com.qiantang.neighbourmother.ui.center.SettingsActivity
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:153:9-156:76
+	android:screenOrientation
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:155:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:156:13-73
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:154:13-55
+activity#com.qiantang.neighbourmother.ui.home.DownOrderActivity
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:157:9-160:76
+	android:screenOrientation
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:159:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:160:13-73
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:158:13-54
+activity#com.qiantang.neighbourmother.ui.activity.TimePickerActivity
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:161:9-164:76
+	android:screenOrientation
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:163:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:164:13-73
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:162:13-59
+activity#com.qiantang.neighbourmother.ui.activity.DataPickerActivity
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:165:9-168:76
+	android:screenOrientation
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:167:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:168:13-73
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:166:13-59
+activity#com.qiantang.neighbourmother.ui.order.user.LookOverServiceActivity
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:169:9-172:76
+	android:screenOrientation
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:171:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:172:13-73
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:170:13-66
+activity#com.qiantang.neighbourmother.ui.center.attache.AttacheOneselfDetailsActivity
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:173:9-176:76
+	android:screenOrientation
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:175:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:176:13-73
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:174:13-76
+activity#com.qiantang.neighbourmother.ui.order.attache.AttacheOrderDetailsActivity
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:177:9-180:76
+	android:screenOrientation
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:179:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:180:13-73
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:178:13-73
+activity#com.qiantang.neighbourmother.ui.order.attache.AttacheLookOverServiceActivity
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:181:9-184:76
+	android:screenOrientation
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:183:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:184:13-73
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:182:13-76
+activity#com.qiantang.neighbourmother.ui.order.attache.UploadPicturesActivity
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:185:9-188:76
+	android:screenOrientation
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:187:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:188:13-73
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:186:13-68
+activity#com.qiantang.neighbourmother.ui.activity.MapSetPointActivity
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:189:9-192:76
+	android:screenOrientation
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:191:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:192:13-73
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:190:13-60
+activity#com.qiantang.neighbourmother.ui.order.attache.AttacheOrderChildrenInfoActivity
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:193:9-196:76
+	android:screenOrientation
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:195:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:196:13-73
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:194:13-78
+activity#com.qiantang.neighbourmother.ui.center.AboutActivity
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:197:9-200:76
+	android:screenOrientation
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:199:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:200:13-73
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:198:13-52
+activity#com.qiantang.neighbourmother.ui.center.ProductIntroActivity
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:201:9-204:76
+	android:screenOrientation
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:203:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:204:13-73
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:202:13-59
+activity#com.qiantang.neighbourmother.ui.center.CompanyIntroActivity
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:205:9-208:76
+	android:screenOrientation
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:207:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:208:13-73
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:206:13-59
+activity#com.qiantang.neighbourmother.ui.order.user.OrderPayActivity
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:210:9-213:76
+	android:screenOrientation
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:212:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:213:13-73
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:211:13-59
+activity#com.qiantang.neighbourmother.wxapi.WXPayEntryActivity
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:214:9-218:53
+	android:label
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:217:13-45
+	android:exported
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:216:13-36
+	android:theme
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:218:13-50
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:215:13-53
+activity#com.qiantang.neighbourmother.wxapi.WXEntryActivity
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:219:9-223:53
+	android:label
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:222:13-45
+	android:exported
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:221:13-36
+	android:theme
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:223:13-50
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:220:13-50
+service#com.baidu.location.f
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:227:9-234:19
+	android:enabled
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:229:13-35
+	android:process
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:230:13-38
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:228:13-48
+intent-filter#com.baidu.location.service_v2.2
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:231:13-233:29
+action#com.baidu.location.service_v2.2
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:232:17-74
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:232:25-71
+meta-data#com.baidu.lbsapi.API_KEY
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:237:9-239:64
+	android:value
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:239:13-61
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:238:13-52
+service#com.qiantang.neighbourmother.service.PayResultService
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:241:9-61
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:241:18-58
+service#com.qiantang.neighbourmother.service.SyncLocInfoService
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:242:9-63
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:242:18-60
+service#com.qiantang.neighbourmother.service.DownloadService
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:243:9-60
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:243:18-57
+activity#com.alipay.sdk.app.H5PayActivity
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:245:9-252:20
+	android:screenOrientation
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:249:13-47
+	android:exported
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:248:13-37
+	android:windowSoftInputMode
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:250:13-67
+	android:configChanges
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:247:13-74
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:246:13-60
+activity#com.qiantang.neighbourmother.ui.center.attache.AttacheAccountActivity
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:253:9-256:76
+	android:screenOrientation
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:255:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:256:13-73
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:254:13-69
+activity#com.qiantang.neighbourmother.ui.center.attache.AttacheBindBankCardActivity
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:259:9-262:76
+	android:screenOrientation
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:261:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:262:13-73
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:260:13-74
+activity#com.qiantang.neighbourmother.ui.center.attache.AttacheWithdrawDepositActivity
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:265:9-268:76
+	android:screenOrientation
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:267:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:268:13-73
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:266:13-77
+activity#com.qiantang.neighbourmother.ui.center.user.UserAccountActivity
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:269:9-272:76
+	android:screenOrientation
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:271:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:272:13-73
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:270:13-63
+activity#com.qiantang.neighbourmother.ui.center.user.RechargeActivity
+ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:274:9-278:20
+	android:screenOrientation
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:276:13-49
+	android:windowSoftInputMode
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:277:13-73
+	android:name
+		ADDED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml:275:13-60
+uses-sdk
+INJECTED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.android.support:design:24.2.1] D:\Project\NeighbourMother\app\build\intermediates\exploded-aar\com.android.support\design\24.2.1\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:24.2.1] D:\Project\NeighbourMother\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-compat:24.2.1] D:\Project\NeighbourMother\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-media-compat:24.2.1] D:\Project\NeighbourMother\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-utils:24.2.1] D:\Project\NeighbourMother\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-ui:24.2.1] D:\Project\NeighbourMother\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-fragment:24.2.1] D:\Project\NeighbourMother\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:appcompat-v7:24.2.1] D:\Project\NeighbourMother\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:support-vector-drawable:24.2.1] D:\Project\NeighbourMother\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\AndroidManifest.xml:21:5-43
+MERGED from [com.android.support:animated-vector-drawable:24.2.1] D:\Project\NeighbourMother\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:24.2.1] D:\Project\NeighbourMother\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.2.1\AndroidManifest.xml:20:5-43
+	tools:overrideLibrary
+		ADDED from [com.android.support:support-v4:24.2.1] D:\Project\NeighbourMother\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\AndroidManifest.xml:23:9-51
+	android:targetSdkVersion
+		INJECTED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Project\NeighbourMother\app\src\main\AndroidManifest.xml

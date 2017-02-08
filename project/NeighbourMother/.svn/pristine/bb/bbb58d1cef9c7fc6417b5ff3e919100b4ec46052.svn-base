@@ -1,0 +1,183 @@
+package com.qiantang.neighbourmother.adapter;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Handler;
+import android.provider.ContactsContract;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.qiantang.neighbourmother.R;
+import com.qiantang.neighbourmother.business.API;
+import com.qiantang.neighbourmother.business.data.UserDeleteOrderHttp;
+import com.qiantang.neighbourmother.business.response.AttacheOrderListResp;
+import com.qiantang.neighbourmother.logic.AuthUtil;
+import com.qiantang.neighbourmother.logic.TakeImage;
+import com.qiantang.neighbourmother.model.AuthObj;
+import com.qiantang.neighbourmother.model.SposterObj;
+import com.qiantang.neighbourmother.ui.BaseActivity;
+import com.qiantang.neighbourmother.ui.dialog.DeleteOrderDialog;
+import com.qiantang.neighbourmother.util.AppLog;
+import com.qiantang.neighbourmother.util.QLTimeUtil;
+import com.qiantang.neighbourmother.util.ToastUtils;
+import com.qiantang.neighbourmother.widget.CircleImageView;
+
+import java.util.ArrayList;
+
+import static com.qiantang.neighbourmother.R.id.order_time;
+
+/**
+ * ClassName:订单列表适配器
+ * author: Cocoa
+ * date: 2016/9/21.
+ */
+public class SendPosterAdapter extends BaseAdapter {
+    private ArrayList<SposterObj> list = new ArrayList<SposterObj>();
+    private LayoutInflater mLayoutInflater;
+    private Activity       context;
+    private Handler       handler;
+    private TakeImage takeImage;
+    private int currentIndex;
+
+
+    public SendPosterAdapter(Activity context,Handler handler) {
+        this.context = context;
+        this.handler = handler;
+        mLayoutInflater = LayoutInflater.from(context);
+        takeImage = new TakeImage(context, handler, false);
+        takeImage.setOnPictureListener(new TakeImage.PictureListener() {
+            @Override
+            public void pictureCall(final String path) {
+                AppLog.D("setOnPictureListener:" + path);
+                if (!TextUtils.isEmpty(path)) {
+                   list.get(currentIndex).setLocImgPath(path);
+                    SendPosterAdapter.this.handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            notifyDataSetChanged();
+                        }
+                    });
+                }
+            }
+        });
+    }
+
+    public ArrayList<SposterObj> getDataList() {
+        return list;
+    }
+
+    @Override
+    public int getCount() {
+        return list.size();
+    }
+
+    @Override
+    public Object getItem(int position) {
+        if (getCount() <= 0 || position >= getCount())
+            return null;
+        return list.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+
+    @Override
+    public View getView(final int position, View convertView, ViewGroup parent) {
+         ViewHolder holder = null;
+        if (convertView == null) {
+            holder = new ViewHolder();
+            convertView = mLayoutInflater.inflate(R.layout.item_sendposter, null);
+            holder.image = (ImageView) convertView.findViewById(R.id.image);
+            holder.delete = (ImageView) convertView.findViewById(R.id.delete);
+            holder.title = (EditText) convertView.findViewById(R.id.title);
+            holder.content = (EditText) convertView.findViewById(R.id.content);
+            holder.delete_item = (TextView) convertView.findViewById(R.id.delete_item);
+            convertView.setTag(holder);
+        } else {
+            holder = (ViewHolder) convertView.getTag();
+        }
+
+       final SposterObj sposterObj=list.get(position);
+
+        sposterObj.setTitle(holder.title.getText().toString().trim());
+        sposterObj.setContent(holder.content.getText().toString().trim());
+
+        if(TextUtils.isEmpty(sposterObj.getLocImgPath())){
+            holder.delete.setVisibility(View.GONE);
+        }else{
+            if(position==0){
+                holder.delete.setVisibility(View.GONE);
+            }else{
+                holder.delete.setVisibility(View.VISIBLE);
+            }
+        }
+
+        holder.delete_item.setVisibility(position==0?View.GONE:View.VISIBLE);
+        holder.title.setVisibility(position==0?View.VISIBLE:View.GONE);
+
+        handler.post(new MyRunnable(holder.image,sposterObj.getLocImgPath()));
+
+        holder.image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                currentIndex=position;
+                takeImage.showDialog();
+            }
+        });
+
+        holder.delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sposterObj.setLocImgPath("");
+                notifyDataSetChanged();
+            }
+        });
+
+        holder.delete_item.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                list.remove(position);
+                notifyDataSetChanged();
+            }
+        });
+
+        return convertView;
+    }
+
+    class ViewHolder {
+        ImageView  image;
+        ImageView  delete;
+        EditText   title;
+        EditText   content;
+        TextView   delete_item;
+    }
+
+    class  MyRunnable implements Runnable{
+        ImageView imageView;
+        String imgPath;
+        MyRunnable(ImageView imageView,String imgPath){
+            this.imageView=imageView;
+            this.imgPath=imgPath;
+        }
+        @Override
+        public void run() {
+            ImageLoader.getInstance().displayImage(API.locImgPathPrefix + imgPath, imageView, ((BaseActivity) context).getDisplayImageOptions(R.mipmap.auth_photo_image));
+        }
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (takeImage != null)
+            takeImage.onActivityResult(requestCode, resultCode, data);
+    }
+}

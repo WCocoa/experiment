@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_bg"
+    android:orientation="vertical">
+
+
+
+    <com.qiantang.neighbourmother.widget.refreshview.XListView
+        android:id="@+id/xListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:fadingEdge="none"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:listSelector="@android:color/transparent"
+        android:overScrollMode="never"
+        android:scrollbars="none" />
+
+
+    <RelativeLayout
+        android:id="@+id/rela_title_top"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_title_height"
+        android:layout_alignParentTop="true"
+        android:background="@color/app_title_bg"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/visible_back"
+            style="@style/app_title_icon_style"
+            android:layout_centerVertical="true"
+            android:longClickable="false"
+            android:src="@mipmap/back"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/visible_title"
+            style="@style/app_title_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/visible_back"
+            android:layout_toLeftOf="@+id/post"
+            android:layout_toRightOf="@+id/visible_back"
+            android:layout_toStartOf="@+id/post"
+            android:gravity="center"
+            android:text="社区"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/edit"
+            style="@style/app_title_icon_style"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_backicon_margin_left"
+            android:gravity="center"
+            android:longClickable="false"
+            android:padding="@dimen/dimen_backicon_padding_left"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/post"
+            style="@style/app_title_icon_style"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:longClickable="false"
+            android:src="@mipmap/icon_orders_pressed"
+            android:visibility="invisible" />
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@+id/head_root"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_bg"
+    android:orientation="vertical"
+    android:visibility="invisible">
+
+    <RelativeLayout
+        android:id="@+id/rl_top_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="280dp">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vp_conmmunity"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </android.support.v4.view.ViewPager>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="#7f000000"
+            android:orientation="horizontal"
+            android:paddingBottom="3dp"
+            android:paddingTop="3dp">
+
+            <TextView
+                android:id="@+id/vp_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/app_left_right_size"
+                android:layout_toLeftOf="@+id/view_pager_point"
+                android:gravity="left"
+                android:singleLine="true"
+                android:text="儿科医生告诉你，冬天给宝宝洗澡的正确姿势"
+                android:textColor="@color/white"
+                android:textSize="@dimen/app_item_title" />
+
+            <LinearLayout
+                android:id="@+id/view_pager_point"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/center_view_padding"
+            android:paddingTop="@dimen/center_view_padding">
+
+            <ImageView
+                android:id="@+id/icon_left"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/app_left_right_size"
+                android:src="@mipmap/icon_discuss_blue" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/icon_left"
+                android:text="@string/conmmunity_group_text"
+                android:textColor="#0d9cf7"
+                android:textSize="16sp" />
+
+            <LinearLayout
+
+                android:id="@+id/ll_discussion_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/conmmunity_more"
+                    android:textColor="@color/app_item_content"
+                    android:textSize="14sp" />
+                <!--<item name="android:layout_width">14dp</item>-->
+                <!--<item name="android:layout_height">14dp</item>-->
+                <!--<item name="android:layout_alignParentRight">true</item>-->
+                <!--<item name="android:layout_centerVertical">true</item>-->
+                <!--<item name="android:layout_marginRight">@dimen/app_left_right_size</item>-->
+                <!--<item name="android:src">@mipmap/arrow_expend_right</item>-->
+                <ImageView
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:src="@mipmap/arrow_expend_right"
+                    android:layout_marginRight="@dimen/app_left_right_size"
+                    style="@style/right_icon_style"
+                    android:layout_gravity="center_vertical" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <View
+            style="@style/app_item_line_style"
+            android:layout_width="match_parent" />
+
+
+        <LinearLayout
+
+            android:id="@+id/ll_discussion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/app_left_right_size"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="5dp"
+                android:paddingTop="10dp">
+
+                <com.qiantang.neighbourmother.widget.RoundAngleImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/center_top_backgroud"
+                    app:roundHeight="5dp"
+                    app:roundWidth="5dp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/app_item_title_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="【当妈妈的注意事项】" />
+
+                    <TextView
+                        style="@style/app_item_content_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="当妈妈都有那些注意事项？" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="10dp"
+                android:paddingTop="5dp">
+
+                <com.qiantang.neighbourmother.widget.RoundAngleImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerInParent="true"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/center_top_backgroud"
+                    app:roundHeight="5dp"
+                    app:roundWidth="5dp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/app_item_title_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="【当妈妈的注意事项】" />
+
+                    <TextView
+                        style="@style/app_item_content_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="当妈妈都有那些注意事项？" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/center_view_padding"
+            android:paddingTop="@dimen/center_view_padding">
+
+            <ImageView
+
+                android:id="@+id/icon_left1"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/app_left_right_size"
+                android:src="@mipmap/icon_star" />
+
+            <TextView
+                style="@style/app_item_title_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/icon_left1"
+                android:text="@string/star_list_title"
+                android:textColor="#ffbb33"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:id="@+id/ll_Star_got_talent_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/app_item_content_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/conmmunity_more" />
+
+                <ImageView
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:src="@mipmap/arrow_expend_right"
+                    android:layout_marginRight="@dimen/app_left_right_size"
+                    style="@style/right_icon_style"
+                    android:layout_gravity="center_vertical" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <View
+            style="@style/app_item_line_style"
+            android:layout_width="match_parent" />
+
+        <LinearLayout
+            android:id="@+id/ll_Star_got_talent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="@dimen/app_left_right_size"
+            android:layout_marginRight="@dimen/app_left_right_size"
+            android:layout_marginTop="10dp"
+            android:layout_weight="3"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <com.qiantang.neighbourmother.widget.CircleImageView
+                    android:id="@+id/head_image1"
+                    android:layout_width="61dp"
+                    android:layout_height="61dp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@mipmap/center_top_backgroud" />
+
+                <TextView
+                    android:id="@+id/name1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/head_image1"
+                    android:layout_marginTop="5dp"
+                    android:text="187 **** 4545" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/name1"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/conmmunity_focus_backgroud"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="2dp"
+                    android:paddingLeft="3dp"
+                    android:paddingRight="3dp"
+                    android:paddingTop="2dp">
+
+                    <ImageView
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:src="@mipmap/icon_society_fans" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="999+"
+                        android:textColor="@color/app_special_style_color_normal"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="5dp">
+
+                <com.qiantang.neighbourmother.widget.CircleImageView
+                    android:id="@+id/head_image2"
+                    android:layout_width="61dp"
+                    android:layout_height="61dp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@mipmap/center_top_backgroud" />
+
+                <TextView
+                    android:id="@+id/name2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/head_image2"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:text="187 **** 4545" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/name2"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/conmmunity_focus_backgroud"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="2dp"
+                    android:paddingLeft="3dp"
+                    android:paddingRight="3dp"
+                    android:paddingTop="2dp">
+
+                    <ImageView
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:src="@mipmap/icon_society_fans" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="999+"
+                        android:textColor="@color/app_special_style_color_normal"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="5dp">
+
+                <com.qiantang.neighbourmother.widget.CircleImageView
+                    android:id="@+id/head_image3"
+                    android:layout_width="61dp"
+                    android:layout_height="61dp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@mipmap/center_top_backgroud" />
+
+                <TextView
+                    android:id="@+id/name3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/head_image3"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:text="187 **** 4545" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/name3"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/conmmunity_focus_backgroud"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="2dp"
+                    android:paddingLeft="3dp"
+                    android:paddingRight="3dp"
+                    android:paddingTop="2dp">
+
+                    <ImageView
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:src="@mipmap/icon_society_fans" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="999+"
+                        android:textColor="@color/app_special_style_color_normal"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="@color/app_bg" />
+    </LinearLayout>
+</LinearLayout>

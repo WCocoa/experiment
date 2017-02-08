@@ -1,0 +1,96 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:gravity="center"
+    android:orientation="vertical">
+
+
+    <TextView
+        style="@style/black_text_style"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="15dp"
+        android:text="追加的金额（元）：" />
+
+    |
+
+    <EditText
+        android:id="@+id/add_money"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialog_order_superaddition_cost_backgroud"
+        android:digits="0123456789."
+        android:gravity="center_vertical"
+        android:inputType="number"
+        android:maxLength="11"
+        android:maxLines="2"
+        android:minLines="2"
+        android:numeric="integer"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" />
+
+
+    <TextView
+        style="@style/black_text_style"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="15dp"
+        android:text="请简述理由：" />
+
+    <EditText
+        android:id="@+id/input_add_content"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialog_order_superaddition_cost_backgroud"
+        android:gravity="top|center_vertical"
+        android:maxLength="200"
+        android:maxLines="5"
+        android:minLines="5"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" />
+
+
+    <View
+        style="@style/app_item_line_style"
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/app_left_right_size"
+        android:layout_marginRight="@dimen/app_left_right_size"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp">
+
+        <TextView
+            android:id="@+id/cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/delete_order_cancel"
+            android:textColor="#63ABFF"
+            android:textSize="@dimen/app_item_title" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/app_line" />
+
+        <TextView
+            android:id="@+id/sure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/delete_order_sure"
+            android:textColor="@color/app_special_style_color_normal"
+            android:textSize="@dimen/app_item_title" />
+
+    </LinearLayout>
+
+</LinearLayout>

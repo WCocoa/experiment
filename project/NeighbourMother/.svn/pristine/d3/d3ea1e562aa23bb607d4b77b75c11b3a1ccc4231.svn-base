@@ -1,0 +1,97 @@
+package com.qiantang.neighbourmother.ui.startpage;
+
+import android.content.Intent;
+import android.os.Message;
+import android.text.TextUtils;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.widget.ImageView;
+
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.qiantang.neighbourmother.R;
+import com.qiantang.neighbourmother.logic.UserContacts;
+import com.qiantang.neighbourmother.ui.BaseActivity;
+import com.qiantang.neighbourmother.ui.MainTabActivity;
+import com.qiantang.neighbourmother.util.IntentFinal;
+import com.qiantang.neighbourmother.util.PropertyConfig;
+
+
+/**
+ * ClassName:启动页
+ * author: Cocoa
+ * date: 2016/9/17.
+ */
+public class SplashActivity extends BaseActivity {
+    private PropertyConfig propertyConfig;
+    private ImageView splash_image;
+    private boolean is_first_use;
+
+    @Override
+    public int getContentView() {
+        return R.layout.activity_splash;
+    }
+
+    @Override
+    public void initView() {
+        splash_image = (ImageView) findViewById(R.id.splash_image);
+        propertyConfig = PropertyConfig.getInstance(SplashActivity.this);
+        is_first_use = propertyConfig.getBoolean(IntentFinal.IS_FIRST_USE);
+
+    }
+
+    @Override
+    public void initData() {
+        AlphaAnimation animation = new AlphaAnimation(0.1f, 1.0f);
+        animation.setDuration(5000);
+        ImageLoader.getInstance().displayImage("drawable://" + R.mipmap.splash_image, splash_image);
+        splash_image.startAnimation(animation);
+        animation.setAnimationListener(new Animation.AnimationListener() {
+
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+//                startActivity(new Intent(SplashActivity.this, MainTabActivity.class));
+                if (propertyConfig.getBoolean(IntentFinal.IS_FIRST_USE)) {
+                    if (TextUtils.isEmpty(PropertyConfig.getInstance(SplashActivity.this).getString(UserContacts.USER_ACOUNT))) {
+                        startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+                    } else {
+                        startActivity(new Intent(SplashActivity.this, MainTabActivity.class));
+                    }
+                } else {
+                    startActivity(new Intent(SplashActivity.this, GuideActivity.class));
+                }
+                finish();
+            }
+        });
+
+    }
+
+//    /**
+//     * 自动登陆失败跳转登陆页面
+//     */
+//    public void failureOperation(Object obj) {
+//        Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
+//        startActivity(intent);
+//        SplashActivity.this.finish();
+//    }
+
+    @Override
+    public void initEvent() {
+
+    }
+
+
+    @Override
+    protected void updateUI(Message msg) {
+
+    }
+}

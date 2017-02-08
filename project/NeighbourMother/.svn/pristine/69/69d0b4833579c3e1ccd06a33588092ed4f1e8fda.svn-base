@@ -1,0 +1,204 @@
+package com.qiantang.neighbourmother.business.qlhttp;
+
+
+import android.content.Context;
+import android.content.res.AssetManager;
+
+import com.qiantang.neighbourmother.R;
+import com.qiantang.neighbourmother.util.AppLog;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.security.KeyManagementException;
+import java.security.KeyStore;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.security.cert.Certificate;
+import java.security.cert.CertificateException;
+import java.security.cert.CertificateFactory;
+import java.security.cert.X509Certificate;
+import java.util.concurrent.TimeUnit;
+
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSession;
+import javax.net.ssl.SSLSocketFactory;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.TrustManagerFactory;
+import javax.net.ssl.X509TrustManager;
+
+import okhttp3.OkHttpClient;
+import okio.Buffer;
+
+/**
+ * Created by quliang on 16-5-16.
+ */
+public class OKHttp {
+
+public static Context context;
+    private static OkHttpClient okHttpClient;
+//    private static OkHttpClient.Builder builder = new OkHttpClient.Builder();
+private  static MyX509TrustManager myX509TrustManager=new OKHttp.MyX509TrustManager();
+
+    private OKHttp() {
+    }
+        public static OkHttpClient getInstace() {
+           return okHttpClient;
+        }
+
+
+//    public static void init(Context context){
+//        OkHttpClient.Builder builder = new OkHttpClient.Builder();
+//        okHttpClient= builder.connectTimeout(30, TimeUnit.SECONDS).writeTimeout(30, TimeUnit.SECONDS).readTimeout(30, TimeUnit.SECONDS).build();
+//    }
+
+    public static void init(Context context){
+        OkHttpClient.Builder builder = new OkHttpClient.Builder();
+        AssetManager am = context.getAssets();
+        InputStream ins=null;
+        try {
+            ins = am.open("qiantang.crt");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        AppLog.D("ins:"+ins);
+        okHttpClient=builder.connectTimeout(30, TimeUnit.SECONDS)
+                .writeTimeout(30, TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
+                .sslSocketFactory(getSSLSocketFactory(ins))
+                .hostnameVerifier(myHostnameVerifier)
+//                .sslSocketFactory(getSSLSocketFactory(ins),myX509TrustManager)
+                .build();
+    }
+
+
+
+    private static SSLSocketFactory getSSLSocketFactory(InputStream certificate) {
+        SSLSocketFactory sslSocketFactory=null;
+
+        try {
+//            CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
+//            Certificate ca = certificateFactory.generateCertificate(certificate);
+//            KeyStore keyStore = KeyStore.getInstance("PKCS12","BC");
+//            keyStore.load(null,null);
+//            keyStore.setCertificateEntry("ca", ca);
+
+        SSLContext sslContext = null;
+
+            sslContext = SSLContext.getInstance("TLS");
+
+//            TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+//            trustManagerFactory.init(keyStore);
+//            sslContext.init(null, trustManagerFactory.getTrustManagers(), new SecureRandom());
+            sslContext.init(null, new TrustManager[]{myX509TrustManager}, new SecureRandom());
+
+        sslSocketFactory=sslContext.getSocketFactory();
+
+            AppLog.D("sslSocketFactory:"+sslSocketFactory);
+            return sslSocketFactory;
+
+        }
+        catch (KeyManagementException e) {
+            e.printStackTrace();
+        }
+        catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                certificate.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return sslSocketFactory;
+    }
+
+    public static class MyX509TrustManager  implements X509TrustManager{
+        public MyX509TrustManager(){}
+
+        @Override
+        public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+
+        }
+
+        @Override
+        public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+
+        }
+
+        @Override
+        public X509Certificate[] getAcceptedIssuers() {
+            return new X509Certificate[0];
+        }
+    }
+
+    public static MyHostnameVerifier myHostnameVerifier=new MyHostnameVerifier();
+    public static class MyHostnameVerifier implements HostnameVerifier {
+        public MyHostnameVerifier(){};
+        @Override
+        public boolean verify(String hostname, SSLSession session) {
+            return true;
+        }
+    }
+
+
+//    private void OKHttps(){
+//        try {
+//            //取得SSL的SSLContext实例,使用TLS协议
+//            SSLContext sslContext = SSLContext.getInstance("TLS");
+//            //取得KeyManagerFactory和TrustManagerFactory的X509密钥管理器实例
+//            KeyManagerFactory keyManager = KeyManagerFactory.getInstance("X509");
+//            TrustManagerFactory trustManager = TrustManagerFactory.getInstance("X509");
+//            //取得BKS密库实例
+//            KeyStore kks = KeyStore.getInstance("PKCS12");
+//            //Android支持BKS的KeyStore
+//            KeyStore tks = KeyStore.getInstance("BKS");
+//            //加客户端载证书和私钥,通过读取资源文件的方式读取密钥和信任证书
+//
+//            //raw中为truststore.bks的信任密库
+//            tks.load(appCtx
+//                    .getResources()
+//                    .openRawResource(R.raw.truststore), CLIENT_TRUST_PASSWORD.toCharArray());
+//
+//            //raw资源中的文件为client.p12格式的证书
+//            kks.load(appCtx
+//                    .getResources()
+//                    .openRawResource(R.raw.client), CLIENT_KET_PASSWORD.toCharArray());
+//
+//            //初始化密钥管理器
+//            keyManager.init(kks, CLIENT_KET_PASSWORD.toCharArray());
+//            trustManager.init(tks);
+//            //初始化SSLContext
+//            sslContext.init(keyManager.getKeyManagers(),
+//                    trustManager.getTrustManagers(), null);
+//
+//            mOkHttpClient = OkHttpUtils.getInstance().getOkHttpClient();
+//            mOkHttpClient.setSslSocketFactory(sslContext.getSocketFactory());
+//
+//        } catch (Exception e) {
+//            Log.e(TAG, "init https proxy failed!");
+//            throw new RuntimeException("init https proxy failed!");
+//        }
+//    }
+
+
+//    private static String CER_PK="MIICiTCCAfICCQD+2hzTMq7mRjANBgkqhkiG9w0BAQsFADCBiDELMAkGA1UEBhMC" +
+//            "Q04xDzANBgNVBAgMBlNoYW5YaTEOMAwGA1UEBwwFWGknYW4xETAPBgNVBAoMCHFp" +
+//            "YW50YW5nMREwDwYDVQQLDAhxaWFudGFuZzERMA8GA1UEAwwIcWlhbnRhbmcxHzAd" +
+//            "BgkqhkiG9w0BCQEWEDE3NjIwNTAxOUBxcS5jb20wHhcNMTYxMjIxMDcyNjUwWhcN" +
+//            "MTcxMjIxMDcyNjUwWjCBiDELMAkGA1UEBhMCQ04xDzANBgNVBAgMBlNoYW5YaTEO" +
+//            "MAwGA1UEBwwFWGknYW4xETAPBgNVBAoMCHFpYW50YW5nMREwDwYDVQQLDAhxaWFu" +
+//            "dGFuZzERMA8GA1UEAwwIcWlhbnRhbmcxHzAdBgkqhkiG9w0BCQEWEDE3NjIwNTAx" +
+//            "OUBxcS5jb20wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAKcvQQ9uMP3y2HyX" +
+//            "fLLs4jDtNLwV8IX+9fXZG4dMtH8EVEuZ/9BoFkXX7fxaDkjKVBW0SWO13xohiA7r" +
+//            "F9/XC8j8IfG7b1ynuw0D2Q5pDkBl4a/b24cPZOv8nbKmPTZOwBHiMjNVyuaot/Un" +
+//            "G2UaG2OEWNYmLtJ5By85ePqKlx1rAgMBAAEwDQYJKoZIhvcNAQELBQADgYEAoyTr" +
+//            "A5R+I14dFDgHf/IpJhJjvXHq7YhooUFnhtHqUh/8ogtg3SE0NJwYXpF8HOJ3qMKe" +
+//            "0tgQlpAr9Ul8LJ4E1aD4rlMte3mttTfZtM9UENLHBs78q+mlm+DEiIoMMxUhuotE" +
+//            "0Q89GXhm+lWnC2KDKCey/t1MtG395aI1PwNbefQ=";
+}

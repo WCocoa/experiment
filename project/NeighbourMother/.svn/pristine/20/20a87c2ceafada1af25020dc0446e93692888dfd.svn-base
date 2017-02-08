@@ -1,0 +1,346 @@
+package com.qiantang.neighbourmother.ui.center;
+
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.os.Message;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import com.qiantang.neighbourmother.R;
+import com.qiantang.neighbourmother.business.API;
+import com.qiantang.neighbourmother.business.APIConfig;
+import com.qiantang.neighbourmother.business.data.ChildInfoSubHttp;
+import com.qiantang.neighbourmother.business.data.UploadImageHttp;
+import com.qiantang.neighbourmother.business.qlhttp.bean.UpFileObj;
+import com.qiantang.neighbourmother.business.response.ChildInfoResp;
+import com.qiantang.neighbourmother.logic.ChildContacts;
+import com.qiantang.neighbourmother.logic.TakeImage;
+import com.qiantang.neighbourmother.ui.BaseActivity;
+import com.qiantang.neighbourmother.ui.dialog.RelationShipDialog;
+import com.qiantang.neighbourmother.ui.dialog.SexDialog;
+import com.qiantang.neighbourmother.util.AppLog;
+import com.qiantang.neighbourmother.util.FileFinal;
+import com.qiantang.neighbourmother.util.IntentFinal;
+import com.qiantang.neighbourmother.util.QLBitmapUtil;
+import com.qiantang.neighbourmother.util.ToastUtils;
+import com.qiantang.neighbourmother.widget.CircleImageView;
+
+import java.io.File;
+import java.util.ArrayList;
+
+/**
+ * ClassName:孩子信息编辑
+ * author: Cocoa
+ * date: 2016/9/20.
+ */
+public class ChildrenInfoEditActivity extends BaseActivity implements View.OnClickListener, SexDialog.SexListener, RelationShipDialog.RelaSureListener {
+    private RelativeLayout  rl_head_photo;//头像选择
+    private CircleImageView head_photo;//选择之后显示图像
+    private RelativeLayout  rl_sex;//性别选择
+    private TextView        tv_sex;//选择之后显示性别
+    private EditText        input_school;//学校
+    private EditText        input_name;//真实姓名
+    private EditText        edt_age;//年龄
+    private EditText        input_grade;//年级
+    private EditText        input_class;//班级
+    private RelativeLayout  rl_household_head_relation;//户主关系选择
+    private TextView        tv_household_head_relation;//户主关系选择之后显示
+    private EditText        input_home_address;//家庭住址
+    private EditText        input_phone;//手机号
+    private EditText        input_nickname;//昵称
+    private EditText        input_emergency_contact;//紧急联系人
+    private EditText        input_emergency_phone;//紧急电话
+    private TextView        btn_complete;//完成
+    private TextView        cancle;//取消
+
+    private TakeImage     takeImage;
+    private Bitmap        headBitmap;
+    private String[]      relationship_array;
+    private String[]      sex_array;
+    private ChildInfoResp childInfoResp;
+    private ChildInfoResp childInfoSubReq;
+
+    @Override
+    public int getContentView() {
+        return R.layout.activity_children_info_edit;
+    }
+
+    @Override
+    public void initView() {
+        rl_head_photo = (RelativeLayout) findViewById(R.id.rl_head_photo);
+        head_photo = (CircleImageView) findViewById(R.id.head_photo);
+        rl_sex = (RelativeLayout) findViewById(R.id.rl_sex);
+        tv_sex = (TextView) findViewById(R.id.tv_sex);
+        input_school = (EditText) findViewById(R.id.input_school);
+        input_name = (EditText) findViewById(R.id.input_name);
+        edt_age = (EditText) findViewById(R.id.edt_age);
+        input_grade = (EditText) findViewById(R.id.input_grade);
+        input_class = (EditText) findViewById(R.id.input_class);
+        rl_household_head_relation = (RelativeLayout) findViewById(R.id.rl_household_head_relation);
+        tv_household_head_relation = (TextView) findViewById(R.id.tv_household_head_relation);
+        input_home_address = (EditText) findViewById(R.id.input_home_address);
+        input_phone = (EditText) findViewById(R.id.input_phone);
+        input_nickname = (EditText) findViewById(R.id.input_nickname);
+        input_emergency_contact = (EditText) findViewById(R.id.input_emergency_contact);
+        input_emergency_phone = (EditText) findViewById(R.id.input_emergency_phone);
+        btn_complete = (TextView) findViewById(R.id.btn_complete);
+        cancle = (TextView) findViewById(R.id.cancle);
+        takeImage = new TakeImage(this, handler, true);
+    }
+
+    private boolean isComeDownOrder;
+    @Override
+    public void initData() {
+        isComeDownOrder=getIntent().getBooleanExtra(IntentFinal.INTENT_DOWNORDER_TO_CHILD_EDIT,false);
+
+        relationship_array = getResources().getStringArray(R.array.relationShip_array);
+        sex_array = getResources().getStringArray(R.array.showSexDialog_array);
+        childInfoResp = ChildContacts.getChildInfo(this);
+        AppLog.D("ChildrenInfoEditActivity_childInfoResp:" + childInfoResp);
+        if (childInfoResp != null)
+            setChildInfo(childInfoResp);
+    }
+
+    @Override
+    public void initEvent() {
+        cancle.setOnClickListener(this);
+        btn_complete.setOnClickListener(this);
+        rl_head_photo.setOnClickListener(this);
+        rl_sex.setOnClickListener(this);
+        rl_household_head_relation.setOnClickListener(this);
+        takeImage.setOnPicClipListener(new TakeImage.PicClipListener() {
+            @Override
+            public void picClipCall(Bitmap bitmap) {
+                if (bitmap != null) {
+                    headBitmap = bitmap;
+                    QLBitmapUtil.saveBitmap(bitmap,
+                            FileFinal.PATH_TEMP
+                            + FileFinal.USER_IMG_HAED);
+                    head_photo.setImageBitmap(bitmap);
+                }
+            }
+        });
+    }
+
+    @Override
+    protected void updateUI(Message msg) {
+        switch (msg.what) {
+            case 1:
+                String[] imgs = (String[]) msg.obj;
+                if (imgs != null) {
+                    childInfoSubReq.setChild_avatar(imgs[0]);
+                    new ChildInfoSubHttp(this, handler, childInfoSubReq, 2);
+                }
+                break;
+            case 2:
+                ChildInfoResp childInfoSubReq1 = (ChildInfoResp) msg.obj;
+//                AppLog.D("childInfoSubReq1:"+childInfoSubReq1);
+                ChildContacts.saveChildInfo(this, childInfoSubReq1);
+//                AppLog.D("setChildInfo:"+ChildContacts.getChildInfo(this));
+//                saveChildInfo(childInfoSubReq1);
+
+                if(isComeDownOrder){
+                    setResult(10);
+                }
+                else{
+                    setResult(2);
+                }
+
+                finish();
+                closeProgressDialog();
+                break;
+        }
+    }
+
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.cancle:
+                finish();
+                break;
+            case R.id.btn_complete:
+
+                childInfoSubReq = checkChildrenInfo(childInfoResp == null ? "" : childInfoResp.getChild_avatar());
+                if (childInfoSubReq != null) {
+                    if (headBitmap != null) {
+                        ArrayList<UpFileObj> upFileObjs = new ArrayList<UpFileObj>();
+                        upFileObjs.add(new UpFileObj(API.FILE_KEY, new File(FileFinal.PATH_TEMP
+                                                                            + FileFinal.USER_IMG_HAED)));
+                        new UploadImageHttp(this, handler, upFileObjs, true, 1);
+                    } else {
+                        new ChildInfoSubHttp(this, handler, childInfoSubReq, 2);
+                    }
+                }
+                break;
+            case R.id.rl_head_photo:
+                takeImage.showDialog();
+                break;
+            case R.id.rl_sex:
+                initSexDialog();
+                break;
+            case R.id.rl_household_head_relation:
+                initRelationshipDialog();
+                break;
+        }
+    }
+
+    private ChildInfoResp checkChildrenInfo(String imgPath) {
+
+        if (TextUtils.isEmpty(childInfoResp == null ? "" : childInfoResp.getChild_avatar()) && headBitmap == null) {
+            ToastUtils.toastLong(this, R.string.headBitmap_isempty);
+            return null;
+        }
+
+        String name = input_name.getText().toString().trim();
+        if (TextUtils.isEmpty(name)) {
+            ToastUtils.toastLong(this, R.string.name_isempty);
+            return null;
+        }
+        if (sexType == 0) {
+            ToastUtils.toastLong(this, R.string.sex_isempty);
+            return null;
+        }
+
+
+        String school = input_school.getText().toString().trim();
+//        if (TextUtils.isEmpty(school)) {
+//            ToastUtils.toastLong(this, R.string.school_isempty);
+//            return null;
+//        }
+
+
+        String age = edt_age.getText().toString().trim();
+        if (TextUtils.isEmpty(age)) {
+            ToastUtils.toastLong(this, R.string.age_isempty);
+            return null;
+        }
+
+        String phone = input_phone.getText().toString().trim();
+        if (TextUtils.isEmpty(phone)) {
+            ToastUtils.toastLong(this, R.string.phone_isempty);
+            return null;
+        }
+
+        String grade = input_grade.getText().toString().trim();
+//        if (TextUtils.isEmpty(grade)) {
+//            ToastUtils.toastLong(this, R.string.grade_isempty);
+//            return null;
+//        }
+        String classz = input_class.getText().toString().trim();
+//        if (TextUtils.isEmpty(classz)) {
+//            ToastUtils.toastLong(this, R.string.classz_isempty);
+//            return null;
+//        }
+
+//        if (relationship == 0) {
+//            ToastUtils.toastLong(this, R.string.household_head_relation_isempty);
+//            return null;
+//        }
+        String home_address = input_home_address.getText().toString().trim();
+//        if (TextUtils.isEmpty(home_address)) {
+//            ToastUtils.toastLong(this, R.string.home_address_isempty);
+//            return null;
+//        }
+
+
+        String nickname          = input_nickname.getText().toString().trim();
+        String emergency_phone   = input_emergency_phone.getText().toString().trim();
+        String emergency_contact = input_emergency_contact.getText().toString().trim();
+
+        ChildInfoResp childInfoSubReq = new ChildInfoResp();
+        childInfoSubReq.setChild_avatar(imgPath);
+        childInfoSubReq.setChild_name(name);
+        childInfoSubReq.setChild_age(age);
+        childInfoSubReq.setChild_nickname(nickname);
+        childInfoSubReq.setChild_gender(sexType);
+        childInfoSubReq.setChild_school(school);
+        childInfoSubReq.setChild_grade(grade);
+        childInfoSubReq.setChild_class(classz);
+        childInfoSubReq.setChild_relationship(relationship);
+        childInfoSubReq.setChild_address(home_address);
+        childInfoSubReq.setChild_phone(phone);
+        childInfoSubReq.setChild_phone2(emergency_phone);
+        childInfoSubReq.setChild_contact(emergency_contact);
+
+        return childInfoSubReq;
+    }
+
+    private int       sexType;
+    private SexDialog sexDialog;
+
+    private void initSexDialog() {
+        if (sexDialog == null) {
+            sexDialog = new SexDialog();
+            sexDialog.setOnSexListener(this);
+        }
+        sexDialog.show(getSupportFragmentManager(), "sexDialog");
+    }
+
+    private int                relationship;
+    private RelationShipDialog relationShipDialog;
+
+    private void initRelationshipDialog() {
+        if (relationShipDialog == null) {
+            relationShipDialog = new RelationShipDialog();
+            relationShipDialog.setOnReSureListener(this);
+        }
+        relationShipDialog.show(getSupportFragmentManager(), "relationShipDialog");
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        takeImage.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    public void onSex(int sex) {
+        sexType = sex + 1;
+        tv_sex.setText(sex_array[sex]);
+
+    }
+
+    @Override
+    public void onVetySure(int reType) {
+        relationship = reType + 1;
+        tv_household_head_relation.setText(relationship_array[reType]);
+    }
+
+
+    private void setChildInfo(ChildInfoResp childInfo) {
+
+        display(head_photo, APIConfig.BASE_IMG_URL + childInfo.getChild_avatar(), R.mipmap.default_img);
+        input_name.setText(childInfo.getChild_name());
+        input_nickname.setText(childInfo.getChild_nickname());
+        sexType = childInfo.getChild_gender();
+
+        if (sexType > 0) {
+            tv_sex.setText(sex_array[sexType - 1]);
+        } else {
+            tv_sex.setText("");
+        }
+
+        input_school.setText(childInfo.getChild_school());
+        input_grade.setText(childInfo.getChild_grade());
+        edt_age.setText(childInfo.getChild_age());
+        input_class.setText(childInfo.getChild_class());
+
+        relationship = childInfo.getChild_relationship();
+        if (childInfo.getChild_relationship() > 0) {
+            tv_household_head_relation.setText(relationship_array[childInfo.getChild_relationship() - 1]);
+        } else {
+            tv_household_head_relation.setText("");
+        }
+        input_home_address.setText(childInfo.getChild_address());
+        input_phone.setText(childInfo.getChild_phone());
+        input_emergency_contact.setText(childInfo.getChild_contact());
+        input_emergency_phone.setText(childInfo.getChild_phone2());
+    }
+
+
+}

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00000000"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:padding="5dip" >
+
+ 
+    <LinearLayout 
+        android:background="@drawable/chooser_img_style"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+ >
+<!--   android:background="#ffffff" -->
+<!--           android:background="#ffffff" -->
+    <TextView
+        android:id="@+id/imageLibs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+           
+        android:paddingBottom="10dip"
+        android:paddingTop="10dip"
+        android:text="@string/dialog_choose_imglibs"
+        android:textSize="16sp"
+        android:textColor="@color/color_dialog_choose_imglib" 
+        android:gravity="center"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0.5dip"
+        android:background="#DAD9DB" />
+
+    <TextView
+        android:id="@+id/camera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dip"
+        android:paddingTop="10dip"
+        android:text="@string/dialog_choose_camera"
+        android:textSize="16sp" 
+        android:textColor="@color/color_dialog_choose_camera"
+        android:gravity="center"/>
+</LinearLayout>
+    <TextView
+        android:id="@+id/photoCancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+              android:background="@drawable/login_btn_backgroud"
+        android:paddingBottom="10dip"
+        android:paddingTop="10dip"
+        android:text="@string/dialog_choose_cancer"
+        android:textSize="16sp"
+        android:textColor="@color/color_dialog_choose_cancer"
+        android:gravity="center" />
+
+</LinearLayout>

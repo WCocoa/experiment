@@ -1,0 +1,141 @@
+package com.qiantang.neighbourmother.ui.activity;
+
+import android.os.Bundle;
+import android.os.Message;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.qiantang.neighbourmother.R;
+import com.qiantang.neighbourmother.ui.BaseActivity;
+import com.qiantang.neighbourmother.ui.fragment.PhotoViewFragment;
+import com.qiantang.neighbourmother.util.IntentFinal;
+import com.qiantang.neighbourmother.util.QLScreenUtil;
+import com.qiantang.neighbourmother.widget.HackyViewPager;
+
+
+public class PhotoViewPagerActivity extends BaseActivity {
+    private static final String STATE_POSITION = "STATE_POSITION";
+    private HackyViewPager hackyViewPager;
+    private LinearLayout   ll_point;
+
+    private Bundle   savedInstanceState;
+    private int      pagerPosition;
+    private String[] urls;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        this.savedInstanceState = savedInstanceState;
+    }
+
+    @Override
+    public int getContentView() {
+        // TODO Auto-generated method stub
+        return R.layout.activity_pager_photoview;
+    }
+
+    @Override
+    public void initView() {
+        hackyViewPager = (HackyViewPager) findViewById(R.id.hackyViewPager);
+        ll_point = (LinearLayout) findViewById(R.id.ll_point);
+        String imgUri = getIntent().getStringExtra(
+                IntentFinal.INTENT_IMGURL_TO_PHOTOVIEWACTIVITY);
+        urls = new Gson().fromJson(imgUri, new TypeToken<String[]>() {
+        }.getType());
+        pagerPosition = getIntent().getIntExtra(
+                IntentFinal.INTENT_IMGURL_INDEX_PHOTOVIEWACTIVITY, 0);
+
+        ImagePagerAdapter mAdapter = new ImagePagerAdapter(
+                getSupportFragmentManager(), urls);
+        hackyViewPager.setAdapter(mAdapter);
+
+        // �����±�
+        hackyViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            private int oldPosition = 0;
+
+            @Override
+            public void onPageScrollStateChanged(int arg0) {
+            }
+
+            @Override
+            public void onPageScrolled(int arg0, float arg1, int arg2) {
+            }
+
+            @Override
+            public void onPageSelected(int arg0) {
+                pagerPosition = arg0;
+                ll_point.getChildAt(oldPosition).setBackgroundResource(R.drawable.photoviewpager_normal);
+                ll_point.getChildAt(arg0).setBackgroundResource(R.drawable.dot_focused);
+                oldPosition = arg0;
+            }
+
+        });
+        if (savedInstanceState != null) {
+            pagerPosition = savedInstanceState.getInt(STATE_POSITION);
+        }
+        addPoint(pagerPosition);
+        hackyViewPager.setCurrentItem(pagerPosition);
+    }
+
+    @Override
+    public void initData() {
+    }
+
+    @Override
+    public void initEvent() {
+    }
+
+
+    @Override
+    protected void updateUI(Message msg) {
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putInt(STATE_POSITION, hackyViewPager.getCurrentItem());
+    }
+
+    private class ImagePagerAdapter extends FragmentStatePagerAdapter {
+
+        public String[] fileList;
+
+        public ImagePagerAdapter(FragmentManager fm, String[] fileList) {
+            super(fm);
+            this.fileList = fileList;
+        }
+
+        @Override
+        public int getCount() {
+            return fileList == null ? 0 : fileList.length;
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            String url = fileList[position];
+            return PhotoViewFragment.newInstance(url);
+        }
+
+    }
+
+    private void addPoint(int pos) {
+        ll_point.removeAllViews();
+        for (int i = 0; i < urls.length; i++) {
+            TextView textView = new TextView(this);
+            textView.setBackgroundResource(R.drawable.photoviewpager_normal);
+            LinearLayout.LayoutParams imageView_layoutParams = new LinearLayout.LayoutParams((int) QLScreenUtil.dpToPxInt(this, 8), (int) QLScreenUtil.dpToPxInt(this, 8));
+
+            imageView_layoutParams.setMargins((int) QLScreenUtil.dpToPxInt(this, 5), (int) QLScreenUtil.dpToPxInt(this, 3), (int) QLScreenUtil.dpToPxInt(this, 5), (int) QLScreenUtil.dpToPxInt(this, 3));
+            textView.setLayoutParams(imageView_layoutParams);
+            if (i == pos)
+                textView.setBackgroundResource(R.drawable.dot_focused);
+            ll_point.addView(textView);
+        }
+    }
+
+}

@@ -1,0 +1,21 @@
+package com.qiantang.neighbourmother.business.qlhttp;
+
+
+import java.util.concurrent.TimeUnit;
+
+import okhttp3.OkHttpClient;
+
+/**
+ * Created by quliang on 16-5-16.
+ */
+public class OKHttp {
+    private static OkHttpClient.Builder builder = new OkHttpClient.Builder();
+
+    private OKHttp() {
+    }
+
+    public static OkHttpClient getInstace() {
+        return builder.connectTimeout(30, TimeUnit.SECONDS).writeTimeout(30, TimeUnit.SECONDS).readTimeout(30, TimeUnit.SECONDS).build();
+    }
+
+}

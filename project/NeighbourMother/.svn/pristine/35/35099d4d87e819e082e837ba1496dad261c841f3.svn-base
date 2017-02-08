@@ -1,0 +1,222 @@
+package com.qiantang.neighbourmother.ui.community;
+
+import android.os.Message;
+import android.support.v4.view.ViewPager;
+import android.view.Gravity;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import com.qiantang.neighbourmother.R;
+import com.qiantang.neighbourmother.adapter.ConmmunityAdapter;
+import com.qiantang.neighbourmother.logic.ConmmunityAdPager;
+import com.qiantang.neighbourmother.ui.BaseActivity;
+import com.qiantang.neighbourmother.ui.BaseFragment;
+import com.qiantang.neighbourmother.util.QLScreenUtil;
+import com.qiantang.neighbourmother.util.ToastUtils;
+import com.qiantang.neighbourmother.widget.RoundAngleImageView;
+import com.qiantang.neighbourmother.widget.refreshview.XListView;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+
+/**
+ * ClassName:社区
+ * author: Cocoa
+ * date: 2016/12/5.
+ */
+
+public class ConmmunityFragment extends BaseFragment implements View.OnClickListener {
+
+    private ImageView         send_post;//发帖
+    private XListView         xListView;
+    private ConmmunityAdapter conmmunityAdapter;
+
+    @Override
+    public int getContentView() {
+        return R.layout.fragment_conmmunity;
+    }
+
+    @Override
+    public void initView(View view) {
+        xListView = (XListView) view.findViewById(R.id.xListView);
+        send_post = (ImageView) view.findViewById(R.id.send_post);
+        initHead();
+    }
+
+    @Override
+    public void initData() {
+        conmmunityAdapter = new ConmmunityAdapter(getActivity());
+        conmmunityAdapter.getDataList().addAll(Arrays.asList("1", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2"));
+        xListView.addHeaderView(head);
+        xListView.setAdapter(conmmunityAdapter);
+        List<Integer> list = new ArrayList<>();
+        list.add(R.mipmap.guide_frist);
+        list.add(R.mipmap.guide_second);
+        list.add(R.mipmap.guide_third);
+        list.add(R.mipmap.guide_frist);
+        conmmunityAdPager = new ConmmunityAdPager(getActivity(), view_pager_point, vp_conmmunity, handler, 1, true);
+        conmmunityAdPager.start(list);
+    }
+
+    private View              head;
+    private ConmmunityAdPager conmmunityAdPager;
+    private RelativeLayout    rl_top_viewpager;
+    private ViewPager         vp_conmmunity;//Viewpager 轮播
+    private TextView          vp_title;//轮播标题
+    private LinearLayout      ll_discussion_more;//讨论组更多
+    private LinearLayout      ll_Star_got_talent;//明星达人更多
+    private LinearLayout      view_pager_point;//轮播指示小点
+    private LinearLayout      ll_discussion;//讨论组
+
+    private void initHead() {
+        head = getActivity().getLayoutInflater().inflate(R.layout.layout_conmmunity_header, null);
+        rl_top_viewpager = (RelativeLayout) head.findViewById(R.id.rl_top_viewpager);
+        ((BaseActivity) getActivity()).calcuAdersWidth(rl_top_viewpager, 0.4f);
+        vp_conmmunity = (ViewPager) head.findViewById(R.id.vp_conmmunity);
+        vp_title = (TextView) head.findViewById(R.id.vp_title);
+        ll_discussion_more = (LinearLayout) head.findViewById(R.id.ll_discussion_more);
+        ll_Star_got_talent = (LinearLayout) head.findViewById(R.id.ll_Star_got_talent);
+        view_pager_point = (LinearLayout) head.findViewById(R.id.view_pager_point);
+        ll_discussion = (LinearLayout) head.findViewById(R.id.ll_discussion);
+        String[] arr = {"1", "2", "3", "4"};
+        createLL_discussion(ll_discussion, arr);
+    }
+
+
+    /**
+     * <LinearLayout
+     * android:layout_width="match_parent"
+     * android:layout_height="wrap_content"
+     * android:orientation="horizontal"
+     * android:paddingBottom="5dp"
+     * android:paddingTop="10dp">
+     * <p>
+     * <com.qiantang.neighbourmother.widget.RoundAngleImageView
+     * android:layout_width="50dp"
+     * android:layout_height="50dp"
+     * android:layout_centerInParent="true"
+     * android:scaleType="fitXY"
+     * android:src="@mipmap/center_top_backgroud"
+     * app:roundHeight="5dp"
+     * app:roundWidth="5dp" />
+     * <p>
+     * <LinearLayout
+     * android:layout_width="wrap_content"
+     * android:layout_height="wrap_content"
+     * android:layout_gravity="center"
+     * android:layout_marginLeft="10dp"
+     * android:gravity="center"
+     * android:orientation="vertical">
+     * <p>
+     * <TextView
+     * style="@style/app_item_title_style"
+     * android:layout_width="wrap_content"
+     * android:layout_height="wrap_content"
+     * android:text="【当妈妈的注意事项】" />
+     * <p>
+     * <TextView
+     * style="@style/app_item_content_style"
+     * android:layout_width="wrap_content"
+     * android:layout_height="wrap_content"
+     * android:text="当妈妈都有那些注意事项？" />
+     * </LinearLayout>
+     * </LinearLayout>
+     */
+
+    private void createLL_discussion(LinearLayout liner, String[] data) {
+        liner.removeAllViews();
+        if (data != null && data.length > 0) {
+            LinearLayout linearLayout = null;
+
+            for (int i = 0; i < data.length; i++) {
+                linearLayout = new LinearLayout(getActivity());
+                LinearLayout.LayoutParams linerParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                linearLayout.setOrientation(LinearLayout.HORIZONTAL);
+                if (i == 0) {
+                    linerParams.bottomMargin = (int) QLScreenUtil.dpToPxInt(getActivity(), 5);
+                    linerParams.topMargin = (int) QLScreenUtil.dpToPxInt(getActivity(), 10);
+                } else if (i == data.length - 1) {
+                    linerParams.bottomMargin = (int) QLScreenUtil.dpToPxInt(getActivity(), 10);
+                    linerParams.topMargin = (int) QLScreenUtil.dpToPxInt(getActivity(), 5);
+                } else {
+                    linerParams.bottomMargin = (int) QLScreenUtil.dpToPxInt(getActivity(), 5);
+                    linerParams.topMargin = (int) QLScreenUtil.dpToPxInt(getActivity(), 5);
+                }
+                linearLayout.setGravity(Gravity.CENTER_VERTICAL);
+                linearLayout.setLayoutParams(linerParams);
+
+                RoundAngleImageView       roundAngleImageView = new RoundAngleImageView(getActivity());
+                LinearLayout.LayoutParams roundParams         = new LinearLayout.LayoutParams((int) QLScreenUtil.dpToPxInt(getActivity(), 50), (int) QLScreenUtil.dpToPxInt(getActivity(), 50));
+                roundAngleImageView.setLayoutParams(roundParams);
+                roundAngleImageView.setScaleType(ImageView.ScaleType.FIT_XY);
+                roundAngleImageView.setRoundWidthAndHeight(2);
+                roundAngleImageView.setImageResource(R.mipmap.center_top_backgroud);
+
+                linearLayout.addView(roundAngleImageView);
+
+                LinearLayout              innerLiner       = new LinearLayout(getActivity());
+                LinearLayout.LayoutParams innerLinerParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                innerLiner.setOrientation(LinearLayout.VERTICAL);
+                innerLinerParams.gravity = Gravity.CENTER;
+                innerLiner.setGravity(Gravity.CENTER);
+                innerLinerParams.setMargins((int) QLScreenUtil.dpToPxInt(getActivity(), 10), 0, 0, 0);
+                innerLiner.setLayoutParams(innerLinerParams);
+
+
+                TextView                  title       = new TextView(getActivity());
+                LinearLayout.LayoutParams titleParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                title.setLayoutParams(titleParams);
+                title.setTextSize(16);
+                title.setTextColor(getResources().getColor(R.color.app_item_title));
+                title.setText("啦啦啦啦啦啦啦啦啦");
+
+
+                TextView                  subtitle       = new TextView(getActivity());
+                LinearLayout.LayoutParams subtitleParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                subtitle.setLayoutParams(subtitleParams);
+                subtitle.setTextSize(14);
+                subtitle.setTextColor(getResources().getColor(R.color.app_item_content));
+                subtitle.setText("啦啦啦啦啦啦啦啦啦");
+
+                innerLiner.addView(title);
+                innerLiner.addView(subtitle);
+
+                linearLayout.addView(innerLiner);
+                liner.addView(linearLayout);
+
+
+            }
+        }
+    }
+
+    @Override
+    public void initEvent() {
+        send_post.setOnClickListener(this);
+    }
+
+    @Override
+    protected void updateUI(Message msg) {
+        switch (msg.what) {
+            case 1:
+                int pos = msg.arg1;
+                vp_conmmunity.setCurrentItem(pos, true);
+                closeProgressDialog();
+                break;
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.send_post:
+                ToastUtils.toastLong(getActivity(), "发帖");
+                break;
+        }
+    }
+}

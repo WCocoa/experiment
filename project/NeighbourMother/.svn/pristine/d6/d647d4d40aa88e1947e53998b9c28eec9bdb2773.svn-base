@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/app_bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/rela_top"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_title_height"
+        android:background="@color/app_title_bg" >
+
+        <ImageView
+            android:id="@+id/back"
+            style="@style/app_title_icon_style"
+            android:layout_centerVertical="true"
+            android:longClickable="false"
+            android:src="@mipmap/back" />
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/app_title_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+         android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="@string/tag_title" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/sllv_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rela_top"
+        android:gravity="center_horizontal" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal" >
+
+            <com.qiantang.neighbourmother.widget.taglayout.TagListView
+                xmlns:f="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/tagListView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:paddingBottom="12dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:paddingTop="20dp"
+                f:horizontalSpacing="10dp"
+                f:orientation="horizontal"
+                f:verticalSpacing="10dp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/sllv_view"
+        android:layout_marginBottom="45dp"
+        >
+
+        <Button
+            android:id="@+id/bottom_sure"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_centerInParent="true"
+            android:layout_alignParentBottom="true"
+            android:textColor="@android:color/background_light"
+            android:layout_marginLeft="@dimen/app_left_right_size"
+            android:layout_marginRight="@dimen/app_left_right_size"
+            android:background="@drawable/login_btn_backgroud"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:text="确定" />
+    </RelativeLayout>
+
+</RelativeLayout>

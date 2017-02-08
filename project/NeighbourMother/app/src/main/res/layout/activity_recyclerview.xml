@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_bg" >
+
+
+        <RelativeLayout
+            android:id="@+id/rela_top"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_title_height"
+            android:background="@color/app_title_bg" >
+
+            <ImageView
+                android:id="@+id/back"
+                style="@style/app_title_icon_style"
+                android:layout_centerVertical="true"
+                android:longClickable="false"
+                android:src="@mipmap/back" />
+
+            <TextView
+                android:id="@+id/title"
+                style="@style/app_title_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/back"
+                android:layout_toLeftOf="@+id/research"
+                android:layout_toRightOf="@+id/back"
+                android:gravity="center"
+                android:text="@string/cityListActivity_title" />
+
+        </RelativeLayout>
+
+    <com.qiantang.xrecyclerview.XRecyclerView
+        android:layout_below="@+id/rela_top"
+        android:id="@+id/recyclerview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+</RelativeLayout>

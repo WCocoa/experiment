@@ -1,0 +1,215 @@
+package com.qiantang.neighbourmother.util;
+
+/**
+ * @author quliang
+ * @version 2015-8-21 上午11:27:48
+ *          desc intent KEY常量类
+ */
+public class IntentFinal {
+    /**
+     * 会话失效下拉刷新回复原状时间
+     */
+    public static final int COMPLETE_TIME = 500;
+
+    /**
+     * 传递版本信息对象 版本检测
+     */
+    public static final String INTENT_VERSION_OBJ_KEY = "INTENT_VERSION_OBJ_KEY";
+    /**
+     * 发送关闭广播
+     */
+    public static final String BROADCAST_QUIT_ACTIVITY = "BROADCAST_QUIT_ACTIVITY";
+
+    /**
+     * 是否首次使用显示引导页 false第一次
+     */
+    public static final String IS_FIRST_USE = "IS_FIRST_USE";
+
+    /**
+     * 去PhotoView页面Intent
+     */
+    public static final String INTENT_TO_PHOTOVIEW_ACTIVITY = "INTENT_TO_PHOTOVIEW_ACTIVITY";
+    /**
+     * intent 传递imgurl到photoViewActivity
+     */
+    public static final String INTENT_IMGURL_TO_PHOTOVIEWACTIVITY = "INTENT_IMGURL_TO_PHOTOVIEWACTIVITY";
+    /**
+     * intent 传递imgurl到photoViewActivity 选中的图片index
+     */
+    public static final String INTENT_IMGURL_INDEX_PHOTOVIEWACTIVITY = "INTENT_IMGURL_INDEX_PHOTOVIEWACTIVITY";
+    /**
+     * intent 会话失效去登录页面1是0否
+     */
+    public static final String INTENT_LOGIN_TOKEN_FAILE = "INTENT_LOGIN_TOKEN_FAILE";
+    /**
+     * 登录成功后的resultCode
+     */
+    public static final int LOGIN_SUCCESS_RESULT_CODE = 1001;
+
+    /**
+     * 保存当前的数据库版本
+     */
+    public static final String INTENT_VERSION_OF_DB = "INTENT_VERSION_OF_DB";
+    /**
+     * 日期选择器OrgTimeObj对象传输
+     */
+    public static final String INTENT_DATA_CHOOER = "INTENT_DATA_CHOOER";
+    /**
+     * 日期选择器页面返回的时间 long时间戳
+     */
+    public static final String INTENT_DATA_STRING = "INTENT_DATA_STRING";
+    /**
+     * 时间选择器页面返回的时间
+     */
+    public static final String INTENT_TIME_STRING = "INTENT_TIME_STRING";
+    /**
+     * 首页到服务介绍页面传递ID
+     */
+    public static final String INTENT_HOME_SERVICE = "INTENT_HOME_SERVICE";
+    /**
+     * 获取位置信息
+     */
+//    public static final String PREF_LOCATION_INFO = "PREF_LOCATION_INFO";
+    /**
+     * 申请专员已填资料
+     */
+    public static final String RECUIT_ATTACHE_INFO_RESP = "RECUIT_ATTACHE_INFO_RESP";
+    /**
+     * 申请专员提交资料
+     */
+    public static final String RECUIT_ATTACHE_INFO_REQ = "RECUIT_ATTACHE_INFO_REQ";
+
+
+//    /**
+//     * 服务介绍到下单参数
+//     */
+//    public static final String SERVICE_INTRUODUCE_TO_DOWNORDER = "SERVICE_INTRUODUCE_TO_DOWNORDER";
+    /**
+     * 地图选点
+     */
+    public static final String INTENT_MAP_SET_POINT = "INTENT_MAP_SET_POINT";
+
+
+    /**
+     * 从下单或者订单详情进入地图定位true不可选 false可选
+     */
+    public static final String INTENT_ORDER_MAP_SET_POINT = "INTENT_ORDER_MAP_SET_POINT";
+    /**
+     * 专员对象 列表传到详情页
+     */
+    public static final String INTENT_ATTACHE_OBJ = "INTENT_ATTACHE_OBJ";
+    /**
+     * 专员详情对象 详情传到下单页面
+     */
+    public static final String INTENT_ATTACHE_DETAIL_OBJ = "INTENT_ATTACHE_DETAIL_OBJ";
+    /**
+     * 专员订单列表到专员订单详情
+     */
+    public static final String INTENT_ATTACHE_ORDER_LIST = "INTENT_ATTACHE_ORDER_LIST";
+    /**
+     * 下单页面到服务类型传递服务介绍页面类型
+     */
+    public static final String INTENT_DOWN_ORDER_SERVICE_TYPE = "INTENT_DOWN_ORDER_SERVICE_TYPE";
+    /**
+     * 专员详情敏感字段显示隐藏 (true 显示  false 隐藏)
+     */
+    public static final String INTENT_ATTACHE_DETAILS_ARG = "INTENT_ATTACHE_DETAILS_ARG";
+
+    /**
+     * 下单页面选择服务 返回的结果对象
+     */
+    public static final String INTENT_CHOICE_SERVICE_RESULT_OBJ = "INTENT_CHOICE_SERVICE_RESULT_OBJ";
+
+    /**
+     * 专员订单详情查看孩子信息
+     */
+    public static final String INTENT_ATTACHE_ORDER_DETAILS_TO_CHILDREN_INFO = "INTENT_ATTACHE_ORDER_DETAILS_TO_CHILDREN_INFO";
+    /**
+     * 专员订单详情查看服务
+     */
+    public static final String INTENT_ATTACHE_ORDER_DETAILS_TO_SERVICE = "INTENT_ATTACHE_ORDER_DETAILS_TO_SERVICE";
+
+    /**
+     * 专员或用户订单详情订单详情查看服务1专员true用户false
+     */
+    public static final String INTENT_ATTACHE_OR_USER_ORDER_DETAILS_TO_SERVICE = "INTENT_ATTACHE_OR_USER_ORDER_DETAILS_TO_SERVICE";
+    /**
+     * 专员从查看服务到上传照片
+     */
+    public static final String INTENT_ATTACHE_LOOKOVER_SERVICE = "INTENT_ATTACHE_LOOKOVER_SERVICE";
+
+    /**
+     * 地图选点页面结果码
+     */
+    public static final String INTENT_MAP_CHOICE_POINT_RESULT = "INTENT_MAP_CHOICE_POINT_RESULT";
+    /**
+     * 进入下单页面类型0服务介绍页面进入1专员页面进入2订单列表页面进入
+     */
+    public static final String INTENT_TO_DOWN_ORDER = "INTENT_TO_DOWN_ORDER";
+    /**
+     * 从服务介绍页面进入下单页面携带类型数据
+     */
+    public static final String INTENT_TO_DOWN_ORDER_SERVICE = "INTENT_TO_DOWN_ORDER_SERVICE";
+    /**
+     * 订单列表itemObj
+     */
+    public static final String INTENT_ORDER_ITEM_OBJ = "INTENT_ORDER_ITEM_OBJ";
+    /**
+     * 订单详情
+     */
+    public static final String INTENT_ORDER_DETAIL_OBJ = "INTENT_ORDER_DETAIL_OBJ";
+    /**
+     * 1订单支付2追加金额支付
+     */
+    public static final String INTENT_PAY_TYPE = "INTENT_PAY_TYPE";
+    /**
+     * 存储支付成功标识1支付成功
+     */
+    public static final String PREF_PAY_SUCCESS_FAG = "PREF_PAY_SUCCESS_FAG";
+    /**
+     * 刷新订单true 刷新 false不刷新
+     */
+    public static final String INTENT_ORDERFRAGMENT_REFRESH = "INTENT_ORDERFRAGMENT_REFRESH";
+    /**
+     * 付款页面传递给付款确认对话框的对象
+     */
+    public static final String INTENT_PAY_DIALOG_OBJ = "INTENT_PAY_DIALOG_OBJ";
+
+    /**
+     * 微信付款类型0下单支付1充值
+     */
+    public static final String INTENT_WX_PAY_TYPE = "INTENT_WX_PAY_TYPE";
+
+    /**
+     * 专员账户传递数据到绑定银行卡
+     */
+    public static final String INTENT_ATTACHE_ACCOUNT_MONEY_BIND_BANK = "INTENT_ATTACHE_ACCOUNT_MONEY_BIND_BANK";
+
+    /**
+     * 专员账户传递数据到提现
+     */
+    public static final String INTENT_ATTACHE_ACCOUNT_MONEY_WITHDRAW_DEPOSIT = "INTENT_ATTACHE_ACCOUNT_MONEY_WITHDRAW_DEPOSIT";
+    /**
+     * 发布评论已选中标签
+     */
+    public static final String PREF_PUBLIC_COMM_ALREADY_CHOOSE_TAG = "PREF_PUBLIC_COMM_ALREADY_CHOOSE_TAG";
+    /**
+     * 帖子详情
+     */
+    public static final String INTENT_POSTER_DETAIL_OBJ = "INTENT_POSTER_DETAIL_OBJ";
+    /**
+     * 分享对象
+     */
+    public static final String INTENT_CONMMUNITY_SHARE_OBJ = "INTENT_CONMMUNITY_SHARE_OBJ";
+
+    /**
+     * 传递用户User_Id到用户详情
+     */
+    public static final String INTENT_USER_ID_TO_USER_DETAILS = "INTENT_USER_ID_TO_USER_DETAILS";
+    /**
+     * 讨论组item对象
+     */
+    public static final String INTENT_DISCUSSION_GROUP_OBJ = "INTENT_DISCUSSION_GROUP_OBJ";
+
+
+}

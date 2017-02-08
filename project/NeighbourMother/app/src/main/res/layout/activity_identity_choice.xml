@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+
+    <TextView
+        style="@style/gray_text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/choice_identity"
+        android:layout_centerHorizontal="true"
+        android:text="选择您的身份" />
+
+    <LinearLayout
+        android:id="@+id/choice_identity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="5dp"
+        android:weightSum="2">
+
+        <ImageView
+            android:id="@+id/user"
+            android:layout_width="wrap_content"
+            android:layout_height="160dp"
+            android:layout_weight="1"
+            android:src="@mipmap/icon_choice_user" />
+
+        <ImageView
+            android:id="@+id/commissioner"
+            android:layout_width="wrap_content"
+            android:layout_height="160dp"
+            android:layout_weight="1"
+            android:src="@mipmap/icon_choice_attache" />
+    </LinearLayout>
+</RelativeLayout>
