@@ -2,10 +2,8 @@ package com.cocoa.cocoautils.api.http;
 
 import com.cocoa.cocoautils.api.respone.BaseResp;
 
-import retrofit2.Call;
-import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
-import retrofit2.http.POST;
+import retrofit2.http.GET;
 
 /**
  * ClassName:请求接口
@@ -13,9 +11,9 @@ import retrofit2.http.POST;
  * date: 2016/10/18.
  */
 
-public interface ApiServices<T> {
+public interface ApiServices<T extends BaseResp> {
 
     @FormUrlEncoded
-    @POST("servantApply")
-    Call<BaseResp<T>> getinfo(@Field("type") String type);
+    @GET("101110101")
+    io.reactivex.Observable<T> getinfo();
 }

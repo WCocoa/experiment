@@ -1,28 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/home_viewpager"
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:layout_behavior="com.cocoa.cocoautils.ui.behavior.AppBarLayoutOverScrollViewBehavior">
 
-    </android.support.v4.view.ViewPager>
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:contentScrim="@color/colorAccent"
+            android:fitsSystemWindows="true"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:titleEnabled="false">
+
+            <!--<ImageView-->
+                <!--android:id="@+id/picture"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="20dp"-->
+
+                <!--android:scaleType="centerCrop"-->
+                <!--android:src="@mipmap/icon_loading_qmtips_0"-->
+
+          <!--/>-->
+            <android.support.v4.view.ViewPager
+                android:fitsSystemWindows="true"
+                android:id="@+id/view_pager"
+                android:tag="overScroll"
+                app:layout_collapseMode="parallax"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </android.support.v4.view.ViewPager>
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/AppTheme.PopupOverlay">
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:lines="1"
+                    android:text="标题"
+                    android:textSize="20sp" />
+            </android.support.v7.widget.Toolbar>
 
 
-    <com.cocoa.cocoautils.widget.CustomerView
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:layout_marginTop="320dp" />
+            <com.miguelcatalan.materialsearchview.MaterialSearchView
+                android:id="@+id/search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/search_hint"
+                app:layout_collapseMode="pin" />
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+
 
     <com.cocoa.cocoautils.widget.xrecyclerview.XRecyclerView
         android:id="@+id/xrecycleviews"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/home_viewpager">
+        android:layout_below="@+id/home_viewpager"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     </com.cocoa.cocoautils.widget.xrecyclerview.XRecyclerView>
 
-</RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>

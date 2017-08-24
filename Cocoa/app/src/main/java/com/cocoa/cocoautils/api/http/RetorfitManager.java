@@ -23,7 +23,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetorfitManager {
     //        public static final String SERVER_URL = "http://101.200.182.83:2018/wwwroot/api/";
-    public static final String SERVER_URL = "http://123.56.253.118:5557/1.0.0/";
+    public static final String SERVER_URL = "http://www.weather.com.cn/data/sk/";
     private static Gson gson;
 
     public static ApiServices createClientApi() {

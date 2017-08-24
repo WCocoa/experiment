@@ -61,7 +61,7 @@ public class MainInteractorImpl implements MainInteractor {
 
         navigationTabBar.setModels(models);
         navigationTabBar.setViewPager(viewPager, 0);
-        toolbar.setTitle("首页");
+//        toolbar.setTitle("首页");
 
         //IMPORTANT: ENABLE SCROLL BEHAVIOUR IN COORDINATOR LAYOUT
         navigationTabBar.setBehaviorEnabled(true);
